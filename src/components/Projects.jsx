@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { PROFILE } from '../data';
-import { Github, ExternalLink, Folder } from 'lucide-react';
+import { Github, ExternalLink, Folder, Play } from 'lucide-react';
+import GameEmbed from './GameEmbed';
 
 const Projects = () => {
+    const [activeGame, setActiveGame] = useState(null);
+
     return (
         <section id="projects">
             <motion.div
@@ -13,7 +16,7 @@ const Projects = () => {
             >
                 <h3 className="section-title mb-12">Selected Works</h3>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                     {PROFILE.projects.map((project, index) => (
                         <motion.div
                             key={index}
@@ -57,6 +60,61 @@ const Projects = () => {
                         </motion.div>
                     ))}
                 </div>
+
+                {/* Game Prototypes Section */}
+                {PROFILE.games && PROFILE.games.length > 0 && (
+                    <div className="mb-12">
+                        <h4 className="text-2xl font-bold text-slate-100 mb-8 flex items-center gap-3">
+                            <Play className="text-purple-500" />
+                            Interactive Prototypes
+                        </h4>
+                        <div className="grid md:grid-cols-2 gap-6">
+                            {PROFILE.games.map((game, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    whileInView={{ opacity: 1, scale: 1 }}
+                                    viewport={{ once: true }}
+                                    className="relative group rounded-2xl overflow-hidden aspect-video bg-slate-800 border border-slate-700 hover:border-purple-500/50 transition-all cursor-pointer"
+                                    onClick={() => setActiveGame(game)}
+                                >
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10" />
+
+                                    {/* Placeholder Illustration since we don't have real thumbnails yet */}
+                                    <div className="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                        <Play className="text-slate-700 w-20 h-20 group-hover:text-purple-500 transition-colors duration-500" />
+                                    </div>
+
+                                    <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+                                        <h5 className="text-xl font-bold text-white mb-2">{game.title}</h5>
+                                        <p className="text-slate-300 text-sm mb-4 line-clamp-2">{game.description}</p>
+                                        <div className="flex gap-2">
+                                            {game.tags.map(tag => (
+                                                <span key={tag} className="px-2 py-1 rounded bg-purple-500/20 text-purple-300 text-xs font-mono">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <div className="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center justify-center">
+                                        <div className="px-6 py-3 rounded-full bg-white text-purple-900 font-bold transform translate-y-4 group-hover:translate-y-0 transition-transform">
+                                            Play Prototype
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+
+                {activeGame && (
+                    <GameEmbed
+                        gameUrl={activeGame.path}
+                        title={activeGame.title}
+                        onClose={() => setActiveGame(null)}
+                    />
+                )}
             </motion.div>
         </section>
     );
