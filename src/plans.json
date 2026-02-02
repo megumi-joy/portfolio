@@ -1,0 +1,30 @@
+{
+    "title": "Roadmap & Current Focus",
+    "description": "Here is what I am currently working on and planning for the near future. Edited via GitHub.",
+    "items": [
+        {
+            "status": "In Progress",
+            "title": "Advanced Agentic AI Research",
+            "description": "Exploring multi-agent systems and recursive self-improvement loops using Godot and LLMs.",
+            "subItems": [
+                "Implementing memory context",
+                "Designing tool use protocols",
+                "Testing in 3D environments"
+            ],
+            "link": "https://github.com/aurorasunrisegames",
+            "date": "Q1 2026"
+        },
+        {
+            "status": "Planned",
+            "title": "Open Source Godot Toolset",
+            "description": "Releasing a collection of GDScript utilities for procedural generation and AI behaviors.",
+            "date": "Q2 2026"
+        },
+        {
+            "status": "Idea",
+            "title": "Interactive Portfolio V2",
+            "description": "Gamifying this portfolio where users can walk around a 3D environment to view projects.",
+            "date": "Future"
+        }
+    ]
+}
