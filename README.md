@@ -1,16 +1,70 @@
-# React + Vite
+# Portfolio - Aurora Sunrise
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, interactive portfolio website built for a Creative Technologist & Game Engineer.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
+- **Premium UI**: Dark mode aesthetic with glassmorphism and gradients using TailwindCSS.
+- **Animations**: Smooth entry and scroll animations powered by Framer Motion.
+- **Dynamic Projects**: Showcases GitHub repositories and freelance work.
+- **Editable Roadmap**: A JSON-backed "Plans" section for easy updates.
 
-## React Compiler
+## 🚀 Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
+- Node.js (v18 or higher)
+- npm
 
-## Expanding the ESLint configuration
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/aurorasunrisegames/portfolio.git
+   ```
+2. Navigate to the project folder:
+   ```bash
+   cd portfolio
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📝 Configuration
+
+### Updating Plans & Roadmap
+You can update the "Roadmap & Current Focus" section by editing `src/plans.json`.
+Changes to this file will automatically reflect on the site.
+
+```json
+{
+  "title": "My Roadmap",
+  "items": [
+    {
+      "title": "New Project",
+      "status": "In Progress",
+      "date": "Q3 2026",
+      "link": "https://github.com/..."
+    }
+  ]
+}
+```
+
+### Updating Profile Data
+Personal information (Name, Bio, Experience, Socials) is stored in `src/data.js`.
+
+## 📦 Deployment
+
+This project is configured to deploy automatically to **GitHub Pages**.
+
+1. **Push** your changes to the `main` branch.
+2. A GitHub Action will automatically build and deploy the site to the `gh-pages` branch.
+3. Ensure your repository Settings > Pages source is set to `gh-pages`.
+
+**Note:** If you change the repository name, update the `base` property in `vite.config.js` to match.
