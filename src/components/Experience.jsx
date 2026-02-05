@@ -36,9 +36,18 @@ const Experience = () => {
 
                             <div className="text-lg text-slate-400 mb-4 font-medium">{role.company}</div>
 
-                            <p className="text-slate-400 leading-relaxed mb-6 max-w-3xl">
+                            <p className="text-slate-400 text-sm mb-4 italic">
                                 {role.description}
                             </p>
+
+                            <ul className="mb-6 space-y-2">
+                                {role.achievements && role.achievements.map((item, i) => (
+                                    <li key={i} className="flex items-start gap-2 text-slate-300 text-sm leading-relaxed">
+                                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-cyan-500 flex-shrink-0" />
+                                        {item}
+                                    </li>
+                                ))}
+                            </ul>
 
                             <div className="flex flex-wrap gap-2">
                                 {role.technologies.map(tech => (
