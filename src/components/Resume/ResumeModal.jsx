@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, FileText, Download, Copy, Check, Code, User, Eye, Terminal } from 'lucide-react';
-import { PDFDownloadLink } from '@react-pdf/renderer';
+import { X, FileText, Download, Copy, Check, Code, User, Eye, Terminal, ExternalLink, Printer } from 'lucide-react';
+import { PDFDownloadLink, BlobProvider } from '@react-pdf/renderer';
 import ResumePDF from './ResumePDF';
 import { generateLatex } from './latexGenerator';
 import { PROFILE } from '../../data';
@@ -100,35 +100,35 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                     </div>
                                 ) : (
                                     <div className="flex-1 overflow-y-auto p-8 custom-scrollbar bg-white text-slate-900 font-sans">
-                                        <div className="max-w-2xl mx-auto space-y-6">
+                                        <div className="max-w-3xl mx-auto space-y-8">
                                             {/* Header */}
-                                            <div className="text-center space-y-1 pb-4 border-b-2 border-slate-900">
-                                                <h1 className="text-3xl font-bold uppercase tracking-wide">{PROFILE.name}</h1>
-                                                <div className="text-sm text-slate-600 flex flex-wrap justify-center gap-x-3">
+                                            <div className="text-center space-y-2 pb-6 border-b-2 border-slate-900">
+                                                <h1 className="text-4xl font-extrabold uppercase tracking-tight text-slate-900">{PROFILE.name}</h1>
+                                                <div className="text-sm font-medium text-slate-600 flex flex-wrap justify-center gap-x-4">
                                                     <span>{PROFILE.title}</span>
-                                                    <span>|</span>
-                                                    <a href="mailto:aurorasunrisegames@gmail.com" className="hover:text-cyan-700">aurorasunrisegames@gmail.com</a>
-                                                    <span>|</span>
-                                                    <a href={PROFILE.socials.github} target="_blank" rel="noreferrer" className="hover:text-cyan-700">github.com/aurorasunrisegames</a>
+                                                    <span className="text-slate-300">|</span>
+                                                    <a href={`mailto:${PROFILE.socials.email}`} className="hover:text-cyan-700 transition-colors">{PROFILE.socials.email}</a>
+                                                    <span className="text-slate-300">|</span>
+                                                    <a href={PROFILE.socials.github} target="_blank" rel="noreferrer" className="hover:text-cyan-700 transition-colors">github.com/aurorasunrisegames</a>
                                                 </div>
                                             </div>
 
-                                            {/* Education would go here if in data, skipping for now as per data structure */}
-
                                             {/* Experience */}
                                             <section>
-                                                <h2 className="text-sm font-bold uppercase tracking-widest border-b border-slate-300 mb-3 pb-1">Experience</h2>
-                                                <div className="space-y-4">
+                                                <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Experience</h2>
+                                                <div className="space-y-6">
                                                     {PROFILE.experience.map((exp, idx) => (
-                                                        <div key={idx}>
+                                                        <div key={idx} className="group">
                                                             <div className="flex justify-between items-baseline mb-1">
-                                                                <h3 className="font-bold text-base">{exp.role}</h3>
-                                                                <span className="text-xs font-medium text-slate-500 italic">{exp.period}</span>
+                                                                <h3 className="font-bold text-lg text-slate-800">{exp.role}</h3>
+                                                                <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">{exp.period}</span>
                                                             </div>
-                                                            <div className="text-sm font-medium text-slate-700 mb-1">{exp.company}</div>
-                                                            <ul className="list-disc list-outside ml-4 space-y-1">
+                                                            <div className="text-sm font-semibold text-cyan-700 mb-2">{exp.company}</div>
+                                                            <ul className="space-y-1.5">
                                                                 {exp.achievements.map((ach, i) => (
-                                                                    <li key={i} className="text-sm text-slate-600 leading-relaxed pl-1">{ach}</li>
+                                                                    <li key={i} className="text-sm text-slate-600 leading-relaxed pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-slate-400">
+                                                                        {ach}
+                                                                    </li>
                                                                 ))}
                                                             </ul>
                                                         </div>
@@ -138,17 +138,23 @@ const ResumeModal = ({ isOpen, onClose }) => {
 
                                             {/* Projects */}
                                             <section>
-                                                <h2 className="text-sm font-bold uppercase tracking-widest border-b border-slate-300 mb-3 pb-1">Projects</h2>
-                                                <div className="space-y-3">
+                                                <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Projects</h2>
+                                                <div className="grid gap-6">
                                                     {PROFILE.projects.map((proj, idx) => (
                                                         <div key={idx}>
-                                                            <div className="flex items-baseline gap-2 mb-1">
-                                                                <h3 className="font-bold text-base">{proj.title}</h3>
-                                                                <span className="text-sm text-slate-500 italic">| {proj.tags.join(', ')}</span>
+                                                            <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                                                                <h3 className="font-bold text-base text-slate-800">{proj.title}</h3>
+                                                                <div className="flex gap-1">
+                                                                    {proj.tags.map(tag => (
+                                                                        <span key={tag} className="text-[10px] font-bold px-1.5 py-0.5 bg-slate-100 text-slate-500 rounded border border-slate-200">
+                                                                            {tag}
+                                                                        </span>
+                                                                    ))}
+                                                                </div>
                                                             </div>
-                                                            <ul className="list-disc list-outside ml-4">
-                                                                <li className="text-sm text-slate-600 leading-relaxed pl-1">{proj.description}</li>
-                                                            </ul>
+                                                            <p className="text-sm text-slate-600 leading-relaxed">
+                                                                {proj.description}
+                                                            </p>
                                                         </div>
                                                     ))}
                                                 </div>
@@ -156,10 +162,14 @@ const ResumeModal = ({ isOpen, onClose }) => {
 
                                             {/* Skills */}
                                             <section>
-                                                <h2 className="text-sm font-bold uppercase tracking-widest border-b border-slate-300 mb-3 pb-1">Technical Skills</h2>
-                                                <div className="text-sm">
-                                                    <span className="font-bold">Languages/Technologies: </span>
-                                                    <span className="text-slate-600">{PROFILE.skills.map(s => s.name).join(', ')}</span>
+                                                <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Technical Skills</h2>
+                                                <div className="flex flex-wrap gap-2">
+                                                    {PROFILE.skills.map(s => (
+                                                        <div key={s.name} className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 text-slate-700 rounded-lg border border-slate-200 shadow-sm text-sm font-medium">
+                                                            {s.icon && <s.icon size={14} className="text-cyan-600" />}
+                                                            {s.name}
+                                                        </div>
+                                                    ))}
                                                 </div>
                                             </section>
                                         </div>
@@ -175,28 +185,49 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                             <Download size={16} className="text-cyan-500" /> Export
                                         </h3>
                                         <p className="text-xs text-slate-400">
-                                            Get the ATS-friendly PDF version generated from this data.
+                                            ATS-friendly PDF generated on the fly.
                                         </p>
                                     </div>
 
-                                    <PDFDownloadLink
-                                        document={<ResumePDF profile={PROFILE} />}
-                                        fileName={`${PROFILE.name.replace(/\s+/g, '_')}_Resume.pdf`}
-                                        className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg font-bold text-sm transition-all hover:shadow-lg hover:shadow-cyan-500/20"
-                                    >
-                                        {({ blob, url, loading, error }) =>
-                                            loading ? 'Generating...' : (
-                                                <>
-                                                    <Download size={16} />
-                                                    Download PDF
-                                                </>
-                                            )
-                                        }
-                                    </PDFDownloadLink>
+                                    <div className="space-y-3">
+                                        {/* Primary Download Button */}
+                                        <PDFDownloadLink
+                                            document={<ResumePDF profile={PROFILE} />}
+                                            fileName={`${PROFILE.name.replace(/\s+/g, '_')}_Resume.pdf`}
+                                            className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg font-bold text-sm transition-all hover:shadow-lg hover:shadow-cyan-500/20"
+                                        >
+                                            {({ blob, url, loading, error }) =>
+                                                loading ? 'Generating...' : (
+                                                    <>
+                                                        <Download size={16} />
+                                                        Download PDF
+                                                    </>
+                                                )
+                                            }
+                                        </PDFDownloadLink>
+
+                                        {/* Fallback for In-App Browsers */}
+                                        <BlobProvider document={<ResumePDF profile={PROFILE} />}>
+                                            {({ blob, url, loading, error }) => {
+                                                if (loading) return <div className="text-xs text-center text-slate-500">Loading URL...</div>;
+                                                return (
+                                                    <a
+                                                        href={url}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="flex items-center justify-center gap-2 w-full py-2 px-4 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg font-medium text-xs transition-colors"
+                                                    >
+                                                        <ExternalLink size={14} />
+                                                        Open in New Tab
+                                                    </a>
+                                                );
+                                            }}
+                                        </BlobProvider>
+                                    </div>
 
                                     <div className="h-px bg-slate-800" />
 
-                                    {/* Simple Stats or Info */}
+                                    {/* Simple Stats */}
                                     <div className="space-y-3">
                                         <h3 className="text-white font-medium text-sm">Resume Stats</h3>
                                         <div className="grid grid-cols-2 gap-2">
