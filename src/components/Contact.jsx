@@ -21,7 +21,7 @@ const Contact = () => {
                     </p>
 
                     <a
-                        href={PROFILE.socials.email || "mailto:contact@aurorasunrise.dev"}
+                        href={`mailto:${PROFILE.socials.email}`}
                         className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-slate-900 font-bold hover:bg-cyan-50 transition-colors"
                     >
                         <Mail size={20} />

@@ -1,5 +1,5 @@
 export const generateLatex = (profile) => {
-    const experienceItems = profile.experience.map(exp => `
+  const experienceItems = profile.experience.map(exp => `
 \\resumeSubheading
   {${exp.role}}{${exp.period}}
   {${exp.company}}{}
@@ -8,7 +8,7 @@ export const generateLatex = (profile) => {
   \\resumeItemListEnd
 `).join('\n');
 
-    const projectItems = profile.projects.map(proj => `
+  const projectItems = profile.projects.map(proj => `
 \\resumeProjectHeading
     {\\textbf{${proj.title}} $|$ \\emph{${proj.tags.join(', ')}}}{}
     \\resumeItemListStart
@@ -16,9 +16,9 @@ export const generateLatex = (profile) => {
     \\resumeItemListEnd
 `).join('\n');
 
-    const skillsItems = profile.skills.map(skill => skill.name).join(', ');
+  const skillsItems = profile.skills.map(skill => skill.name).join(', ');
 
-    return `\\documentclass[letterpaper,11pt]{article}
+  return `\\documentclass[letterpaper,11pt]{article}
 
 \\usepackage{latexsym}
 \\usepackage[empty]{fullpage}
@@ -61,9 +61,9 @@ export const generateLatex = (profile) => {
 %----------HEADING----------
 \\begin{center}
     \\textbf{\\Huge \\scshape ${profile.name}} \\\\ \\vspace{1pt}
-    \\small ${profile.title} $|$ \\href{mailto:email@example.com}{\\underline{email@example.com}} $|$ 
-    \\href{${profile.socials.github}}{\\underline{github.com/aurorasunrisegames}} $|$
-    \\href{https://linkedin.com/in/your-profile}{\\underline{linkedin.com/in/your-profile}}
+    \\small ${profile.title} $|$ 
+    \\href{${profile.socials.github}}{\\underline{github.com/aurorasunrisegames}} $|$ 
+    \\href{mailto:${profile.socials.email}}{\\underline{${profile.socials.email}}}
 \\end{center}
 
 

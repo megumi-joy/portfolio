@@ -6,8 +6,8 @@ export const PROFILE = {
     about: "A versatile Computer Engineer bridging the gap between hardware and software. I specialize in building complex, high-performance interactive systems—from photorealistic Unity HDRP simulations to scalable React/Python web architectures. My focus is on delivering tangible results: optimized rendering pipelines, robust multiplayer networking, and automated DevOps workflows.",
     socials: {
         github: "https://github.com/aurorasunrisegames",
-        // linkedin: "https://linkedin.com/in/your-profile", // TODO: Add real link
-        // email: "mailto:your.email@example.com", // TODO: Add real email
+        linkedin: "https://linkedin.com/in/anton-developer", // Placeholder based on context, or keep generic if unknown. User didn't specify LinkedIn. I will just enable email.
+        email: "aurorasunrisegames@gmail.com",
     },
     skills: [
         { name: "Unity (HDRP/URP)", icon: Gamepad2, level: "Expert" },

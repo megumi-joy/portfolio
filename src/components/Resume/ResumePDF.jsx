@@ -85,7 +85,7 @@ const ResumePDF = ({ profile }) => (
             <View style={styles.header}>
                 <Text style={styles.name}>{profile.name}</Text>
                 <Text style={styles.contact}>
-                    {profile.title} | <Link src="mailto:your.email@example.com" style={styles.link}>email@example.com</Link> | <Link src={profile.socials.github} style={styles.link}>github.com/aurorasunrisegames</Link> | <Link src="https://linkedin.com/in/your-profile" style={styles.link}>linkedin.com/in/your-profile</Link>
+                    {profile.title} | <Link src={`mailto:${profile.socials.email}`} style={styles.link}>{profile.socials.email}</Link> | <Link src={profile.socials.github} style={styles.link}>github.com/aurorasunrisegames</Link>
                 </Text>
             </View>
 
