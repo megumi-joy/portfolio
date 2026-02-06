@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, FileText, Download, Copy, Check, Code, User, Eye, Terminal, ExternalLink, Printer } from 'lucide-react';
-import { PDFDownloadLink, BlobProvider } from '@react-pdf/renderer';
+import { X, FileText, Download, Copy, Check, Code, User, Eye, Terminal, ExternalLink, Printer, FileType } from 'lucide-react';
+import { PDFDownloadLink, BlobProvider, PDFViewer } from '@react-pdf/renderer';
 import ResumePDF from './ResumePDF';
 import { generateLatex } from './latexGenerator';
 import { PROFILE } from '../../data';
@@ -11,8 +11,16 @@ import 'prismjs/themes/prism-tomorrow.css';
 
 const ResumeModal = ({ isOpen, onClose }) => {
     const [copied, setCopied] = useState(false);
-    const [viewMode, setViewMode] = useState('text'); // 'text' | 'latex'
+    const [viewMode, setViewMode] = useState('text'); // 'text' | 'latex' | 'pdf'
+    const [isMobileWebView, setIsMobileWebView] = useState(false);
     const latexSource = generateLatex(PROFILE);
+
+    useEffect(() => {
+        // Simple User Agent check for common in-app browsers (Telegram, Instagram, FB, etc.)
+        const ua = navigator.userAgent || navigator.vendor || window.opera;
+        const inApp = /Telegram|Instagram|FBAN|FBAV|Line|Whale|Snapchat/i.test(ua);
+        setIsMobileWebView(inApp);
+    }, []);
 
     useEffect(() => {
         if (isOpen && viewMode === 'latex') {
@@ -56,9 +64,15 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                 <div className="bg-slate-800 p-1 rounded-lg flex gap-1">
                                     <button
                                         onClick={() => setViewMode('text')}
-                                        className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 ${viewMode === 'text' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
+                                        className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${viewMode === 'text' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
                                     >
                                         <Eye size={14} /> Preview
+                                    </button>
+                                    <button
+                                        onClick={() => setViewMode('pdf')}
+                                        className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${viewMode === 'pdf' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
+                                    >
+                                        <FileType size={14} /> PDF Viewer
                                     </button>
                                     <button
                                         onClick={() => setViewMode('latex')}
@@ -80,6 +94,13 @@ const ResumeModal = ({ isOpen, onClose }) => {
                         <div className="flex-1 overflow-hidden flex flex-col md:flex-row">
                             {/* Main Content Area */}
                             <div className="flex-1 p-0 md:border-r border-slate-800 flex flex-col min-h-[300px] overflow-hidden bg-slate-950">
+
+                                {isMobileWebView && (
+                                    <div className="bg-yellow-900/30 border-b border-yellow-700/50 p-2 text-center text-[10px] text-yellow-200">
+                                        ⚠️ In-app browser detected. For best results (downloading PDF), please open in <b>Chrome</b>, <b>Safari</b>, or your system browser.
+                                    </div>
+                                )}
+
                                 {viewMode === 'latex' ? (
                                     <div className="flex-1 flex flex-col h-full overflow-hidden">
                                         <div className="p-3 bg-slate-900/50 border-b border-slate-800 flex justify-between items-center shrink-0">
@@ -98,6 +119,12 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                             </pre>
                                         </div>
                                     </div>
+                                ) : viewMode === 'pdf' ? (
+                                    <div className="flex-1 flex flex-col h-full bg-slate-800">
+                                        <PDFViewer className="w-full h-full border-none" showToolbar={true}>
+                                            <ResumePDF profile={PROFILE} />
+                                        </PDFViewer>
+                                    </div>
                                 ) : (
                                     <div className="flex-1 overflow-y-auto p-8 custom-scrollbar bg-white text-slate-900 font-sans">
                                         <div className="max-w-3xl mx-auto space-y-8">
@@ -112,6 +139,23 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                                     <a href={PROFILE.socials.github} target="_blank" rel="noreferrer" className="hover:text-cyan-700 transition-colors">github.com/aurorasunrisegames</a>
                                                 </div>
                                             </div>
+
+                                            {/* Education */}
+                                            <section>
+                                                <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Education</h2>
+                                                <div className="space-y-4">
+                                                    {PROFILE.education.map((edu, idx) => (
+                                                        <div key={idx} className="group">
+                                                            <div className="flex justify-between items-baseline mb-1">
+                                                                <h3 className="font-bold text-lg text-slate-800">{edu.institution}</h3>
+                                                                <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">{edu.period}</span>
+                                                            </div>
+                                                            <div className="text-sm font-semibold text-cyan-700">{edu.degree}</div>
+                                                            <div className="text-xs text-slate-500">{edu.location}</div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </section>
 
                                             {/* Experience */}
                                             <section>
@@ -190,6 +234,14 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                     </div>
 
                                     <div className="space-y-3">
+                                        {/* Helper alert for Download */}
+                                        {isMobileWebView && (
+                                            <p className="text-[10px] text-yellow-500 bg-yellow-900/20 p-2 rounded border border-yellow-700/30">
+                                                Note: Direct downloads may fail in {navigator.userAgent.match(/Telegram|Instagram/i) || "this app"}.
+                                                <br />Try the <b>Open in New Tab</b> button below.
+                                            </p>
+                                        )}
+
                                         {/* Primary Download Button */}
                                         <PDFDownloadLink
                                             document={<ResumePDF profile={PROFILE} />}

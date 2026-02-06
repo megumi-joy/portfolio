@@ -70,9 +70,9 @@ export const generateLatex = (profile) => {
 %-----------EDUCATION-----------
 \\section{Education}
   \\resumeSubHeadingListStart
-    \\resumeSubheading
-      {University Name}{City, State}
-      {Bachelor of Science in Computer Science}{Start Year -- End Year}
+    ${profile.education.map(edu => `\\resumeSubheading
+      {${edu.institution}}{${edu.location}}
+      {${edu.degree}}{${edu.period}}`).join('\n')}
   \\resumeSubHeadingListEnd
 
 

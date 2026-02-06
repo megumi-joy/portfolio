@@ -89,6 +89,22 @@ const ResumePDF = ({ profile }) => (
                 </Text>
             </View>
 
+            {/* Education */}
+            <View style={styles.section}>
+                <Text style={styles.sectionTitle}>Education</Text>
+                {profile.education.map((edu, index) => (
+                    <View key={index} style={{ marginBottom: 5 }}>
+                        <View style={styles.subHeading}>
+                            <Text style={styles.subHeadingTitle}>{edu.institution}</Text>
+                            <Text style={styles.subHeadingDate}>{edu.period}</Text>
+                        </View>
+                        <View style={styles.subHeading}>
+                            <Text style={styles.subHeadingSubtitle}>{edu.degree} | {edu.location}</Text>
+                        </View>
+                    </View>
+                ))}
+            </View>
+
             {/* Experience */}
             <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Experience</Text>

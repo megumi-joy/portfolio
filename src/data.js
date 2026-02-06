@@ -17,6 +17,20 @@ export const PROFILE = {
         { name: "Hardware/IoT (C++)", icon: Cpu, level: "Intermediate" },
         { name: "DevOps (Docker/AWS)", icon: Terminal, level: "Intermediate" },
     ],
+    education: [
+        {
+            institution: "Odesa State Academy of Refrigeration",
+            degree: "Master's degree in Artificial Intelligence and Neural Networks",
+            period: "2018 - 2020",
+            location: "Odesa, Ukraine"
+        },
+        {
+            institution: "Odesa State Academy of Refrigeration",
+            degree: "Bachelor's degree in Control Systems & Electronics Controllers",
+            period: "2014 - 2018",
+            location: "Odesa, Ukraine"
+        }
+    ],
     experience: [
         {
             role: "Godot Game Developer",
