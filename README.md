@@ -1,4 +1,4 @@
-# Portfolio - Aurora Sunrise
+# Portfolio - [Megumi Joy](https://megumi-joy.github.io/portfolio/)
 
 A premium, interactive portfolio website built for a Creative Technologist & Game Engineer.
 
