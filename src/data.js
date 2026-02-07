@@ -351,7 +351,15 @@ export const PROFILES = {
                 link: "https://github.com/aurorasunrisegames/InventorySystem"
             }
         ],
-        games: BASE_PROFILE.games,
+        games: [
+            {
+                title: "Prototipo Godot Engine",
+                description: "Prototipo de simulación de alto rendimiento en Godot 4. Física personalizada y comportamientos de agentes.",
+                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Godot+Engine",
+                path: "/games/prototype/index.html",
+                tags: ["Godot", "Un Jugador", "WebGL"]
+            }
+        ],
         ui: TRANSLATIONS.es,
         plans: {
             title: "Hoja de Ruta y Foco Actual",
@@ -474,7 +482,15 @@ export const PROFILES = {
                 link: "https://github.com/aurorasunrisegames/InventorySystem"
             }
         ],
-        games: BASE_PROFILE.games,
+        games: [
+            {
+                title: "Прототип на Godot Engine",
+                description: "Высокопроизводительный прототип симуляции на Godot 4. Кастомная физика и поведение агентов.",
+                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Godot+Engine",
+                path: "/games/prototype/index.html",
+                tags: ["Godot", "Одиночная игра", "WebGL"]
+            }
+        ],
         ui: TRANSLATIONS.ru,
         plans: {
             title: "Планы и Текущий Фокус",
@@ -597,7 +613,15 @@ export const PROFILES = {
                 link: "https://github.com/aurorasunrisegames/InventorySystem"
             }
         ],
-        games: BASE_PROFILE.games,
+        games: [
+            {
+                title: "Прототип на Godot Engine",
+                description: "Високопродуктивний прототип симуляції на Godot 4. Кастомна фізика та поведінка агентів.",
+                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Godot+Engine",
+                path: "/games/prototype/index.html",
+                tags: ["Godot", "Одиночна гра", "WebGL"]
+            }
+        ],
         ui: TRANSLATIONS.uk,
         plans: {
             title: "Плани та Поточний Фокус",
