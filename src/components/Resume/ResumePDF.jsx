@@ -1,14 +1,24 @@
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet, Link } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, Link, Font } from '@react-pdf/renderer';
 
-// Create styles
+// Register a font that supports Cyrillic characters
+Font.register({
+    family: 'Roboto',
+    src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-regular-webfont.ttf',
+    fonts: [
+        { src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-regular-webfont.ttf', fontWeight: 'normal' },
+        { src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-bold-webfont.ttf', fontWeight: 'bold' },
+        { src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-italic-webfont.ttf', fontStyle: 'italic' }
+    ]
+});
+
 // Create styles
 const styles = StyleSheet.create({
     page: {
         flexDirection: 'column',
         backgroundColor: '#FFFFFF',
         padding: 20, // Reduced from 30
-        fontFamily: 'Helvetica',
+        fontFamily: 'Roboto', // Use the registered font
     },
     header: {
         marginBottom: 5, // Reduced from 10
