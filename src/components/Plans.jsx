@@ -1,9 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import plansData from '../plans.json';
+import { useLanguage } from './LanguageContext';
 import { Map, Loader2, Lightbulb, CheckCircle2 } from 'lucide-react';
 
 const Plans = () => {
+    const { activeProfile } = useLanguage();
+    const plansData = activeProfile.plans || { title: "Roadmap", description: "Loading...", items: [] }; // Fallback
+
     const getStatusIcon = (status) => {
         switch (status.toLowerCase()) {
             case 'in progress': return <Loader2 className="animate-spin text-cyan-400" size={20} />;
@@ -22,7 +25,7 @@ const Plans = () => {
             >
                 <h3 className="section-title mb-12 flex items-center gap-3">
                     <Map className="text-cyan-500" />
-                    {plansData.title}
+                    {activeProfile.ui?.plansTitle || plansData.title}
                 </h3>
 
                 <p className="text-slate-400 text-lg mb-12 max-w-2xl">

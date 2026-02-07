@@ -4,16 +4,19 @@ import { X, FileText, Download, Copy, Check, Code, User, Eye, Terminal, External
 import { PDFDownloadLink, BlobProvider, PDFViewer } from '@react-pdf/renderer';
 import ResumePDF from './ResumePDF';
 import { generateLatex } from './latexGenerator';
-import { PROFILE } from '../../data';
+import { useLanguage } from '../LanguageContext'; // Updated import
 import Prism from 'prismjs';
 import 'prismjs/components/prism-latex';
 import 'prismjs/themes/prism-tomorrow.css';
 
 const ResumeModal = ({ isOpen, onClose }) => {
+    const { language, setLanguage, activeProfile } = useLanguage(); // Global state
     const [copied, setCopied] = useState(false);
     const [viewMode, setViewMode] = useState('text'); // 'text' | 'latex' | 'pdf'
     const [isMobileWebView, setIsMobileWebView] = useState(false);
-    const latexSource = generateLatex(PROFILE);
+
+    // activeProfile is now directly from context, no need to derive it
+    const latexSource = generateLatex(activeProfile);
 
     useEffect(() => {
         // Simple User Agent check for common in-app browsers (Telegram, Instagram, FB, etc.)
@@ -50,7 +53,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        className="relative w-full max-w-5xl bg-slate-900 border border-slate-700 rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+                        className="relative w-full max-w-6xl bg-slate-900 border border-slate-700 rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[95vh]"
                     >
                         {/* Header */}
                         <div className="flex items-center justify-between p-4 border-b border-slate-800 bg-slate-900/50">
@@ -60,8 +63,21 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                     Resume
                                 </h2>
 
-                                {/* View Toggle */}
+                                {/* Language Switcher */}
                                 <div className="bg-slate-800 p-1 rounded-lg flex gap-1">
+                                    {['en', 'es', 'ru', 'uk'].map((lang) => (
+                                        <button
+                                            key={lang}
+                                            onClick={() => setLanguage(lang)}
+                                            className={`px-2 py-1 rounded-md text-xs font-bold uppercase transition-all ${language === lang ? 'bg-cyan-600 text-white' : 'text-slate-400 hover:text-slate-200'}`}
+                                        >
+                                            {lang}
+                                        </button>
+                                    ))}
+                                </div>
+
+                                {/* View Toggle */}
+                                <div className="bg-slate-800 p-1 rounded-lg flex gap-1 overflow-x-auto">
                                     <button
                                         onClick={() => setViewMode('text')}
                                         className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${viewMode === 'text' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
@@ -76,9 +92,9 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                     </button>
                                     <button
                                         onClick={() => setViewMode('latex')}
-                                        className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 ${viewMode === 'latex' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
+                                        className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${viewMode === 'latex' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
                                     >
-                                        <Terminal size={14} /> LaTeX
+                                        <Terminal size={14} /> LaTeX Source
                                     </button>
                                 </div>
                             </div>
@@ -104,7 +120,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                 {viewMode === 'latex' ? (
                                     <div className="flex-1 flex flex-col h-full overflow-hidden">
                                         <div className="p-3 bg-slate-900/50 border-b border-slate-800 flex justify-between items-center shrink-0">
-                                            <span className="text-xs font-mono text-slate-500 uppercase tracking-wider">LaTeX Source</span>
+                                            <span className="text-xs font-mono text-slate-500 uppercase tracking-wider">LaTeX Source ({language.toUpperCase()})</span>
                                             <button
                                                 onClick={handleCopy}
                                                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 transition-colors"
@@ -122,7 +138,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                 ) : viewMode === 'pdf' ? (
                                     <div className="flex-1 flex flex-col h-full bg-slate-800">
                                         <PDFViewer className="w-full h-full border-none" showToolbar={true}>
-                                            <ResumePDF profile={PROFILE} />
+                                            <ResumePDF profile={activeProfile} />
                                         </PDFViewer>
                                     </div>
                                 ) : (
@@ -130,38 +146,45 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                         <div className="max-w-3xl mx-auto space-y-8">
                                             {/* Header */}
                                             <div className="text-center space-y-2 pb-6 border-b-2 border-slate-900">
-                                                <h1 className="text-4xl font-extrabold uppercase tracking-tight text-slate-900">{PROFILE.name}</h1>
+                                                <h1 className="text-4xl font-extrabold uppercase tracking-tight text-slate-900">{activeProfile.name}</h1>
                                                 <div className="text-sm font-medium text-slate-600 flex flex-wrap justify-center gap-x-4">
-                                                    <span>{PROFILE.title}</span>
+                                                    <span>{activeProfile.title}</span>
                                                     <span className="text-slate-300">|</span>
-                                                    <a href={`mailto:${PROFILE.socials.email}`} className="hover:text-cyan-700 transition-colors">{PROFILE.socials.email}</a>
+                                                    <span>{activeProfile.location}</span>
                                                     <span className="text-slate-300">|</span>
-                                                    <a href={PROFILE.socials.github} target="_blank" rel="noreferrer" className="hover:text-cyan-700 transition-colors">github.com/aurorasunrisegames</a>
+                                                    <a href={`mailto:${activeProfile.socials.email}`} className="hover:text-cyan-700 transition-colors">{activeProfile.socials.email}</a>
                                                 </div>
                                             </div>
 
-                                            {/* Education */}
+                                            {/* Skills & Languages */}
                                             <section>
-                                                <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Education</h2>
-                                                <div className="space-y-4">
-                                                    {PROFILE.education.map((edu, idx) => (
-                                                        <div key={idx} className="group">
-                                                            <div className="flex justify-between items-baseline mb-1">
-                                                                <h3 className="font-bold text-lg text-slate-800">{edu.institution}</h3>
-                                                                <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">{edu.period}</span>
-                                                            </div>
-                                                            <div className="text-sm font-semibold text-cyan-700">{edu.degree}</div>
-                                                            <div className="text-xs text-slate-500">{edu.location}</div>
+                                                <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Technical Skills</h2>
+                                                <div className="flex flex-wrap gap-2 mb-6">
+                                                    {activeProfile.skills.map(s => (
+                                                        <div key={s.name} className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 text-slate-700 rounded-lg border border-slate-200 shadow-sm text-sm font-medium">
+                                                            {s.icon && <s.icon size={14} className="text-cyan-600" />}
+                                                            {s.name}
+                                                        </div>
+                                                    ))}
+                                                </div>
+
+                                                <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Languages</h2>
+                                                <div className="flex flex-wrap gap-4 text-sm">
+                                                    {activeProfile.languages.map(l => (
+                                                        <div key={l.name} className="flex items-center gap-2">
+                                                            <span className="font-bold text-slate-800">{l.name}:</span>
+                                                            <span className="text-slate-600 bg-slate-100 px-2 py-0.5 rounded text-xs">{l.level}</span>
                                                         </div>
                                                     ))}
                                                 </div>
                                             </section>
 
+                                            {/* Education */}
                                             {/* Experience */}
                                             <section>
                                                 <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Experience</h2>
                                                 <div className="space-y-6">
-                                                    {PROFILE.experience.map((exp, idx) => (
+                                                    {activeProfile.experience.map((exp, idx) => (
                                                         <div key={idx} className="group">
                                                             <div className="flex justify-between items-baseline mb-1">
                                                                 <h3 className="font-bold text-lg text-slate-800">{exp.role}</h3>
@@ -184,8 +207,8 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                             <section>
                                                 <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Projects</h2>
                                                 <div className="grid gap-6">
-                                                    {PROFILE.projects.map((proj, idx) => (
-                                                        <div key={idx}>
+                                                    {activeProfile.projects.map((proj, idx) => (
+                                                        <div key={idx} className="group">
                                                             <div className="flex flex-wrap items-center gap-2 mb-1.5">
                                                                 <h3 className="font-bold text-base text-slate-800">{proj.title}</h3>
                                                                 <div className="flex gap-1">
@@ -204,18 +227,24 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                                 </div>
                                             </section>
 
-                                            {/* Skills */}
+                                            {/* Education (Moved Bottom) */}
                                             <section>
-                                                <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Technical Skills</h2>
-                                                <div className="flex flex-wrap gap-2">
-                                                    {PROFILE.skills.map(s => (
-                                                        <div key={s.name} className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 text-slate-700 rounded-lg border border-slate-200 shadow-sm text-sm font-medium">
-                                                            {s.icon && <s.icon size={14} className="text-cyan-600" />}
-                                                            {s.name}
+                                                <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Education</h2>
+                                                <div className="space-y-4">
+                                                    {activeProfile.education.map((edu, idx) => (
+                                                        <div key={idx} className="group">
+                                                            <div className="flex justify-between items-baseline mb-1">
+                                                                <h3 className="font-bold text-lg text-slate-800">{edu.institution}</h3>
+                                                                <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">{edu.period}</span>
+                                                            </div>
+                                                            <div className="text-sm font-semibold text-cyan-700">{edu.degree}</div>
+                                                            <div className="text-xs text-slate-500">{edu.location}</div>
                                                         </div>
                                                     ))}
                                                 </div>
                                             </section>
+
+
                                         </div>
                                     </div>
                                 )}
@@ -244,8 +273,8 @@ const ResumeModal = ({ isOpen, onClose }) => {
 
                                         {/* Primary Download Button */}
                                         <PDFDownloadLink
-                                            document={<ResumePDF profile={PROFILE} />}
-                                            fileName={`${PROFILE.name.replace(/\s+/g, '_')}_Resume.pdf`}
+                                            document={<ResumePDF profile={activeProfile} />}
+                                            fileName={`${activeProfile.name.replace(/\s+/g, '_')}_Resume_${language.toUpperCase()}.pdf`}
                                             className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg font-bold text-sm transition-all hover:shadow-lg hover:shadow-cyan-500/20"
                                         >
                                             {({ blob, url, loading, error }) =>
@@ -259,7 +288,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                         </PDFDownloadLink>
 
                                         {/* Fallback for In-App Browsers */}
-                                        <BlobProvider document={<ResumePDF profile={PROFILE} />}>
+                                        <BlobProvider document={<ResumePDF profile={activeProfile} />}>
                                             {({ blob, url, loading, error }) => {
                                                 if (loading) return <div className="text-xs text-center text-slate-500">Loading URL...</div>;
                                                 return (
@@ -284,11 +313,11 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                         <h3 className="text-white font-medium text-sm">Resume Stats</h3>
                                         <div className="grid grid-cols-2 gap-2">
                                             <div className="bg-slate-800 p-2 rounded-lg text-center">
-                                                <div className="text-lg font-bold text-cyan-400">{PROFILE.experience.length}</div>
+                                                <div className="text-lg font-bold text-cyan-400">{activeProfile.experience.length}</div>
                                                 <div className="text-[10px] uppercase text-slate-500 tracking-wider">Roles</div>
                                             </div>
                                             <div className="bg-slate-800 p-2 rounded-lg text-center">
-                                                <div className="text-lg font-bold text-purple-400">{PROFILE.projects.length}</div>
+                                                <div className="text-lg font-bold text-purple-400">{activeProfile.projects.length}</div>
                                                 <div className="text-[10px] uppercase text-slate-500 tracking-wider">Projects</div>
                                             </div>
                                         </div>

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { PROFILE } from '../data';
+import { useLanguage } from './LanguageContext';
 import { Github, ExternalLink, Folder, Play } from 'lucide-react';
 import GameEmbed from './GameEmbed';
 
 const Projects = () => {
+    const { activeProfile } = useLanguage();
     const [activeGame, setActiveGame] = useState(null);
 
     return (
@@ -17,7 +18,7 @@ const Projects = () => {
                 <h3 className="section-title mb-12">Selected Works</h3>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                    {PROFILE.projects.map((project, index) => (
+                    {activeProfile.projects.map((project, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 20 }}
@@ -62,14 +63,14 @@ const Projects = () => {
                 </div>
 
                 {/* Game Prototypes Section */}
-                {PROFILE.games && PROFILE.games.length > 0 && (
+                {activeProfile.games && activeProfile.games.length > 0 && (
                     <div className="mb-12">
                         <h4 className="text-2xl font-bold text-slate-100 mb-8 flex items-center gap-3">
                             <Play className="text-purple-500" />
                             Interactive Prototypes
                         </h4>
                         <div className="grid md:grid-cols-2 gap-6">
-                            {PROFILE.games.map((game, index) => (
+                            {activeProfile.games.map((game, index) => (
                                 <motion.div
                                     key={index}
                                     initial={{ opacity: 0, scale: 0.95 }}

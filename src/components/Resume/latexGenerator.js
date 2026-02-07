@@ -61,21 +61,24 @@ export const generateLatex = (profile) => {
 %----------HEADING----------
 \\begin{center}
     \\textbf{\\Huge \\scshape ${profile.name}} \\\\ \\vspace{1pt}
-    \\small ${profile.title} $|$ 
+    \\small ${profile.title} \\\\
+    \\small ${profile.location} $|$ 
     \\href{${profile.socials.github}}{\\underline{github.com/aurorasunrisegames}} $|$ 
     \\href{mailto:${profile.socials.email}}{\\underline{${profile.socials.email}}}
 \\end{center}
 
 
+%-----------TECHNICAL SKILLS-----------
+\\section{Technical Skills}
+ \\begin{itemize}[leftmargin=0.15in, label={}]
+    \\small{\\item{
+     \\textbf{Technologies}{: ${skillsItems}} \\\\
+     \\textbf{Languages}{: ${profile.languages.map(l => `${l.name} (${l.level})`).join(', ')}}
+    }}
+ \\end{itemize}
+
+
 %-----------EDUCATION-----------
-\\section{Education}
-  \\resumeSubHeadingListStart
-    ${profile.education.map(edu => `\\resumeSubheading
-      {${edu.institution}}{${edu.location}}
-      {${edu.degree}}{${edu.period}}`).join('\n')}
-  \\resumeSubHeadingListEnd
-
-
 %-----------EXPERIENCE-----------
 \\section{Experience}
   \\resumeSubHeadingListStart
@@ -90,13 +93,16 @@ ${projectItems}
     \\resumeSubHeadingListEnd
 
 
-%-----------TECHNICAL SKILLS-----------
-\\section{Technical Skills}
- \\begin{itemize}[leftmargin=0.15in, label={}]
-    \\small{\\item{
-     \\textbf{Languages/Technologies}{: ${skillsItems}} \\\\
-    }}
- \\end{itemize}
+%-----------EDUCATION-----------
+\\section{Education}
+  \\resumeSubHeadingListStart
+    ${profile.education.map(edu => `\\resumeSubheading
+      {${edu.institution}}{${edu.location}}
+      {${edu.degree}}{${edu.period}}`).join('\n')}
+  \\resumeSubHeadingListEnd
+
+
+
 
 
 %-------------------------------------------

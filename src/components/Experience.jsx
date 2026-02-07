@@ -1,9 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { PROFILE } from '../data';
+import { useLanguage } from './LanguageContext';
 import { Calendar } from 'lucide-react';
 
 const Experience = () => {
+    const { activeProfile } = useLanguage();
+
     return (
         <section id="experience">
             <motion.div
@@ -14,7 +16,7 @@ const Experience = () => {
                 <h3 className="section-title mb-16">Journey</h3>
 
                 <div className="relative border-l border-slate-800 ml-4 md:ml-12 space-y-12">
-                    {PROFILE.experience.map((role, index) => (
+                    {activeProfile.experience.map((role, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, x: -20 }}

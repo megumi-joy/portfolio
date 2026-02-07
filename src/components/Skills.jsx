@@ -1,8 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { PROFILE } from '../data';
+import { useLanguage } from './LanguageContext';
 
 const Skills = () => {
+    const { activeProfile } = useLanguage();
+
     return (
         <section id="skills">
             <motion.div
@@ -11,10 +13,10 @@ const Skills = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
             >
-                <h3 className="section-title mb-12">Technical Arsenal</h3>
+                <h3 className="section-title mb-12">{activeProfile.ui.skillsTitle || "Technical Arsenal"}</h3>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-                    {PROFILE.skills.map((skill, index) => {
+                    {activeProfile.skills.map((skill, index) => {
                         const Icon = skill.icon;
                         return (
                             <motion.div

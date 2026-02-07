@@ -2,75 +2,76 @@ import React from 'react';
 import { Page, Text, View, Document, StyleSheet, Link } from '@react-pdf/renderer';
 
 // Create styles
+// Create styles
 const styles = StyleSheet.create({
     page: {
         flexDirection: 'column',
         backgroundColor: '#FFFFFF',
-        padding: 30,
+        padding: 20, // Reduced from 30
         fontFamily: 'Helvetica',
     },
     header: {
-        marginBottom: 10,
+        marginBottom: 5, // Reduced from 10
         textAlign: 'center',
     },
     name: {
-        fontSize: 24,
+        fontSize: 20, // Reduced from 24
         fontWeight: 'bold',
-        marginBottom: 5,
+        marginBottom: 2,
         textTransform: 'uppercase',
     },
     contact: {
-        fontSize: 10,
-        marginBottom: 10,
+        fontSize: 8, // Reduced from 10
+        marginBottom: 2,
         color: '#000000',
     },
     section: {
-        marginTop: 10,
-        marginBottom: 5,
+        marginTop: 5, // Reduced from 10
+        marginBottom: 2, // Reduced from 5
     },
     sectionTitle: {
-        fontSize: 12,
+        fontSize: 10, // Reduced from 12
         fontWeight: 'bold',
         borderBottomWidth: 1,
         borderBottomColor: '#000000',
-        paddingBottom: 2,
-        marginBottom: 5,
+        paddingBottom: 1,
+        marginBottom: 3,
         textTransform: 'uppercase',
     },
     subHeading: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 2,
+        marginBottom: 1,
     },
     subHeadingTitle: {
-        fontSize: 11,
+        fontSize: 9, // Reduced from 11
         fontWeight: 'bold',
     },
     subHeadingDate: {
-        fontSize: 10,
+        fontSize: 8, // Reduced from 10
         fontStyle: 'italic',
     },
     subHeadingSubtitle: {
-        fontSize: 10,
+        fontSize: 8, // Reduced from 10
         fontStyle: 'italic',
-        marginBottom: 2,
+        marginBottom: 1,
     },
     listItem: {
         flexDirection: 'row',
-        marginBottom: 2,
-        marginLeft: 10,
+        marginBottom: 1,
+        marginLeft: 8,
     },
     bulletPoint: {
-        width: 10,
-        fontSize: 10,
+        width: 8,
+        fontSize: 8,
     },
     itemContent: {
         flex: 1,
-        fontSize: 10,
+        fontSize: 8, // Reduced from 10
     },
     skillsText: {
-        fontSize: 10,
-        marginBottom: 2,
+        fontSize: 8, // Reduced from 10
+        marginBottom: 1,
     },
     link: {
         color: '#000000',
@@ -85,31 +86,32 @@ const ResumePDF = ({ profile }) => (
             <View style={styles.header}>
                 <Text style={styles.name}>{profile.name}</Text>
                 <Text style={styles.contact}>
-                    {profile.title} | <Link src={`mailto:${profile.socials.email}`} style={styles.link}>{profile.socials.email}</Link> | <Link src={profile.socials.github} style={styles.link}>github.com/aurorasunrisegames</Link>
+                    {profile.title} | {profile.location}
+                </Text>
+                <Text style={styles.contact}>
+                    <Link src={`mailto:${profile.socials.email}`} style={styles.link}>{profile.socials.email}</Link> | <Link src={profile.socials.github} style={styles.link}>github.com/aurorasunrisegames</Link>
+                </Text>
+            </View>
+
+            {/* Skills & Languages (Moved Top) */}
+            <View style={styles.section}>
+                <Text style={styles.sectionTitle}>Skills</Text>
+                <Text style={styles.skillsText}>
+                    <Text style={{ fontWeight: 'bold' }}>Tech: </Text>
+                    {profile.skills.map(skill => skill.name).join(', ')}
+                </Text>
+                <Text style={styles.skillsText}>
+                    <Text style={{ fontWeight: 'bold' }}>Languages: </Text>
+                    {profile.languages.map(l => `${l.name} (${l.level})`).join(', ')}
                 </Text>
             </View>
 
             {/* Education */}
-            <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Education</Text>
-                {profile.education.map((edu, index) => (
-                    <View key={index} style={{ marginBottom: 5 }}>
-                        <View style={styles.subHeading}>
-                            <Text style={styles.subHeadingTitle}>{edu.institution}</Text>
-                            <Text style={styles.subHeadingDate}>{edu.period}</Text>
-                        </View>
-                        <View style={styles.subHeading}>
-                            <Text style={styles.subHeadingSubtitle}>{edu.degree} | {edu.location}</Text>
-                        </View>
-                    </View>
-                ))}
-            </View>
-
             {/* Experience */}
             <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Experience</Text>
                 {profile.experience.map((exp, index) => (
-                    <View key={index} style={{ marginBottom: 5 }}>
+                    <View key={index} style={{ marginBottom: 4 }}>
                         <View style={styles.subHeading}>
                             <Text style={styles.subHeadingTitle}>{exp.role}</Text>
                             <Text style={styles.subHeadingDate}>{exp.period}</Text>
@@ -128,8 +130,8 @@ const ResumePDF = ({ profile }) => (
             {/* Projects */}
             <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Projects</Text>
-                {profile.projects.map((proj, index) => (
-                    <View key={index} style={{ marginBottom: 5 }}>
+                {profile.projects.slice(0, 3).map((proj, index) => ( // Show top 3 projects to save space if needed, or all if they fit.
+                    <View key={index} style={{ marginBottom: 3 }}>
                         <View style={styles.subHeading}>
                             <Text style={styles.subHeadingTitle}>{proj.title} | {proj.tags.join(', ')}</Text>
                         </View>
@@ -141,14 +143,25 @@ const ResumePDF = ({ profile }) => (
                 ))}
             </View>
 
-            {/* Skills */}
+            {/* Education (Moved Bottom) */}
             <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Technical Skills</Text>
-                <Text style={styles.skillsText}>
-                    <Text style={{ fontWeight: 'bold' }}>Languages/Technologies: </Text>
-                    {profile.skills.map(skill => skill.name).join(', ')}
-                </Text>
+                <Text style={styles.sectionTitle}>Education</Text>
+                {/* Compact Display for Education */}
+                {profile.education.map((edu, index) => (
+                    <View key={index} style={{ marginBottom: 2 }}>
+                        <View style={styles.subHeading}>
+                            <Text style={styles.subHeadingTitle}>{edu.institution}</Text>
+                            <Text style={styles.subHeadingDate}>{edu.period}</Text>
+                        </View>
+                        <View style={styles.subHeading}>
+                            <Text style={styles.subHeadingSubtitle}>{edu.degree}</Text>
+                            <Text style={styles.subHeadingSubtitle}>{edu.location}</Text>
+                        </View>
+                    </View>
+                ))}
             </View>
+
+
         </Page>
     </Document>
 );
