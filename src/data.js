@@ -118,11 +118,11 @@ const BASE_PROFILE = {
     ],
     games: [
         {
-            title: "Multiplayer Prototype",
-            description: "A networked multiplayer prototype built in Godot. Features server reconciliation and client-side prediction.",
-            thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Godot+Prototype", // Placeholder
+            title: "Godot Engine Prototype",
+            description: "A high-performance simulation prototype built in Godot 4. Features custom physics and agent behaviors.",
+            thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Godot+Engine", // Placeholder
             path: "/games/prototype/index.html", // Expects index.html in public/games/prototype
-            tags: ["Godot", "Multiplayer", "WebGL"]
+            tags: ["Godot", "Single Player", "WebGL"]
         }
     ],
     plans: {
@@ -172,7 +172,12 @@ const TRANSLATIONS = {
         plansTitle: "Roadmap & Current Focus",
         contactTitle: "Let's Build Something Amazing",
         contactText: "I'm currently open to new opportunities in Game Development, Simulation Engineering, or Full Stack Web Development.",
-        contactButton: "Say Hello"
+        contactButton: "Say Hello",
+        welcome: "Welcome to my portfolio",
+        hello: "Hello, I'm",
+        viewDetails: "View Details",
+        openInNewTab: "Open in New Tab",
+        prototypesTitle: "Godot Engine Prototypes"
     },
     es: {
         resume: "Currículum",
@@ -191,7 +196,12 @@ const TRANSLATIONS = {
         plansTitle: "Hoja de Ruta y Foco Actual",
         contactTitle: "Construyamos Algo Increíble",
         contactText: "Actualmente estoy abierto a nuevas oportunidades en Desarrollo de Juegos, Ingeniería de Simulación o Desarrollo Web Full Stack.",
-        contactButton: "Di Hola"
+        contactButton: "Di Hola",
+        welcome: "Bienvenido a mi portafolio",
+        hello: "Hola, soy",
+        viewDetails: "Ver Detalles",
+        openInNewTab: "Abrir en nueva pestaña",
+        prototypesTitle: "Prototipos en Godot Engine"
     },
     ru: {
         resume: "Резюме",
@@ -210,7 +220,12 @@ const TRANSLATIONS = {
         plansTitle: "Планы и Текущий Фокус",
         contactTitle: "Давайте Создадим Что-то Удивительное",
         contactText: "Я открыт для новых возможностей в разработке игр, инженерии симуляций или Full Stack веб-разработке.",
-        contactButton: "Поздороваться"
+        contactButton: "Поздороваться",
+        welcome: "Добро пожаловать в мое портфолио",
+        hello: "Привет, я",
+        viewDetails: "Подробнее",
+        openInNewTab: "Открыть в новой вкладке",
+        prototypesTitle: "Прототипы на Godot Engine"
     },
     uk: {
         resume: "Резюме",
@@ -229,7 +244,13 @@ const TRANSLATIONS = {
         plansTitle: "Плани та Поточний Фокус",
         contactTitle: "Створимо Щось Дивовижне",
         contactText: "Я відкритий для нових можливостей у розробці ігор, інженерії симуляцій або Full Stack веб-розробці.",
-        contactButton: "Привітатися"
+        contactText: "Я відкритий для нових можливостей у розробці ігор, інженерії симуляцій або Full Stack веб-розробці.",
+        contactButton: "Привітатися",
+        welcome: "Ласкаво просимо до мого портфоліо",
+        hello: "Привіт, я",
+        viewDetails: "Детальніше",
+        openInNewTab: "Відкрити у новій вкладці",
+        prototypesTitle: "Прототипи на Godot Engine"
     },
 };
 

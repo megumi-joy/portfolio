@@ -1,70 +1,60 @@
-# Portfolio - [Megumi Joy](https://megumi-joy.github.io/portfolio/)
+# Aurora Sunrise Portfolio
 
-A premium, interactive portfolio website built for a Creative Technologist & Game Engineer.
+A modern, high-performance portfolio website built with React, Tailwind CSS, and Framer Motion. Features a custom 3D-style design, dark mode aesthetics, and seamless integration with Godot Engine web exports.
 
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+## Features
 
-## ✨ Features
-- **Premium UI**: Dark mode aesthetic with glassmorphism and gradients using TailwindCSS.
-- **Animations**: Smooth entry and scroll animations powered by Framer Motion.
-- **Dynamic Projects**: Showcases GitHub repositories and freelance work.
-- **Editable Roadmap**: A JSON-backed "Plans" section for easy updates.
+-   **Dynamic Content**: Fully data-driven via `src/data.js`.
+-   **Global i18n**: Support for English, Spanish, Russian, and Ukrainian with instant switching.
+-   **Resume Generation**: Auto-generated PDF resume from profile data using React-PDF.
+-   **Game Integration**: Embedded Godot Engine WebGL exports with custom overlays.
 
-## 🚀 Getting Started
+## Development
 
-### Prerequisites
-- Node.js (v18 or higher)
-- npm
+1.  **Install Dependencies**:
+    ```bash
+    npm install
+    ```
+2.  **Run Development Server**:
+    ```bash
+    npm run dev
+    ```
+3.  **Build for Production**:
+    ```bash
+    npm run build
+    ```
 
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/aurorasunrisegames/portfolio.git
-   ```
-2. Navigate to the project folder:
-   ```bash
-   cd portfolio
-   ```
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
+## Adding Godot Games
 
-## 📝 Configuration
+This portfolio is designed to showcase Godot WebGL exports seamlessly.
 
-### Updating Plans & Roadmap
-You can update the "Roadmap & Current Focus" section by editing `src/plans.json`.
-Changes to this file will automatically reflect on the site.
+1.  **Export your Game**:
+    -   In Godot, go to **Export > Web**.
+    -   Uncheck "Full Page" if you want it to fit in the embed perfectly (optional, handled by iframe).
+    -   Name your html file `index.html`.
 
-```json
-{
-  "title": "My Roadmap",
-  "items": [
-    {
-      "title": "New Project",
-      "status": "In Progress",
-      "date": "Q3 2026",
-      "link": "https://github.com/..."
-    }
-  ]
-}
-```
+2.  **Place in Public Folder**:
+    -   Create a new folder in `public/games/` (e.g., `public/games/my-new-game`).
+    -   Copy your exported files (`index.html`, `.wasm`, `.pck`, etc.) into this folder.
 
-### Updating Profile Data
-Personal information (Name, Bio, Experience, Socials) is stored in `src/data.js`.
+3.  **Register in Data**:
+    -   Open `src/data.js`.
+    -   Locate the `games` array in `BASE_PROFILE`.
+    -   Add a new entry:
+        ```javascript
+        {
+            title: "My New Game",
+            description: "Description of the game mechanics.",
+            thumbnail: "path/to/thumbnail.jpg", // 600x400 recommended
+            path: "/games/my-new-game/index.html", // Path relative to public
+            tags: ["Godot", "Genre", "Tag"]
+        }
+        ```
 
-## 📦 Deployment
+4.  **Test**:
+    -   Run `npm run dev` and click "Play" on the game card in the Projects section.
 
-This project is configured to deploy automatically to **GitHub Pages**.
+## Customization
 
-1. **Push** your changes to the `main` branch.
-2. A GitHub Action will automatically build and deploy the site to the `gh-pages` branch.
-3. Ensure your repository Settings > Pages source is set to `gh-pages`.
-
-**Note:** If you change the repository name, update the `base` property in `vite.config.js` to match.
+-   **Translations**: Add new keys to `TRANSLATIONS` in `src/data.js` and update components to use `activeProfile.ui.key`.
+-   **Styling**: Tailwind configuration is in `tailwind.config.js`. Main styles in `src/index.css`.

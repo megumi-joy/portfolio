@@ -22,11 +22,11 @@ const Hero = ({ onOpenResume }) => {
                 className="space-y-6 max-w-2xl"
             >
                 <span className="text-cyan-400 font-medium tracking-wider text-sm uppercase">
-                    Welcome to my portfolio
+                    {activeProfile.ui.welcome || "Welcome to my portfolio"}
                 </span>
 
                 <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-white leading-tight">
-                    Hello, I'm <br />
+                    {activeProfile.ui.hello || "Hello, I'm"} <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
                         {activeProfile.name}
                     </span>.
@@ -112,7 +112,7 @@ const Hero = ({ onOpenResume }) => {
                                 className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-slate-700 hover:bg-slate-600 text-white text-sm transition-colors"
                             >
                                 <ExternalLink size={14} />
-                                Open in New Tab
+                                {activeProfile.ui.openInNewTab || "Open in New Tab"}
                             </a>
                         </div>
                     </div>

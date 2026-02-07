@@ -67,7 +67,7 @@ const Projects = () => {
                     <div className="mb-12">
                         <h4 className="text-2xl font-bold text-slate-100 mb-8 flex items-center gap-3">
                             <Play className="text-purple-500" />
-                            Interactive Prototypes
+                            {activeProfile.ui.prototypesTitle || "Interactive Prototypes"}
                         </h4>
                         <div className="grid md:grid-cols-2 gap-6">
                             {activeProfile.games.map((game, index) => (

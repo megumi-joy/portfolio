@@ -75,7 +75,7 @@ const Plans = () => {
                                     rel="noreferrer"
                                     className="inline-flex items-center text-xs font-bold text-cyan-500 hover:text-cyan-400 uppercase tracking-widest transition-colors"
                                 >
-                                    View Details
+                                    {activeProfile.ui.viewDetails || "View Details"}
                                 </a>
                             )}
                         </motion.div>
