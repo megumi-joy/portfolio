@@ -121,7 +121,7 @@ const BASE_PROFILE = {
             title: "Godot Engine Prototype",
             description: "A high-performance simulation prototype built in Godot 4. Features custom physics and agent behaviors.",
             thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Godot+Engine", // Placeholder
-            path: "/games/prototype/index.html", // Expects index.html in public/games/prototype
+            path: "/portfolio/games/prototype/index.html", // Expects index.html in public/games/prototype
             tags: ["Godot", "Single Player", "WebGL"]
         }
     ],
