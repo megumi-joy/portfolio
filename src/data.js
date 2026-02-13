@@ -118,13 +118,6 @@ const BASE_PROFILE = {
     ],
     games: [
         {
-            title: "Godot Engine Prototype",
-            description: "A high-performance simulation prototype built in Godot 4. Features custom physics and agent behaviors.",
-            thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Godot+Engine", // Placeholder
-            path: "/portfolio/games/prototype/index.html", // Expects index.html in public/games/prototype
-            tags: ["Godot", "Single Player", "WebGL"]
-        },
-        {
             title: "Low-Poly City Delivery",
             description: "A delivery simulation game set in a low-poly city environment.",
             thumbnail: "/games/Low-Poly City Delivery/index.png",
@@ -137,6 +130,13 @@ const BASE_PROFILE = {
             thumbnail: "/games/magicballsadventure/index.png",
             path: "/portfolio/games/magicballsadventure/index.html",
             tags: ["Godot", "Adventure", "WebGL"]
+        },
+        {
+            title: "VoicyGodot",
+            description: "real-time voice changer and audio processing tool built with Godot.",
+            thumbnail: "/games/VoicyGodot/index.icon.png",
+            path: "/portfolio/games/VoicyGodot/index.html",
+            tags: ["Godot", "Audio", "Tool"]
         }
     ],
     plans: {
@@ -367,13 +367,6 @@ export const PROFILES = {
         ],
         games: [
             {
-                title: "Prototipo Godot Engine",
-                description: "Prototipo de simulación de alto rendimiento en Godot 4. Física personalizada y comportamientos de agentes.",
-                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Godot+Engine",
-                path: "/games/prototype/index.html",
-                tags: ["Godot", "Un Jugador", "WebGL"]
-            },
-            {
                 title: "Low-Poly City Delivery",
                 description: "Un juego de simulación de entrega ambientado en una ciudad low-poly.",
                 thumbnail: "/games/Low-Poly City Delivery/index.png",
@@ -386,6 +379,13 @@ export const PROFILES = {
                 thumbnail: "/games/magicballsadventure/index.png",
                 path: "/portfolio/games/magicballsadventure/index.html",
                 tags: ["Godot", "Aventura", "WebGL"]
+            },
+            {
+                title: "VoicyGodot",
+                description: "Cambiador de voz en tiempo real y herramienta de procesamiento de audio construida con Godot.",
+                thumbnail: "/games/VoicyGodot/index.icon.png",
+                path: "/portfolio/games/VoicyGodot/index.html",
+                tags: ["Godot", "Audio", "Herramienta"]
             }
         ],
         ui: TRANSLATIONS.es,
@@ -512,13 +512,6 @@ export const PROFILES = {
         ],
         games: [
             {
-                title: "Прототип на Godot Engine",
-                description: "Высокопроизводительный прототип симуляции на Godot 4. Кастомная физика и поведение агентов.",
-                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Godot+Engine",
-                path: "/games/prototype/index.html",
-                tags: ["Godot", "Одиночная игра", "WebGL"]
-            },
-            {
                 title: "Low-Poly City Delivery",
                 description: "Симулятор доставки в низкополигональном городе.",
                 thumbnail: "/games/Low-Poly City Delivery/index.png",
@@ -531,6 +524,13 @@ export const PROFILES = {
                 thumbnail: "/games/magicballsadventure/index.png",
                 path: "/portfolio/games/magicballsadventure/index.html",
                 tags: ["Godot", "Приключения", "WebGL"]
+            },
+            {
+                title: "VoicyGodot",
+                description: "Инструмент для изменения голоса и обработки аудио в реальном времени, созданный на Godot.",
+                thumbnail: "/games/VoicyGodot/index.icon.png",
+                path: "/portfolio/games/VoicyGodot/index.html",
+                tags: ["Godot", "Аудио", "Инструмент"]
             }
         ],
         ui: TRANSLATIONS.ru,
@@ -657,13 +657,6 @@ export const PROFILES = {
         ],
         games: [
             {
-                title: "Прототип на Godot Engine",
-                description: "Високопродуктивний прототип симуляції на Godot 4. Кастомна фізика та поведінка агентів.",
-                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Godot+Engine",
-                path: "/games/prototype/index.html",
-                tags: ["Godot", "Одиночна гра", "WebGL"]
-            },
-            {
                 title: "Low-Poly City Delivery",
                 description: "Симулятор доставки у низькополігональному місті.",
                 thumbnail: "/games/Low-Poly City Delivery/index.png",
@@ -676,6 +669,13 @@ export const PROFILES = {
                 thumbnail: "/games/magicballsadventure/index.png",
                 path: "/portfolio/games/magicballsadventure/index.html",
                 tags: ["Godot", "Пригоди", "WebGL"]
+            },
+            {
+                title: "VoicyGodot",
+                description: "Інструмент для зміни голосу та обробки аудіо в реальному часі, створений на Godot.",
+                thumbnail: "/games/VoicyGodot/index.icon.png",
+                path: "/portfolio/games/VoicyGodot/index.html",
+                tags: ["Godot", "Аудіо", "Інструмент"]
             }
         ],
         ui: TRANSLATIONS.uk,
