@@ -123,6 +123,20 @@ const BASE_PROFILE = {
             thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Godot+Engine", // Placeholder
             path: "/portfolio/games/prototype/index.html", // Expects index.html in public/games/prototype
             tags: ["Godot", "Single Player", "WebGL"]
+        },
+        {
+            title: "Low-Poly City Delivery",
+            description: "A delivery simulation game set in a low-poly city environment.",
+            thumbnail: "/games/Low-Poly City Delivery/index.png",
+            path: "/portfolio/games/Low-Poly City Delivery/index.html",
+            tags: ["Godot", "Simulation", "WebGL"]
+        },
+        {
+            title: "Magic Balls Adventure",
+            description: "A magical adventure game featuring physics-based puzzles.",
+            thumbnail: "/games/magicballsadventure/index.png",
+            path: "/portfolio/games/magicballsadventure/index.html",
+            tags: ["Godot", "Adventure", "WebGL"]
         }
     ],
     plans: {
@@ -358,6 +372,20 @@ export const PROFILES = {
                 thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Godot+Engine",
                 path: "/games/prototype/index.html",
                 tags: ["Godot", "Un Jugador", "WebGL"]
+            },
+            {
+                title: "Low-Poly City Delivery",
+                description: "Un juego de simulación de entrega ambientado en una ciudad low-poly.",
+                thumbnail: "/games/Low-Poly City Delivery/index.png",
+                path: "/portfolio/games/Low-Poly City Delivery/index.html",
+                tags: ["Godot", "Simulación", "WebGL"]
+            },
+            {
+                title: "Magic Balls Adventure",
+                description: "Una aventura mágica con rompecabezas basados en física.",
+                thumbnail: "/games/magicballsadventure/index.png",
+                path: "/portfolio/games/magicballsadventure/index.html",
+                tags: ["Godot", "Aventura", "WebGL"]
             }
         ],
         ui: TRANSLATIONS.es,
@@ -489,6 +517,20 @@ export const PROFILES = {
                 thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Godot+Engine",
                 path: "/games/prototype/index.html",
                 tags: ["Godot", "Одиночная игра", "WebGL"]
+            },
+            {
+                title: "Low-Poly City Delivery",
+                description: "Симулятор доставки в низкополигональном городе.",
+                thumbnail: "/games/Low-Poly City Delivery/index.png",
+                path: "/portfolio/games/Low-Poly City Delivery/index.html",
+                tags: ["Godot", "Симулятор", "WebGL"]
+            },
+            {
+                title: "Magic Balls Adventure",
+                description: "Волшебное приключение с физическими головоломками.",
+                thumbnail: "/games/magicballsadventure/index.png",
+                path: "/portfolio/games/magicballsadventure/index.html",
+                tags: ["Godot", "Приключения", "WebGL"]
             }
         ],
         ui: TRANSLATIONS.ru,
@@ -620,6 +662,20 @@ export const PROFILES = {
                 thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Godot+Engine",
                 path: "/games/prototype/index.html",
                 tags: ["Godot", "Одиночна гра", "WebGL"]
+            },
+            {
+                title: "Low-Poly City Delivery",
+                description: "Симулятор доставки у низькополігональному місті.",
+                thumbnail: "/games/Low-Poly City Delivery/index.png",
+                path: "/portfolio/games/Low-Poly City Delivery/index.html",
+                tags: ["Godot", "Симулятор", "WebGL"]
+            },
+            {
+                title: "Magic Balls Adventure",
+                description: "Магічна пригода з фізичними головоломками.",
+                thumbnail: "/games/magicballsadventure/index.png",
+                path: "/portfolio/games/magicballsadventure/index.html",
+                tags: ["Godot", "Пригоди", "WebGL"]
             }
         ],
         ui: TRANSLATIONS.uk,
