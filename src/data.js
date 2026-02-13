@@ -122,21 +122,78 @@ const BASE_PROFILE = {
             description: "A delivery simulation game set in a low-poly city environment.",
             thumbnail: "/games/Low-Poly City Delivery/index.png",
             path: "/portfolio/games/Low-Poly City Delivery/index.html",
-            tags: ["Godot", "Simulation", "WebGL"]
+            tags: ["Godot", "Simulation", "WebGL"],
+            status: "playable",
+            gdd: {
+                overview: "Deliver packages in a vibrant low-poly city against the clock.",
+                mechanics: ["Vehicle physics", "Pick up/Drop off system", "Timer system"],
+                features: ["Open world city", "Traffic AI", "Destructible props"]
+            }
         },
         {
             title: "Magic Balls Adventure",
             description: "A magical adventure game featuring physics-based puzzles.",
             thumbnail: "/games/magicballsadventure/index.png",
             path: "/portfolio/games/magicballsadventure/index.html",
-            tags: ["Godot", "Adventure", "WebGL"]
+            tags: ["Godot", "Adventure", "WebGL"],
+            status: "playable",
+            gdd: {
+                overview: "Solve physics puzzles using magical balls with different properties.",
+                mechanics: ["Physics interaction", "Ball transformation", "Platforming"],
+                features: ["Different ball types", "Puzzle levels", "Magical atmosphere"]
+            }
         },
         {
             title: "VoicyGodot",
             description: "real-time voice changer and audio processing tool built with Godot.",
             thumbnail: "/games/VoicyGodot/index.icon.png",
             path: "/portfolio/games/VoicyGodot/index.html",
-            tags: ["Godot", "Audio", "Tool"]
+            tags: ["Godot", "Audio", "Tool"],
+            status: "playable",
+            gdd: {
+                overview: "Real-time voice modulation tool running entirely in the browser using Godot.",
+                mechanics: ["Audio buffer processing", "Pitch shifting", "Formant correction"],
+                features: ["Microphone input", "Real-time effects", "Visualizer"]
+            }
+        },
+        {
+            title: "Space Shooter",
+            description: "Classic arcade space shooter with modern graphics.",
+            thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Space+Shooter",
+            path: null,
+            tags: ["Godot", "Arcade", "Developing"],
+            status: "developing",
+            gdd: {
+                overview: "Fast-paced space shooter where you defend against waves of alien invaders.",
+                mechanics: ["Shooting", "Power-ups", "Enemy waves"],
+                features: ["Boss fights", "Ship upgrades", "Score system"]
+            }
+        },
+        {
+            title: "Karting",
+            description: "High-speed kart racing game with power-ups.",
+            thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Karting",
+            path: null,
+            tags: ["Godot", "Racing", "Developing"],
+            status: "developing",
+            gdd: {
+                overview: "Competitive kart racing game with drift mechanics and items.",
+                mechanics: ["Drifting", "Item usage", "Lap system"],
+                features: ["Multiple tracks", "Character selection", "Local multiplayer"]
+            }
+        },
+        {
+            title: "Farming",
+            description: "Relaxing farming simulation and management game.",
+            thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Farming",
+            path: null,
+            tags: ["Godot", "Simulation", "Developing"],
+            status: "developing",
+            gdd: {
+                overview: "Manage your farm, grow crops, and raise animals in a cozy environment.",
+                mechanics: ["Planting/Harvesting", "Inventory management", "Day/Night cycle"],
+                features: ["Crop variety", "Animal husbandry", "Market system"]
+            }
         }
     ],
     plans: {
@@ -371,21 +428,78 @@ export const PROFILES = {
                 description: "Un juego de simulación de entrega ambientado en una ciudad low-poly.",
                 thumbnail: "/games/Low-Poly City Delivery/index.png",
                 path: "/portfolio/games/Low-Poly City Delivery/index.html",
-                tags: ["Godot", "Simulación", "WebGL"]
+                tags: ["Godot", "Simulación", "WebGL"],
+                status: "playable",
+                gdd: {
+                    overview: "Entrega paquetes en una ciudad low-poly vibrante contra el reloj.",
+                    mechanics: ["Física de vehículos", "Sistema de recogida/entrega", "Sistema de temporizador"],
+                    features: ["Ciudad de mundo abierto", "IA de tráfico", "Accesorios destructibles"]
+                }
             },
             {
                 title: "Magic Balls Adventure",
                 description: "Una aventura mágica con rompecabezas basados en física.",
                 thumbnail: "/games/magicballsadventure/index.png",
                 path: "/portfolio/games/magicballsadventure/index.html",
-                tags: ["Godot", "Aventura", "WebGL"]
+                tags: ["Godot", "Aventura", "WebGL"],
+                status: "playable",
+                gdd: {
+                    overview: "Resuelve acertijos físicos usando bolas mágicas con diferentes propiedades.",
+                    mechanics: ["Interacción física", "Transformación de bola", "Plataformas"],
+                    features: ["Diferentes tipos de bolas", "Niveles de rompecabezas", "Atmósfera mágica"]
+                }
             },
             {
                 title: "VoicyGodot",
                 description: "Cambiador de voz en tiempo real y herramienta de procesamiento de audio construida con Godot.",
                 thumbnail: "/games/VoicyGodot/index.icon.png",
                 path: "/portfolio/games/VoicyGodot/index.html",
-                tags: ["Godot", "Audio", "Herramienta"]
+                tags: ["Godot", "Audio", "Herramienta"],
+                status: "playable",
+                gdd: {
+                    overview: "Herramienta de modulación de voz en tiempo real que se ejecuta completamente en el navegador usando Godot.",
+                    mechanics: ["Procesamiento de búfer de audio", "Cambio de tono", "Corrección de formantes"],
+                    features: ["Entrada de micrófono", "Efectos en tiempo real", "Visualizador"]
+                }
+            },
+            {
+                title: "Space Shooter",
+                description: "Clásico juego de disparos espacial arcade con gráficos modernos.",
+                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Space+Shooter",
+                path: null,
+                tags: ["Godot", "Arcade", "Desarrollando"],
+                status: "developing",
+                gdd: {
+                    overview: "Juego de disparos espacial de ritmo rápido donde defiendes contra oleadas de invasores alienígenas.",
+                    mechanics: ["Disparos", "Power-ups", "Oleadas de enemigos"],
+                    features: ["Peleas contra jefes", "Mejoras de nave", "Sistema de puntuación"]
+                }
+            },
+            {
+                title: "Karting",
+                description: "Juego de carreras de karts de alta velocidad con power-ups.",
+                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Karting",
+                path: null,
+                tags: ["Godot", "Carreras", "Desarrollando"],
+                status: "developing",
+                gdd: {
+                    overview: "Juego de carreras de karts competitivo con mecánicas de derrape y objetos.",
+                    mechanics: ["Derrape", "Uso de objetos", "Sistema de vueltas"],
+                    features: ["Múltiples pistas", "Selección de personajes", "Multijugador local"]
+                }
+            },
+            {
+                title: "Farming",
+                description: "Relajante juego de simulación y gestión de granjas.",
+                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Farming",
+                path: null,
+                tags: ["Godot", "Simulación", "Desarrollando"],
+                status: "developing",
+                gdd: {
+                    overview: "Gestiona tu granja, cultiva cosechas y cría animales en un ambiente acogedor.",
+                    mechanics: ["Plantación/Cosecha", "Gestión de inventario", "Ciclo día/noche"],
+                    features: ["Variedad de cultivos", "Cría de animales", "Sistema de mercado"]
+                }
             }
         ],
         ui: TRANSLATIONS.es,
@@ -516,21 +630,78 @@ export const PROFILES = {
                 description: "Симулятор доставки в низкополигональном городе.",
                 thumbnail: "/games/Low-Poly City Delivery/index.png",
                 path: "/portfolio/games/Low-Poly City Delivery/index.html",
-                tags: ["Godot", "Симулятор", "WebGL"]
+                tags: ["Godot", "Симулятор", "WebGL"],
+                status: "playable",
+                gdd: {
+                    overview: "Доставляйте посылки в ярком низкополигональном городе на время.",
+                    mechanics: ["Физика транспорта", "Система подбора/доставки", "Таймер"],
+                    features: ["Открытый мир", "ИИ трафика", "Разрушаемые объекты"]
+                }
             },
             {
                 title: "Magic Balls Adventure",
                 description: "Волшебное приключение с физическими головоломками.",
                 thumbnail: "/games/magicballsadventure/index.png",
                 path: "/portfolio/games/magicballsadventure/index.html",
-                tags: ["Godot", "Приключения", "WebGL"]
+                tags: ["Godot", "Приключения", "WebGL"],
+                status: "playable",
+                gdd: {
+                    overview: "Решайте физические головоломки, используя волшебные шары с различными свойствами.",
+                    mechanics: ["Физическое взаимодействие", "Трансформация шара", "Платформинг"],
+                    features: ["Разные виды шаров", "Уровни-головоломки", "Волшебная атмосфера"]
+                }
             },
             {
                 title: "VoicyGodot",
                 description: "Инструмент для изменения голоса и обработки аудио в реальном времени, созданный на Godot.",
                 thumbnail: "/games/VoicyGodot/index.icon.png",
                 path: "/portfolio/games/VoicyGodot/index.html",
-                tags: ["Godot", "Аудио", "Инструмент"]
+                tags: ["Godot", "Аудио", "Инструмент"],
+                status: "playable",
+                gdd: {
+                    overview: "Инструмент модуляции голоса в реальном времени, работающий полностью в браузере на Godot.",
+                    mechanics: ["Обработка аудиобуфера", "Изменение высоты тона", "Коррекция формант"],
+                    features: ["Вход с микрофона", "Эффекты в реальном времени", "Визуализатор"]
+                }
+            },
+            {
+                title: "Space Shooter",
+                description: "Классический аркадный космический шутер с современной графикой.",
+                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Space+Shooter",
+                path: null,
+                tags: ["Godot", "Аркада", "В разработке"],
+                status: "developing",
+                gdd: {
+                    overview: "Динамичный космический шутер, где вы защищаетесь от волн инопланетных захватчиков.",
+                    mechanics: ["Стрельба", "Усиления", "Волны врагов"],
+                    features: ["Битвы с боссами", "Улучшения корабля", "Система очков"]
+                }
+            },
+            {
+                title: "Karting",
+                description: "Высокоскоростные гонки на картингах с усилениями.",
+                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Karting",
+                path: null,
+                tags: ["Godot", "Гонки", "В разработке"],
+                status: "developing",
+                gdd: {
+                    overview: "Соревновательные гонки на картингах с механикой дрифта и предметами.",
+                    mechanics: ["Дрифт", "Использование предметов", "Система кругов"],
+                    features: ["Множество трасс", "Выбор персонажа", "Локальный мультиплеер"]
+                }
+            },
+            {
+                title: "Farming",
+                description: "Расслабляющий симулятор фермы и управления.",
+                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Farming",
+                path: null,
+                tags: ["Godot", "Симулятор", "В разработке"],
+                status: "developing",
+                gdd: {
+                    overview: "Управляйте своей фермой, выращивайте урожай и разводите животных в уютной обстановке.",
+                    mechanics: ["Посадка/Сбор урожая", "Управление инвентарем", "Цикл день/ночь"],
+                    features: ["Разнообразие культур", "Животноводство", "Рыночная система"]
+                }
             }
         ],
         ui: TRANSLATIONS.ru,
@@ -661,21 +832,78 @@ export const PROFILES = {
                 description: "Симулятор доставки у низькополігональному місті.",
                 thumbnail: "/games/Low-Poly City Delivery/index.png",
                 path: "/portfolio/games/Low-Poly City Delivery/index.html",
-                tags: ["Godot", "Симулятор", "WebGL"]
+                tags: ["Godot", "Симулятор", "WebGL"],
+                status: "playable",
+                gdd: {
+                    overview: "Доставляйте посилки у яскравому низькополігональному місті на час.",
+                    mechanics: ["Фізика транспорту", "Система підбору/доставки", "Таймер"],
+                    features: ["Відкритий світ", "ШІ трафіку", "Руйнівні об'єкти"]
+                }
             },
             {
                 title: "Magic Balls Adventure",
                 description: "Магічна пригода з фізичними головоломками.",
                 thumbnail: "/games/magicballsadventure/index.png",
                 path: "/portfolio/games/magicballsadventure/index.html",
-                tags: ["Godot", "Пригоди", "WebGL"]
+                tags: ["Godot", "Пригоди", "WebGL"],
+                status: "playable",
+                gdd: {
+                    overview: "Вирішуйте фізичні головоломки, використовуючи магічні кулі з різними властивостями.",
+                    mechanics: ["Фізична взаємодія", "Трансформація кулі", "Платформінг"],
+                    features: ["Різні види куль", "Рівні-головоломки", "Магічна атмосфера"]
+                }
             },
             {
                 title: "VoicyGodot",
                 description: "Інструмент для зміни голосу та обробки аудіо в реальному часі, створений на Godot.",
                 thumbnail: "/games/VoicyGodot/index.icon.png",
                 path: "/portfolio/games/VoicyGodot/index.html",
-                tags: ["Godot", "Аудіо", "Інструмент"]
+                tags: ["Godot", "Аудіо", "Інструмент"],
+                status: "playable",
+                gdd: {
+                    overview: "Інструмент модуляції голосу в реальному часі, що працює повністю в браузері на Godot.",
+                    mechanics: ["Обробка аудіобуферу", "Зміна висоти тону", "Корекція формант"],
+                    features: ["Вхід з мікрофона", "Ефекти в реальному часі", "Візуалізатор"]
+                }
+            },
+            {
+                title: "Space Shooter",
+                description: "Класичний аркадний космічний шутер із сучасною графікою.",
+                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Space+Shooter",
+                path: null,
+                tags: ["Godot", "Аркада", "В розробці"],
+                status: "developing",
+                gdd: {
+                    overview: "Динамічний космічний шутер, де ви захищаєтесь від хвиль інопланетних загарбників.",
+                    mechanics: ["Стрільба", "Посилення", "Хвилі ворогів"],
+                    features: ["Битви з босами", "Покращення корабля", "Система очків"]
+                }
+            },
+            {
+                title: "Karting",
+                description: "Високошвидкісні перегони на картингах з посиленнями.",
+                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Karting",
+                path: null,
+                tags: ["Godot", "Перегони", "В розробці"],
+                status: "developing",
+                gdd: {
+                    overview: "Змагальні перегони на картингах з механікою дрифту та предметами.",
+                    mechanics: ["Дрифт", "Використання предметів", "Система кіл"],
+                    features: ["Багато трас", "Вибір персонажа", "Локальний мультиплеєр"]
+                }
+            },
+            {
+                title: "Farming",
+                description: "Розслаблюючий симулятор ферми та управління.",
+                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Farming",
+                path: null,
+                tags: ["Godot", "Симулятор", "В розробці"],
+                status: "developing",
+                gdd: {
+                    overview: "Керуйте своєю фермою, вирощуйте врожай та розводьте тварин у затишній обстановці.",
+                    mechanics: ["Садіння/Збір врожаю", "Управління інвентарем", "Цикл день/ніч"],
+                    features: ["Різноманітність культур", "Тваринництво", "Ринкова система"]
+                }
             }
         ],
         ui: TRANSLATIONS.uk,
