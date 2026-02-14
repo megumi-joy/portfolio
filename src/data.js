@@ -145,8 +145,8 @@ const BASE_PROFILE = {
         },
         {
             title: "VoicyGodot",
-            description: "real-time voice changer and audio processing tool built with Godot.",
-            thumbnail: "/games/VoicyGodot/index.icon.png",
+            description: "Real-time voice changer and audio processing tool built with Godot.",
+            thumbnail: "/games/VoicyGodot/index.png",
             path: "/portfolio/games/VoicyGodot/index.html",
             tags: ["Godot", "Audio", "Tool"],
             status: "playable",
@@ -324,615 +324,791 @@ const TRANSLATIONS = {
     },
 };
 
-// Data Translations
-export const PROFILES = {
-    en: { ...BASE_PROFILE, ui: TRANSLATIONS.en },
-    es: {
-        name: "Anton",
-        title: "Tecnólogo Creativo e Ingeniero de Simulación",
-        about: "Ingeniero multidisciplinario especializado en simulaciones de alto rendimiento, herramientas de robótica y arquitectura de software escalable. Con una base sólida tanto en interfaces de hardware C++ como en sistemas web modernos, uno las limitaciones físicas con gemelos digitales. Historial comprobado en optimización de tuberías de renderizado, diseño de comportamientos de IA agéntica y automatización de flujos de trabajo dev-ops complejos.",
+// Magical / RPG Profile Data
+const MAGICAL_PROFILES = {
+    en: {
+        name: "Anton the Artificer",
+        title: "Grandmaster of Automata & Illusions",
+        about: "A wandering Sage of the Digital Realms, weaving spells of Logic and Light to breathe life into golem-constructs (robots) and conjure phantom worlds (simulations). Mastery over the arcane languages of C++ and Python allows for the bending of reality itself.",
+        stats: {
+            str: 12, // Physical / Hardware
+            dex: 16, // Coding Speed / Typing
+            con: 14, // Endurance / Debugging
+            int: 18, // Algorithms / Logic
+            wis: 16, // Architecture / Experience
+            cha: 10  // Leadership / Communication
+        },
         socials: SOCIALS,
-        skills: COMMON_SKILLS,
-        languages: COMMON_LANGUAGES,
-        education: [
-            {
-                institution: "Academia Estatal de Refrigeración de Odesa",
-                degree: "Máster en IA y Redes Neuronales",
-                period: "2018 - 2020",
-                location: "Odesa, Ucrania"
-            },
-            {
-                institution: "Academia Estatal de Refrigeración de Odesa",
-                degree: "Licenciatura en Sistemas de Control y Electrónica",
-                period: "2014 - 2018",
-                location: "Odesa, Ucrania"
-            }
+        games: PROFILES.serious.en.games, // Reuse games for now
+        inventory: [
+            { name: "Grimoire of C++", type: "Scroll", rarity: "Legendary", desc: "Grants control over hardware spirits." },
+            { name: "Staff of Pythonic Speed", type: "Staff", rarity: "Epic", desc: "Accelerates casting time of scripts." },
+            { name: "Amulet of Godot", type: "Accessory", rarity: "Rare", desc: "Enhances creation of 2D/3D illusions." },
+            { name: "Boots of Docker", type: "Footwear", rarity: "Uncommon", desc: "Allows travel between environments." }
         ],
-        experience: [
-            {
-                role: "Ingeniero de Simulación I+D",
-                company: "Freelance / Contrato",
-                period: "Presente",
-                description: "Diseño de entornos de simulación de alta fidelidad y sistemas en red.",
-                achievements: [
-                    "Arquitecto de un protocolo de red P2P personalizado sobre WebRTC/WebSocket para sincronización de estado de baja latencia en simulaciones distribuidas.",
-                    "Desarrollo de comportamientos de 'IA Agéntica' utilizando máquinas de estado jerárquicas y algoritmos de búsqueda de caminos.",
-                    "Implementación de tuberías CI/CD rigurosas para compilaciones multiplataforma, asegurando estabilidad en Linux, Windows y Web."
-                ],
-                technologies: ["C++", "Godot 4", "Networking", "Algoritmos de IA"]
-            },
-            {
-                role: "Ingeniero de Software de Simulación",
-                company: "EdTech / Sim Studio",
-                period: "2020 - 2022",
-                description: "Líder de ingeniería para un Simulador de Tráfico fotorrealista usado en entrenamiento de conductores.",
-                achievements: [
-                    "Ingeniería de una tubería de renderizado fotorrealista (Unity HDRP) procesando más de 500 escenarios dinámicos con estrictos presupuestos de tiempo de cuadro.",
-                    "Desarrollo de herramientas internas en C# para generación procedimental de entornos, reduciendo el tiempo de ensamblaje de escenas en ~70%.",
-                    "Optimización de cálculos físicos y transmisión de activos para mantener 60 FPS en hardware de gama media."
-                ],
-                technologies: ["C#", "Unity HDRP", "Generación Procedimental", "Optimización"]
-            },
-            {
-                role: "Ingeniero de Sistemas Full Stack",
-                company: "Varios Clientes",
-                period: "Reciente",
-                description: "Entrega de herramientas de procesamiento de datos de alto rendimiento y arquitecturas web.",
-                achievements: [
-                    "Construcción de un Panel de Datos en tiempo real visualizando más de 10k puntos de telemetría con latencia sub-segundo usando React y estructuras de datos optimizadas.",
-                    "Escritura de un backend asíncrono personalizado en Python (asyncio) manejando 200+ conexiones concurrentes con sobrecarga mínima.",
-                    "Contenerización de flujos de trabajo de implementación usando Docker y AWS, logrando 99.9% de tiempo de actividad para servicios críticos."
-                ],
-                technologies: ["Python (Asyncio)", "React", "Docker", "AWS", "Diseño de Sistemas"]
-            },
-            {
-                role: "Ingeniero de Sistemas Embebidos",
-                company: "Firma de Microelectrónica",
-                period: "Inicio de Carrera",
-                description: "Desarrollo de firmware y software para hardware de pruebas médicas.",
-                achievements: [
-                    "Programación de microcontroladores STM32/Arduino para adquisición precisa de datos de sensores en dispositivos médicos.",
-                    "Puente entre entradas de hardware y un visualizador Unity personalizado para retroalimentación del operador en tiempo real.",
-                    "Diseño de esquemas PCB y gestión de procesos de fabricación para corridas de prototipos."
-                ],
-                technologies: ["C++", "STM32", "C Embebido", "Diseño de PCB"]
-            }
+        quests: [
+            { name: "The Distributed Sync Ritual", desc: "Bound multiple realities together using the WebRTC weave.", reward: "Low Latency" },
+            { name: "Taming the HDRP Beast", desc: "Subdued the chaotic rendering demon to run at 60 FPS.", reward: "High Fidelity" },
+            { name: "Constructing the Brain", desc: "Imbued a golem with Agentic AI consciousness.", reward: "Autonomy" }
         ],
-        projects: [
-            {
-                title: "Prototipo de Motor Físico en Red",
-                description: "Un prototipo de investigación explorando sincronización física autoritativa del servidor y algoritmos de predicción del lado del cliente.",
-                featured: true,
-                tags: ["C++", "Networking", "Física"],
-                link: "https://megumi-joy.github.io/portfolio/"
-            },
-            {
-                title: "Herramienta de Vegetación Procedimental",
-                description: "Un plugin para automatizar la colocación de entornos a gran escala, utilizando hash espacial e instanciación de GPU para rendimiento.",
-                featured: true,
-                tags: ["C#", "Gráficos", "Herramientas"],
-                link: null
-            },
-            {
-                title: "Arquitectura de Inventario",
-                description: "Un diseño de sistema de inventario orientado a datos y eficiente en memoria que soporta composición compleja de ítems y serialización.",
-                featured: false,
-                tags: ["Estructuras de Datos", "Arquitectura"],
-                link: "https://github.com/aurorasunrisegames/InventorySystem"
-            }
+        ui: {
+            ...TRANSLATIONS.en,
+            resume: "Character Sheet",
+            download: "Scribe Scroll",
+            preview: "Scry",
+            source: "Runic Script",
+            contact: "Send Raven",
+            skillsTitle: "Arcane Masteries",
+            plansTitle: "Prophecies & Visions",
+            contactTitle: "Summon the Artificer",
+            contactText: "I await your summons to embark on a grand quest. Send word via raven or magical scrying mirror.",
+            contactButton: "Cast Message",
+            welcome: "Enter the Sanctum",
+            hello: "Greetings, I am",
+            prototypesTitle: "Magical Artifacts",
+            viewProject: "Inspect Artifact"
+        }
+    },
+    es: {
+        name: "Anton el Artífice",
+        title: "Gran Maestro de Autómatas e Ilusiones",
+        about: "Un Sabio errante de los Reinos Digitales, tejiendo hechizos de Lógica y Luz para dar vida a construcciones gólem (robots) y conjurar mundos fantasma (simulaciones). El dominio sobre los lenguajes arcanos de C++ y Python permite doblar la realidad misma.",
+        stats: {
+            str: 12,
+            dex: 16,
+            con: 14,
+            int: 18,
+            cha: 10
+        },
+        socials: SOCIALS,
+        games: PROFILES.serious.en.games,
+        inventory: [
+            { name: "Grimorio de C++", type: "Pergamino", rarity: "Legendario", desc: "Otorga control sobre espíritus de hardware." },
+            { name: "Bastón de Velocidad Pythonica", type: "Bastón", rarity: "Épico", desc: "Acelera el tiempo de lanzamiento de scripts." },
+            { name: "Amuleto de Godot", type: "Accesorio", rarity: "Raro", desc: "Mejora la creación de ilusiones 2D/3D." },
+            { name: "Botas de Docker", type: "Calzado", rarity: "Poco común", desc: "Permite viajar entre entornos." }
         ],
-        games: [
-            {
-                title: "Low-Poly City Delivery",
-                description: "Un juego de simulación de entrega ambientado en una ciudad low-poly.",
-                thumbnail: "/games/Low-Poly City Delivery/index.png",
-                path: "/portfolio/games/Low-Poly City Delivery/index.html",
-                tags: ["Godot", "Simulación", "WebGL"],
-                status: "playable",
-                gdd: {
-                    overview: "Entrega paquetes en una ciudad low-poly vibrante contra el reloj.",
-                    mechanics: ["Física de vehículos", "Sistema de recogida/entrega", "Sistema de temporizador"],
-                    features: ["Ciudad de mundo abierto", "IA de tráfico", "Accesorios destructibles"]
-                }
-            },
-            {
-                title: "Magic Balls Adventure",
-                description: "Una aventura mágica con rompecabezas basados en física.",
-                thumbnail: "/games/magicballsadventure/index.png",
-                path: "/portfolio/games/magicballsadventure/index.html",
-                tags: ["Godot", "Aventura", "WebGL"],
-                status: "playable",
-                gdd: {
-                    overview: "Resuelve acertijos físicos usando bolas mágicas con diferentes propiedades.",
-                    mechanics: ["Interacción física", "Transformación de bola", "Plataformas"],
-                    features: ["Diferentes tipos de bolas", "Niveles de rompecabezas", "Atmósfera mágica"]
-                }
-            },
-            {
-                title: "VoicyGodot",
-                description: "Cambiador de voz en tiempo real y herramienta de procesamiento de audio construida con Godot.",
-                thumbnail: "/games/VoicyGodot/index.icon.png",
-                path: "/portfolio/games/VoicyGodot/index.html",
-                tags: ["Godot", "Audio", "Herramienta"],
-                status: "playable",
-                gdd: {
-                    overview: "Herramienta de modulación de voz en tiempo real que se ejecuta completamente en el navegador usando Godot.",
-                    mechanics: ["Procesamiento de búfer de audio", "Cambio de tono", "Corrección de formantes"],
-                    features: ["Entrada de micrófono", "Efectos en tiempo real", "Visualizador"]
-                }
-            },
-            {
-                title: "Space Shooter",
-                description: "Clásico juego de disparos espacial arcade con gráficos modernos.",
-                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Space+Shooter",
-                path: null,
-                tags: ["Godot", "Arcade", "Desarrollando"],
-                status: "developing",
-                gdd: {
-                    overview: "Juego de disparos espacial de ritmo rápido donde defiendes contra oleadas de invasores alienígenas.",
-                    mechanics: ["Disparos", "Power-ups", "Oleadas de enemigos"],
-                    features: ["Peleas contra jefes", "Mejoras de nave", "Sistema de puntuación"]
-                }
-            },
-            {
-                title: "Karting",
-                description: "Juego de carreras de karts de alta velocidad con power-ups.",
-                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Karting",
-                path: null,
-                tags: ["Godot", "Carreras", "Desarrollando"],
-                status: "developing",
-                gdd: {
-                    overview: "Juego de carreras de karts competitivo con mecánicas de derrape y objetos.",
-                    mechanics: ["Derrape", "Uso de objetos", "Sistema de vueltas"],
-                    features: ["Múltiples pistas", "Selección de personajes", "Multijugador local"]
-                }
-            },
-            {
-                title: "Farming",
-                description: "Relajante juego de simulación y gestión de granjas.",
-                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Farming",
-                path: null,
-                tags: ["Godot", "Simulación", "Desarrollando"],
-                status: "developing",
-                gdd: {
-                    overview: "Gestiona tu granja, cultiva cosechas y cría animales en un ambiente acogedor.",
-                    mechanics: ["Plantación/Cosecha", "Gestión de inventario", "Ciclo día/noche"],
-                    features: ["Variedad de cultivos", "Cría de animales", "Sistema de mercado"]
-                }
-            }
+        quests: [
+            { name: "El Ritual de Sincronización Distribuida", desc: "Vinculó múltiples realidades usando el tejido WebRTC.", reward: "Baja Latencia" },
+            { name: "Domando a la Bestia HDRP", desc: "Sometió al demonio de renderizado caótico para correr a 60 FPS.", reward: "Alta Fidelidad" },
+            { name: "Construyendo el Cerebro", desc: "Imbuyó a un gólem con conciencia de IA Agéntica.", reward: "Autonomía" }
         ],
-        ui: TRANSLATIONS.es,
-        plans: {
-            title: "Hoja de Ruta y Foco Actual",
-            description: "En qué estoy trabajando actualmente y planeando para el futuro cercano.",
-            items: [
-                {
-                    status: "En Progreso",
-                    title: "Investigación Avanzada de IA Agéntica",
-                    description: "Explorando sistemas multi-agente y bucles de auto-mejora recursiva usando Godot y LLMs.",
-                    subItems: ["Implementando contexto de memoria", "Diseñando protocolos de uso de herramientas", "Pruebas en entornos 3D"],
-                    link: "https://github.com/aurorasunrisegames",
-                    date: "T1 2026"
-                },
-                {
-                    status: "Planeado",
-                    title: "Herramientas Godot Open Source",
-                    description: "Lanzamiento de utilidades GDScript para generación procedimental y comportamientos de IA.",
-                    date: "T2 2026"
-                },
-                {
-                    status: "Idea",
-                    title: "Portafolio Interactivo V2",
-                    description: "Gamificación de este portafolio donde los usuarios pueden caminar en un entorno 3D.",
-                    date: "Futuro"
-                }
-            ]
+        ui: {
+            ...TRANSLATIONS.es,
+            resume: "Hoja de Personaje",
+            download: "Escribir Pergamino",
+            preview: "Adivinar",
+            source: "Escritura Rúnica",
+            contact: "Enviar Cuervo",
+            skillsTitle: "Maestrías Arcanas",
+            plansTitle: "Profecías y Visiones",
+            contactTitle: "Invocar al Artífice",
+            contactText: "Espero tu invocación para embarcarme en una gran búsqueda. Envía noticias vía cuervo o espejo mágico de adivinación.",
+            contactButton: "Lanzar Mensaje",
+            welcome: "Entra al Santuario",
+            hello: "Saludos, soy",
+            prototypesTitle: "Artefactos Mágicos",
+            viewProject: "Inspeccionar Artefacto"
         }
     },
     ru: {
-        name: "Антон",
-        title: "Креативный Технолог и Инженер Симуляций",
-        about: "Мультидисциплинарный инженер, специализирующийся на высокопроизводительных симуляциях, инструментах для робототехники и масштабируемой архитектуре ПО. Обладая прочным фундаментом как в интерфейсах C++, так и в современных веб-системах, я объединяю физические ограничения с цифровыми двойниками. Доказанный опыт в оптимизации конвейеров рендеринга, проектировании поведения агентного ИИ и автоматизации сложных dev-ops процессов.",
+        name: "Антон Артефактор",
+        title: "Грандмастер Автоматонов и Иллюзий",
+        about: "Странствующий Мудрец Цифровых Царств, плетущий заклинания Логики и Света, чтобы вдохнуть жизнь в големов (роботов) и создавать призрачные миры (симуляции). Владение тайными языками C++ и Python позволяет изменять саму реальность.",
+        stats: {
+            str: 12,
+            dex: 16,
+            con: 14,
+            int: 18,
+            cha: 10
+        },
         socials: SOCIALS,
-        skills: COMMON_SKILLS,
-        languages: COMMON_LANGUAGES,
-        education: [
-            {
-                institution: "Одесская государственная академия холода",
-                degree: "Магистр в области ИИ и нейронных сетей",
-                period: "2018 - 2020",
-                location: "Одесса, Украина"
-            },
-            {
-                institution: "Одесская государственная академия холода",
-                degree: "Бакалавр в области систем управления и электроники",
-                period: "2014 - 2018",
-                location: "Одесса, Украина"
-            }
+        games: PROFILES.serious.en.games,
+        inventory: [
+            { name: "Гримуар C++", type: "Свиток", rarity: "Легендарный", desc: "Дарует контроль над духами железа." },
+            { name: "Посох Пиромантии (Python)", type: "Посох", rarity: "Эпический", desc: "Ускоряет время сотворения скриптов." },
+            { name: "Амулет Годо", type: "Аксессуар", rarity: "Редкий", desc: "Улучшает создание 2D/3D иллюзий." },
+            { name: "Сапоги Докера", type: "Обувь", rarity: "Необычный", desc: "Позволяет путешествовать между средами." }
         ],
-        experience: [
-            {
-                role: "R&D Инженер Симуляций",
-                company: "Фриланс / Контракт",
-                period: "Настоящее время",
-                description: "Проектирование высокоточных сред симуляции и сетевых систем.",
-                achievements: [
-                    "Архитектура кастомного P2P сетевого протокола через WebRTC/WebSocket для синхронизации состояния с низкой задержкой в распределенных симуляциях.",
-                    "Разработка поведения 'Агентного ИИ' с использованием иерархических конечных автоматов и алгоритмов поиска пути.",
-                    "Внедрение строгих CI/CD пайплайнов для кроссплатформенных сборок, обеспечение стабильности на Linux, Windows и Web."
-                ],
-                technologies: ["C++", "Godot 4", "Networking", "AI Algorithms"]
-            },
-            {
-                role: "Инженер ПО для Симуляций",
-                company: "EdTech / Sim Studio",
-                period: "2020 - 2022",
-                description: "Ведущий инженер фотореалистичного симулятора трафика для обучения водителей.",
-                achievements: [
-                    "Разработка конвейера фотореалистичного рендеринга (Unity HDRP), обрабатывающего 500+ динамических сценариев со строгим бюджетом времени кадра.",
-                    "Создание внутренних инструментов на C# для процедурной генерации окружения, сократившее время сборки сцен на ~70%.",
-                    "Оптимизация физических вычислений и стриминга ассетов для поддержки 60 FPS на среднем оборудовании."
-                ],
-                technologies: ["C#", "Unity HDRP", "Procedural Generation", "Optimization"]
-            },
-            {
-                role: "Full Stack Системный Инженер",
-                company: "Разные Клиенты",
-                period: "Недавнее",
-                description: "Разработка высокопроизводительных инструментов обработки данных и веб-архитектур.",
-                achievements: [
-                    "Создание Real-time дашборда данных, визуализирующего 10k+ точек телеметрии с задержкой менее секунды (React).",
-                    "Написание кастомного асинхронного бэкенда на Python (asyncio), обрабатывающего 200+ одновременных подключений с минимальными накладными расходами.",
-                    "Контейнеризация процессов развертывания с использованием Docker и AWS, достижение 99.9% аптайма для критических сервисов."
-                ],
-                technologies: ["Python (Asyncio)", "React", "Docker", "AWS", "Systems Design"]
-            },
-            {
-                role: "Инженер Встроенных Систем",
-                company: "Микроэлектроника",
-                period: "Начало Карьеры",
-                description: "Разработка прошивок и ПО для медицинского испытательного оборудования.",
-                achievements: [
-                    "Программирование микроконтроллеров STM32/Arduino для точного сбора данных с датчиков в медицинских устройствах.",
-                    "Связывание аппаратных входов с кастомным Unity визуализатором для обратной связи оператора в реальном времени.",
-                    "Проектирование печатных плат (PCB) и управление процессами производства прототипов."
-                ],
-                technologies: ["C++", "STM32", "Embedded C", "PCB Design"]
-            }
+        quests: [
+            { name: "Ритуал Распределенной Синхронизации", desc: "Связал несколько реальностей вместе, используя плетение WebRTC.", reward: "Низкая Задержка" },
+            { name: "Укрощение Чудовища HDRP", desc: "Покорил демона хаотичного рендеринга для работы на 60 FPS.", reward: "Высокая Точность" },
+            { name: "Создание Разума", desc: "Наделил голема сознанием Агентного ИИ.", reward: "Автономия" }
         ],
-        projects: [
-            {
-                title: "Прототип Сетевого Физического Движка",
-                description: "Исследовательский прототип, исследующий серверно-авторитетную синхронизацию физики и алгоритмы предсказания на стороне клиента.",
-                featured: true,
-                tags: ["C++", "Networking", "Physics"],
-                link: "https://megumi-joy.github.io/portfolio/"
-            },
-            {
-                title: "Инструмент Процедурной Растительности",
-                description: "Плагин для автоматизации размещения окружения большого масштаба, использующий пространственное хеширование и GPU инстансинг.",
-                featured: true,
-                tags: ["C#", "Graphics", "Tooling"],
-                link: null
-            },
-            {
-                title: "Архитектура Инвентаря",
-                description: "Дизайн системы инвентаря, ориентированный на данные и эффективный по памяти, поддерживающий сложную композицию предметов и сериализацию.",
-                featured: false,
-                tags: ["Data Structures", "Architecture"],
-                link: "https://github.com/aurorasunrisegames/InventorySystem"
-            }
-        ],
-        games: [
-            {
-                title: "Low-Poly City Delivery",
-                description: "Симулятор доставки в низкополигональном городе.",
-                thumbnail: "/games/Low-Poly City Delivery/index.png",
-                path: "/portfolio/games/Low-Poly City Delivery/index.html",
-                tags: ["Godot", "Симулятор", "WebGL"],
-                status: "playable",
-                gdd: {
-                    overview: "Доставляйте посылки в ярком низкополигональном городе на время.",
-                    mechanics: ["Физика транспорта", "Система подбора/доставки", "Таймер"],
-                    features: ["Открытый мир", "ИИ трафика", "Разрушаемые объекты"]
-                }
-            },
-            {
-                title: "Magic Balls Adventure",
-                description: "Волшебное приключение с физическими головоломками.",
-                thumbnail: "/games/magicballsadventure/index.png",
-                path: "/portfolio/games/magicballsadventure/index.html",
-                tags: ["Godot", "Приключения", "WebGL"],
-                status: "playable",
-                gdd: {
-                    overview: "Решайте физические головоломки, используя волшебные шары с различными свойствами.",
-                    mechanics: ["Физическое взаимодействие", "Трансформация шара", "Платформинг"],
-                    features: ["Разные виды шаров", "Уровни-головоломки", "Волшебная атмосфера"]
-                }
-            },
-            {
-                title: "VoicyGodot",
-                description: "Инструмент для изменения голоса и обработки аудио в реальном времени, созданный на Godot.",
-                thumbnail: "/games/VoicyGodot/index.icon.png",
-                path: "/portfolio/games/VoicyGodot/index.html",
-                tags: ["Godot", "Аудио", "Инструмент"],
-                status: "playable",
-                gdd: {
-                    overview: "Инструмент модуляции голоса в реальном времени, работающий полностью в браузере на Godot.",
-                    mechanics: ["Обработка аудиобуфера", "Изменение высоты тона", "Коррекция формант"],
-                    features: ["Вход с микрофона", "Эффекты в реальном времени", "Визуализатор"]
-                }
-            },
-            {
-                title: "Space Shooter",
-                description: "Классический аркадный космический шутер с современной графикой.",
-                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Space+Shooter",
-                path: null,
-                tags: ["Godot", "Аркада", "В разработке"],
-                status: "developing",
-                gdd: {
-                    overview: "Динамичный космический шутер, где вы защищаетесь от волн инопланетных захватчиков.",
-                    mechanics: ["Стрельба", "Усиления", "Волны врагов"],
-                    features: ["Битвы с боссами", "Улучшения корабля", "Система очков"]
-                }
-            },
-            {
-                title: "Karting",
-                description: "Высокоскоростные гонки на картингах с усилениями.",
-                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Karting",
-                path: null,
-                tags: ["Godot", "Гонки", "В разработке"],
-                status: "developing",
-                gdd: {
-                    overview: "Соревновательные гонки на картингах с механикой дрифта и предметами.",
-                    mechanics: ["Дрифт", "Использование предметов", "Система кругов"],
-                    features: ["Множество трасс", "Выбор персонажа", "Локальный мультиплеер"]
-                }
-            },
-            {
-                title: "Farming",
-                description: "Расслабляющий симулятор фермы и управления.",
-                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Farming",
-                path: null,
-                tags: ["Godot", "Симулятор", "В разработке"],
-                status: "developing",
-                gdd: {
-                    overview: "Управляйте своей фермой, выращивайте урожай и разводите животных в уютной обстановке.",
-                    mechanics: ["Посадка/Сбор урожая", "Управление инвентарем", "Цикл день/ночь"],
-                    features: ["Разнообразие культур", "Животноводство", "Рыночная система"]
-                }
-            }
-        ],
-        ui: TRANSLATIONS.ru,
-        plans: {
-            title: "Планы и Текущий Фокус",
-            description: "Над чем я сейчас работаю и что планирую на ближайшее будущее.",
-            items: [
-                {
-                    status: "В процессе",
-                    title: "Исследования Агентного ИИ",
-                    description: "Изучение мульти-агентных систем и циклов рекурсивного самосовершенствования с использованием Godot и LLM.",
-                    subItems: ["Реализация контекста памяти", "Проектирование протоколов использования инструментов", "Тестирование в 3D средах"],
-                    link: "https://github.com/aurorasunrisegames",
-                    date: "1 кв. 2026"
-                },
-                {
-                    status: "Запланировано",
-                    title: "Open Source Инструменты Godot",
-                    description: "Релиз набора утилит GDScript для процедурной генерации и поведения ИИ.",
-                    date: "2 кв. 2026"
-                },
-                {
-                    status: "Идея",
-                    title: "Интерактивное Портфолио V2",
-                    description: "Геймификация этого портфолио: прогулка по 3D окружению для просмотра проектов.",
-                    date: "Будущее"
-                }
-            ]
+        ui: {
+            ...TRANSLATIONS.ru,
+            resume: "Лист Персонажа",
+            download: "Начертать Свиток",
+            preview: "Прорицание",
+            source: "Рунная Вязь",
+            contact: "Послать Ворона",
+            skillsTitle: "Тайные Мастерства",
+            plansTitle: "Пророчества и Видения",
+            contactTitle: "Призвать Артефактора",
+            contactText: "Я жду вашего призыва, чтобы отправиться в великое приключение. Пришлите весточку с вороном или через магическое зеркало.",
+            contactButton: "Сотворить Послание",
+            welcome: "Войти в Святилище",
+            hello: "Приветствую, я",
+            prototypesTitle: "Магические Артефакты",
+            viewProject: "Осмотреть Артефакт"
         }
     },
     uk: {
-        name: "Антон",
-        title: "Креативний Технолог та Інженер Симуляцій",
-        about: "Мультидисциплінарний інженер, що спеціалізується на високопродуктивних симуляціях, інструментах для робототехніки та масштабованій архітектурі ПЗ. Маючи міцний фундамент як у інтерфейсах C++, так і в сучасних веб-системах, я поєдную фізичні обмеження з цифровими двійниками. Доведений досвід у оптимізації конвеєрів рендерингу, проектуванні поведінки агентного ШІ та автоматизації складних dev-ops процесів.",
+        name: "Антон Артефактор",
+        title: "Грандмайстер Автоматонів та Ілюзій",
+        about: "Мандрівний Мудрець Цифрових Царств, що плете закляття Логіки та Світла, аби вдихнути життя в големів (роботів) та створювати примарні світи (симуляції). Володіння таємними мовами C++ та Python дозволяє змінювати саму реальність.",
+        stats: {
+            str: 12,
+            dex: 16,
+            con: 14,
+            int: 18,
+            cha: 10
+        },
         socials: SOCIALS,
-        skills: COMMON_SKILLS,
-        languages: COMMON_LANGUAGES,
-        education: [
-            {
-                institution: "Одеська державна академія холоду",
-                degree: "Магістр у галузі ШІ та нейронних мереж",
-                period: "2018 - 2020",
-                location: "Одеса, Україна"
-            },
-            {
-                institution: "Одеська державна академія холоду",
-                degree: "Бакалавр у галузі систем управління та електроніки",
-                period: "2014 - 2018",
-                location: "Одеса, Україна"
-            }
+        games: PROFILES.serious.en.games,
+        inventory: [
+            { name: "Гримуар C++", type: "Сувій", rarity: "Легендарний", desc: "Дарує контроль над духами заліза." },
+            { name: "Посох Піромантії (Python)", type: "Посох", rarity: "Епічний", desc: "Прискорює час створення скриптів." },
+            { name: "Амулет Годо", type: "Аксесуар", rarity: "Рідкісний", desc: "Покращує створення 2D/3D ілюзій." },
+            { name: "Чоботи Докера", type: "Взуття", rarity: "Незвичайний", desc: "Дозволяє подорожувати між середовищами." }
         ],
-        experience: [
-            {
-                role: "R&D Інженер Симуляцій",
-                company: "Фріланс / Контракт",
-                period: "Теперішній час",
-                description: "Проектування високоточних середовищ симуляції та мережевих систем.",
-                achievements: [
-                    "Архітектура кастомного P2P мережевого протоколу через WebRTC/WebSocket для синхронізації стану з низькою затримкою в розподілених симуляціях.",
-                    "Розробка поведінки 'Агентного ШІ' з використанням ієрархічних скінченних автоматів та алгоритмів пошуку шляху.",
-                    "Впровадження суворих CI/CD пайплайнів для кросплатформних збірок, забезпечення стабільності на Linux, Windows та Web."
-                ],
-                technologies: ["C++", "Godot 4", "Networking", "AI Algorithms"]
-            },
-            {
-                role: "Інженер ПЗ для Симуляцій",
-                company: "EdTech / Sim Studio",
-                period: "2020 - 2022",
-                description: "Провідний інженер фотореалістичного симулятора трафіку для навчання водіїв.",
-                achievements: [
-                    "Інженерія конвеєра фотореалістичного рендерингу (Unity HDRP), що обробляє 500+ динамічних сценаріїв із суворим бюджетом часу кадру.",
-                    "Розробка внутрішніх інструментів на C# для процедурної генерації оточення, що скоротило час складання сцен на ~70%.",
-                    "Оптимізація фізичних обчислень та стрімінгу асетів для підтримки 60 FPS на середньому обладнанні."
-                ],
-                technologies: ["C#", "Unity HDRP", "Procedural Generation", "Optimization"]
-            },
-            {
-                role: "Full Stack Системний Інженер",
-                company: "Різні Клієнти",
-                period: "Нещодавнє",
-                description: "Розробка високопродуктивних інструментів обробки даних та веб-архітектур.",
-                achievements: [
-                    "Створення Real-time дашборду даних, що візуалізує 10k+ точок телеметрії із затримкою менше секунди (React).",
-                    "Написання кастомного асинхронного бекенду на Python (asyncio), що обробляє 200+ одночасних підключень з мінімальними накладними витратами.",
-                    "Контейнеризація процесів розгортання з використанням Docker та AWS, досягнення 99.9% аптайму для критичних сервісів."
-                ],
-                technologies: ["Python (Asyncio)", "React", "Docker", "AWS", "Systems Design"]
-            },
-            {
-                role: "Інженер Вбудованих Систем",
-                company: "Мікроелектроніка",
-                period: "Початок Кар'єри",
-                description: "Розробка прошивок та ПЗ для медичного випробувального обладнання.",
-                achievements: [
-                    "Програмування мікроконтролерів STM32/Arduino для точного збору даних з датчиків у медичних пристроях.",
-                    "Зв'язування апаратних входів з кастомним Unity візуалізатором для зворотного зв'язку оператора в реальному часі.",
-                    "Проектування друкованих плат (PCB) та управління процесами виробництва прототипів."
-                ],
-                technologies: ["C++", "STM32", "Embedded C", "PCB Design"]
-            }
+        quests: [
+            { name: "Ритуал Розподіленої Синхронізації", desc: "Зв'язав кілька реальностей разом, використовуючи плетіння WebRTC.", reward: "Низька Затримка" },
+            { name: "Приборкання Чудовиська HDRP", desc: "Підкорив демона хаотичного рендерингу для роботи на 60 FPS.", reward: "Висока Точність" },
+            { name: "Створення Розуму", desc: "Наділив голема свідомістю Агентного ШІ.", reward: "Автономія" }
         ],
-        projects: [
-            {
-                title: "Прототип Мережевого Фізичного Рушія",
-                description: "Дослідницький прототип, що досліджує серверно-авторитетну синхронізацію фізики та алгоритми передбачення на стороні клієнта.",
-                featured: true,
-                tags: ["C++", "Networking", "Physics"],
-                link: "https://megumi-joy.github.io/portfolio/"
-            },
-            {
-                title: "Інструмент Процедурної Рослинності",
-                description: "Плагін для автоматизації розміщення оточення великого масштабу, що використовує просторове хешування та GPU інстансинг.",
-                featured: true,
-                tags: ["C#", "Graphics", "Tooling"],
-                link: null
-            },
-            {
-                title: "Архітектура Інвентарю",
-                description: "Дизайн системи інвентарю, орієнтований на дані та ефективний по пам'яті, що підтримує складну композицію предметів та серіалізацію.",
-                featured: false,
-                tags: ["Data Structures", "Architecture"],
-                link: "https://github.com/aurorasunrisegames/InventorySystem"
-            }
-        ],
-        games: [
-            {
-                title: "Low-Poly City Delivery",
-                description: "Симулятор доставки у низькополігональному місті.",
-                thumbnail: "/games/Low-Poly City Delivery/index.png",
-                path: "/portfolio/games/Low-Poly City Delivery/index.html",
-                tags: ["Godot", "Симулятор", "WebGL"],
-                status: "playable",
-                gdd: {
-                    overview: "Доставляйте посилки у яскравому низькополігональному місті на час.",
-                    mechanics: ["Фізика транспорту", "Система підбору/доставки", "Таймер"],
-                    features: ["Відкритий світ", "ШІ трафіку", "Руйнівні об'єкти"]
-                }
-            },
-            {
-                title: "Magic Balls Adventure",
-                description: "Магічна пригода з фізичними головоломками.",
-                thumbnail: "/games/magicballsadventure/index.png",
-                path: "/portfolio/games/magicballsadventure/index.html",
-                tags: ["Godot", "Пригоди", "WebGL"],
-                status: "playable",
-                gdd: {
-                    overview: "Вирішуйте фізичні головоломки, використовуючи магічні кулі з різними властивостями.",
-                    mechanics: ["Фізична взаємодія", "Трансформація кулі", "Платформінг"],
-                    features: ["Різні види куль", "Рівні-головоломки", "Магічна атмосфера"]
-                }
-            },
-            {
-                title: "VoicyGodot",
-                description: "Інструмент для зміни голосу та обробки аудіо в реальному часі, створений на Godot.",
-                thumbnail: "/games/VoicyGodot/index.icon.png",
-                path: "/portfolio/games/VoicyGodot/index.html",
-                tags: ["Godot", "Аудіо", "Інструмент"],
-                status: "playable",
-                gdd: {
-                    overview: "Інструмент модуляції голосу в реальному часі, що працює повністю в браузері на Godot.",
-                    mechanics: ["Обробка аудіобуферу", "Зміна висоти тону", "Корекція формант"],
-                    features: ["Вхід з мікрофона", "Ефекти в реальному часі", "Візуалізатор"]
-                }
-            },
-            {
-                title: "Space Shooter",
-                description: "Класичний аркадний космічний шутер із сучасною графікою.",
-                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Space+Shooter",
-                path: null,
-                tags: ["Godot", "Аркада", "В розробці"],
-                status: "developing",
-                gdd: {
-                    overview: "Динамічний космічний шутер, де ви захищаєтесь від хвиль інопланетних загарбників.",
-                    mechanics: ["Стрільба", "Посилення", "Хвилі ворогів"],
-                    features: ["Битви з босами", "Покращення корабля", "Система очків"]
-                }
-            },
-            {
-                title: "Karting",
-                description: "Високошвидкісні перегони на картингах з посиленнями.",
-                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Karting",
-                path: null,
-                tags: ["Godot", "Перегони", "В розробці"],
-                status: "developing",
-                gdd: {
-                    overview: "Змагальні перегони на картингах з механікою дрифту та предметами.",
-                    mechanics: ["Дрифт", "Використання предметів", "Система кіл"],
-                    features: ["Багато трас", "Вибір персонажа", "Локальний мультиплеєр"]
-                }
-            },
-            {
-                title: "Farming",
-                description: "Розслаблюючий симулятор ферми та управління.",
-                thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Farming",
-                path: null,
-                tags: ["Godot", "Симулятор", "В розробці"],
-                status: "developing",
-                gdd: {
-                    overview: "Керуйте своєю фермою, вирощуйте врожай та розводьте тварин у затишній обстановці.",
-                    mechanics: ["Садіння/Збір врожаю", "Управління інвентарем", "Цикл день/ніч"],
-                    features: ["Різноманітність культур", "Тваринництво", "Ринкова система"]
-                }
-            }
-        ],
-        ui: TRANSLATIONS.uk,
-        plans: {
-            title: "Плани та Поточний Фокус",
-            description: "Над чим я зараз працюю і що планую на найближче майбутнє.",
-            items: [
-                {
-                    status: "В процесі",
-                    title: "Дослідження Агентного ШІ",
-                    description: "Вивчення мульти-агентних систем та циклів рекурсивного самовдосконалення з використанням Godot та LLM.",
-                    subItems: ["Реалізація контексту пам'яті", "Проектування протоколів використання інструментів", "Тестування в 3D середовищах"],
-                    link: "https://github.com/aurorasunrisegames",
-                    date: "1 кв. 2026"
-                },
-                {
-                    status: "Заплановано",
-                    title: "Open Source Інструменти Godot",
-                    description: "Реліз набору утиліт GDScript для процедурної генерації та поведінки ШІ.",
-                    date: "2 кв. 2026"
-                },
-                {
-                    status: "Ідея",
-                    title: "Інтерактивне Портфоліо V2",
-                    description: "Гейміфікація цього портфоліо: прогулянка 3D оточенням для перегляду проектів.",
-                    date: "Майбутнє"
-                }
-            ]
+        ui: {
+            ...TRANSLATIONS.uk,
+            resume: "Лист Персонажа",
+            download: "Написати Сувій",
+            preview: "Віщування",
+            source: "Рунний Скрипт",
+            contact: "Надіслати Ворона",
+            skillsTitle: "Таємні Майстерності",
+            plansTitle: "Пророцтва та Видіння",
+            contactTitle: "Призвати Артефактора",
+            contactText: "Я чекаю вашого заклику, щоб вирушити у велику пригоду. Надішліть звістку з вороном або через магічне дзеркало.",
+            contactButton: "Створити Повідомлення",
+            welcome: "Увійти в Святилище",
+            hello: "Вітаю, я",
+            prototypesTitle: "Магічні Артефакти",
+            viewProject: "Оглянути Артефакт"
         }
-    }
+    },
+};
+
+// Data Translations
+export const PROFILES = {
+    serious: {
+        en: { ...BASE_PROFILE, ui: TRANSLATIONS.en },
+        es: {
+            name: "Anton",
+            title: "Tecnólogo Creativo e Ingeniero de Simulación",
+            about: "Ingeniero multidisciplinario especializado en simulaciones de alto rendimiento, herramientas de robótica y arquitectura de software escalable. Con una base sólida tanto en interfaces de hardware C++ como en sistemas web modernos, uno las limitaciones físicas con gemelos digitales. Historial comprobado en optimización de tuberías de renderizado, diseño de comportamientos de IA agéntica y automatización de flujos de trabajo dev-ops complejos.",
+            socials: SOCIALS,
+            skills: COMMON_SKILLS,
+            languages: COMMON_LANGUAGES,
+            education: [
+                {
+                    institution: "Academia Estatal de Refrigeración de Odesa",
+                    degree: "Máster en IA y Redes Neuronales",
+                    period: "2018 - 2020",
+                    location: "Odesa, Ucrania"
+                },
+                {
+                    institution: "Academia Estatal de Refrigeración de Odesa",
+                    degree: "Licenciatura en Sistemas de Control y Electrónica",
+                    period: "2014 - 2018",
+                    location: "Odesa, Ucrania"
+                }
+            ],
+            experience: [
+                {
+                    role: "Ingeniero de Simulación I+D",
+                    company: "Freelance / Contrato",
+                    period: "Presente",
+                    description: "Diseño de entornos de simulación de alta fidelidad y sistemas en red.",
+                    achievements: [
+                        "Arquitecto de un protocolo de red P2P personalizado sobre WebRTC/WebSocket para sincronización de estado de baja latencia en simulaciones distribuidas.",
+                        "Desarrollo de comportamientos de 'IA Agéntica' utilizando máquinas de estado jerárquicas y algoritmos de búsqueda de caminos.",
+                        "Implementación de tuberías CI/CD rigurosas para compilaciones multiplataforma, asegurando estabilidad en Linux, Windows y Web."
+                    ],
+                    technologies: ["C++", "Godot 4", "Networking", "Algoritmos de IA"]
+                },
+                {
+                    role: "Ingeniero de Software de Simulación",
+                    company: "EdTech / Sim Studio",
+                    period: "2020 - 2022",
+                    description: "Líder de ingeniería para un Simulador de Tráfico fotorrealista usado en entrenamiento de conductores.",
+                    achievements: [
+                        "Ingeniería de una tubería de renderizado fotorrealista (Unity HDRP) procesando más de 500 escenarios dinámicos con estrictos presupuestos de tiempo de cuadro.",
+                        "Desarrollo de herramientas internas en C# para generación procedimental de entornos, reduciendo el tiempo de ensamblaje de escenas en ~70%.",
+                        "Optimización de cálculos físicos y transmisión de activos para mantener 60 FPS en hardware de gama media."
+                    ],
+                    technologies: ["C#", "Unity HDRP", "Generación Procedimental", "Optimización"]
+                },
+                {
+                    role: "Ingeniero de Sistemas Full Stack",
+                    company: "Varios Clientes",
+                    period: "Reciente",
+                    description: "Entrega de herramientas de procesamiento de datos de alto rendimiento y arquitecturas web.",
+                    achievements: [
+                        "Construcción de un Panel de Datos en tiempo real visualizando más de 10k puntos de telemetría con latencia sub-segundo usando React y estructuras de datos optimizadas.",
+                        "Escritura de un backend asíncrono personalizado en Python (asyncio) manejando 200+ conexiones concurrentes con sobrecarga mínima.",
+                        "Contenerización de flujos de trabajo de implementación usando Docker y AWS, logrando 99.9% de tiempo de actividad para servicios críticos."
+                    ],
+                    technologies: ["Python (Asyncio)", "React", "Docker", "AWS", "Diseño de Sistemas"]
+                },
+                {
+                    role: "Ingeniero de Sistemas Embebidos",
+                    company: "Firma de Microelectrónica",
+                    period: "Inicio de Carrera",
+                    description: "Desarrollo de firmware y software para hardware de pruebas médicas.",
+                    achievements: [
+                        "Programación de microcontroladores STM32/Arduino para adquisición precisa de datos de sensores en dispositivos médicos.",
+                        "Puente entre entradas de hardware y un visualizador Unity personalizado para retroalimentación del operador en tiempo real.",
+                        "Diseño de esquemas PCB y gestión de procesos de fabricación para corridas de prototipos."
+                    ],
+                    technologies: ["C++", "STM32", "C Embebido", "Diseño de PCB"]
+                }
+            ],
+            projects: [
+                {
+                    title: "Prototipo de Motor Físico en Red",
+                    description: "Un prototipo de investigación explorando sincronización física autoritativa del servidor y algoritmos de predicción del lado del cliente.",
+                    featured: true,
+                    tags: ["C++", "Networking", "Física"],
+                    link: "https://megumi-joy.github.io/portfolio/"
+                },
+                {
+                    title: "Herramienta de Vegetación Procedimental",
+                    description: "Un plugin para automatizar la colocación de entornos a gran escala, utilizando hash espacial e instanciación de GPU para rendimiento.",
+                    featured: true,
+                    tags: ["C#", "Gráficos", "Herramientas"],
+                    link: null
+                },
+                {
+                    title: "Arquitectura de Inventario",
+                    description: "Un diseño de sistema de inventario orientado a datos y eficiente en memoria que soporta composición compleja de ítems y serialización.",
+                    featured: false,
+                    tags: ["Estructuras de Datos", "Arquitectura"],
+                    link: "https://github.com/aurorasunrisegames/InventorySystem"
+                }
+            ],
+            games: [
+                {
+                    title: "Low-Poly City Delivery",
+                    description: "Un juego de simulación de entrega ambientado en una ciudad low-poly.",
+                    thumbnail: "/games/Low-Poly City Delivery/index.png",
+                    path: "/portfolio/games/Low-Poly City Delivery/index.html",
+                    tags: ["Godot", "Simulación", "WebGL"],
+                    status: "playable",
+                    gdd: {
+                        overview: "Entrega paquetes en una ciudad low-poly vibrante contra el reloj.",
+                        mechanics: ["Física de vehículos", "Sistema de recogida/entrega", "Sistema de temporizador"],
+                        features: ["Ciudad de mundo abierto", "IA de tráfico", "Accesorios destructibles"]
+                    }
+                },
+                {
+                    title: "Magic Balls Adventure",
+                    description: "Una aventura mágica con rompecabezas basados en física.",
+                    thumbnail: "/games/magicballsadventure/index.png",
+                    path: "/portfolio/games/magicballsadventure/index.html",
+                    tags: ["Godot", "Aventura", "WebGL"],
+                    status: "playable",
+                    gdd: {
+                        overview: "Resuelve acertijos físicos usando bolas mágicas con diferentes propiedades.",
+                        mechanics: ["Interacción física", "Transformación de bola", "Plataformas"],
+                        features: ["Diferentes tipos de bolas", "Niveles de rompecabezas", "Atmósfera mágica"]
+                    }
+                },
+                {
+                    title: "VoicyGodot",
+                    description: "Cambiador de voz en tiempo real y herramienta de procesamiento de audio construida con Godot.",
+                    thumbnail: "/games/VoicyGodot/index.png",
+                    path: "/portfolio/games/VoicyGodot/index.html",
+                    tags: ["Godot", "Audio", "Herramienta"],
+                    status: "playable",
+                    gdd: {
+                        overview: "Herramienta de modulación de voz en tiempo real que se ejecuta completamente en el navegador usando Godot.",
+                        mechanics: ["Procesamiento de búfer de audio", "Cambio de tono", "Corrección de formantes"],
+                        features: ["Entrada de micrófono", "Efectos en tiempo real", "Visualizador"]
+                    }
+                },
+                {
+                    title: "Space Shooter",
+                    description: "Clásico juego de disparos espacial arcade con gráficos modernos.",
+                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Space+Shooter",
+                    path: null,
+                    tags: ["Godot", "Arcade", "Desarrollando"],
+                    status: "developing",
+                    gdd: {
+                        overview: "Juego de disparos espacial de ritmo rápido donde defiendes contra oleadas de invasores alienígenas.",
+                        mechanics: ["Disparos", "Power-ups", "Oleadas de enemigos"],
+                        features: ["Peleas contra jefes", "Mejoras de nave", "Sistema de puntuación"]
+                    }
+                },
+                {
+                    title: "Karting",
+                    description: "Juego de carreras de karts de alta velocidad con power-ups.",
+                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Karting",
+                    path: null,
+                    tags: ["Godot", "Carreras", "Desarrollando"],
+                    status: "developing",
+                    gdd: {
+                        overview: "Juego de carreras de karts competitivo con mecánicas de derrape y objetos.",
+                        mechanics: ["Derrape", "Uso de objetos", "Sistema de vueltas"],
+                        features: ["Múltiples pistas", "Selección de personajes", "Multijugador local"]
+                    }
+                },
+                {
+                    title: "Farming",
+                    description: "Relajante juego de simulación y gestión de granjas.",
+                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Farming",
+                    path: null,
+                    tags: ["Godot", "Simulación", "Desarrollando"],
+                    status: "developing",
+                    gdd: {
+                        overview: "Gestiona tu granja, cultiva cosechas y cría animales en un ambiente acogedor.",
+                        mechanics: ["Plantación/Cosecha", "Gestión de inventario", "Ciclo día/noche"],
+                        features: ["Variedad de cultivos", "Cría de animales", "Sistema de mercado"]
+                    }
+                }
+            ],
+            ui: TRANSLATIONS.es,
+            plans: {
+                title: "Hoja de Ruta y Foco Actual",
+                description: "En qué estoy trabajando actualmente y planeando para el futuro cercano.",
+                items: [
+                    {
+                        status: "En Progreso",
+                        title: "Investigación Avanzada de IA Agéntica",
+                        description: "Explorando sistemas multi-agente y bucles de auto-mejora recursiva usando Godot y LLMs.",
+                        subItems: ["Implementando contexto de memoria", "Diseñando protocolos de uso de herramientas", "Pruebas en entornos 3D"],
+                        link: "https://github.com/aurorasunrisegames",
+                        date: "T1 2026"
+                    },
+                    {
+                        status: "Planeado",
+                        title: "Herramientas Godot Open Source",
+                        description: "Lanzamiento de utilidades GDScript para generación procedimental y comportamientos de IA.",
+                        date: "T2 2026"
+                    },
+                    {
+                        status: "Idea",
+                        title: "Portafolio Interactivo V2",
+                        description: "Gamificación de este portafolio donde los usuarios pueden caminar en un entorno 3D.",
+                        date: "Futuro"
+                    }
+                ]
+            }
+        },
+        ru: {
+            name: "Антон",
+            title: "Креативный Технолог и Инженер Симуляций",
+            about: "Мультидисциплинарный инженер, специализирующийся на высокопроизводительных симуляциях, инструментах для робототехники и масштабируемой архитектуре ПО. Обладая прочным фундаментом как в интерфейсах C++, так и в современных веб-системах, я объединяю физические ограничения с цифровыми двойниками. Доказанный опыт в оптимизации конвейеров рендеринга, проектировании поведения агентного ИИ и автоматизации сложных dev-ops процессов.",
+            socials: SOCIALS,
+            skills: COMMON_SKILLS,
+            languages: COMMON_LANGUAGES,
+            education: [
+                {
+                    institution: "Одесская государственная академия холода",
+                    degree: "Магистр в области ИИ и нейронных сетей",
+                    period: "2018 - 2020",
+                    location: "Одесса, Украина"
+                },
+                {
+                    institution: "Одесская государственная академия холода",
+                    degree: "Бакалавр в области систем управления и электроники",
+                    period: "2014 - 2018",
+                    location: "Одесса, Украина"
+                }
+            ],
+            experience: [
+                {
+                    role: "R&D Инженер Симуляций",
+                    company: "Фриланс / Контракт",
+                    period: "Настоящее время",
+                    description: "Проектирование высокоточных сред симуляции и сетевых систем.",
+                    achievements: [
+                        "Архитектура кастомного P2P сетевого протокола через WebRTC/WebSocket для синхронизации состояния с низкой задержкой в распределенных симуляциях.",
+                        "Разработка поведения 'Агентного ИИ' с использованием иерархических конечных автоматов и алгоритмов поиска пути.",
+                        "Внедрение строгих CI/CD пайплайнов для кроссплатформенных сборок, обеспечение стабильности на Linux, Windows и Web."
+                    ],
+                    technologies: ["C++", "Godot 4", "Networking", "AI Algorithms"]
+                },
+                {
+                    role: "Инженер ПО для Симуляций",
+                    company: "EdTech / Sim Studio",
+                    period: "2020 - 2022",
+                    description: "Ведущий инженер фотореалистичного симулятора трафика для обучения водителей.",
+                    achievements: [
+                        "Разработка конвейера фотореалистичного рендеринга (Unity HDRP), обрабатывающего 500+ динамических сценариев со строгим бюджетом времени кадра.",
+                        "Создание внутренних инструментов на C# для процедурной генерации окружения, сократившее время сборки сцен на ~70%.",
+                        "Оптимизация физических вычислений и стриминга ассетов для поддержки 60 FPS на среднем оборудовании."
+                    ],
+                    technologies: ["C#", "Unity HDRP", "Procedural Generation", "Optimization"]
+                },
+                {
+                    role: "Full Stack Системный Инженер",
+                    company: "Разные Клиенты",
+                    period: "Недавнее",
+                    description: "Разработка высокопроизводительных инструментов обработки данных и веб-архитектур.",
+                    achievements: [
+                        "Создание Real-time дашборда данных, визуализирующего 10k+ точек телеметрии с задержкой менее секунды (React).",
+                        "Написание кастомного асинхронного бэкенда на Python (asyncio), обрабатывающего 200+ одновременных подключений с минимальными накладными расходами.",
+                        "Контейнеризация процессов развертывания с использованием Docker и AWS, достижение 99.9% аптайма для критических сервисов."
+                    ],
+                    technologies: ["Python (Asyncio)", "React", "Docker", "AWS", "Systems Design"]
+                },
+                {
+                    role: "Инженер Встроенных Систем",
+                    company: "Микроэлектроника",
+                    period: "Начало Карьеры",
+                    description: "Разработка прошивок и ПО для медицинского испытательного оборудования.",
+                    achievements: [
+                        "Программирование микроконтроллеров STM32/Arduino для точного сбора данных с датчиков в медицинских устройствах.",
+                        "Связывание аппаратных входов с кастомным Unity визуализатором для обратной связи оператора в реальном времени.",
+                        "Проектирование печатных плат (PCB) и управление процессами производства прототипов."
+                    ],
+                    technologies: ["C++", "STM32", "Embedded C", "PCB Design"]
+                }
+            ],
+            projects: [
+                {
+                    title: "Прототип Сетевого Физического Движка",
+                    description: "Исследовательский прототип, исследующий серверно-авторитетную синхронизацию физики и алгоритмы предсказания на стороне клиента.",
+                    featured: true,
+                    tags: ["C++", "Networking", "Physics"],
+                    link: "https://megumi-joy.github.io/portfolio/"
+                },
+                {
+                    title: "Инструмент Процедурной Растительности",
+                    description: "Плагин для автоматизации размещения окружения большого масштаба, использующий пространственное хеширование и GPU инстансинг.",
+                    featured: true,
+                    tags: ["C#", "Graphics", "Tooling"],
+                    link: null
+                },
+                {
+                    title: "Архитектура Инвентаря",
+                    description: "Дизайн системы инвентаря, ориентированный на данные и эффективный по памяти, поддерживающий сложную композицию предметов и сериализацию.",
+                    featured: false,
+                    tags: ["Data Structures", "Architecture"],
+                    link: "https://github.com/aurorasunrisegames/InventorySystem"
+                }
+            ],
+            games: [
+                {
+                    title: "Low-Poly City Delivery",
+                    description: "Симулятор доставки в низкополигональном городе.",
+                    thumbnail: "/games/Low-Poly City Delivery/index.png",
+                    path: "/portfolio/games/Low-Poly City Delivery/index.html",
+                    tags: ["Godot", "Симулятор", "WebGL"],
+                    status: "playable",
+                    gdd: {
+                        overview: "Доставляйте посылки в ярком низкополигональном городе на время.",
+                        mechanics: ["Физика транспорта", "Система подбора/доставки", "Таймер"],
+                        features: ["Открытый мир", "ИИ трафика", "Разрушаемые объекты"]
+                    }
+                },
+                {
+                    title: "Magic Balls Adventure",
+                    description: "Волшебное приключение с физическими головоломками.",
+                    thumbnail: "/games/magicballsadventure/index.png",
+                    path: "/portfolio/games/magicballsadventure/index.html",
+                    tags: ["Godot", "Приключения", "WebGL"],
+                    status: "playable",
+                    gdd: {
+                        overview: "Решайте физические головоломки, используя волшебные шары с различными свойствами.",
+                        mechanics: ["Физическое взаимодействие", "Трансформация шара", "Платформинг"],
+                        features: ["Разные виды шаров", "Уровни-головоломки", "Волшебная атмосфера"]
+                    }
+                },
+                {
+                    title: "VoicyGodot",
+                    description: "Инструмент для изменения голоса и обработки аудио в реальном времени, созданный на Godot.",
+                    thumbnail: "/games/VoicyGodot/index.png",
+                    path: "/portfolio/games/VoicyGodot/index.html",
+                    tags: ["Godot", "Аудио", "Инструмент"],
+                    status: "playable",
+                    gdd: {
+                        overview: "Инструмент модуляции голоса в реальном времени, работающий полностью в браузере на Godot.",
+                        mechanics: ["Обработка аудиобуфера", "Изменение высоты тона", "Коррекция формант"],
+                        features: ["Вход с микрофона", "Эффекты в реальном времени", "Визуализатор"]
+                    }
+                },
+                {
+                    title: "Space Shooter",
+                    description: "Классический аркадный космический шутер с современной графикой.",
+                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Space+Shooter",
+                    path: null,
+                    tags: ["Godot", "Аркада", "В разработке"],
+                    status: "developing",
+                    gdd: {
+                        overview: "Динамичный космический шутер, где вы защищаетесь от волн инопланетных захватчиков.",
+                        mechanics: ["Стрельба", "Усиления", "Волны врагов"],
+                        features: ["Битвы с боссами", "Улучшения корабля", "Система очков"]
+                    }
+                },
+                {
+                    title: "Karting",
+                    description: "Высокоскоростные гонки на картингах с усилениями.",
+                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Karting",
+                    path: null,
+                    tags: ["Godot", "Гонки", "В разработке"],
+                    status: "developing",
+                    gdd: {
+                        overview: "Соревновательные гонки на картингах с механикой дрифта и предметами.",
+                        mechanics: ["Дрифт", "Использование предметов", "Система кругов"],
+                        features: ["Множество трасс", "Выбор персонажа", "Локальный мультиплеер"]
+                    }
+                },
+                {
+                    title: "Farming",
+                    description: "Расслабляющий симулятор фермы и управления.",
+                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Farming",
+                    path: null,
+                    tags: ["Godot", "Симулятор", "В разработке"],
+                    status: "developing",
+                    gdd: {
+                        overview: "Управляйте своей фермой, выращивайте урожай и разводите животных в уютной обстановке.",
+                        mechanics: ["Посадка/Сбор урожая", "Управление инвентарем", "Цикл день/ночь"],
+                        features: ["Разнообразие культур", "Животноводство", "Рыночная система"]
+                    }
+                }
+            ],
+            ui: TRANSLATIONS.ru,
+            plans: {
+                title: "Планы и Текущий Фокус",
+                description: "Над чем я сейчас работаю и что планирую на ближайшее будущее.",
+                items: [
+                    {
+                        status: "В процессе",
+                        title: "Исследования Агентного ИИ",
+                        description: "Изучение мульти-агентных систем и циклов рекурсивного самосовершенствования с использованием Godot и LLM.",
+                        subItems: ["Реализация контекста памяти", "Проектирование протоколов использования инструментов", "Тестирование в 3D средах"],
+                        link: "https://github.com/aurorasunrisegames",
+                        date: "1 кв. 2026"
+                    },
+                    {
+                        status: "Запланировано",
+                        title: "Open Source Инструменты Godot",
+                        description: "Релиз набора утилит GDScript для процедурной генерации и поведения ИИ.",
+                        date: "2 кв. 2026"
+                    },
+                    {
+                        status: "Идея",
+                        title: "Интерактивное Портфолио V2",
+                        description: "Геймификация этого портфолио: прогулка по 3D окружению для просмотра проектов.",
+                        date: "Будущее"
+                    }
+                ]
+            }
+        },
+        uk: {
+            name: "Антон",
+            title: "Креативний Технолог та Інженер Симуляцій",
+            about: "Мультидисциплінарний інженер, що спеціалізується на високопродуктивних симуляціях, інструментах для робототехніки та масштабованій архітектурі ПЗ. Маючи міцний фундамент як у інтерфейсах C++, так і в сучасних веб-системах, я поєдную фізичні обмеження з цифровими двійниками. Доведений досвід у оптимізації конвеєрів рендерингу, проектуванні поведінки агентного ШІ та автоматизації складних dev-ops процесів.",
+            socials: SOCIALS,
+            skills: COMMON_SKILLS,
+            languages: COMMON_LANGUAGES,
+            education: [
+                {
+                    institution: "Одеська державна академія холоду",
+                    degree: "Магістр у галузі ШІ та нейронних мереж",
+                    period: "2018 - 2020",
+                    location: "Одеса, Україна"
+                },
+                {
+                    institution: "Одеська державна академія холоду",
+                    degree: "Бакалавр у галузі систем управління та електроніки",
+                    period: "2014 - 2018",
+                    location: "Одеса, Україна"
+                }
+            ],
+            experience: [
+                {
+                    role: "R&D Інженер Симуляцій",
+                    company: "Фріланс / Контракт",
+                    period: "Теперішній час",
+                    description: "Проектування високоточних середовищ симуляції та мережевих систем.",
+                    achievements: [
+                        "Архітектура кастомного P2P мережевого протоколу через WebRTC/WebSocket для синхронізації стану з низькою затримкою в розподілених симуляціях.",
+                        "Розробка поведінки 'Агентного ШІ' з використанням ієрархічних скінченних автоматів та алгоритмів пошуку шляху.",
+                        "Впровадження суворих CI/CD пайплайнів для кросплатформних збірок, забезпечення стабільності на Linux, Windows та Web."
+                    ],
+                    technologies: ["C++", "Godot 4", "Networking", "AI Algorithms"]
+                },
+                {
+                    role: "Інженер ПЗ для Симуляцій",
+                    company: "EdTech / Sim Studio",
+                    period: "2020 - 2022",
+                    description: "Провідний інженер фотореалістичного симулятора трафіку для навчання водіїв.",
+                    achievements: [
+                        "Інженерія конвеєра фотореалістичного рендерингу (Unity HDRP), що обробляє 500+ динамічних сценаріїв із суворим бюджетом часу кадру.",
+                        "Розробка внутрішніх інструментів на C# для процедурної генерації оточення, що скоротило час складання сцен на ~70%.",
+                        "Оптимізація фізичних обчислень та стрімінгу асетів для підтримки 60 FPS на середньому обладнанні."
+                    ],
+                    technologies: ["C#", "Unity HDRP", "Procedural Generation", "Optimization"]
+                },
+                {
+                    role: "Full Stack Системний Інженер",
+                    company: "Різні Клієнти",
+                    period: "Нещодавнє",
+                    description: "Розробка високопродуктивних інструментів обробки даних та веб-архітектур.",
+                    achievements: [
+                        "Створення Real-time дашборду даних, що візуалізує 10k+ точок телеметрії із затримкою менше секунди (React).",
+                        "Написання кастомного асинхронного бекенду на Python (asyncio), що обробляє 200+ одночасних підключень з мінімальними накладними витратами.",
+                        "Контейнеризація процесів розгортання з використанням Docker та AWS, досягнення 99.9% аптайму для критичних сервісів."
+                    ],
+                    technologies: ["Python (Asyncio)", "React", "Docker", "AWS", "Systems Design"]
+                },
+                {
+                    role: "Інженер Вбудованих Систем",
+                    company: "Мікроелектроніка",
+                    period: "Початок Кар'єри",
+                    description: "Розробка прошивок та ПЗ для медичного випробувального обладнання.",
+                    achievements: [
+                        "Програмування мікроконтролерів STM32/Arduino для точного збору даних з датчиків у медичних пристроях.",
+                        "Зв'язування апаратних входів з кастомним Unity візуалізатором для зворотного зв'язку оператора в реальному часі.",
+                        "Проектування друкованих плат (PCB) та управління процесами виробництва прототипів."
+                    ],
+                    technologies: ["C++", "STM32", "Embedded C", "PCB Design"]
+                }
+            ],
+            projects: [
+                {
+                    title: "Прототип Мережевого Фізичного Рушія",
+                    description: "Дослідницький прототип, що досліджує серверно-авторитетну синхронізацію фізики та алгоритми передбачення на стороні клієнта.",
+                    featured: true,
+                    tags: ["C++", "Networking", "Physics"],
+                    link: "https://megumi-joy.github.io/portfolio/"
+                },
+                {
+                    title: "Інструмент Процедурної Рослинності",
+                    description: "Плагін для автоматизації розміщення оточення великого масштабу, що використовує просторове хешування та GPU інстансинг.",
+                    featured: true,
+                    tags: ["C#", "Graphics", "Tooling"],
+                    link: null
+                },
+                {
+                    title: "Архітектура Інвентарю",
+                    description: "Дизайн системи інвентарю, орієнтований на дані та ефективний по пам'яті, що підтримує складну композицію предметів та серіалізацію.",
+                    featured: false,
+                    tags: ["Data Structures", "Architecture"],
+                    link: "https://github.com/aurorasunrisegames/InventorySystem"
+                }
+            ],
+            games: [
+                {
+                    title: "Low-Poly City Delivery",
+                    description: "Симулятор доставки у низькополігональному місті.",
+                    thumbnail: "/games/Low-Poly City Delivery/index.png",
+                    path: "/portfolio/games/Low-Poly City Delivery/index.html",
+                    tags: ["Godot", "Симулятор", "WebGL"],
+                    status: "playable",
+                    gdd: {
+                        overview: "Доставляйте посилки у яскравому низькополігональному місті на час.",
+                        mechanics: ["Фізика транспорту", "Система підбору/доставки", "Таймер"],
+                        features: ["Відкритий світ", "ШІ трафіку", "Руйнівні об'єкти"]
+                    }
+                },
+                {
+                    title: "Magic Balls Adventure",
+                    description: "Магічна пригода з фізичними головоломками.",
+                    thumbnail: "/games/magicballsadventure/index.png",
+                    path: "/portfolio/games/magicballsadventure/index.html",
+                    tags: ["Godot", "Пригоди", "WebGL"],
+                    status: "playable",
+                    gdd: {
+                        overview: "Вирішуйте фізичні головоломки, використовуючи магічні кулі з різними властивостями.",
+                        mechanics: ["Фізична взаємодія", "Трансформація кулі", "Платформінг"],
+                        features: ["Різні види куль", "Рівні-головоломки", "Магічна атмосфера"]
+                    }
+                },
+                {
+                    title: "VoicyGodot",
+                    description: "Інструмент для зміни голосу та обробки аудіо в реальному часі, створений на Godot.",
+                    thumbnail: "/games/VoicyGodot/index.png",
+                    path: "/portfolio/games/VoicyGodot/index.html",
+                    tags: ["Godot", "Аудіо", "Інструмент"],
+                    status: "playable",
+                    gdd: {
+                        overview: "Інструмент модуляції голосу в реальному часі, що працює повністю в браузері на Godot.",
+                        mechanics: ["Обробка аудіобуферу", "Зміна висоти тону", "Корекція формант"],
+                        features: ["Вхід з мікрофона", "Ефекти в реальному часі", "Візуалізатор"]
+                    }
+                },
+                {
+                    title: "Space Shooter",
+                    description: "Класичний аркадний космічний шутер із сучасною графікою.",
+                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Space+Shooter",
+                    path: null,
+                    tags: ["Godot", "Аркада", "В розробці"],
+                    status: "developing",
+                    gdd: {
+                        overview: "Динамічний космічний шутер, де ви захищаєтесь від хвиль інопланетних загарбників.",
+                        mechanics: ["Стрільба", "Посилення", "Хвилі ворогів"],
+                        features: ["Битви з босами", "Покращення корабля", "Система очків"]
+                    }
+                },
+                {
+                    title: "Karting",
+                    description: "Високошвидкісні перегони на картингах з посиленнями.",
+                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Karting",
+                    path: null,
+                    tags: ["Godot", "Перегони", "В розробці"],
+                    status: "developing",
+                    gdd: {
+                        overview: "Змагальні перегони на картингах з механікою дрифту та предметами.",
+                        mechanics: ["Дрифт", "Використання предметів", "Система кіл"],
+                        features: ["Багато трас", "Вибір персонажа", "Локальний мультиплеєр"]
+                    }
+                },
+                {
+                    title: "Farming",
+                    description: "Розслаблюючий симулятор ферми та управління.",
+                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Farming",
+                    path: null,
+                    tags: ["Godot", "Симулятор", "В розробці"],
+                    status: "developing",
+                    gdd: {
+                        overview: "Керуйте своєю фермою, вирощуйте врожай та розводьте тварин у затишній обстановці.",
+                        mechanics: ["Садіння/Збір врожаю", "Управління інвентарем", "Цикл день/ніч"],
+                        features: ["Різноманітність культур", "Тваринництво", "Ринкова система"]
+                    }
+                }
+            ],
+            ui: TRANSLATIONS.uk,
+            plans: {
+                title: "Плани та Поточний Фокус",
+                description: "Над чим я зараз працюю і що планую на найближче майбутнє.",
+                items: [
+                    {
+                        status: "В процесі",
+                        title: "Дослідження Агентного ШІ",
+                        description: "Вивчення мульти-агентних систем та циклів рекурсивного самовдосконалення з використанням Godot та LLM.",
+                        subItems: ["Реалізація контексту пам'яті", "Проектування протоколів використання інструментів", "Тестування в 3D середовищах"],
+                        link: "https://github.com/aurorasunrisegames",
+                        date: "1 кв. 2026"
+                    },
+                    {
+                        status: "Заплановано",
+                        title: "Open Source Інструменти Godot",
+                        description: "Реліз набору утиліт GDScript для процедурної генерації та поведінки ШІ.",
+                        date: "2 кв. 2026"
+                    },
+                    {
+                        status: "Ідея",
+                        title: "Інтерактивне Портфоліо V2",
+                        description: "Гейміфікація цього портфоліо: прогулянка 3D оточенням для перегляду проектів.",
+                        date: "Майбутнє"
+                    }
+                ]
+            }
+        }
+    },
+    magical: MAGICAL_PROFILES
 };
 
 // Default export if needed

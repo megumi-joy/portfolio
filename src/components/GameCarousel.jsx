@@ -1,102 +1,109 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
-import { Gamepad2, Play } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Play, BookOpen, ChevronRight, ChevronLeft } from 'lucide-react';
 
 const GameCarousel = ({ games, onSelectGame, activePath }) => {
     const containerRef = useRef(null);
-    const [width, setWidth] = useState(0);
+    const [index, setIndex] = useState(0);
 
-    // Calculate drag constraints
-    useEffect(() => {
-        if (containerRef.current) {
-            setWidth(containerRef.current.scrollWidth - containerRef.current.offsetWidth);
-        }
-    }, [games]);
+    const next = () => setIndex((prev) => (prev + 1) % games.length);
+    const prev = () => setIndex((prev) => (prev - 1 + games.length) % games.length);
 
     return (
-        <div className="w-full relative py-8 overflow-hidden select-none touch-pan-y">
-            <motion.div
-                ref={containerRef}
-                className="flex gap-6 px-4 cursor-grab active:cursor-grabbing"
-                drag="x"
-                dragConstraints={{ right: 0, left: -width }}
-                whileTap={{ cursor: "grabbing" }}
-            >
-                {games.map((game, index) => {
-                    const isSelected = activePath === game.path;
-
-                    return (
-                        <motion.div
-                            key={index}
-                            className={`
-                                min-w-[280px] md:min-w-[320px] 
-                                h-[400px] 
-                                rounded-xl 
-                                overflow-hidden 
-                                relative 
-                                border 
-                                transition-all
-                                group
-                                ${isSelected
-                                    ? 'border-blue-500 shadow-[0_0_20px_rgba(59,130,246,0.5)] scale-105 z-10'
-                                    : 'border-white/10 hover:border-white/30 bg-white/5 opacity-80 hover:opacity-100 hover:scale-102'}
-                            `}
-                            onClick={() => onSelectGame(game)}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                        >
+        <div className="w-full relative py-4 group">
+            {/* Main Carousel Area */}
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-white/10 shadow-2xl bg-slate-900">
+                <motion.div
+                    className="flex h-full w-full"
+                    animate={{ x: `-${index * 100}%` }}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                >
+                    {games.map((game, i) => (
+                        <div key={i} className="min-w-full h-full relative p-4 flex flex-col">
                             {/* Thumbnail */}
-                            <div className="h-1/2 overflow-hidden relative">
+                            <div className="h-1/2 rounded-xl overflow-hidden relative shadow-inner">
                                 <img
                                     src={game.thumbnail}
                                     alt={game.title}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-60"></div>
+                                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
 
-                                {isSelected && (
-                                    <div className="absolute top-2 right-2 bg-blue-500 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1 font-bold shadow-lg">
-                                        <Play size={10} fill="currentColor" /> ACTIVE
+                                {game.status === 'playable' && (
+                                    <div className="absolute top-3 right-3 px-2 py-1 bg-green-500 text-white text-[10px] font-black rounded-lg shadow-lg flex items-center gap-1 animate-pulse">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-white" /> PLAYABLE
                                     </div>
                                 )}
                             </div>
 
-                            {/* Content */}
-                            <div className="p-4 flex flex-col h-1/2 bg-gray-900/90 backdrop-blur-sm">
+                            {/* Info */}
+                            <div className="flex-1 mt-4 flex flex-col">
                                 <div className="flex gap-2 mb-2 flex-wrap">
-                                    {game.tags.map(tag => (
-                                        <span key={tag} className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-white/10 text-gray-300">
+                                    {game.tags.slice(0, 2).map(tag => (
+                                        <span key={tag} className="text-[9px] uppercase font-bold tracking-tighter px-2 py-0.5 rounded-md bg-white/5 text-slate-400 border border-white/5">
                                             {tag}
                                         </span>
                                     ))}
                                 </div>
 
-                                <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
+                                <h3 className="text-xl font-black text-white leading-tight mb-2 truncate">
                                     {game.title}
                                 </h3>
 
-                                <p className="text-sm text-gray-400 line-clamp-3 mb-4 flex-grow">
+                                <p className="text-xs text-slate-400 line-clamp-2 mb-4 grow">
                                     {game.description}
                                 </p>
 
-                                <button
-                                    className={`
-                                        w-full py-2 rounded-lg font-bold text-sm flex items-center justify-center gap-2 transition-colors
-                                        bg-white/10 hover:bg-white/20 text-white border border-white/5
-                                    `}
-                                >
-                                    See Details
-                                </button>
+                                {/* Buttons - Highly Distinct */}
+                                <div className="mt-auto">
+                                    {game.status === 'playable' ? (
+                                        <button
+                                            onClick={() => onSelectGame(game)}
+                                            className="w-full py-3 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-white rounded-xl font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all hover:scale-[1.02] active:scale-95"
+                                        >
+                                            <Play size={16} fill="white" />
+                                            PLAY NOW
+                                        </button>
+                                    ) : (
+                                        <button
+                                            onClick={() => onSelectGame(game)}
+                                            className="w-full py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 rounded-xl font-black text-sm flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95"
+                                        >
+                                            <BookOpen size={16} className="text-purple-400" />
+                                            SEE DETAILS
+                                        </button>
+                                    )}
+                                </div>
                             </div>
-                        </motion.div>
-                    );
-                })}
-            </motion.div>
+                        </div>
+                    ))}
+                </motion.div>
 
-            {/* Scroll indicators */}
-            <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black to-transparent pointer-events-none md:block hidden" />
-            <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-black to-transparent pointer-events-none md:block hidden" />
+                {/* Navigation Arrows - Visible on hover */}
+                <button
+                    onClick={prev}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 text-white opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center hover:bg-cyan-500/50"
+                >
+                    <ChevronLeft size={20} />
+                </button>
+                <button
+                    onClick={next}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 text-white opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center hover:bg-cyan-500/50"
+                >
+                    <ChevronRight size={20} />
+                </button>
+            </div>
+
+            {/* Pagination Dots */}
+            <div className="flex justify-center gap-1.5 mt-3">
+                {games.map((_, i) => (
+                    <button
+                        key={i}
+                        onClick={() => setIndex(i)}
+                        className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${index === i ? 'bg-cyan-400 w-4' : 'bg-slate-700 hover:bg-slate-600'}`}
+                    />
+                ))}
+            </div>
         </div>
     );
 };

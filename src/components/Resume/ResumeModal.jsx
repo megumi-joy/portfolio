@@ -1,35 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, FileText, Download, Copy, Check, Code, User, Eye, Terminal, ExternalLink, Printer, FileType } from 'lucide-react';
+import { X, FileText, Download, Copy, Check, Eye, Terminal, ExternalLink, FileType, Sparkles } from 'lucide-react';
 import { PDFDownloadLink, BlobProvider, PDFViewer } from '@react-pdf/renderer';
 import ResumePDF from './ResumePDF';
 import { generateLatex } from './latexGenerator';
-import { useLanguage } from '../LanguageContext'; // Updated import
+import { useLanguage } from '../LanguageContext';
+import AdventurerCard from './AdventurerCard';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-latex';
 import 'prismjs/themes/prism-tomorrow.css';
 
 const ResumeModal = ({ isOpen, onClose }) => {
-    const { language, setLanguage, activeProfile } = useLanguage(); // Global state
+    const { language, setLanguage, activeProfile, tone } = useLanguage();
     const [copied, setCopied] = useState(false);
     const [viewMode, setViewMode] = useState('text'); // 'text' | 'latex' | 'pdf'
-    const [isMobileWebView, setIsMobileWebView] = useState(false);
 
-    // activeProfile is now directly from context, no need to derive it
-    const latexSource = generateLatex(activeProfile);
+    const isMagical = tone === 'magical';
 
-    useEffect(() => {
-        // Simple User Agent check for common in-app browsers (Telegram, Instagram, FB, etc.)
+    const [isMobileWebView] = useState(() => {
+        if (typeof window === 'undefined') return false;
         const ua = navigator.userAgent || navigator.vendor || window.opera;
-        const inApp = /Telegram|Instagram|FBAN|FBAV|Line|Whale|Snapchat/i.test(ua);
-        setIsMobileWebView(inApp);
-    }, []);
+        return /Telegram|Instagram|FBAN|FBAV|Line|Whale|Snapchat/i.test(ua);
+    });
+
+    const latexSource = !isMagical ? generateLatex(activeProfile) : '';
 
     useEffect(() => {
-        if (isOpen && viewMode === 'latex') {
+        if (isOpen && viewMode === 'latex' && !isMagical) {
             Prism.highlightAll();
         }
-    }, [isOpen, viewMode]);
+    }, [isOpen, viewMode, isMagical]);
 
     const handleCopy = () => {
         navigator.clipboard.writeText(latexSource);
@@ -59,8 +59,8 @@ const ResumeModal = ({ isOpen, onClose }) => {
                         <div className="flex items-center justify-between p-4 border-b border-slate-800 bg-slate-900/50">
                             <div className="flex items-center gap-4">
                                 <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                                    <FileText className="text-cyan-400" size={20} />
-                                    Resume
+                                    {isMagical ? <Sparkles className="text-purple-400" size={20} /> : <FileText className="text-cyan-400" size={20} />}
+                                    {activeProfile.ui?.resume || "Resume"}
                                 </h2>
 
                                 {/* Language Switcher */}
@@ -69,34 +69,36 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                         <button
                                             key={lang}
                                             onClick={() => setLanguage(lang)}
-                                            className={`px-2 py-1 rounded-md text-xs font-bold uppercase transition-all ${language === lang ? 'bg-cyan-600 text-white' : 'text-slate-400 hover:text-slate-200'}`}
+                                            className={`px-2 py-1 rounded-md text-xs font-bold uppercase transition-all ${language === lang ? (isMagical ? 'bg-purple-600 text-white' : 'bg-cyan-600 text-white') : 'text-slate-400 hover:text-slate-200'}`}
                                         >
                                             {lang}
                                         </button>
                                     ))}
                                 </div>
 
-                                {/* View Toggle */}
-                                <div className="bg-slate-800 p-1 rounded-lg flex gap-1 overflow-x-auto">
-                                    <button
-                                        onClick={() => setViewMode('text')}
-                                        className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${viewMode === 'text' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
-                                    >
-                                        <Eye size={14} /> Preview
-                                    </button>
-                                    <button
-                                        onClick={() => setViewMode('pdf')}
-                                        className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${viewMode === 'pdf' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
-                                    >
-                                        <FileType size={14} /> PDF Viewer
-                                    </button>
-                                    <button
-                                        onClick={() => setViewMode('latex')}
-                                        className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${viewMode === 'latex' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
-                                    >
-                                        <Terminal size={14} /> LaTeX Source
-                                    </button>
-                                </div>
+                                {/* View Toggle - Only show if NOT magical */}
+                                {!isMagical && (
+                                    <div className="bg-slate-800 p-1 rounded-lg flex gap-1 overflow-x-auto">
+                                        <button
+                                            onClick={() => setViewMode('text')}
+                                            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${viewMode === 'text' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
+                                        >
+                                            <Eye size={14} /> Preview
+                                        </button>
+                                        <button
+                                            onClick={() => setViewMode('pdf')}
+                                            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${viewMode === 'pdf' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
+                                        >
+                                            <FileType size={14} /> PDF Viewer
+                                        </button>
+                                        <button
+                                            onClick={() => setViewMode('latex')}
+                                            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${viewMode === 'latex' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
+                                        >
+                                            <Terminal size={14} /> LaTeX Source
+                                        </button>
+                                    </div>
+                                )}
                             </div>
 
                             <button
@@ -111,225 +113,233 @@ const ResumeModal = ({ isOpen, onClose }) => {
                             {/* Main Content Area */}
                             <div className="flex-1 p-0 md:border-r border-slate-800 flex flex-col min-h-[300px] overflow-hidden bg-slate-950">
 
-                                {isMobileWebView && (
+                                {isMobileWebView && !isMagical && (
                                     <div className="bg-yellow-900/30 border-b border-yellow-700/50 p-2 text-center text-[10px] text-yellow-200">
                                         ⚠️ In-app browser detected. For best results (downloading PDF), please open in <b>Chrome</b>, <b>Safari</b>, or your system browser.
                                     </div>
                                 )}
 
-                                {viewMode === 'latex' ? (
-                                    <div className="flex-1 flex flex-col h-full overflow-hidden">
-                                        <div className="p-3 bg-slate-900/50 border-b border-slate-800 flex justify-between items-center shrink-0">
-                                            <span className="text-xs font-mono text-slate-500 uppercase tracking-wider">LaTeX Source ({language.toUpperCase()})</span>
-                                            <button
-                                                onClick={handleCopy}
-                                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 transition-colors"
-                                            >
-                                                {copied ? <Check size={12} className="text-green-400" /> : <Copy size={12} />}
-                                                {copied ? 'Copied' : 'Copy Code'}
-                                            </button>
-                                        </div>
-                                        <div className="flex-1 overflow-auto custom-scrollbar">
-                                            <pre className="language-latex !m-0 !bg-transparent !p-6" style={{ fontSize: '0.85rem' }}>
-                                                <code>{latexSource}</code>
-                                            </pre>
-                                        </div>
-                                    </div>
-                                ) : viewMode === 'pdf' ? (
-                                    <div className="flex-1 flex flex-col h-full bg-slate-800">
-                                        <PDFViewer className="w-full h-full border-none" showToolbar={true}>
-                                            <ResumePDF profile={activeProfile} />
-                                        </PDFViewer>
+                                {isMagical ? (
+                                    <div className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar bg-slate-900 flex justify-center items-start">
+                                        <AdventurerCard profile={activeProfile} />
                                     </div>
                                 ) : (
-                                    <div className="flex-1 overflow-y-auto p-8 custom-scrollbar bg-white text-slate-900 font-sans">
-                                        <div className="max-w-3xl mx-auto space-y-8">
-                                            {/* Header */}
-                                            <div className="text-center space-y-2 pb-6 border-b-2 border-slate-900">
-                                                <h1 className="text-4xl font-extrabold uppercase tracking-tight text-slate-900">{activeProfile.name}</h1>
-                                                <div className="text-sm font-medium text-slate-600 flex flex-wrap justify-center gap-x-4">
-                                                    <span>{activeProfile.title}</span>
-                                                    <span className="text-slate-300">|</span>
-                                                    <span>{activeProfile.location}</span>
-                                                    <span className="text-slate-300">|</span>
-                                                    <a href={`mailto:${activeProfile.socials.email}`} className="hover:text-cyan-700 transition-colors">{activeProfile.socials.email}</a>
+                                    <>
+                                        {viewMode === 'latex' ? (
+                                            <div className="flex-1 flex flex-col h-full overflow-hidden">
+                                                <div className="p-3 bg-slate-900/50 border-b border-slate-800 flex justify-between items-center shrink-0">
+                                                    <span className="text-xs font-mono text-slate-500 uppercase tracking-wider">LaTeX Source ({language.toUpperCase()})</span>
+                                                    <button
+                                                        onClick={handleCopy}
+                                                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 transition-colors"
+                                                    >
+                                                        {copied ? <Check size={12} className="text-green-400" /> : <Copy size={12} />}
+                                                        {copied ? 'Copied' : 'Copy Code'}
+                                                    </button>
+                                                </div>
+                                                <div className="flex-1 overflow-auto custom-scrollbar">
+                                                    <pre className="language-latex !m-0 !bg-transparent !p-6" style={{ fontSize: '0.85rem' }}>
+                                                        <code>{latexSource}</code>
+                                                    </pre>
                                                 </div>
                                             </div>
-
-                                            {/* Skills & Languages */}
-                                            <section>
-                                                <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Technical Skills</h2>
-                                                <div className="flex flex-wrap gap-2 mb-6">
-                                                    {activeProfile.skills.map(s => (
-                                                        <div key={s.name} className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 text-slate-700 rounded-lg border border-slate-200 shadow-sm text-sm font-medium">
-                                                            {s.icon && <s.icon size={14} className="text-cyan-600" />}
-                                                            {s.name}
+                                        ) : viewMode === 'pdf' ? (
+                                            <div className="flex-1 flex flex-col h-full bg-slate-800">
+                                                <PDFViewer className="w-full h-full border-none" showToolbar={true}>
+                                                    <ResumePDF profile={activeProfile} />
+                                                </PDFViewer>
+                                            </div>
+                                        ) : (
+                                            <div className="flex-1 overflow-y-auto p-8 custom-scrollbar bg-white text-slate-900 font-sans">
+                                                {/* Standard Resume View */}
+                                                <div className="max-w-3xl mx-auto space-y-8">
+                                                    {/* Header */}
+                                                    <div className="text-center space-y-2 pb-6 border-b-2 border-slate-900">
+                                                        <h1 className="text-4xl font-extrabold uppercase tracking-tight text-slate-900">{activeProfile.name}</h1>
+                                                        <div className="text-sm font-medium text-slate-600 flex flex-wrap justify-center gap-x-4">
+                                                            <span>{activeProfile.title}</span>
+                                                            <span className="text-slate-300">|</span>
+                                                            <span>{activeProfile.location}</span>
+                                                            <span className="text-slate-300">|</span>
+                                                            <a href={`mailto:${activeProfile.socials?.email}`} className="hover:text-cyan-700 transition-colors">{activeProfile.socials?.email}</a>
                                                         </div>
-                                                    ))}
-                                                </div>
+                                                    </div>
 
-                                                <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Languages</h2>
-                                                <div className="flex flex-wrap gap-4 text-sm">
-                                                    {activeProfile.languages.map(l => (
-                                                        <div key={l.name} className="flex items-center gap-2">
-                                                            <span className="font-bold text-slate-800">{l.name}:</span>
-                                                            <span className="text-slate-600 bg-slate-100 px-2 py-0.5 rounded text-xs">{l.level}</span>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </section>
-
-                                            {/* Education */}
-                                            {/* Experience */}
-                                            <section>
-                                                <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Experience</h2>
-                                                <div className="space-y-6">
-                                                    {activeProfile.experience.map((exp, idx) => (
-                                                        <div key={idx} className="group">
-                                                            <div className="flex justify-between items-baseline mb-1">
-                                                                <h3 className="font-bold text-lg text-slate-800">{exp.role}</h3>
-                                                                <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">{exp.period}</span>
-                                                            </div>
-                                                            <div className="text-sm font-semibold text-cyan-700 mb-2">{exp.company}</div>
-                                                            <ul className="space-y-1.5">
-                                                                {exp.achievements.map((ach, i) => (
-                                                                    <li key={i} className="text-sm text-slate-600 leading-relaxed pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-slate-400">
-                                                                        {ach}
-                                                                    </li>
-                                                                ))}
-                                                            </ul>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </section>
-
-                                            {/* Projects */}
-                                            <section>
-                                                <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Projects</h2>
-                                                <div className="grid gap-6">
-                                                    {activeProfile.projects.map((proj, idx) => (
-                                                        <div key={idx} className="group">
-                                                            <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                                                                <h3 className="font-bold text-base text-slate-800">{proj.title}</h3>
-                                                                <div className="flex gap-1">
-                                                                    {proj.tags.map(tag => (
-                                                                        <span key={tag} className="text-[10px] font-bold px-1.5 py-0.5 bg-slate-100 text-slate-500 rounded border border-slate-200">
-                                                                            {tag}
-                                                                        </span>
-                                                                    ))}
+                                                    {/* Skills & Languages */}
+                                                    <section>
+                                                        <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Technical Skills</h2>
+                                                        <div className="flex flex-wrap gap-2 mb-6">
+                                                            {activeProfile.skills?.map(s => (
+                                                                <div key={s.name} className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-50 text-slate-700 rounded-lg border border-slate-200 shadow-sm text-sm font-medium">
+                                                                    {s.icon && <s.icon size={14} className="text-cyan-600" />}
+                                                                    {s.name}
                                                                 </div>
-                                                            </div>
-                                                            <p className="text-sm text-slate-600 leading-relaxed">
-                                                                {proj.description}
-                                                            </p>
+                                                            ))}
                                                         </div>
-                                                    ))}
-                                                </div>
-                                            </section>
 
-                                            {/* Education (Moved Bottom) */}
-                                            <section>
-                                                <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Education</h2>
-                                                <div className="space-y-4">
-                                                    {activeProfile.education.map((edu, idx) => (
-                                                        <div key={idx} className="group">
-                                                            <div className="flex justify-between items-baseline mb-1">
-                                                                <h3 className="font-bold text-lg text-slate-800">{edu.institution}</h3>
-                                                                <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">{edu.period}</span>
-                                                            </div>
-                                                            <div className="text-sm font-semibold text-cyan-700">{edu.degree}</div>
-                                                            <div className="text-xs text-slate-500">{edu.location}</div>
+                                                        <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Languages</h2>
+                                                        <div className="flex flex-wrap gap-4 text-sm">
+                                                            {activeProfile.languages?.map(l => (
+                                                                <div key={l.name} className="flex items-center gap-2">
+                                                                    <span className="font-bold text-slate-800">{l.name}:</span>
+                                                                    <span className="text-slate-600 bg-slate-100 px-2 py-0.5 rounded text-xs">{l.level}</span>
+                                                                </div>
+                                                            ))}
                                                         </div>
-                                                    ))}
+                                                    </section>
+
+                                                    {/* Experience */}
+                                                    <section>
+                                                        <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Experience</h2>
+                                                        <div className="space-y-6">
+                                                            {activeProfile.experience?.map((exp, idx) => (
+                                                                <div key={idx} className="group">
+                                                                    <div className="flex justify-between items-baseline mb-1">
+                                                                        <h3 className="font-bold text-lg text-slate-800">{exp.role}</h3>
+                                                                        <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">{exp.period}</span>
+                                                                    </div>
+                                                                    <div className="text-sm font-semibold text-cyan-700 mb-2">{exp.company}</div>
+                                                                    <ul className="space-y-1.5">
+                                                                        {exp.achievements?.map((ach, i) => (
+                                                                            <li key={i} className="text-sm text-slate-600 leading-relaxed pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-slate-400">
+                                                                                {ach}
+                                                                            </li>
+                                                                        ))}
+                                                                    </ul>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    </section>
+
+                                                    {/* Projects */}
+                                                    <section>
+                                                        <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Projects</h2>
+                                                        <div className="grid gap-6">
+                                                            {activeProfile.projects?.map((proj, idx) => (
+                                                                <div key={idx} className="group">
+                                                                    <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                                                                        <h3 className="font-bold text-base text-slate-800">{proj.title}</h3>
+                                                                        <div className="flex gap-1">
+                                                                            {proj.tags?.map(tag => (
+                                                                                <span key={tag} className="text-[10px] font-bold px-1.5 py-0.5 bg-slate-100 text-slate-500 rounded border border-slate-200">
+                                                                                    {tag}
+                                                                                </span>
+                                                                            ))}
+                                                                        </div>
+                                                                    </div>
+                                                                    <p className="text-sm text-slate-600 leading-relaxed">
+                                                                        {proj.description}
+                                                                    </p>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    </section>
+
+                                                    {/* Education */}
+                                                    <section>
+                                                        <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Education</h2>
+                                                        <div className="space-y-4">
+                                                            {activeProfile.education?.map((edu, idx) => (
+                                                                <div key={idx} className="group">
+                                                                    <div className="flex justify-between items-baseline mb-1">
+                                                                        <h3 className="font-bold text-lg text-slate-800">{edu.institution}</h3>
+                                                                        <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">{edu.period}</span>
+                                                                    </div>
+                                                                    <div className="text-sm font-semibold text-cyan-700">{edu.degree}</div>
+                                                                    <div className="text-xs text-slate-500">{edu.location}</div>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    </section>
                                                 </div>
-                                            </section>
-
-
-                                        </div>
-                                    </div>
+                                            </div>
+                                        )}
+                                    </>
                                 )}
                             </div>
 
-                            {/* Sidebar / Actions */}
-                            <div className="w-full md:w-72 bg-slate-900 p-6 flex flex-col border-t md:border-t-0 md:border-l border-slate-800">
-                                <div className="space-y-6">
-                                    <div className="space-y-2">
-                                        <h3 className="text-white font-medium flex items-center gap-2">
-                                            <Download size={16} className="text-cyan-500" /> Export
-                                        </h3>
-                                        <p className="text-xs text-slate-400">
-                                            ATS-friendly PDF generated on the fly.
-                                        </p>
-                                    </div>
-
-                                    <div className="space-y-3">
-                                        {/* Helper alert for Download */}
-                                        {isMobileWebView && (
-                                            <p className="text-[10px] text-yellow-500 bg-yellow-900/20 p-2 rounded border border-yellow-700/30">
-                                                Note: Direct downloads may fail in {navigator.userAgent.match(/Telegram|Instagram/i) || "this app"}.
-                                                <br />Try the <b>Open in New Tab</b> button below.
+                            {/* Sidebar / Actions - ONLY SHOW IF NOT MAGICAL */}
+                            {!isMagical && (
+                                <div className="w-full md:w-72 bg-slate-900 p-6 flex flex-col border-t md:border-t-0 md:border-l border-slate-800">
+                                    <div className="space-y-6">
+                                        <div className="space-y-2">
+                                            <h3 className="text-white font-medium flex items-center gap-2">
+                                                <Download size={16} className="text-cyan-500" /> Export
+                                            </h3>
+                                            <p className="text-xs text-slate-400">
+                                                ATS-friendly PDF generated on the fly.
                                             </p>
-                                        )}
+                                        </div>
 
-                                        {/* Primary Download Button */}
-                                        <PDFDownloadLink
-                                            document={<ResumePDF profile={activeProfile} />}
-                                            fileName={`${activeProfile.name.replace(/\s+/g, '_')}_Resume_${language.toUpperCase()}.pdf`}
-                                            className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg font-bold text-sm transition-all hover:shadow-lg hover:shadow-cyan-500/20"
-                                        >
-                                            {({ blob, url, loading, error }) =>
-                                                loading ? 'Generating...' : (
-                                                    <>
-                                                        <Download size={16} />
-                                                        Download PDF
-                                                    </>
-                                                )
-                                            }
-                                        </PDFDownloadLink>
+                                        <div className="space-y-3">
+                                            {/* Helper alert for Download */}
+                                            {isMobileWebView && (
+                                                <p className="text-[10px] text-yellow-500 bg-yellow-900/20 p-2 rounded border border-yellow-700/30">
+                                                    Note: Direct downloads may fail in {navigator.userAgent.match(/Telegram|Instagram/i) || "this app"}.
+                                                    <br />Try the <b>Open in New Tab</b> button below.
+                                                </p>
+                                            )}
 
-                                        {/* Fallback for In-App Browsers */}
-                                        <BlobProvider document={<ResumePDF profile={activeProfile} />}>
-                                            {({ blob, url, loading, error }) => {
-                                                if (loading) return <div className="text-xs text-center text-slate-500">Loading URL...</div>;
-                                                return (
-                                                    <a
-                                                        href={url}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="flex items-center justify-center gap-2 w-full py-2 px-4 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg font-medium text-xs transition-colors"
-                                                    >
-                                                        <ExternalLink size={14} />
-                                                        Open in New Tab
-                                                    </a>
-                                                );
-                                            }}
-                                        </BlobProvider>
-                                    </div>
+                                            {/* Primary Download Button */}
+                                            <PDFDownloadLink
+                                                document={<ResumePDF profile={activeProfile} />}
+                                                fileName={`${activeProfile.name?.replace(/\s+/g, '_')}_Resume_${language.toUpperCase()}.pdf`}
+                                                className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg font-bold text-sm transition-all hover:shadow-lg hover:shadow-cyan-500/20"
+                                            >
+                                                {({ loading }) =>
+                                                    loading ? 'Generating...' : (
+                                                        <>
+                                                            <Download size={16} />
+                                                            Download PDF
+                                                        </>
+                                                    )
+                                                }
+                                            </PDFDownloadLink>
 
-                                    <div className="h-px bg-slate-800" />
+                                            {/* Fallback for In-App Browsers */}
+                                            <BlobProvider document={<ResumePDF profile={activeProfile} />}>
+                                                {({ url, loading }) => {
+                                                    if (loading) return <div className="text-xs text-center text-slate-500">Loading URL...</div>;
+                                                    return (
+                                                        <a
+                                                            href={url}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="flex items-center justify-center gap-2 w-full py-2 px-4 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg font-medium text-xs transition-colors"
+                                                        >
+                                                            <ExternalLink size={14} />
+                                                            Open in New Tab
+                                                        </a>
+                                                    );
+                                                }}
+                                            </BlobProvider>
+                                        </div>
 
-                                    {/* Simple Stats */}
-                                    <div className="space-y-3">
-                                        <h3 className="text-white font-medium text-sm">Resume Stats</h3>
-                                        <div className="grid grid-cols-2 gap-2">
-                                            <div className="bg-slate-800 p-2 rounded-lg text-center">
-                                                <div className="text-lg font-bold text-cyan-400">{activeProfile.experience.length}</div>
-                                                <div className="text-[10px] uppercase text-slate-500 tracking-wider">Roles</div>
-                                            </div>
-                                            <div className="bg-slate-800 p-2 rounded-lg text-center">
-                                                <div className="text-lg font-bold text-purple-400">{activeProfile.projects.length}</div>
-                                                <div className="text-[10px] uppercase text-slate-500 tracking-wider">Projects</div>
+                                        <div className="h-px bg-slate-800" />
+
+                                        {/* Simple Stats */}
+                                        <div className="space-y-3">
+                                            <h3 className="text-white font-medium text-sm">Resume Stats</h3>
+                                            <div className="grid grid-cols-2 gap-2">
+                                                <div className="bg-slate-800 p-2 rounded-lg text-center">
+                                                    <div className="text-lg font-bold text-cyan-400">{activeProfile.experience?.length || 0}</div>
+                                                    <div className="text-[10px] uppercase text-slate-500 tracking-wider">Roles</div>
+                                                </div>
+                                                <div className="bg-slate-800 p-2 rounded-lg text-center">
+                                                    <div className="text-lg font-bold text-purple-400">{activeProfile.projects?.length || 0}</div>
+                                                    <div className="text-[10px] uppercase text-slate-500 tracking-wider">Projects</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div className="mt-auto pt-6">
-                                    <p className="text-[10px] text-slate-600 text-center">
-                                        Powered by React-PDF & LaTeX
-                                    </p>
+                                    <div className="mt-auto pt-6">
+                                        <p className="text-[10px] text-slate-600 text-center">
+                                            Powered by React-PDF & LaTeX
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
+                            )}
                         </div>
                     </motion.div>
                 </div>

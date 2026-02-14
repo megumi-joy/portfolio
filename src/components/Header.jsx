@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from './LanguageContext';
+import ToneToggle from './ToneToggle';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -51,6 +52,9 @@ const Header = () => {
                         ))}
                     </nav>
 
+                    {/* Tone Toggle */}
+                    <ToneToggle />
+
                     {/* Language Switcher */}
                     <div className="flex items-center gap-2 bg-slate-800/50 p-1 rounded-full border border-slate-700">
                         {['en', 'es', 'ru', 'uk'].map((lang) => (
@@ -58,8 +62,8 @@ const Header = () => {
                                 key={lang}
                                 onClick={() => setLanguage(lang)}
                                 className={`px-3 py-1 rounded-full text-xs font-bold uppercase transition-all ${language === lang
-                                        ? 'bg-cyan-500 text-white shadow-md'
-                                        : 'text-slate-400 hover:text-white hover:bg-slate-700'
+                                    ? 'bg-cyan-500 text-white shadow-md'
+                                    : 'text-slate-400 hover:text-white hover:bg-slate-700'
                                     }`}
                             >
                                 {lang}
@@ -106,13 +110,17 @@ const Header = () => {
                                         key={lang}
                                         onClick={() => toggleLanguage(lang)}
                                         className={`px-4 py-2 rounded-lg text-sm font-bold uppercase flex-1 ${language === lang
-                                                ? 'bg-cyan-500 text-white'
-                                                : 'bg-slate-800 text-slate-400'
+                                            ? 'bg-cyan-500 text-white'
+                                            : 'bg-slate-800 text-slate-400'
                                             }`}
                                     >
                                         {lang}
                                     </button>
                                 ))}
+                            </div>
+
+                            <div className="mt-6 flex justify-center border-t border-slate-800 pt-4">
+                                <ToneToggle />
                             </div>
                         </div>
                     </motion.div>

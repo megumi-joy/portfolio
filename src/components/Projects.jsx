@@ -81,9 +81,17 @@ const Projects = () => {
                                 >
                                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10" />
 
-                                    {/* Placeholder Illustration since we don't have real thumbnails yet */}
+                                    {/* Thumbnail Image */}
                                     <div className="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                                        <Play className="text-slate-700 w-20 h-20 group-hover:text-purple-500 transition-colors duration-500" />
+                                        {game.thumbnail ? (
+                                            <img
+                                                src={game.thumbnail}
+                                                alt={game.title}
+                                                className="w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-opacity duration-500"
+                                            />
+                                        ) : (
+                                            <Play className="text-slate-700 w-20 h-20 group-hover:text-purple-500 transition-colors duration-500" />
+                                        )}
                                     </div>
 
                                     <div className="absolute bottom-0 left-0 right-0 p-6 z-20">

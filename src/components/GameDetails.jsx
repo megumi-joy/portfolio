@@ -1,10 +1,8 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Play, BookOpen, Layers, Zap, PenTool } from 'lucide-react';
-import { useLanguage } from './LanguageContext';
 
 const GameDetails = ({ game, onClose, onPlay }) => {
-    const { activeProfile } = useLanguage();
 
     if (!game) return null;
 

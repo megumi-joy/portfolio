@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Maximize2, X, Play } from 'lucide-react';
+import { X, Play } from 'lucide-react';
 
 const GameEmbed = ({ gameUrl, title, onClose }) => {
     return (

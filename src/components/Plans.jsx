@@ -7,15 +7,6 @@ const Plans = () => {
     const { activeProfile } = useLanguage();
     const plansData = activeProfile.plans || { title: "Roadmap", description: "Loading...", items: [] }; // Fallback
 
-    const getStatusIcon = (status) => {
-        switch (status.toLowerCase()) {
-            case 'in progress': return <Loader2 className="animate-spin text-cyan-400" size={20} />;
-            case 'planned': return <Map className="text-purple-400" size={20} />;
-            case 'idea': return <Lightbulb className="text-yellow-400" size={20} />;
-            default: return <CheckCircle2 className="text-slate-400" size={20} />;
-        }
-    };
-
     return (
         <section id="plans">
             <motion.div
