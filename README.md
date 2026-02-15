@@ -24,35 +24,23 @@ A modern, high-performance portfolio website built with React, Tailwind CSS, and
     npm run build
     ```
 
-## Adding Godot Games
+## Game Integration & Automation
 
-This portfolio is designed to showcase Godot WebGL exports seamlessly.
+This portfolio supports automated building and deployment of Godot games directly from their own repositories.
 
-1.  **Export your Game**:
-    -   In Godot, go to **Export > Web**.
-    -   Uncheck "Full Page" if you want it to fit in the embed perfectly (optional, handled by iframe).
-    -   Name your html file `index.html`.
+### 🚀 Automated Workflow (Recommended)
 
-2.  **Place in Public Folder**:
-    -   Create a new folder in `public/games/` (e.g., `public/games/my-new-game`).
-    -   Copy your exported files (`index.html`, `.wasm`, `.pck`, etc.) into this folder.
+1.  **Grant Access**: Create a [GitHub Personal Access Token (PAT)](https://github.com/settings/tokens) with `repo` scope.
+2.  **Set Secret**: In your **Game Repository**, go to `Settings > Secrets and variables > Actions` and add a secret named `PORTFOLIO_PAT` with your token.
+3.  **Add Workflow**: Copy [.github/templates/deploy-game.yml.template](file:///.github/templates/deploy-game.yml.template) to `.github/workflows/deploy.yml` in your game repository.
+4.  **Metadata (Optional)**: Add a `metadata.json` to your game repo root for custom translations/tags.
+5.  **Push**: Every push to `main` will now build the Godot project and automatically register it in the portfolio.
 
-3.  **Register in Data**:
-    -   Open `src/data.js`.
-    -   Locate the `games` array in `BASE_PROFILE`.
-    -   Add a new entry:
-        ```javascript
-        {
-            title: "My New Game",
-            description: "Description of the game mechanics.",
-            thumbnail: "path/to/thumbnail.jpg", // 600x400 recommended
-            path: "/games/my-new-game/index.html", // Path relative to public
-            tags: ["Godot", "Genre", "Tag"]
-        }
-        ```
+### 🛠️ Manual Workflow
 
-4.  **Test**:
-    -   Run `npm run dev` and click "Play" on the game card in the Projects section.
+1.  **Export**: Export your Godot project to WebGL (name it `index.html`).
+2.  **Place**: Create `public/games/your-game/` and paste the export files.
+3.  **Register**: Update `GAMES_DATA` in `src/data.js` manually.
 
 ## Customization
 

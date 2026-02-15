@@ -22,6 +22,283 @@ const SOCIALS = {
     email: "aurorasunrisegames@gmail.com",
 };
 
+const GAMES_DATA = {
+    "lowPolyCityDelivery": {
+        thumbnail: "/games/Low-Poly City Delivery/index.png",
+        path: "/portfolio/games/Low-Poly City Delivery/index.html",
+        tags: ["Godot", "Simulation", "WebGL"],
+        status: "playable",
+        translations: {
+            en: {
+                title: "Low-Poly City Delivery",
+                description: "A delivery simulation game set in a low-poly city environment.",
+                gdd: {
+                    overview: "Deliver packages in a vibrant low-poly city against the clock.",
+                    mechanics: ["Vehicle physics", "Pick up/Drop off system", "Timer system"],
+                    features: ["Open world city", "Traffic AI", "Destructible props"]
+                }
+            },
+            es: {
+                title: "Low-Poly City Delivery",
+                description: "Un juego de simulación de entrega ambientado en una ciudad low-poly.",
+                gdd: {
+                    overview: "Entrega paquetes en una ciudad low-poly vibrante contra el reloj.",
+                    mechanics: ["Física de vehículos", "Sistema de recogida/entrega", "Sistema de temporizador"],
+                    features: ["Ciudad de mundo abierto", "IA de tráfico", "Accesorios destructibles"]
+                }
+            },
+            ru: {
+                title: "Low-Poly City Delivery",
+                description: "Симулятор доставки в низкополигональном городе.",
+                gdd: {
+                    overview: "Доставляйте посылки в ярком низкополигональном городе на время.",
+                    mechanics: ["Физика транспорта", "Система подбора/доставки", "Таймер"],
+                    features: ["Открытый мир", "ИИ трафика", "Разрушаемые объекты"]
+                }
+            },
+            uk: {
+                title: "Low-Poly City Delivery",
+                description: "Симулятор доставки у низькополігональному місті.",
+                gdd: {
+                    overview: "Доставляйте посилки у яскравому низькополігональному місті на час.",
+                    mechanics: ["Фізика транспорту", "Система підбору/доставки", "Таймер"],
+                    features: ["Відкритий світ", "ШІ трафіку", "Руйнівні об'єкти"]
+                }
+            }
+        }
+    },
+    "magicBallsAdventure": {
+        thumbnail: "/games/magicballsadventure/index.png",
+        path: "/portfolio/games/magicballsadventure/index.html",
+        tags: ["Godot", "Adventure", "WebGL"],
+        status: "playable",
+        translations: {
+            en: {
+                title: "Magic Balls Adventure",
+                description: "A magical adventure game featuring physics-based puzzles.",
+                gdd: {
+                    overview: "Solve physics puzzles using magical balls with different properties.",
+                    mechanics: ["Physics interaction", "Ball transformation", "Platforming"],
+                    features: ["Different ball types", "Puzzle levels", "Magical atmosphere"]
+                }
+            },
+            es: {
+                title: "Magic Balls Adventure",
+                description: "Una aventura mágica con rompecabezas basados en física.",
+                gdd: {
+                    overview: "Resuelve acertijos físicos usando bolas mágicas con diferentes propiedades.",
+                    mechanics: ["Interacción física", "Transformación de bola", "Plataformas"],
+                    features: ["Diferentes tipos de bolas", "Niveles de rompecabezas", "Atmósfera mágica"]
+                }
+            },
+            ru: {
+                title: "Magic Balls Adventure",
+                description: "Волшебное приключение с физическими головоломками.",
+                gdd: {
+                    overview: "Решайте физические головоломки, используя волшебные шары с различными свойствами.",
+                    mechanics: ["Физическое взаимодействие", "Трансформация шара", "Платформинг"],
+                    features: ["Разные виды шаров", "Уровни-головоломки", "Волшебная атмосфера"]
+                }
+            },
+            uk: {
+                title: "Magic Balls Adventure",
+                description: "Магічна пригода з фізичними головоломками.",
+                gdd: {
+                    overview: "Вирішуйте фізичні головоломки, використовуючи магічні кулі з різними властивостями.",
+                    mechanics: ["Фізична взаємодія", "Трансформація кулі", "Платформінг"],
+                    features: ["Різні види куль", "Рівні-головоломки", "Магічна атмосфера"]
+                }
+            }
+        }
+    },
+    "voicyGodot": {
+        thumbnail: "/games/VoicyGodot/index.png",
+        path: "/portfolio/games/VoicyGodot/index.html",
+        tags: ["Godot", "Audio", "Tool"],
+        status: "playable",
+        translations: {
+            en: {
+                title: "VoicyGodot",
+                description: "Real-time voice changer and audio processing tool built with Godot.",
+                gdd: {
+                    overview: "Real-time voice modulation tool running entirely in the browser using Godot.",
+                    mechanics: ["Audio buffer processing", "Pitch shifting", "Formant correction"],
+                    features: ["Microphone input", "Real-time effects", "Visualizer"]
+                }
+            },
+            es: {
+                title: "VoicyGodot",
+                description: "Cambiador de voz en tiempo real y herramienta de procesamiento de audio construida con Godot.",
+                gdd: {
+                    overview: "Herramienta de modulación de voz en tiempo real que se ejecuta completamente en el navegador usando Godot.",
+                    mechanics: ["Procesamiento de búfer de audio", "Cambio de tono", "Corrección de formantes"],
+                    features: ["Entrada de micrófono", "Efectos en tiempo real", "Visualizador"]
+                }
+            },
+            ru: {
+                title: "VoicyGodot",
+                description: "Инструмент для изменения голоса и обработки аудио в реальном времени, созданный на Godot.",
+                gdd: {
+                    overview: "Инструмент модуляции голоса в реальном времени, работающий полностью в браузере на Godot.",
+                    mechanics: ["Обработка аудиобуфера", "Изменение высоты тона", "Коррекция формант"],
+                    features: ["Вход с микрофона", "Эффекты в реальном времени", "Визуализатор"]
+                }
+            },
+            uk: {
+                title: "VoicyGodot",
+                description: "Інструмент для зміни голосу та обробки аудіо в реальному часі, створений на Godot.",
+                gdd: {
+                    overview: "Інструмент модуляції голосу в реальному часі, що працює повністю в браузері на Godot.",
+                    mechanics: ["Обробка аудіобуферу", "Зміна висоти тону", "Корекція формант"],
+                    features: ["Вхід з мікрофона", "Ефекти в реальному часі", "Візуалізатор"]
+                }
+            }
+        }
+    },
+    "spaceShooter": {
+        thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Space+Shooter",
+        path: null,
+        tags: ["Godot", "Arcade", "Developing"],
+        status: "developing",
+        translations: {
+            en: {
+                title: "Space Shooter",
+                description: "Classic arcade space shooter with modern graphics.",
+                gdd: {
+                    overview: "Fast-paced space shooter where you defend against waves of alien invaders.",
+                    mechanics: ["Shooting", "Power-ups", "Enemy waves"],
+                    features: ["Boss fights", "Ship upgrades", "Score system"]
+                }
+            },
+            es: {
+                title: "Space Shooter",
+                description: "Clásico juego de disparos espacial arcade con gráficos modernos.",
+                gdd: {
+                    overview: "Juego de disparos espacial de ritmo rápido donde defiendes contra oleadas de invasores alienígenas.",
+                    mechanics: ["Disparos", "Power-ups", "Oleadas de enemigos"],
+                    features: ["Peleas contra jefes", "Mejoras de nave", "Sistema de puntuación"]
+                }
+            },
+            ru: {
+                title: "Space Shooter",
+                description: "Классический аркадный космический шутер с современной графикой.",
+                gdd: {
+                    overview: "Динамичный космический шутер, где вы защищаетесь от волн инопланетных захватчиков.",
+                    mechanics: ["Стрельба", "Усиления", "Волны врагов"],
+                    features: ["Битвы с боссами", "Улучшения корабля", "Система очков"]
+                }
+            },
+            uk: {
+                title: "Space Shooter",
+                description: "Класичний аркадний космічний шутер із сучасною графікою.",
+                gdd: {
+                    overview: "Динамічний космічний шутер, де ви захищаєтесь від хвиль інопланетних загарбників.",
+                    mechanics: ["Стрільба", "Посилення", "Хвилі ворогів"],
+                    features: ["Битви з босами", "Покращення корабля", "Система очків"]
+                }
+            }
+        }
+    },
+    "karting": {
+        thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Karting",
+        path: null,
+        tags: ["Godot", "Racing", "Developing"],
+        status: "developing",
+        translations: {
+            en: {
+                title: "Karting",
+                description: "High-speed kart racing game with power-ups.",
+                gdd: {
+                    overview: "Competitive kart racing game with drift mechanics and items.",
+                    mechanics: ["Drifting", "Item usage", "Lap system"],
+                    features: ["Multiple tracks", "Character selection", "Local multiplayer"]
+                }
+            },
+            es: {
+                title: "Karting",
+                description: "Juego de carreras de karts de alta velocidad con power-ups.",
+                gdd: {
+                    overview: "Juego de carreras de karts competitivo con mecánicas de derrape y objetos.",
+                    mechanics: ["Derrape", "Uso de objetos", "Sistema de vueltas"],
+                    features: ["Múltiples pistas", "Selección de personajes", "Multijugador local"]
+                }
+            },
+            ru: {
+                title: "Karting",
+                description: "Высокоскоростные гонки на картингах с усилениями.",
+                gdd: {
+                    overview: "Соревновательные гонки на картингах с механикой дрифта и предметами.",
+                    mechanics: ["Дрифт", "Использование предметов", "Система кругов"],
+                    features: ["Множество трасс", "Выбор персонажа", "Локальный мультиплеер"]
+                }
+            },
+            uk: {
+                title: "Karting",
+                description: "Високошвидкісні перегони на картингах з посиленнями.",
+                gdd: {
+                    overview: "Змагальні перегони на картингах з механікою дрифту та предметами.",
+                    mechanics: ["Дрифт", "Використання предметів", "Система кіл"],
+                    features: ["Багато трас", "Вибір персонажа", "Локальний мультиплеєр"]
+                }
+            }
+        }
+    },
+    "farming": {
+        thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Farming",
+        path: null,
+        tags: ["Godot", "Simulation", "Developing"],
+        status: "developing",
+        translations: {
+            en: {
+                title: "Farming",
+                description: "Relaxing farming simulation and management game.",
+                gdd: {
+                    overview: "Manage your farm, grow crops, and raise animals in a cozy environment.",
+                    mechanics: ["Planting/Harvesting", "Inventory management", "Day/Night cycle"],
+                    features: ["Crop variety", "Animal husbandry", "Market system"]
+                }
+            },
+            es: {
+                title: "Farming",
+                description: "Relajante juego de simulación y gestión de granjas.",
+                gdd: {
+                    overview: "Gestiona tu granja, cultiva cosechas y cría animales en un ambiente acogedor.",
+                    mechanics: ["Plantación/Cosecha", "Gestión de inventario", "Ciclo día/noche"],
+                    features: ["Variedad de cultivos", "Cría de animales", "Sistema de mercado"]
+                }
+            },
+            ru: {
+                title: "Farming",
+                description: "Расслабляющий симулятор фермы и управления.",
+                gdd: {
+                    overview: "Управляйте своей фермой, выращивайте урожай и разводите животных в уютной обстановке.",
+                    mechanics: ["Посадка/Сбор урожая", "Управление инвентарем", "Цикл день/ночь"],
+                    features: ["Разнообразие культур", "Животноводство", "Рыночная система"]
+                }
+            },
+            uk: {
+                title: "Farming",
+                description: "Розслаблюючий симулятор ферми та управління.",
+                gdd: {
+                    overview: "Керуйте своєю фермою, вирощуйте врожай та розводьте тварин у затишній обстановці.",
+                    mechanics: ["Садіння/Збір врожаю", "Управління інвентарем", "Цикл день/ніч"],
+                    features: ["Різноманітність культур", "Тваринництво", "Ринкова система"]
+                }
+            }
+        }
+    },
+};
+
+const getGamesForLanguage = (lang) => {
+    return Object.values(GAMES_DATA).map(game => ({
+        thumbnail: game.thumbnail,
+        path: game.path,
+        tags: game.tags,
+        status: game.status,
+        ...(game.translations[lang] || game.translations.en)
+    }));
+};
+
 const BASE_PROFILE = {
     name: "Anton",
     title: "Creative Technologist & Simulation Engineer",
@@ -116,86 +393,7 @@ const BASE_PROFILE = {
             link: "https://github.com/aurorasunrisegames/InventorySystem"
         }
     ],
-    games: [
-        {
-            title: "Low-Poly City Delivery",
-            description: "A delivery simulation game set in a low-poly city environment.",
-            thumbnail: "/games/Low-Poly City Delivery/index.png",
-            path: "/portfolio/games/Low-Poly City Delivery/index.html",
-            tags: ["Godot", "Simulation", "WebGL"],
-            status: "playable",
-            gdd: {
-                overview: "Deliver packages in a vibrant low-poly city against the clock.",
-                mechanics: ["Vehicle physics", "Pick up/Drop off system", "Timer system"],
-                features: ["Open world city", "Traffic AI", "Destructible props"]
-            }
-        },
-        {
-            title: "Magic Balls Adventure",
-            description: "A magical adventure game featuring physics-based puzzles.",
-            thumbnail: "/games/magicballsadventure/index.png",
-            path: "/portfolio/games/magicballsadventure/index.html",
-            tags: ["Godot", "Adventure", "WebGL"],
-            status: "playable",
-            gdd: {
-                overview: "Solve physics puzzles using magical balls with different properties.",
-                mechanics: ["Physics interaction", "Ball transformation", "Platforming"],
-                features: ["Different ball types", "Puzzle levels", "Magical atmosphere"]
-            }
-        },
-        {
-            title: "VoicyGodot",
-            description: "Real-time voice changer and audio processing tool built with Godot.",
-            thumbnail: "/games/VoicyGodot/index.png",
-            path: "/portfolio/games/VoicyGodot/index.html",
-            tags: ["Godot", "Audio", "Tool"],
-            status: "playable",
-            gdd: {
-                overview: "Real-time voice modulation tool running entirely in the browser using Godot.",
-                mechanics: ["Audio buffer processing", "Pitch shifting", "Formant correction"],
-                features: ["Microphone input", "Real-time effects", "Visualizer"]
-            }
-        },
-        {
-            title: "Space Shooter",
-            description: "Classic arcade space shooter with modern graphics.",
-            thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Space+Shooter",
-            path: null,
-            tags: ["Godot", "Arcade", "Developing"],
-            status: "developing",
-            gdd: {
-                overview: "Fast-paced space shooter where you defend against waves of alien invaders.",
-                mechanics: ["Shooting", "Power-ups", "Enemy waves"],
-                features: ["Boss fights", "Ship upgrades", "Score system"]
-            }
-        },
-        {
-            title: "Karting",
-            description: "High-speed kart racing game with power-ups.",
-            thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Karting",
-            path: null,
-            tags: ["Godot", "Racing", "Developing"],
-            status: "developing",
-            gdd: {
-                overview: "Competitive kart racing game with drift mechanics and items.",
-                mechanics: ["Drifting", "Item usage", "Lap system"],
-                features: ["Multiple tracks", "Character selection", "Local multiplayer"]
-            }
-        },
-        {
-            title: "Farming",
-            description: "Relaxing farming simulation and management game.",
-            thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Farming",
-            path: null,
-            tags: ["Godot", "Simulation", "Developing"],
-            status: "developing",
-            gdd: {
-                overview: "Manage your farm, grow crops, and raise animals in a cozy environment.",
-                mechanics: ["Planting/Harvesting", "Inventory management", "Day/Night cycle"],
-                features: ["Crop variety", "Animal husbandry", "Market system"]
-            }
-        }
-    ],
+    games: getGamesForLanguage('en'),
     plans: {
         title: "Roadmap & Current Focus",
         description: "Here is what I am currently working on and planning for the near future.",
@@ -327,172 +525,239 @@ const TRANSLATIONS = {
 // Magical / RPG Profile Data
 const MAGICAL_PROFILES = {
     en: {
-        name: "Anton the Artificer",
-        title: "Grandmaster of Automata & Illusions",
-        about: "A wandering Sage of the Digital Realms, weaving spells of Logic and Light to breathe life into golem-constructs (robots) and conjure phantom worlds (simulations). Mastery over the arcane languages of C++ and Python allows for the bending of reality itself.",
+        name: "Anton",
+        title: "Arch-Wizard of Linux & Explosions",
+        about: "My name is Anton! I am an Arch-Wizard who commands the dark arts of Low-Level Memory Management and the ultimate offensive magic: C++! My code is so powerful it threatens to crash the very kernel itself, so I must wear these limiters (Unit Tests) to contain it! Witness the power of my commit history!",
         stats: {
-            str: 12, // Physical / Hardware
-            dex: 16, // Coding Speed / Typing
-            con: 14, // Endurance / Debugging
-            int: 18, // Algorithms / Logic
-            wis: 16, // Architecture / Experience
-            cha: 10  // Leadership / Communication
+            str: 100, // EXPLOSION!
+            dex: 100, // EXPLOSION!
+            con: 100, // EXPLOSION!
+            int: 999, // EXPLOSION!
+            wis: 5,   // Dump stat
+            cha: 50
         },
         socials: SOCIALS,
-        games: PROFILES.serious.en.games, // Reuse games for now
+        skills: COMMON_SKILLS,
+        experience: [
+            {
+                role: "Supreme Commander of Code",
+                company: "Crimson Demon Clan",
+                period: "Eternity",
+                description: "Walking the path of explosions... I mean, high-performance computing! Every day I polish my staff (keyboard) and practice my incantations (algorithms).",
+                achievements: [
+                    "Cast 'Git Push Force' and destroyed a timeline (branch).",
+                    "Subjugated the ancient dragon 'Legacy Code' using the forbidden spell 'Refactor'.",
+                    "Summoned a Daemon (Process) so powerful it consumed all RAM."
+                ],
+                technologies: ["Explosion Magic", "Dark Arts", "Mana Management"]
+            }
+        ],
+        projects: BASE_PROFILE.projects,
+        games: getGamesForLanguage('en'), // Reuse games for now
         inventory: [
-            { name: "Grimoire of C++", type: "Scroll", rarity: "Legendary", desc: "Grants control over hardware spirits." },
-            { name: "Staff of Pythonic Speed", type: "Staff", rarity: "Epic", desc: "Accelerates casting time of scripts." },
-            { name: "Amulet of Godot", type: "Accessory", rarity: "Rare", desc: "Enhances creation of 2D/3D illusions." },
-            { name: "Boots of Docker", type: "Footwear", rarity: "Uncommon", desc: "Allows travel between environments." }
+            { name: "Staff of Destruction", type: "Weapon", rarity: "Artifact", desc: "A Mechanical Keyboard with Cherry MX Blue switches. Loud enough to wake the dead." },
+            { name: "Eyepatch of the Seer", type: "Headgear", rarity: "Epic", desc: "Seals my true power (and reduces eye strain)." },
+            { name: "Robes of the Night", type: "Armor", rarity: "Rare", desc: "Standard issue hoodie. +10 Stealth in dark rooms." },
+            { name: "Familiar 'Chomusuke'", type: "Pet", rarity: "Legendary", desc: "Actually just a rubber duck debugger." }
         ],
         quests: [
-            { name: "The Distributed Sync Ritual", desc: "Bound multiple realities together using the WebRTC weave.", reward: "Low Latency" },
-            { name: "Taming the HDRP Beast", desc: "Subdued the chaotic rendering demon to run at 60 FPS.", reward: "High Fidelity" },
-            { name: "Constructing the Brain", desc: "Imbued a golem with Agentic AI consciousness.", reward: "Autonomy" }
+            { name: "The Daily Explosion", desc: "Deploy to production on a Friday.", reward: "Adrenaline Rush" },
+            { name: "Defeat the Bug General", desc: "Spent 3 days fighting a race condition.", reward: "Sanity -10" },
+            { name: "Quest for the Holy Grail", desc: "Finding the missing semicolon.", reward: "Compilation Success" }
         ],
         ui: {
             ...TRANSLATIONS.en,
-            resume: "Character Sheet",
-            download: "Scribe Scroll",
-            preview: "Scry",
-            source: "Runic Script",
-            contact: "Send Raven",
-            skillsTitle: "Arcane Masteries",
-            plansTitle: "Prophecies & Visions",
-            contactTitle: "Summon the Artificer",
-            contactText: "I await your summons to embark on a grand quest. Send word via raven or magical scrying mirror.",
-            contactButton: "Cast Message",
-            welcome: "Enter the Sanctum",
-            hello: "Greetings, I am",
-            prototypesTitle: "Magical Artifacts",
-            viewProject: "Inspect Artifact"
+            resume: "Forbidden Scroll",
+            download: "Steal Artifact",
+            preview: "Observe",
+            source: "Ancient Runes",
+            contact: "Send Challenge",
+            skillsTitle: "Ultimate Atacks",
+            plansTitle: "World Domination",
+            contactTitle: "Join My Party",
+            contactText: "Do you desire to walk the path of explosions with me? I am looking for a tank... I mean, a project manager to absorb the damage while I cast my spells!",
+            contactButton: "Form Pact",
+            welcome: "EXPLOSION!",
+            hello: "I am...",
+            prototypesTitle: "Sealed Magic",
+            viewProject: "Unseal"
         }
     },
     es: {
-        name: "Anton el Artífice",
-        title: "Gran Maestro de Autómatas e Ilusiones",
-        about: "Un Sabio errante de los Reinos Digitales, tejiendo hechizos de Lógica y Luz para dar vida a construcciones gólem (robots) y conjurar mundos fantasma (simulaciones). El dominio sobre los lenguajes arcanos de C++ y Python permite doblar la realidad misma.",
+        name: "Anton",
+        title: "Archimago de Linux y Explosiones",
+        about: "¡Mi nombre es Anton! ¡Soy un Archimago que comanda las artes oscuras de la Gestión de Memoria de Bajo Nivel y la magia ofensiva definitiva: C++! ¡Mi código es tan poderoso que amenaza con colgar el mismísimo kernel, así que debo usar estos limitadores (Unit Tests) para contenerlo! ¡Atestigua el poder de mi historial de commits!",
         stats: {
-            str: 12,
-            dex: 16,
-            con: 14,
-            int: 18,
-            cha: 10
+            str: 100,
+            dex: 100,
+            con: 100,
+            int: 999,
+            wis: 5,
+            cha: 50
         },
         socials: SOCIALS,
-        games: PROFILES.serious.en.games,
+        skills: COMMON_SKILLS,
+        experience: [
+            {
+                role: "Comandante Supremo del Código",
+                company: "Clan de los Demonios Carmesí",
+                period: "Eternidad",
+                description: "Caminando por la senda de las explosiones... ¡Digo, la computación de alto rendimiento! Cada día pulo mi báculo (teclado) y practico mis encantamientos (algoritmos).",
+                achievements: [
+                    "Lancé 'Git Push Force' y destruí una línea temporal (rama).",
+                    "Sometí al dragón antiguo 'Código Legado' usando el hechizo prohibido 'Refactorizar'.",
+                    "Invoqué un Demonio (Proceso) tan poderoso que consumió toda la RAM."
+                ],
+                technologies: ["Magia de Explosión", "Artes Oscuras", "Gestión de Maná"]
+            }
+        ],
+        projects: BASE_PROFILE.projects,
+        games: getGamesForLanguage('es'),
         inventory: [
-            { name: "Grimorio de C++", type: "Pergamino", rarity: "Legendario", desc: "Otorga control sobre espíritus de hardware." },
-            { name: "Bastón de Velocidad Pythonica", type: "Bastón", rarity: "Épico", desc: "Acelera el tiempo de lanzamiento de scripts." },
-            { name: "Amuleto de Godot", type: "Accesorio", rarity: "Raro", desc: "Mejora la creación de ilusiones 2D/3D." },
-            { name: "Botas de Docker", type: "Calzado", rarity: "Poco común", desc: "Permite viajar entre entornos." }
+            { name: "Báculo de Destrucción", type: "Arma", rarity: "Artefacto", desc: "Un Teclado Mecánico con switches Cherry MX Blue. Lo suficientemente ruidoso para despertar a los muertos." },
+            { name: "Parche del Vidente", type: "Casco", rarity: "Épico", desc: "Sella mi verdadero poder (y reduce la fatiga visual)." },
+            { name: "Túnica de la Noche", type: "Armadura", rarity: "Raro", desc: "Sudadera estándar. +10 Sigilo en habitaciones oscuras." },
+            { name: "Familiar 'Chomusuke'", type: "Mascota", rarity: "Legendario", desc: "En realidad es solo un patito de goma para depurar." }
         ],
         quests: [
-            { name: "El Ritual de Sincronización Distribuida", desc: "Vinculó múltiples realidades usando el tejido WebRTC.", reward: "Baja Latencia" },
-            { name: "Domando a la Bestia HDRP", desc: "Sometió al demonio de renderizado caótico para correr a 60 FPS.", reward: "Alta Fidelidad" },
-            { name: "Construyendo el Cerebro", desc: "Imbuyó a un gólem con conciencia de IA Agéntica.", reward: "Autonomía" }
+            { name: "La Explosión Diaria", desc: "Desplegar a producción un viernes.", reward: "Subidón de Adrenalina" },
+            { name: "Derrotar al General Bug", desc: "Pasé 3 días luchando contra una condición de carrera.", reward: "Cordura -10" },
+            { name: "Búsqueda del Santo Grial", desc: "Encontrar el punto y coma perdido.", reward: "Éxito de Compilación" }
         ],
         ui: {
             ...TRANSLATIONS.es,
-            resume: "Hoja de Personaje",
-            download: "Escribir Pergamino",
-            preview: "Adivinar",
-            source: "Escritura Rúnica",
-            contact: "Enviar Cuervo",
-            skillsTitle: "Maestrías Arcanas",
-            plansTitle: "Profecías y Visiones",
-            contactTitle: "Invocar al Artífice",
-            contactText: "Espero tu invocación para embarcarme en una gran búsqueda. Envía noticias vía cuervo o espejo mágico de adivinación.",
-            contactButton: "Lanzar Mensaje",
-            welcome: "Entra al Santuario",
-            hello: "Saludos, soy",
-            prototypesTitle: "Artefactos Mágicos",
-            viewProject: "Inspeccionar Artefacto"
+            resume: "Pergamino Prohibido",
+            download: "Robar Artefacto",
+            preview: "Observar",
+            source: "Runas Antiguas",
+            contact: "Enviar Desafío",
+            skillsTitle: "Ataques Definitivos",
+            plansTitle: "Dominación Mundial",
+            contactTitle: "Únete a mi Grupo",
+            contactText: "¿Deseas caminar por la senda de las explosiones conmigo? Busco un tanque... digo, un gestor de proyectos para absorber el daño mientras lanzo mis hechizos.",
+            contactButton: "Formar Pacto",
+            welcome: "¡EXPLOSIÓN!",
+            hello: "Yo soy...",
+            prototypesTitle: "Magia Sellada",
+            viewProject: "Dessellar"
         }
     },
     ru: {
-        name: "Антон Артефактор",
-        title: "Грандмастер Автоматонов и Иллюзий",
-        about: "Странствующий Мудрец Цифровых Царств, плетущий заклинания Логики и Света, чтобы вдохнуть жизнь в големов (роботов) и создавать призрачные миры (симуляции). Владение тайными языками C++ и Python позволяет изменять саму реальность.",
+        name: "Антон",
+        title: "Архимаг Linux-а и Взрывов",
+        about: "Мое имя Антон! Я Архимаг, повелевающий темными искусствами Низкоуровневого Управления Памятью и высшей атакующей магией: C++! Мой код настолько мощен, что угрожает обрушить само ядро, поэтому я вынужден носить эти ограничители (Юнит-тесты), чтобы сдерживать его! Узрите силу моей истории коммитов!",
         stats: {
-            str: 12,
-            dex: 16,
-            con: 14,
-            int: 18,
-            cha: 10
+            str: 100,
+            dex: 100,
+            con: 100,
+            int: 999,
+            wis: 5,
+            cha: 50
         },
         socials: SOCIALS,
-        games: PROFILES.serious.en.games,
+        skills: COMMON_SKILLS,
+        experience: [
+            {
+                role: "Верховный Командующий Кода",
+                company: "Клан Алых Демонов",
+                period: "Вечность",
+                description: "Идущий путем взрывов... То есть, высокопроизводительных вычислений! Каждый день я полирую свой посох (клавиатуру) и практикую заклинания (алгоритмы).",
+                achievements: [
+                    "Кастовал 'Git Push Force' и уничтожил временную линию (ветку).",
+                    "Подчинил древнего дракона 'Legacy Code' запретным заклинанием 'Рефакторинг'.",
+                    "Призвал Демона (Процесс) такой силы, что он пожрал всю RAM."
+                ],
+                technologies: ["Магия Взрыва", "Темные Искусства", "Управление Маной"]
+            }
+        ],
+        projects: BASE_PROFILE.projects,
+        games: getGamesForLanguage('ru'),
         inventory: [
-            { name: "Гримуар C++", type: "Свиток", rarity: "Легендарный", desc: "Дарует контроль над духами железа." },
-            { name: "Посох Пиромантии (Python)", type: "Посох", rarity: "Эпический", desc: "Ускоряет время сотворения скриптов." },
-            { name: "Амулет Годо", type: "Аксессуар", rarity: "Редкий", desc: "Улучшает создание 2D/3D иллюзий." },
-            { name: "Сапоги Докера", type: "Обувь", rarity: "Необычный", desc: "Позволяет путешествовать между средами." }
+            { name: "Посох Разрушения", type: "Оружие", rarity: "Артефакт", desc: "Механическая клавиатура с переключателями Cherry MX Blue. Достаточно громкая, чтобы разбудить мертвых." },
+            { name: "Повязка Провидца", type: "Шлем", rarity: "Эпический", desc: "Сдерживает мою истинную силу (и снижает нагрузку на глаза)." },
+            { name: "Мантия Ночи", type: "Броня", rarity: "Редкий", desc: "Стандартная толстовка. +10 к Скрытности в темных комнатах." },
+            { name: "Фамильяр 'Чомусуке'", type: "Питомец", rarity: "Легендарный", desc: "На самом деле просто резиновая уточка для отладки." }
         ],
         quests: [
-            { name: "Ритуал Распределенной Синхронизации", desc: "Связал несколько реальностей вместе, используя плетение WebRTC.", reward: "Низкая Задержка" },
-            { name: "Укрощение Чудовища HDRP", desc: "Покорил демона хаотичного рендеринга для работы на 60 FPS.", reward: "Высокая Точность" },
-            { name: "Создание Разума", desc: "Наделил голема сознанием Агентного ИИ.", reward: "Автономия" }
+            { name: "Ежедневный Взрыв", desc: "Задеплоить в продакшен в пятницу.", reward: "Прилив Адреналина" },
+            { name: "Победа над Генералом Багов", desc: "Три дня сражался с состоянием гонки.", reward: "Рассудок -10" },
+            { name: "Поиски Святого Грааля", desc: "Поиск пропущенной точки с запятой.", reward: "Успешная Компиляция" }
         ],
         ui: {
             ...TRANSLATIONS.ru,
-            resume: "Лист Персонажа",
-            download: "Начертать Свиток",
-            preview: "Прорицание",
-            source: "Рунная Вязь",
-            contact: "Послать Ворона",
-            skillsTitle: "Тайные Мастерства",
-            plansTitle: "Пророчества и Видения",
-            contactTitle: "Призвать Артефактора",
-            contactText: "Я жду вашего призыва, чтобы отправиться в великое приключение. Пришлите весточку с вороном или через магическое зеркало.",
-            contactButton: "Сотворить Послание",
-            welcome: "Войти в Святилище",
-            hello: "Приветствую, я",
-            prototypesTitle: "Магические Артефакты",
-            viewProject: "Осмотреть Артефакт"
+            resume: "Запретный Свиток",
+            download: "Украсть Артефакт",
+            preview: "Созерцать",
+            source: "Древние Руны",
+            contact: "Бросить Вызов",
+            skillsTitle: "Финальные Атаки",
+            plansTitle: "Захват Мира",
+            contactTitle: "Вступить в Пати",
+            contactText: "Желаешь пройти путь взрывов со мной? Я ищу танка... то есть, проджект-менеджера, который примет урон, пока я кастую заклинания!",
+            contactButton: "Заключить Пакт",
+            welcome: "EXPLOSION!",
+            hello: "Я...",
+            prototypesTitle: "Запечатанная Магия",
+            viewProject: "Распечатать"
         }
     },
     uk: {
-        name: "Антон Артефактор",
-        title: "Грандмайстер Автоматонів та Ілюзій",
-        about: "Мандрівний Мудрець Цифрових Царств, що плете закляття Логіки та Світла, аби вдихнути життя в големів (роботів) та створювати примарні світи (симуляції). Володіння таємними мовами C++ та Python дозволяє змінювати саму реальність.",
+        name: "Антон",
+        title: "Архімаг Linux-у та Вибухів",
+        about: "Моє ім'я Антон! Я Архімаг, що повеліває темними мистецтвами Низькорівневого Управління Пам'яттю та вищою атакуючою магією: C++! Мій код настільки потужний, що загрожує обвалити саме ядро, тому я змушений носити ці обмежувачі (Юніт-тести), щоб стримувати його! Подивіться на силу моєї історії комітів!",
         stats: {
-            str: 12,
-            dex: 16,
-            con: 14,
-            int: 18,
-            cha: 10
+            str: 100,
+            dex: 100,
+            con: 100,
+            int: 999,
+            wis: 5,
+            cha: 50
         },
         socials: SOCIALS,
-        games: PROFILES.serious.en.games,
+        skills: COMMON_SKILLS,
+        experience: [
+            {
+                role: "Верховний Командувач Коду",
+                company: "Клан Червоних Демонів",
+                period: "Вічність",
+                description: "Йду шляхом вибухів... Тобто, високопродуктивних обчислень! Кожен день я полірую свій посох (клавіатуру) і практикую заклинання (алгоритми).",
+                achievements: [
+                    "Кастував 'Git Push Force' і знищив часову лінію (гілку).",
+                    "Підкорив стародавнього дракона 'Legacy Code' забороненим закляттям 'Рефакторинг'.",
+                    "Викликав Демона (Процес) такої сили, що він зжер всю RAM."
+                ],
+                technologies: ["Магія Вибуху", "Темні Мистецтва", "Управління Маною"]
+            }
+        ],
+        projects: BASE_PROFILE.projects,
+        games: getGamesForLanguage('uk'),
         inventory: [
-            { name: "Гримуар C++", type: "Сувій", rarity: "Легендарний", desc: "Дарує контроль над духами заліза." },
-            { name: "Посох Піромантії (Python)", type: "Посох", rarity: "Епічний", desc: "Прискорює час створення скриптів." },
-            { name: "Амулет Годо", type: "Аксесуар", rarity: "Рідкісний", desc: "Покращує створення 2D/3D ілюзій." },
-            { name: "Чоботи Докера", type: "Взуття", rarity: "Незвичайний", desc: "Дозволяє подорожувати між середовищами." }
+            { name: "Посох Руйнування", type: "Зброя", rarity: "Артефакт", desc: "Механічна клавіатура з перемикачами Cherry MX Blue. Досить гучна, щоб розбудити мертвих." },
+            { name: "Пов'язка Провидця", type: "Шолом", rarity: "Епічний", desc: "Стримує мою справжню силу (і знижує навантаження на очі)." },
+            { name: "Мантія Ночі", type: "Броня", rarity: "Рідкісний", desc: "Стандартна толстовка. +10 до Скрадності в темних кімнатах." },
+            { name: "Фамільяр 'Чомусуке'", type: "Улюбленець", rarity: "Легендарний", desc: "Насправді просто гумова качка для дебагу." }
         ],
         quests: [
-            { name: "Ритуал Розподіленої Синхронізації", desc: "Зв'язав кілька реальностей разом, використовуючи плетіння WebRTC.", reward: "Низька Затримка" },
-            { name: "Приборкання Чудовиська HDRP", desc: "Підкорив демона хаотичного рендерингу для роботи на 60 FPS.", reward: "Висока Точність" },
-            { name: "Створення Розуму", desc: "Наділив голема свідомістю Агентного ШІ.", reward: "Автономія" }
+            { name: "Щоденний Вибух", desc: "Задеплоїти в продакшен у п'ятницю.", reward: "Прилив Адреналіну" },
+            { name: "Перемога над Генералом Багів", desc: "Три дні бився зі станом гонки.", reward: "Глузд -10" },
+            { name: "Пошуки Святого Грааля", desc: "Пошук пропущеної крапки з комою.", reward: "Успішна Компіляція" }
         ],
         ui: {
             ...TRANSLATIONS.uk,
-            resume: "Лист Персонажа",
-            download: "Написати Сувій",
-            preview: "Віщування",
-            source: "Рунний Скрипт",
-            contact: "Надіслати Ворона",
-            skillsTitle: "Таємні Майстерності",
-            plansTitle: "Пророцтва та Видіння",
-            contactTitle: "Призвати Артефактора",
-            contactText: "Я чекаю вашого заклику, щоб вирушити у велику пригоду. Надішліть звістку з вороном або через магічне дзеркало.",
-            contactButton: "Створити Повідомлення",
-            welcome: "Увійти в Святилище",
-            hello: "Вітаю, я",
-            prototypesTitle: "Магічні Артефакти",
-            viewProject: "Оглянути Артефакт"
+            resume: "Заборонений Сувій",
+            download: "Вкрасти Артефакт",
+            preview: "Споглядати",
+            source: "Стародавні Руни",
+            contact: "Кинути Виклик",
+            skillsTitle: "Фінальні Атаки",
+            plansTitle: "Захоплення Світу",
+            contactTitle: "Вступити в Паті",
+            contactText: "Бажаєш пройти шлях вибухів зі мною? Я шукаю танка... тобто, проджект-менеджера, який прийме демедж, поки я кастую заклинання!",
+            contactButton: "Укласти Пакт",
+            welcome: "EXPLOSION!",
+            hello: "Я...",
+            prototypesTitle: "Запечатана Магія",
+            viewProject: "Розпечатати"
         }
     },
 };
@@ -595,86 +860,7 @@ export const PROFILES = {
                     link: "https://github.com/aurorasunrisegames/InventorySystem"
                 }
             ],
-            games: [
-                {
-                    title: "Low-Poly City Delivery",
-                    description: "Un juego de simulación de entrega ambientado en una ciudad low-poly.",
-                    thumbnail: "/games/Low-Poly City Delivery/index.png",
-                    path: "/portfolio/games/Low-Poly City Delivery/index.html",
-                    tags: ["Godot", "Simulación", "WebGL"],
-                    status: "playable",
-                    gdd: {
-                        overview: "Entrega paquetes en una ciudad low-poly vibrante contra el reloj.",
-                        mechanics: ["Física de vehículos", "Sistema de recogida/entrega", "Sistema de temporizador"],
-                        features: ["Ciudad de mundo abierto", "IA de tráfico", "Accesorios destructibles"]
-                    }
-                },
-                {
-                    title: "Magic Balls Adventure",
-                    description: "Una aventura mágica con rompecabezas basados en física.",
-                    thumbnail: "/games/magicballsadventure/index.png",
-                    path: "/portfolio/games/magicballsadventure/index.html",
-                    tags: ["Godot", "Aventura", "WebGL"],
-                    status: "playable",
-                    gdd: {
-                        overview: "Resuelve acertijos físicos usando bolas mágicas con diferentes propiedades.",
-                        mechanics: ["Interacción física", "Transformación de bola", "Plataformas"],
-                        features: ["Diferentes tipos de bolas", "Niveles de rompecabezas", "Atmósfera mágica"]
-                    }
-                },
-                {
-                    title: "VoicyGodot",
-                    description: "Cambiador de voz en tiempo real y herramienta de procesamiento de audio construida con Godot.",
-                    thumbnail: "/games/VoicyGodot/index.png",
-                    path: "/portfolio/games/VoicyGodot/index.html",
-                    tags: ["Godot", "Audio", "Herramienta"],
-                    status: "playable",
-                    gdd: {
-                        overview: "Herramienta de modulación de voz en tiempo real que se ejecuta completamente en el navegador usando Godot.",
-                        mechanics: ["Procesamiento de búfer de audio", "Cambio de tono", "Corrección de formantes"],
-                        features: ["Entrada de micrófono", "Efectos en tiempo real", "Visualizador"]
-                    }
-                },
-                {
-                    title: "Space Shooter",
-                    description: "Clásico juego de disparos espacial arcade con gráficos modernos.",
-                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Space+Shooter",
-                    path: null,
-                    tags: ["Godot", "Arcade", "Desarrollando"],
-                    status: "developing",
-                    gdd: {
-                        overview: "Juego de disparos espacial de ritmo rápido donde defiendes contra oleadas de invasores alienígenas.",
-                        mechanics: ["Disparos", "Power-ups", "Oleadas de enemigos"],
-                        features: ["Peleas contra jefes", "Mejoras de nave", "Sistema de puntuación"]
-                    }
-                },
-                {
-                    title: "Karting",
-                    description: "Juego de carreras de karts de alta velocidad con power-ups.",
-                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Karting",
-                    path: null,
-                    tags: ["Godot", "Carreras", "Desarrollando"],
-                    status: "developing",
-                    gdd: {
-                        overview: "Juego de carreras de karts competitivo con mecánicas de derrape y objetos.",
-                        mechanics: ["Derrape", "Uso de objetos", "Sistema de vueltas"],
-                        features: ["Múltiples pistas", "Selección de personajes", "Multijugador local"]
-                    }
-                },
-                {
-                    title: "Farming",
-                    description: "Relajante juego de simulación y gestión de granjas.",
-                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Farming",
-                    path: null,
-                    tags: ["Godot", "Simulación", "Desarrollando"],
-                    status: "developing",
-                    gdd: {
-                        overview: "Gestiona tu granja, cultiva cosechas y cría animales en un ambiente acogedor.",
-                        mechanics: ["Plantación/Cosecha", "Gestión de inventario", "Ciclo día/noche"],
-                        features: ["Variedad de cultivos", "Cría de animales", "Sistema de mercado"]
-                    }
-                }
-            ],
+            games: getGamesForLanguage('es'),
             ui: TRANSLATIONS.es,
             plans: {
                 title: "Hoja de Ruta y Foco Actual",
@@ -797,86 +983,7 @@ export const PROFILES = {
                     link: "https://github.com/aurorasunrisegames/InventorySystem"
                 }
             ],
-            games: [
-                {
-                    title: "Low-Poly City Delivery",
-                    description: "Симулятор доставки в низкополигональном городе.",
-                    thumbnail: "/games/Low-Poly City Delivery/index.png",
-                    path: "/portfolio/games/Low-Poly City Delivery/index.html",
-                    tags: ["Godot", "Симулятор", "WebGL"],
-                    status: "playable",
-                    gdd: {
-                        overview: "Доставляйте посылки в ярком низкополигональном городе на время.",
-                        mechanics: ["Физика транспорта", "Система подбора/доставки", "Таймер"],
-                        features: ["Открытый мир", "ИИ трафика", "Разрушаемые объекты"]
-                    }
-                },
-                {
-                    title: "Magic Balls Adventure",
-                    description: "Волшебное приключение с физическими головоломками.",
-                    thumbnail: "/games/magicballsadventure/index.png",
-                    path: "/portfolio/games/magicballsadventure/index.html",
-                    tags: ["Godot", "Приключения", "WebGL"],
-                    status: "playable",
-                    gdd: {
-                        overview: "Решайте физические головоломки, используя волшебные шары с различными свойствами.",
-                        mechanics: ["Физическое взаимодействие", "Трансформация шара", "Платформинг"],
-                        features: ["Разные виды шаров", "Уровни-головоломки", "Волшебная атмосфера"]
-                    }
-                },
-                {
-                    title: "VoicyGodot",
-                    description: "Инструмент для изменения голоса и обработки аудио в реальном времени, созданный на Godot.",
-                    thumbnail: "/games/VoicyGodot/index.png",
-                    path: "/portfolio/games/VoicyGodot/index.html",
-                    tags: ["Godot", "Аудио", "Инструмент"],
-                    status: "playable",
-                    gdd: {
-                        overview: "Инструмент модуляции голоса в реальном времени, работающий полностью в браузере на Godot.",
-                        mechanics: ["Обработка аудиобуфера", "Изменение высоты тона", "Коррекция формант"],
-                        features: ["Вход с микрофона", "Эффекты в реальном времени", "Визуализатор"]
-                    }
-                },
-                {
-                    title: "Space Shooter",
-                    description: "Классический аркадный космический шутер с современной графикой.",
-                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Space+Shooter",
-                    path: null,
-                    tags: ["Godot", "Аркада", "В разработке"],
-                    status: "developing",
-                    gdd: {
-                        overview: "Динамичный космический шутер, где вы защищаетесь от волн инопланетных захватчиков.",
-                        mechanics: ["Стрельба", "Усиления", "Волны врагов"],
-                        features: ["Битвы с боссами", "Улучшения корабля", "Система очков"]
-                    }
-                },
-                {
-                    title: "Karting",
-                    description: "Высокоскоростные гонки на картингах с усилениями.",
-                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Karting",
-                    path: null,
-                    tags: ["Godot", "Гонки", "В разработке"],
-                    status: "developing",
-                    gdd: {
-                        overview: "Соревновательные гонки на картингах с механикой дрифта и предметами.",
-                        mechanics: ["Дрифт", "Использование предметов", "Система кругов"],
-                        features: ["Множество трасс", "Выбор персонажа", "Локальный мультиплеер"]
-                    }
-                },
-                {
-                    title: "Farming",
-                    description: "Расслабляющий симулятор фермы и управления.",
-                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Farming",
-                    path: null,
-                    tags: ["Godot", "Симулятор", "В разработке"],
-                    status: "developing",
-                    gdd: {
-                        overview: "Управляйте своей фермой, выращивайте урожай и разводите животных в уютной обстановке.",
-                        mechanics: ["Посадка/Сбор урожая", "Управление инвентарем", "Цикл день/ночь"],
-                        features: ["Разнообразие культур", "Животноводство", "Рыночная система"]
-                    }
-                }
-            ],
+            games: getGamesForLanguage('ru'),
             ui: TRANSLATIONS.ru,
             plans: {
                 title: "Планы и Текущий Фокус",
@@ -999,86 +1106,7 @@ export const PROFILES = {
                     link: "https://github.com/aurorasunrisegames/InventorySystem"
                 }
             ],
-            games: [
-                {
-                    title: "Low-Poly City Delivery",
-                    description: "Симулятор доставки у низькополігональному місті.",
-                    thumbnail: "/games/Low-Poly City Delivery/index.png",
-                    path: "/portfolio/games/Low-Poly City Delivery/index.html",
-                    tags: ["Godot", "Симулятор", "WebGL"],
-                    status: "playable",
-                    gdd: {
-                        overview: "Доставляйте посилки у яскравому низькополігональному місті на час.",
-                        mechanics: ["Фізика транспорту", "Система підбору/доставки", "Таймер"],
-                        features: ["Відкритий світ", "ШІ трафіку", "Руйнівні об'єкти"]
-                    }
-                },
-                {
-                    title: "Magic Balls Adventure",
-                    description: "Магічна пригода з фізичними головоломками.",
-                    thumbnail: "/games/magicballsadventure/index.png",
-                    path: "/portfolio/games/magicballsadventure/index.html",
-                    tags: ["Godot", "Пригоди", "WebGL"],
-                    status: "playable",
-                    gdd: {
-                        overview: "Вирішуйте фізичні головоломки, використовуючи магічні кулі з різними властивостями.",
-                        mechanics: ["Фізична взаємодія", "Трансформація кулі", "Платформінг"],
-                        features: ["Різні види куль", "Рівні-головоломки", "Магічна атмосфера"]
-                    }
-                },
-                {
-                    title: "VoicyGodot",
-                    description: "Інструмент для зміни голосу та обробки аудіо в реальному часі, створений на Godot.",
-                    thumbnail: "/games/VoicyGodot/index.png",
-                    path: "/portfolio/games/VoicyGodot/index.html",
-                    tags: ["Godot", "Аудіо", "Інструмент"],
-                    status: "playable",
-                    gdd: {
-                        overview: "Інструмент модуляції голосу в реальному часі, що працює повністю в браузері на Godot.",
-                        mechanics: ["Обробка аудіобуферу", "Зміна висоти тону", "Корекція формант"],
-                        features: ["Вхід з мікрофона", "Ефекти в реальному часі", "Візуалізатор"]
-                    }
-                },
-                {
-                    title: "Space Shooter",
-                    description: "Класичний аркадний космічний шутер із сучасною графікою.",
-                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Space+Shooter",
-                    path: null,
-                    tags: ["Godot", "Аркада", "В розробці"],
-                    status: "developing",
-                    gdd: {
-                        overview: "Динамічний космічний шутер, де ви захищаєтесь від хвиль інопланетних загарбників.",
-                        mechanics: ["Стрільба", "Посилення", "Хвилі ворогів"],
-                        features: ["Битви з босами", "Покращення корабля", "Система очків"]
-                    }
-                },
-                {
-                    title: "Karting",
-                    description: "Високошвидкісні перегони на картингах з посиленнями.",
-                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Karting",
-                    path: null,
-                    tags: ["Godot", "Перегони", "В розробці"],
-                    status: "developing",
-                    gdd: {
-                        overview: "Змагальні перегони на картингах з механікою дрифту та предметами.",
-                        mechanics: ["Дрифт", "Використання предметів", "Система кіл"],
-                        features: ["Багато трас", "Вибір персонажа", "Локальний мультиплеєр"]
-                    }
-                },
-                {
-                    title: "Farming",
-                    description: "Розслаблюючий симулятор ферми та управління.",
-                    thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Farming",
-                    path: null,
-                    tags: ["Godot", "Симулятор", "В розробці"],
-                    status: "developing",
-                    gdd: {
-                        overview: "Керуйте своєю фермою, вирощуйте врожай та розводьте тварин у затишній обстановці.",
-                        mechanics: ["Садіння/Збір врожаю", "Управління інвентарем", "Цикл день/ніч"],
-                        features: ["Різноманітність культур", "Тваринництво", "Ринкова система"]
-                    }
-                }
-            ],
+            games: getGamesForLanguage('uk'),
             ui: TRANSLATIONS.uk,
             plans: {
                 title: "Плани та Поточний Фокус",

@@ -1,0 +1,77 @@
+name: Build and Deploy to Portfolio
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+env:
+  GODOT_VERSION: 4.3 # Update this to your project's Godot version
+  EXPORT_NAME: index
+  GAME_NAME: ${{ github.event.repository.name }} # Uses repo name as game directory
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.3 # Use matching Godot version image
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup
+        run: |
+          mkdir -v -p build/web
+
+      - name: Web Export
+        run: |
+          godot --headless --export-release "Web" build/web/index.html
+
+      - name: Upload Artifact
+        uses: actions/actions-upload-artifact@v4
+        with:
+          name: web-build
+          path: build/web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: web-build
+          path: web-build
+
+      - name: Checkout Portfolio
+        uses: actions/checkout@v4
+        with:
+          repository: megumi-joy/portfolio # Your portfolio repository
+          token: ${{ secrets.PORTFOLIO_PAT }} # Requires a PAT with repo scope
+          path: portfolio-repo
+
+      - name: Copy Build to Portfolio
+        run: |
+          mkdir -p portfolio-repo/public/games/"$GAME_NAME"
+          cp -r web-build/* portfolio-repo/public/games/"$GAME_NAME"/
+
+      - name: Sync Metadata
+        working-directory: portfolio-repo
+        run: |
+          # If a metadata.json exists in the game repo, use it. 
+          # Otherwise, create a minimal one.
+          if [ -f ../metadata.json ]; then
+            cp ../metadata.json current-metadata.json
+          else
+            echo "{\"${GAME_NAME}\": {\"thumbnail\": \"/games/${GAME_NAME}/index.png\", \"path\": \"/portfolio/games/${GAME_NAME}/index.html\", \"tags\": [\"Godot\", \"WebGL\"], \"status\": \"playable\", \"translations\": {\"en\": {\"title\": \"${GAME_NAME}\", \"description\": \"A Godot game.\"}}}}" > current-metadata.json
+          fi
+          node scripts/sync-game.cjs current-metadata.json
+
+      - name: Commit and Push
+        working-directory: portfolio-repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Add/Update game: $GAME_NAME" || echo "No changes to commit"
+          git push
