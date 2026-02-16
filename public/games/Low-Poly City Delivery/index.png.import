@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cutjrxlosas7t"
-path="res://.godot/imported/index.png-0cf3935c131364955e81c1751ceb8f0d.ctex"
+uid="uid://ba3wuci4uf47m"
+path="res://godot/imported/index.png-0cf3935c131364955e81c1751ceb8f0d.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://build webgl/index.png"
-dest_files=["res://.godot/imported/index.png-0cf3935c131364955e81c1751ceb8f0d.ctex"]
+dest_files=["res://godot/imported/index.png-0cf3935c131364955e81c1751ceb8f0d.ctex"]
 
 [params]
 

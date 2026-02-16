@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvs67u5n5clpr"
-path="res://.godot/imported/index.icon.png-36a11a8234db1dfd696da916c72e9cba.ctex"
+uid="uid://bp17qbeaop2ht"
+path="res://godot/imported/index.icon.png-36a11a8234db1dfd696da916c72e9cba.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,7 +11,7 @@ metadata={
 [deps]
 
 source_file="res://build webgl/index.icon.png"
-dest_files=["res://.godot/imported/index.icon.png-36a11a8234db1dfd696da916c72e9cba.ctex"]
+dest_files=["res://godot/imported/index.icon.png-36a11a8234db1dfd696da916c72e9cba.ctex"]
 
 [params]
 
