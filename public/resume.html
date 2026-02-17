@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anton | Senior Engineer</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #111111;
+            --accent-color: #222222;
+            --secondary-text: #555555;
+            --border-color: #e0e0e0;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --btn-bg: #f5f5f5;
+            --btn-hover: #e5e5e5;
+            --tag-bg: #eeeeee;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #0d0d0d;
+                --text-color: #e0e0e0;
+                --accent-color: #ffffff;
+                --secondary-text: #a0a0a0;
+                --border-color: #333333;
+                --btn-bg: #1a1a1a;
+                --btn-hover: #2a2a2a;
+                --tag-bg: #222222;
+            }
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.5;
+            margin: 0;
+            padding: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Header & Switcher --- */
+        header {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+
+        .controls-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            background: var(--btn-bg);
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .persona-selector {
+            display: flex;
+            gap: 5px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .view-selector {
+            display: flex;
+            gap: 5px;
+        }
+
+        button {
+            background: transparent;
+            border: none;
+            color: var(--secondary-text);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        button:hover {
+            background: rgba(128, 128, 128, 0.1);
+        }
+
+        button.active {
+            background: var(--bg-color);
+            color: var(--text-color);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+        }
+
+        /* --- Hero --- */
+        .hero-info {
+            margin-bottom: 15px;
+        }
+
+        .role-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .role-subtitle {
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+            margin-bottom: 10px;
+        }
+
+        .about-text {
+            font-size: 0.95rem;
+            margin: 0 0 15px 0;
+            max-width: 700px;
+        }
+
+        /* --- Action Bar --- */
+        .action-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--btn-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .action-btn:hover {
+            background: var(--btn-hover);
+        }
+
+        /* --- Content Layout --- */
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--secondary-text);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* --- Projects Grid --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            transition: transform 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--secondary-text);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 8px;
+        }
+
+        .card-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .card-status {
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-released {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-dev {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-proto {
+            background: #cce5ff;
+            color: #004085;
+        }
+
+        .status-idea {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            background: var(--tag-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--secondary-text);
+        }
+
+        /* --- Kanban View --- */
+        .kanban-board {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .kanban-col {
+            min-width: 250px;
+            width: 250px;
+            background: var(--btn-bg);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .kanban-col h3 {
+            font-size: 0.9rem;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            color: var(--secondary-text);
+        }
+
+        .kanban-col .project-card {
+            background: var(--bg-color);
+            margin-bottom: 10px;
+            border: none;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- Skills --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-list li {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin-bottom: 4px;
+        }
+
+        /* --- Hidden --- */
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 600px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .action-bar {
+                flex-direction: column;
+            }
+
+            .action-btn {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="top-row">
+            <h1>Anton</h1>
+            <div class="controls-row">
+                <div class="persona-selector">
+                    <button class="p-btn active" onclick="setPersona('sim')">Simulation</button>
+                    <button class="p-btn" onclick="setPersona('game')">Game Dev</button>
+                    <button class="p-btn" onclick="setPersona('devops')">DevOps</button>
+                    <button class="p-btn" onclick="setPersona('frontend')">Frontend</button>
+                </div>
+                <div class="view-selector">
+                    <button class="v-btn active" onclick="setView('list')">List</button>
+                    <button class="v-btn" onclick="setView('kanban')">Kanban</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-info" id="hero-content"></div>
+
+        <div class="action-bar">
+            <a href="mailto:megumi.joy@gmail.com" class="action-btn">Email</a>
+            <a href="https://github.com/megumi-joy" target="_blank" class="action-btn">GitHub</a>
+            <a href="https://www.linkedin.com/in/megumi-joy/" target="_blank" class="action-btn">LinkedIn</a>
+            <button onclick="downloadLaTeX()" class="action-btn" style="border: 1px solid var(--border-color);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    style="margin-right:5px;">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Export LaTeX
+            </button>
+            <button onclick="downloadTrello()" class="action-btn" style="border: 1px solid var(--border-color);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    style="margin-right:5px;">
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path d="M7 7h3v9H7z" />
+                    <path d="M14 7h3v5h-3z" />
+                </svg>
+                Export Trello
+            </button>
+        </div>
+    </header>
+
+    <div id="dynamic-content"></div>
+
+    <script>
+        // --- DATA ---
+        const ALL_PROJECTS = [
+            { id: 1, title: "Megumi Massage", status: "released", tech: ["Web", "Design"], desc: "Professional massage therapy website." },
+            { id: 2, title: "Portfolio V2", status: "released", tech: ["React", "Vite"], desc: "Minimalist, high-performance portfolio site." },
+            { id: 3, title: "Magic Balls Adventure", status: "released", tech: ["Godot", "Physics"], desc: "Physics-based puzzle platformer with dynamic object interaction." },
+            { id: 4, title: "AI Training Gym", status: "dev", tech: ["Python", "RL", "Sim"], desc: "Simulation environment for training AI agents on physics tasks." },
+            { id: 5, title: "Voicy Assistant", status: "proto", tech: ["Godot", "Audio", "AI"], desc: "Real-time voice modulation and assistant tool." },
+            { id: 6, title: "Godot Agent Manager", status: "proto", tech: ["Godot", "AI Hub"], desc: "Centralized hub for managing AI agents and their tasks." },
+            { id: 7, title: "Low Poly City Delivery", status: "proto", tech: ["Godot", "Vehicle Physics"], desc: "Open-world delivery sim with arcade vehicle physics." },
+            { id: 8, title: "VoxelCraft World", status: "dev", tech: ["Godot", "Voxel", "ProcGen"], desc: "Minecraft-inspired voxel sandbox with infinite terrain." },
+            { id: 9, title: "Plure Racing", status: "idea", tech: ["Godot", "Racing"], desc: "High-speed arcade racing concept." },
+            { id: 10, title: "Platformer Base", status: "idea", tech: ["Godot", "2D"], desc: "Solid platformer controller and level framework." },
+            { id: 11, title: "Sea Hunter", status: "idea", tech: ["Godot", "3D"], desc: "Underwater exploration and hunting game." },
+            { id: 12, title: "Spyfall Clone", status: "idea", tech: ["Web", "Multiplayer"], desc: "Social deduction party game." },
+            { id: 13, title: "Dropshipping Site", status: "proto", tech: ["Web", "E-com"], desc: "Automated e-commerce storefront prototype." },
+            { id: 14, title: "Crypto Tracker", status: "idea", tech: ["Web", "API"], desc: "Real-time cryptocurrency portfolio tracker." },
+            { id: 15, title: "Moon Calendar", status: "released", tech: ["Python", "Astro"], desc: "Lunar phase calculator and calendar utility." },
+            { id: 16, title: "Teaching Platform", status: "idea", tech: ["Web", "EdTech"], desc: "Platform for scheduling and managing private lessons." },
+            { id: 17, title: "Match 3 Core", status: "proto", tech: ["Godot", "Mobile"], desc: "Optimized match-3 engine." },
+            { id: 18, title: "Hyper Cash", status: "idea", tech: ["Mobile", "Casual"], desc: "Hypercasual money management game." },
+            { id: 19, title: "Trains Sim", status: "idea", tech: ["Sim", "Logistics"], desc: "Train logistics and scheduling simulation." },
+            { id: 20, title: "Train Video Editor", status: "idea", tech: ["Tool", "Video"], desc: "Specialized video editor for train footage." },
+            { id: 21, title: "Dog Game", status: "idea", tech: ["Sim", "AI"], desc: "Virtual pet simulation with advanced AI behaviors." }
+        ];
+
+        const PERSONAS = {
+            sim: {
+                role: "Senior Simulation Engineer",
+                about: "Specializing in deterministic physics, networked state synchronization, and hardware-in-the-loop integration.",
+                skills: ["Godot 4", "C++", "Python Asyncio", "UDP/WebRTC", "Docker"],
+                filter: p => ["Godot", "Sim", "Python", "Physics"].some(t => p.tech.includes(t)) || p.status === "released"
+            },
+            game: {
+                role: "Gameplay Programmer",
+                about: "Veteran game developer focused on engine architecture, rendering pipelines, and complex gameplay systems.",
+                skills: ["Godot 4", "Unity", "Shaders", "3D Math", "AI Behavior"],
+                filter: p => ["Godot", "Mobile", "Voxel", "Racing"].some(t => p.tech.includes(t))
+            },
+            devops: {
+                role: "DevOps Engineer",
+                about: "Infrastructure-as-Code advocate streamlining workflows with CI/CD and containerization.",
+                skills: ["AWS", "Docker", "GitHub Actions", "Python", "Linux"],
+                filter: p => ["Web", "Python", "Tool", "API"].some(t => p.tech.includes(t))
+            },
+            frontend: {
+                role: "Frontend Engineer",
+                about: "Crafting performant and beautiful web interfaces using modern React ecosystem.",
+                skills: ["React", "TypeScript", "Tailwind", "WebGL", "UX"],
+                filter: p => ["Web", "React", "E-com", "Design"].some(t => p.tech.includes(t))
+            }
+        };
+
+        // --- STATE ---
+        let currentPersona = 'sim';
+        let currentView = 'list';
+
+        // --- RENDER ---
+        function render() {
+            const persona = PERSONAS[currentPersona];
+            const filteredProjects = ALL_PROJECTS.filter(persona.filter);
+
+            // 1. Hero
+            document.getElementById('hero-content').innerHTML = `
+                <div class="role-title">${persona.role}</div>
+                <div class="about-text">${persona.about}</div>
+            `;
+
+            // 2. Content
+            let html = '';
+
+            // Skills
+            html += `<section><h2>Skills</h2><ul class="skills-grid" style="list-style: none; padding: 0;">`;
+            html += persona.skills.map(s => `<li style="background:var(--tag-bg); padding:4px 8px; border-radius:4px; display:inline-block; margin:2px;">${s}</li>`).join('');
+            html += `</ul></section>`;
+
+            // Projects
+            html += `<section><h2>Projects (${filteredProjects.length})</h2>`;
+
+            if (currentView === 'list') {
+                html += `<div class="projects-grid">`;
+                html += filteredProjects.map(p => `
+                    <div class="project-card">
+                        <div class="card-header">
+                            <span class="card-title">${p.title}</span>
+                            <span class="card-status status-${p.status}">${p.status}</span>
+                        </div>
+                        <p class="card-desc">${p.desc}</p>
+                        <div class="card-tags">
+                            ${p.tech.map(t => `<span class="tag">${t}</span>`).join('')}
+                        </div>
+                    </div>
+                `).join('');
+                html += `</div>`;
+            } else {
+                // Kanban
+                const columns = { released: [], dev: [], proto: [], idea: [] };
+                filteredProjects.forEach(p => columns[p.status].push(p));
+
+                html += `<div class="kanban-board">`;
+                ['Idea', 'Proto', 'Dev', 'Released'].forEach(colName => {
+                    const key = colName.toLowerCase();
+                    const items = columns[key] || [];
+                    html += `
+                        <div class="kanban-col">
+                            <h3>${colName} (${items.length})</h3>
+                            ${items.map(p => `
+                                <div class="project-card">
+                                    <div class="card-header"><span class="card-title">${p.title}</span></div>
+                                    <p class="card-desc" style="font-size:0.8rem; margin-bottom:5px;">${p.desc}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `;
+                });
+                html += `</div>`;
+            }
+            html += `</section>`;
+
+            document.getElementById('dynamic-content').innerHTML = html;
+
+            // Update Buttons
+            document.querySelectorAll('.p-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`button[onclick="setPersona('${currentPersona}')"]`).classList.add('active');
+
+            document.querySelectorAll('.v-btn').forEach(b => b.classList.remove('active'));
+            document.querySelector(`button[onclick="setView('${currentView}')"]`).classList.add('active');
+        }
+
+        // --- ACTIONS ---
+        function setPersona(p) { currentPersona = p; render(); }
+        function setView(v) { currentView = v; render(); }
+
+        function downloadLaTeX() {
+            const p = PERSONAS[currentPersona];
+            const content = `
+\\documentclass{article}
+\\usepackage{geometry}
+\\geometry{a4paper, margin=1in}
+\\begin{document}
+\\section*{Anton - ${p.role}}
+${p.about}
+
+\\section*{Skills}
+${p.skills.join(', ')}
+
+\\section*{Selected Projects}
+${ALL_PROJECTS.filter(p.filter).map(proj => `\\textbf{${proj.title}} (${proj.status}) - ${proj.desc}`).join('\n\n')}
+\\end{document}
+            `;
+            const blob = new Blob([content], { type: 'text/tex' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `resume_${currentPersona}.tex`;
+            a.click();
+        }
+
+        function downloadTrello() {
+            const board = {
+                name: "Anton Portfolio Board",
+                lists: [
+                    { name: "Ideas", cards: ALL_PROJECTS.filter(p => p.status === 'idea') },
+                    { name: "Prototype", cards: ALL_PROJECTS.filter(p => p.status === 'proto') },
+                    { name: "In Development", cards: ALL_PROJECTS.filter(p => p.status === 'dev') },
+                    { name: "Released", cards: ALL_PROJECTS.filter(p => p.status === 'released') }
+                ]
+            };
+            const blob = new Blob([JSON.stringify(board, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `portfolio_board.json`;
+            a.click();
+        }
+
+        // Init
+        render();
+    </script>
+</body>
+
+</html>
