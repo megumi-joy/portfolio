@@ -43,6 +43,26 @@
             margin-right: auto;
         }
 
+        /* --- Global Utils --- */
+        .hidden {
+            display: none !important;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-text);
+            border-radius: 4px;
+            opacity: 0.5;
+        }
+
         /* --- Header & Switcher --- */
         header {
             margin-bottom: 20px;
@@ -64,6 +84,7 @@
             font-weight: 700;
             margin: 0;
             letter-spacing: -0.5px;
+            cursor: pointer;
         }
 
         .controls-row {
@@ -187,13 +208,32 @@
         .project-card {
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 15px;
+            padding: 0;
             transition: transform 0.2s;
+            cursor: pointer;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             border-color: var(--secondary-text);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 140px;
+            background: var(--btn-bg);
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 15px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .card-header {
@@ -241,6 +281,7 @@
             color: var(--secondary-text);
             margin-bottom: 10px;
             line-height: 1.4;
+            flex-grow: 1;
         }
 
         .card-tags {
@@ -272,6 +313,7 @@
             background: var(--btn-bg);
             padding: 10px;
             border-radius: 8px;
+            flex-shrink: 0;
         }
 
         .kanban-col h3 {
@@ -284,8 +326,107 @@
         .kanban-col .project-card {
             background: var(--bg-color);
             margin-bottom: 10px;
-            border: none;
+            border: 1px solid var(--border-color);
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- Detail View --- */
+        #detail-view {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
+            display: none;
+        }
+
+        #detail-view.active {
+            display: block;
+            animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .close-btn {
+            font-size: 1.5rem;
+            background: transparent;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .detail-hero {
+            margin-bottom: 30px;
+        }
+
+        .detail-img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: var(--btn-bg);
+            margin-bottom: 20px;
+        }
+
+        .detail-meta {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .completion-bar {
+            width: 150px;
+            height: 6px;
+            background: var(--btn-bg);
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .completion-fill {
+            height: 100%;
+            background: var(--text-color);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        .missing-box {
+            background: var(--tag-bg);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid var(--secondary-text);
+            margin-top: 20px;
+        }
+
+        .missing-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
         }
 
         /* --- Skills --- */
@@ -299,11 +440,6 @@
             font-size: 0.9rem;
             color: var(--secondary-text);
             margin-bottom: 4px;
-        }
-
-        /* --- Hidden --- */
-        .hidden {
-            display: none !important;
         }
 
         @media (max-width: 600px) {
@@ -324,76 +460,74 @@
 
 <body>
 
-    <header>
-        <div class="top-row">
-            <h1>Anton</h1>
-            <div class="controls-row">
-                <div class="persona-selector">
-                    <button class="p-btn active" onclick="setPersona('sim')">Simulation</button>
-                    <button class="p-btn" onclick="setPersona('game')">Game Dev</button>
-                    <button class="p-btn" onclick="setPersona('devops')">DevOps</button>
-                    <button class="p-btn" onclick="setPersona('frontend')">Frontend</button>
-                </div>
-                <div class="view-selector">
-                    <button class="v-btn active" onclick="setView('list')">List</button>
-                    <button class="v-btn" onclick="setView('kanban')">Kanban</button>
+    <!-- MAIN VIEW -->
+    <div id="main-view">
+        <header>
+            <div class="top-row">
+                <h1 onclick="location.reload()">Anton</h1>
+                <div class="controls-row">
+                    <div class="persona-selector">
+                        <button class="p-btn active" onclick="setPersona('sim')">Simulation</button>
+                        <button class="p-btn" onclick="setPersona('game')">Game Dev</button>
+                        <button class="p-btn" onclick="setPersona('devops')">DevOps</button>
+                        <button class="p-btn" onclick="setPersona('frontend')">Frontend</button>
+                    </div>
+                    <div class="view-selector">
+                        <button class="v-btn active" onclick="setView('list')">List</button>
+                        <button class="v-btn" onclick="setView('kanban')">Kanban</button>
+                    </div>
                 </div>
             </div>
+
+            <div class="hero-info" id="hero-content"></div>
+
+            <div class="action-bar">
+                <a href="mailto:megumi.joy@gmail.com" class="action-btn">Email</a>
+                <a href="https://github.com/megumi-joy" target="_blank" class="action-btn">GitHub</a>
+                <a href="https://www.linkedin.com/in/megumi-joy/" target="_blank" class="action-btn">LinkedIn</a>
+                <button onclick="downloadLaTeX()" class="action-btn"
+                    style="border: 1px solid var(--border-color);">Export LaTeX</button>
+                <button onclick="downloadTrello()" class="action-btn"
+                    style="border: 1px solid var(--border-color);">Export Trello</button>
+            </div>
+        </header>
+
+        <div id="dynamic-content"></div>
+    </div>
+
+    <!-- DETAIL VIEW -->
+    <div id="detail-view">
+        <div class="detail-header">
+            <h1 style="font-size: 1.5rem; margin:0;">Project Details</h1>
+            <button class="close-btn" onclick="closeDetail()">&times;</button>
         </div>
-
-        <div class="hero-info" id="hero-content"></div>
-
-        <div class="action-bar">
-            <a href="mailto:megumi.joy@gmail.com" class="action-btn">Email</a>
-            <a href="https://github.com/megumi-joy" target="_blank" class="action-btn">GitHub</a>
-            <a href="https://www.linkedin.com/in/megumi-joy/" target="_blank" class="action-btn">LinkedIn</a>
-            <button onclick="downloadLaTeX()" class="action-btn" style="border: 1px solid var(--border-color);">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    style="margin-right:5px;">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="7 10 12 15 17 10" />
-                    <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-                Export LaTeX
-            </button>
-            <button onclick="downloadTrello()" class="action-btn" style="border: 1px solid var(--border-color);">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    style="margin-right:5px;">
-                    <rect x="3" y="3" width="18" height="18" rx="2" />
-                    <path d="M7 7h3v9H7z" />
-                    <path d="M14 7h3v5h-3z" />
-                </svg>
-                Export Trello
-            </button>
-        </div>
-    </header>
-
-    <div id="dynamic-content"></div>
+        <div id="detail-content"></div>
+    </div>
 
     <script>
         // --- DATA ---
         const ALL_PROJECTS = [
-            { id: 1, title: "Megumi Massage", status: "released", tech: ["Web", "Design"], desc: "Professional massage therapy website." },
-            { id: 2, title: "Portfolio V2", status: "released", tech: ["React", "Vite"], desc: "Minimalist, high-performance portfolio site." },
-            { id: 3, title: "Magic Balls Adventure", status: "released", tech: ["Godot", "Physics"], desc: "Physics-based puzzle platformer with dynamic object interaction." },
-            { id: 4, title: "AI Training Gym", status: "dev", tech: ["Python", "RL", "Sim"], desc: "Simulation environment for training AI agents on physics tasks." },
-            { id: 5, title: "Voicy Assistant", status: "proto", tech: ["Godot", "Audio", "AI"], desc: "Real-time voice modulation and assistant tool." },
-            { id: 6, title: "Godot Agent Manager", status: "proto", tech: ["Godot", "AI Hub"], desc: "Centralized hub for managing AI agents and their tasks." },
-            { id: 7, title: "Low Poly City Delivery", status: "proto", tech: ["Godot", "Vehicle Physics"], desc: "Open-world delivery sim with arcade vehicle physics." },
-            { id: 8, title: "VoxelCraft World", status: "dev", tech: ["Godot", "Voxel", "ProcGen"], desc: "Minecraft-inspired voxel sandbox with infinite terrain." },
-            { id: 9, title: "Plure Racing", status: "idea", tech: ["Godot", "Racing"], desc: "High-speed arcade racing concept." },
-            { id: 10, title: "Platformer Base", status: "idea", tech: ["Godot", "2D"], desc: "Solid platformer controller and level framework." },
-            { id: 11, title: "Sea Hunter", status: "idea", tech: ["Godot", "3D"], desc: "Underwater exploration and hunting game." },
-            { id: 12, title: "Spyfall Clone", status: "idea", tech: ["Web", "Multiplayer"], desc: "Social deduction party game." },
-            { id: 13, title: "Dropshipping Site", status: "proto", tech: ["Web", "E-com"], desc: "Automated e-commerce storefront prototype." },
-            { id: 14, title: "Crypto Tracker", status: "idea", tech: ["Web", "API"], desc: "Real-time cryptocurrency portfolio tracker." },
-            { id: 15, title: "Moon Calendar", status: "released", tech: ["Python", "Astro"], desc: "Lunar phase calculator and calendar utility." },
-            { id: 16, title: "Teaching Platform", status: "idea", tech: ["Web", "EdTech"], desc: "Platform for scheduling and managing private lessons." },
-            { id: 17, title: "Match 3 Core", status: "proto", tech: ["Godot", "Mobile"], desc: "Optimized match-3 engine." },
-            { id: 18, title: "Hyper Cash", status: "idea", tech: ["Mobile", "Casual"], desc: "Hypercasual money management game." },
-            { id: 19, title: "Trains Sim", status: "idea", tech: ["Sim", "Logistics"], desc: "Train logistics and scheduling simulation." },
-            { id: 20, title: "Train Video Editor", status: "idea", tech: ["Tool", "Video"], desc: "Specialized video editor for train footage." },
-            { id: 21, title: "Dog Game", status: "idea", tech: ["Sim", "AI"], desc: "Virtual pet simulation with advanced AI behaviors." }
+            { id: 1, title: "Megumi Massage", status: "released", progress: 100, tech: ["Web", "Design"], desc: "Professional massage therapy website.", missing: "None (Live)" },
+            { id: 2, title: "Portfolio V2", status: "released", progress: 100, tech: ["React", "Vite"], desc: "This minimalist portfolio site.", missing: "None (Live)" },
+            { id: 3, title: "Magic Balls Adventure", status: "released", progress: 100, tech: ["Godot", "Physics"], desc: "Physics-based puzzle platformer.", missing: "None (Live)" },
+            { id: 4, title: "AI Training Gym", status: "dev", progress: 40, tech: ["Python", "RL", "Sim"], desc: "Simulation environment for training AI agents.", missing: "Advanced reward functions, Visualization" },
+            { id: 5, title: "Voicy Assistant", status: "proto", progress: 60, tech: ["Godot", "Audio", "AI"], desc: "Real-time voice modulation prototype.", missing: "UI Polish, Noise Cancellation" },
+            { id: 6, title: "Godot Agent Manager", status: "proto", progress: 10, tech: ["Godot", "AI Hub"], desc: "Centralized hub for AI agents.", missing: "Core Logic, Backend Integration" },
+            { id: 7, title: "Low Poly City Delivery", status: "proto", progress: 30, tech: ["Godot", "Vehicle Physics"], desc: "Open-world delivery sim.", missing: "Mission System, Traffic AI" },
+            { id: 8, title: "VoxelCraft World", status: "dev", progress: 50, tech: ["Godot", "Voxel", "ProcGen"], desc: "Minecraft-inspired voxel sandbox.", missing: "Survival Mechanics, Crafting" },
+            { id: 9, title: "Plure Racing", status: "idea", progress: 0, tech: ["Godot", "Racing"], desc: "High-speed arcade racing concept.", missing: "Prototype, Physics Model" },
+            { id: 10, title: "Platformer Base", status: "idea", progress: 0, tech: ["Godot", "2D"], desc: "Platformer controller framework.", missing: "Level Design, Enemies" },
+            { id: 11, title: "Sea Hunter", status: "idea", progress: 0, tech: ["Godot", "3D"], desc: "Underwater exploration game.", missing: "Water Shader, Ecology System" },
+            { id: 12, title: "Spyfall Clone", status: "idea", progress: 0, tech: ["Web", "Multiplayer"], desc: "Social deduction party game.", missing: "Networking, Lobby UI" },
+            { id: 13, title: "Dropshipping Site", status: "proto", progress: 80, tech: ["Web", "E-com"], desc: "Automated e-commerce storefront.", missing: "Payment Gateway, Live Deployment" },
+            { id: 14, title: "Crypto Tracker", status: "idea", progress: 0, tech: ["Web", "API"], desc: "Real-time cryptocurrency tracker.", missing: "API Integration, Charts" },
+            { id: 15, title: "Moon Calendar", status: "released", progress: 100, tech: ["Python", "Astro"], desc: "Lunar phase calculator.", missing: "None (Released on library)" },
+            { id: 16, title: "Teaching Platform", status: "idea", progress: 0, tech: ["Web", "EdTech"], desc: "Scheduling for private lessons.", missing: "Calendar Sync, User Auth" },
+            { id: 17, title: "Match 3 Core", status: "proto", progress: 70, tech: ["Godot", "Mobile"], desc: "Optimized match-3 engine.", missing: "Meta-game, Monetization" },
+            { id: 18, title: "Hyper Cash", status: "idea", progress: 0, tech: ["Mobile", "Casual"], desc: "Hypercasual money management.", missing: "Core Loop, Assets" },
+            { id: 19, title: "Trains Sim", status: "idea", progress: 0, tech: ["Sim", "Logistics"], desc: "Train logistics simulation.", missing: "Pathfinding, Schedule Logic" },
+            { id: 20, title: "Train Video Editor", status: "idea", progress: 0, tech: ["Tool", "Video"], desc: "Specialized video editor.", missing: "FFmpeg Integration, Timeline UI" },
+            { id: 21, title: "Dog Game", status: "idea", progress: 0, tech: ["Sim", "AI"], desc: "Virtual pet simulation.", missing: "AI Behavior Tree, Animations" }
         ];
 
         const PERSONAS = {
@@ -423,9 +557,20 @@
             }
         };
 
-        // --- STATE ---
+        // --- STATE & UTILS ---
         let currentPersona = 'sim';
         let currentView = 'list';
+
+        function getPlaceholder(title) {
+            // Generate simple SVG placeholder
+            const svg = `
+            <svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#eee"/>
+                <text x="50%" y="50%" font-family="sans-serif" font-size="24" fill="#aaa" text-anchor="middle" dy=".3em">Placeholder Image</text>
+                <text x="50%" y="65%" font-family="sans-serif" font-size="14" fill="#ccc" text-anchor="middle">${title}</text>
+            </svg>`;
+            return "data:image/svg+xml;base64," + btoa(svg);
+        }
 
         // --- RENDER ---
         function render() {
@@ -452,14 +597,17 @@
             if (currentView === 'list') {
                 html += `<div class="projects-grid">`;
                 html += filteredProjects.map(p => `
-                    <div class="project-card">
-                        <div class="card-header">
-                            <span class="card-title">${p.title}</span>
-                            <span class="card-status status-${p.status}">${p.status}</span>
-                        </div>
-                        <p class="card-desc">${p.desc}</p>
-                        <div class="card-tags">
-                            ${p.tech.map(t => `<span class="tag">${t}</span>`).join('')}
+                    <div class="project-card" onclick="openDetail(${p.id})">
+                        <img class="card-img" src="${getPlaceholder(p.title)}" alt="${p.title}">
+                        <div class="card-body">
+                            <div class="card-header">
+                                <span class="card-title">${p.title}</span>
+                                <span class="card-status status-${p.status}">${p.status}</span>
+                            </div>
+                            <p class="card-desc">${p.desc}</p>
+                            <div class="card-tags">
+                                ${p.tech.map(t => `<span class="tag">${t}</span>`).join('')}
+                            </div>
                         </div>
                     </div>
                 `).join('');
@@ -477,7 +625,7 @@
                         <div class="kanban-col">
                             <h3>${colName} (${items.length})</h3>
                             ${items.map(p => `
-                                <div class="project-card">
+                                <div class="project-card" onclick="openDetail(${p.id})">
                                     <div class="card-header"><span class="card-title">${p.title}</span></div>
                                     <p class="card-desc" style="font-size:0.8rem; margin-bottom:5px;">${p.desc}</p>
                                 </div>
@@ -502,6 +650,50 @@
         // --- ACTIONS ---
         function setPersona(p) { currentPersona = p; render(); }
         function setView(v) { currentView = v; render(); }
+
+        function openDetail(id) {
+            const p = ALL_PROJECTS.find(x => x.id === id);
+            if (!p) return;
+
+            const html = `
+                <div class="detail-hero">
+                    <img class="detail-img" src="${getPlaceholder(p.title)}" alt="${p.title}">
+                    <h2 style="font-size:1.8rem; border:none; margin-bottom:5px;">${p.title}</h2>
+                    <span class="card-status status-${p.status}" style="font-size:0.9rem; padding:4px 8px;">${p.status}</span>
+                </div>
+                
+                <div class="detail-meta">
+                    <div>
+                        <strong>Progress:</strong> ${p.progress}%
+                        <div class="completion-bar"><div class="completion-fill" style="width:${p.progress}%"></div></div>
+                    </div>
+                    <div>
+                        <strong>Tech:</strong> ${p.tech.join(', ')}
+                    </div>
+                </div>
+
+                <p style="font-size:1.1rem; line-height:1.6; margin-bottom:30px;">
+                    ${p.desc} This project demonstrates key competencies in ${p.tech.join(' and ')}. 
+                    It is currently in the <strong>${p.status}</strong> phase.
+                </p>
+
+                ${p.progress < 100 ? `
+                <div class="missing-box">
+                    <div class="missing-title">Remaining Tasks / Missing Features</div>
+                    ${p.missing}
+                </div>` : ''}
+            `;
+
+            document.getElementById('detail-content').innerHTML = html;
+            document.getElementById('main-view').classList.add('hidden');
+            document.getElementById('detail-view').classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function closeDetail() {
+            document.getElementById('detail-view').classList.remove('active');
+            document.getElementById('main-view').classList.remove('hidden');
+        }
 
         function downloadLaTeX() {
             const p = PERSONAS[currentPersona];
