@@ -223,6 +223,7 @@ const GAMES_DATA = {
         path: "/portfolio/games/Low-Poly City Delivery/index.html",
         tags: ["Godot", "Simulation", "WebGL"],
         status: "playable",
+        progress: 30,
         translations: {
             en: {
                 title: "Low-Poly City Delivery",
@@ -267,6 +268,7 @@ const GAMES_DATA = {
         path: "/portfolio/games/magicballsadventure/index.html",
         tags: ["Godot", "Adventure", "WebGL"],
         status: "playable",
+        progress: 100,
         translations: {
             en: {
                 title: "Magic Balls Adventure",
@@ -311,6 +313,7 @@ const GAMES_DATA = {
         path: "/portfolio/games/VoicyGodot/index.html",
         tags: ["Godot", "Audio", "Tool"],
         status: "playable",
+        progress: 60,
         translations: {
             en: {
                 title: "VoicyGodot",
@@ -490,6 +493,7 @@ const getGamesForLanguage = (lang) => {
         path: game.path,
         tags: game.tags,
         status: game.status,
+        progress: game.progress || (game.status === 'playable' ? 100 : 30),
         ...(game.translations[lang] || game.translations.en)
     }));
 };

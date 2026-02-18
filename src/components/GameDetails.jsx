@@ -113,11 +113,12 @@ const GameDetails = ({ game, onClose, onPlay }) => {
                                     <h3 className="text-white font-bold mb-2">Project Status</h3>
                                     <div className="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
                                         <div
-                                            className={`h-full ${isPlayable ? 'bg-green-500 w-full' : 'bg-yellow-500 w-1/3'}`}
+                                            className={`h-full transition-all duration-1000 ${game.progress >= 100 ? 'bg-green-500' : 'bg-yellow-500'}`}
+                                            style={{ width: `${game.progress}%` }}
                                         />
                                     </div>
                                     <p className="text-right text-xs text-slate-400 mt-1">
-                                        {isPlayable ? '100% Complete' : 'Prototyping Phase'}
+                                        {game.progress}% Complete
                                     </p>
                                 </div>
 

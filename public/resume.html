@@ -455,6 +455,63 @@
                 justify-content: center;
             }
         }
+
+        /* --- Premium Touches --- */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% -20%, rgba(120, 119, 198, 0.1), transparent);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, var(--bg-color), var(--btn-bg));
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-section {
+            background: var(--btn-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 15px;
+            max-width: 500px;
+            margin: 20px auto 0;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: inherit;
+        }
+
+        .submit-btn {
+            background: var(--accent-color);
+            color: var(--bg-color);
+            padding: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
     </style>
 </head>
 
@@ -493,6 +550,23 @@
         </header>
 
         <div id="dynamic-content"></div>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact-section" id="contact">
+            <h2 style="text-align: center; border: none;">Get in Touch</h2>
+            <p style="text-align: center; color: var(--secondary-text); margin-top: -10px;">Have a project or feedback?
+                Send me a message below.</p>
+            <form class="contact-form" onsubmit="handleContact(event)">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit" class="submit-btn active">Send Message</button>
+            </form>
+            <div id="contact-success" class="hidden"
+                style="text-align: center; color: #28a745; margin-top: 20px; font-weight: 600;">
+                Message sent successfully! I'll get back to you soon.
+            </div>
+        </section>
     </div>
 
     <!-- DETAIL VIEW -->
@@ -517,7 +591,7 @@
             { id: 8, title: "VoxelCraft World", status: "dev", progress: 50, tech: ["Godot", "Voxel", "ProcGen"], desc: "Minecraft-inspired voxel sandbox.", missing: "Survival Mechanics, Crafting" },
             { id: 9, title: "Plure Racing", status: "idea", progress: 0, tech: ["Godot", "Racing"], desc: "High-speed arcade racing concept.", missing: "Prototype, Physics Model" },
             { id: 10, title: "Platformer Base", status: "idea", progress: 0, tech: ["Godot", "2D"], desc: "Platformer controller framework.", missing: "Level Design, Enemies" },
-            { id: 11, title: "Sea Hunter", status: "idea", progress: 0, tech: ["Godot", "3D"], desc: "Underwater exploration game.", missing: "Water Shader, Ecology System" },
+            { id: 11, title: "Sea Hunter", status: "proto", progress: 20, tech: ["Godot", "3D"], desc: "Underwater exploration game.", missing: "Water Shader, Ecology System" },
             { id: 12, title: "Spyfall Clone", status: "idea", progress: 0, tech: ["Web", "Multiplayer"], desc: "Social deduction party game.", missing: "Networking, Lobby UI" },
             { id: 13, title: "Dropshipping Site", status: "proto", progress: 80, tech: ["Web", "E-com"], desc: "Automated e-commerce storefront.", missing: "Payment Gateway, Live Deployment" },
             { id: 14, title: "Crypto Tracker", status: "idea", progress: 0, tech: ["Web", "API"], desc: "Real-time cryptocurrency tracker.", missing: "API Integration, Charts" },
@@ -736,6 +810,14 @@ ${ALL_PROJECTS.filter(p.filter).map(proj => `\\textbf{${proj.title}} (${proj.sta
             a.href = url;
             a.download = `portfolio_board.json`;
             a.click();
+        }
+
+        function handleContact(e) {
+            e.preventDefault();
+            document.querySelector('.contact-form').classList.add('hidden');
+            document.getElementById('contact-success').classList.remove('hidden');
+            // Mocking success
+            console.log("Contact form submitted");
         }
 
         // Init
