@@ -47,6 +47,31 @@ create policy "Admins can update orders"
 on orders for update using (
   auth.email() = 'megumi.joy@gmail.com'
 );
+
+create table bookings (
+  id uuid default gen_random_uuid() primary key,
+  user_id uuid references auth.users not null,
+  start_time timestamp with time zone not null,
+  end_time timestamp with time zone not null,
+  status text default 'pending' check (status in ('pending', 'confirmed', 'cancelled')),
+  google_event_id text,
+  notes text,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+alter table bookings enable row level security;
+
+create policy "Users can view their own bookings"
+on bookings for select using (auth.uid() = user_id);
+
+create policy "Users can insert their own bookings"
+on bookings for insert with check (auth.uid() = user_id);
+
+create policy "Admins can view all bookings"
+on bookings for select using (auth.email() = 'megumi.joy@gmail.com');
+
+create policy "Admins can update bookings"
+on bookings for update using (auth.email() = 'megumi.joy@gmail.com');
 ```
 
 ## 4. Storage Setup

@@ -11,12 +11,13 @@ import ResumeModal from './components/Resume/ResumeModal';
 import Shop from './components/Shop';
 import Admin from './components/Admin';
 import Auth from './components/Auth';
+import Schedule from './components/Schedule';
 import { supabase } from './lib/supabase';
 import { ShoppingCart, Layout, ShieldCheck } from 'lucide-react';
 
 function App() {
   const [showResume, setShowResume] = useState(false);
-  const [view, setView] = useState('portfolio'); // 'portfolio', 'shop', 'admin'
+  const [view, setView] = useState('portfolio'); // 'portfolio', 'shop', 'admin', 'schedule'
   const [user, setUser] = useState(null);
 
   const isSupabaseConfigured =
@@ -75,6 +76,12 @@ function App() {
           {view === 'admin' && (
             <div className="pt-10">
               <Admin />
+            </div>
+          )}
+
+          {view === 'schedule' && (
+            <div className="pt-10">
+              {user ? <Schedule user={user} /> : <Auth onUserChange={setUser} />}
             </div>
           )}
         </main>

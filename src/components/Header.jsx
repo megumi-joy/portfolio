@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from './LanguageContext';
 import ToneToggle from './ToneToggle';
-import { Menu, X, ShoppingBag, LogOut, ShieldCheck } from 'lucide-react';
+import { Menu, X, ShoppingBag, LogOut, ShieldCheck, CalendarDays } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -20,6 +20,7 @@ const Header = ({ currentView, onViewChange, user }) => {
     const navLinks = [
         { name: activeProfile.ui?.stats?.roles || 'Experience', href: '#experience', view: 'portfolio' },
         { name: activeProfile.ui?.stats?.projects || 'Projects', href: '#projects', view: 'portfolio' },
+        { name: 'Schedule', href: '#schedule', view: 'schedule' },
         { name: 'Shop', href: '#shop', view: 'shop' },
     ];
 
@@ -78,13 +79,22 @@ const Header = ({ currentView, onViewChange, user }) => {
                                 )}
                             </div>
                         ) : (
-                            <button
-                                onClick={() => onViewChange('shop')}
-                                className={`flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm transition-all ${currentView === 'shop' ? 'bg-cyan-500 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
-                            >
-                                <ShoppingBag size={16} />
-                                Shop
-                            </button>
+                            <div className="flex items-center gap-2">
+                                <button
+                                    onClick={() => onViewChange('schedule')}
+                                    className={`flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm transition-all ${currentView === 'schedule' ? 'bg-cyan-500 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
+                                >
+                                    <CalendarDays size={16} />
+                                    Schedule
+                                </button>
+                                <button
+                                    onClick={() => onViewChange('shop')}
+                                    className={`flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm transition-all ${currentView === 'shop' ? 'bg-cyan-500 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
+                                >
+                                    <ShoppingBag size={16} />
+                                    Shop
+                                </button>
+                            </div>
                         )}
 
                         {/* Language Switcher */}
