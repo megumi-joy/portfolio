@@ -765,3 +765,9 @@ export const PROFILES = {
 
 // Default export if needed
 export const PROFILE = BASE_PROFILE;
+
+export const SHOP_DATA = [
+    { id: 'city-deliv', title: 'Low-Poly City Build', price: '$15', desc: 'Custom optimized build for your platform.' },
+    { id: 'magic-balls', title: 'Magic Balls - Full Build', price: '$10', desc: 'The complete adventure with bonus levels.' },
+    { id: 'sea-hunter', title: 'Sea Hunter Early Access', price: '$5', desc: 'Pre-order the underwater exploration game.' },
+];
