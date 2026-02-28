@@ -4,6 +4,7 @@ import { X, FileText, Download, Copy, Check, Eye, Terminal, ExternalLink, FileTy
 import { PDFDownloadLink, BlobProvider, PDFViewer } from '@react-pdf/renderer';
 import ResumePDF from './ResumePDF';
 import { generateLatex } from './latexGenerator';
+import { generateTextResume } from './textGenerator';
 import { useLanguage } from '../LanguageContext';
 import AdventurerCard from './AdventurerCard';
 import Prism from 'prismjs';
@@ -35,6 +36,19 @@ const ResumeModal = ({ isOpen, onClose }) => {
         navigator.clipboard.writeText(latexSource);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
+    };
+
+    const handleDownloadTxt = () => {
+        const textStr = generateTextResume(activeProfile);
+        const blob = new Blob([textStr], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `${activeProfile.name?.replace(/\s+/g, '_')}_Resume_${language.toUpperCase()}.txt`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
     };
 
     return (
@@ -295,6 +309,15 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                                     )
                                                 }
                                             </PDFDownloadLink>
+
+                                            {/* Download TXT Button */}
+                                            <button
+                                                onClick={handleDownloadTxt}
+                                                className="flex items-center justify-center gap-2 w-full py-2 px-4 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-bold text-sm transition-all hover:shadow-lg hover:shadow-slate-500/20"
+                                            >
+                                                <FileText size={16} />
+                                                Download TXT
+                                            </button>
 
                                             {/* Fallback for In-App Browsers */}
                                             <BlobProvider document={<ResumePDF profile={activeProfile} />}>

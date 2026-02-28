@@ -736,21 +736,219 @@ export const PROFILES = {
         en: { ...BASE_PROFILE, ui: TRANSLATIONS.en },
         es: {
             ...BASE_PROFILE,
+            title: "Tecnólogo Creativo e Ingeniero de Simulación",
+            location: "Málaga, España",
             about: "Ingeniero multidisciplinar especializado en simulaciones de alto rendimiento, herramientas de robótica y arquitectura de software escalable. Con una sólida base tanto en interfaces de hardware de C++ como en sistemas web modernos, cierro la brecha entre las restricciones físicas y los gemelos digitales. Trayectoria comprobada en la optimización de canalizaciones de renderizado, diseño de comportamientos de IA agéntica y automatización de flujos de trabajo dev-ops complejos.",
+            education: [
+                {
+                    institution: "Academia Estatal de Refrigeración de Odesa",
+                    degree: "Máster en IA y Redes Neuronales",
+                    period: "2018 - 2020",
+                    location: "Odesa, Ucrania"
+                },
+                {
+                    institution: "Academia Estatal de Refrigeración de Odesa",
+                    degree: "Licenciatura en Sistemas de Control y Electrónica",
+                    period: "2014 - 2018",
+                    location: "Odesa, Ucrania"
+                }
+            ],
+            experience: [
+                {
+                    role: "Ingeniero de I+D en Simulación",
+                    company: "Autónomo / Contrato",
+                    period: "Presente",
+                    description: "Diseño de entornos de simulación de alta fidelidad y sistemas en red.",
+                    achievements: [
+                        "Arquitectura de un protocolo de red P2P personalizado sobre WebRTC/WebSocket para sincronización de estado de baja latencia en simulaciones distribuidas.",
+                        "Desarrollo de comportamientos de 'IA Agéntica' utilizando máquinas de estado jerárquicas y algoritmos de búsqueda de caminos.",
+                        "Implementación de tuberías CI/CD rigurosas para compilaciones multiplataforma, asegurando estabilidad en Linux, Windows y Web."
+                    ],
+                    technologies: ["C++", "Godot 4", "Networking", "AI Algorithms"]
+                },
+                {
+                    role: "Ingeniero de Software de Simulación",
+                    company: "EdTech / Sim Studio",
+                    period: "2020 - 2022",
+                    description: "Ingeniero principal de un Simulador de Tráfico fotorrealista usado en entrenamiento de conductores.",
+                    achievements: [
+                        "Ingeniería de una tubería de renderizado fotorrealista (Unity HDRP) procesando 500+ escenarios dinámicos bajo estrictos presupuestos de tiempo por cuadro.",
+                        "Desarrollo de herramientas internas en C# para generación de entornos procedimentales, reduciendo el tiempo de ensamblado de escenas en ~70%.",
+                        "Optimización de cálculos físicos y transmisión de activos para mantener 60 FPS en hardware de gama media."
+                    ],
+                    technologies: ["C#", "Unity HDRP", "Procedural Generation", "Optimization"]
+                },
+                {
+                    role: "Ingeniero de Sistemas Full Stack",
+                    company: "Varios Clientes",
+                    period: "Reciente",
+                    description: "Entrega de herramientas de procesamiento de datos de alto rendimiento y arquitecturas web.",
+                    achievements: [
+                        "Construcción de un Panel de Datos en tiempo real visualizando 10k+ puntos de telemetría con latencia inferior al segundo usando React y estructuras de datos optimizadas.",
+                        "Escritura de un backend asíncrono en Python (asyncio) manejando 200+ conexiones simultáneas con mínima sobrecarga.",
+                        "Contenerización de flujos de trabajo de implementación usando Docker y AWS, logrando un tiempo de actividad del 99.9% para servicios críticos."
+                    ],
+                    technologies: ["Python (Asyncio)", "React", "Docker", "AWS", "Systems Design"]
+                },
+                {
+                    role: "Ingeniero de Sistemas Integrados",
+                    company: "Firma de Microelectrónica",
+                    period: "Inicios de Carrera",
+                    description: "Desarrollo de firmware y software para hardware de pruebas médicas.",
+                    achievements: [
+                        "Programación de microcontroladores STM32/Arduino para adquisición precisa de datos de sensores en dispositivos médicos.",
+                        "Conexión de entradas de hardware a un visualizador personalizado en Unity para retroalimentación del operador en tiempo real.",
+                        "Diseño de placas PCB y gestión de procesos de fabricación para ejecuciones de prototipos."
+                    ],
+                    technologies: ["C++", "STM32", "Embedded C", "PCB Design"]
+                }
+            ],
             projects: PROJECTS_ES,
             games: getGamesForLanguage('es'),
             ui: TRANSLATIONS.es,
         },
         ru: {
             ...BASE_PROFILE,
+            title: "Креативный технолог и инженер симуляций",
+            location: "Малага, Испания",
             about: "Мультидисциплинарный инженер, специализирующийся на высокопроизводительных симуляциях, инструментах для робототехники и масштабируемой архитектуре программного обеспечения. Обладая прочной базой как в аппаратных интерфейсах C++, так и в современных веб-системах, я устраняю разрыв между физическими ограничениями и цифровыми двойниками. Доказанный опыт оптимизации конвейеров рендеринга, проектирования агентного поведения ИИ и автоматизации сложных рабочих процессов dev-ops.",
+            education: [
+                {
+                    institution: "Одесская Государственная Академия Холода",
+                    degree: "Магистр в области ИИ и нейросетей",
+                    period: "2018 - 2020",
+                    location: "Одесса, Украина"
+                },
+                {
+                    institution: "Одесская Государственная Академия Холода",
+                    degree: "Бакалавр систем управления и электроники",
+                    period: "2014 - 2018",
+                    location: "Одесса, Украина"
+                }
+            ],
+            experience: [
+                {
+                    role: "Р&Д Инженер симуляций",
+                    company: "Фриланс / Контракт",
+                    period: "Настоящее время",
+                    description: "Проектирование высокоточных сред симуляций и сетевых систем.",
+                    achievements: [
+                        "Создал архитектуру P2P-сети поверх WebRTC/WebSocket для синхронизации состояния с низкой задержкой.",
+                        "Разработал поведение агентных ИИ с использованием иерархических конечных автоматов и алгоритмов поиска пути.",
+                        "Внедрил строгие конвейеры CI/CD для кросс-платформенных сборок (Linux, Windows, Web)."
+                    ],
+                    technologies: ["C++", "Godot 4", "Networking", "AI Algorithms"]
+                },
+                {
+                    role: "Инженер-программист симуляций",
+                    company: "EdTech / Sim Studio",
+                    period: "2020 - 2022",
+                    description: "Ведущий инженер фотореалистичного симулятора трафика для обучения водителей.",
+                    achievements: [
+                        "Разработал конвейер фотореалистичного рендеринга (Unity HDRP), обрабатывающий 500+ динамических сценариев.",
+                        "Создал внутренние инструменты (C#) для процедурной генерации окружения, сократив время сборки сцен на ~70%.",
+                        "Оптимизировал физику и стриминг ресурсов для поддержания 60 FPS на устройствах среднего класса."
+                    ],
+                    technologies: ["C#", "Unity HDRP", "Procedural Generation", "Optimization"]
+                },
+                {
+                    role: "Full Stack Системный Инженер",
+                    company: "Различные клиенты",
+                    period: "Недавнее время",
+                    description: "Разработка высокопроизводительных инструментов обработки данных и веб-архитектур.",
+                    achievements: [
+                        "Создал дашборд реального времени (React, оптимизированные структуры данных), визуализирующий 10k+ точек телеметрии с задержкой <1 сек.",
+                        "Написал асинхронный бэкенд на Python (asyncio), обрабатывающий 200+ одновременных подключений.",
+                        "Внедрил контейнеризацию в рабочие процессы развертывания с использованием Docker и AWS."
+                    ],
+                    technologies: ["Python (Asyncio)", "React", "Docker", "AWS", "Systems Design"]
+                },
+                {
+                    role: "Инженер встраиваемых систем",
+                    company: "Микроэлектронная фирма",
+                    period: "Начало карьеры",
+                    description: "Разработка прошивок и ПО для медицинского тестового оборудования.",
+                    achievements: [
+                        "Программировал микроконтроллеры STM32/Arduino для точного сбора данных с датчиков.",
+                        "Реализовал мост между аппаратными входами и кастомным визуализатором Unity для оперативной связи в реальном времени.",
+                        "Проектировал топологии печатных плат и управлял процессом производства прототипов."
+                    ],
+                    technologies: ["C++", "STM32", "Embedded C", "PCB Design"]
+                }
+            ],
             projects: PROJECTS_RU,
             games: getGamesForLanguage('ru'),
             ui: TRANSLATIONS.ru,
         },
         uk: {
             ...BASE_PROFILE,
+            title: "Креативний технолог та інженер симуляцій",
+            location: "Малага, Іспанія",
             about: "Мультидисциплінарний інженер, що спеціалізується на високопродуктивних симуляціях, інструментах для робототехніки та масштабованій архітектурі програмного забезпечення. Маючи міцну базу як в апаратних інтерфейсах C++, так і в сучасних веб-системах, я усуваю розрив між фізичними обмеженнями та цифровими двійниками. Доведений досвід оптимізації конвеєрів рендерингу, проектування агентної поведінки ШІ та автоматизації складних робочих процесів dev-ops.",
+            education: [
+                {
+                    institution: "Одеська Державна Академія Холоду",
+                    degree: "Магістр у галузі ШІ та нейромереж",
+                    period: "2018 - 2020",
+                    location: "Одеса, Україна"
+                },
+                {
+                    institution: "Одеська Державна Академія Холоду",
+                    degree: "Бакалавр систем управління та електроніки",
+                    period: "2014 - 2018",
+                    location: "Одеса, Україна"
+                }
+            ],
+            experience: [
+                {
+                    role: "Р&Д Інженер симуляцій",
+                    company: "Фріланс / Контракт",
+                    period: "Теперішній час",
+                    description: "Проектування високоточних середовищ симуляцій та мережевих систем.",
+                    achievements: [
+                        "Створив архітектуру P2P-мережі поверх WebRTC/WebSocket для синхронізації стану з низькою затримкою.",
+                        "Розробив поведінку агентних ШІ з використанням ієрархічних кінцевих автоматів та алгоритмів пошуку шляху.",
+                        "Впровадив суворі конвеєри CI/CD для крос-платформних збірок (Linux, Windows, Web)."
+                    ],
+                    technologies: ["C++", "Godot 4", "Networking", "AI Algorithms"]
+                },
+                {
+                    role: "Інженер-програміст симуляцій",
+                    company: "EdTech / Sim Studio",
+                    period: "2020 - 2022",
+                    description: "Провідний інженер фотореалістичного симулятора трафіку для навчання водіїв.",
+                    achievements: [
+                        "Розробив конвеєр фотореалістичного рендерингу (Unity HDRP), обробляючий 500+ динамічних сценаріїв.",
+                        "Створив внутрішні інструменти (C#) для процедурної генерації оточення, скоротивши час збірки сцен на ~70%.",
+                        "Оптимизував фізику та стрімінг ресурсів для підтримки 60 FPS на пристроях середнього класу."
+                    ],
+                    technologies: ["C#", "Unity HDRP", "Procedural Generation", "Optimization"]
+                },
+                {
+                    role: "Full Stack Системний Інженер",
+                    company: "Різні клієнти",
+                    period: "Нещодавно",
+                    description: "Розробка високопродуктивних інструментів обробки даних та веб-архітектур.",
+                    achievements: [
+                        "Створив дашборд реального часу (React, оптимізовані структури даних), що візуалізує 10k+ точок телеметрії із затримкою <1 сек.",
+                        "Написав асинхронний бекенд на Python (asyncio), що обробляє 200+ одночасних підключень.",
+                        "Впровадив контейнеризацію в робочі процеси розгортання з використанням Docker та AWS."
+                    ],
+                    technologies: ["Python (Asyncio)", "React", "Docker", "AWS", "Systems Design"]
+                },
+                {
+                    role: "Інженер вбудованих систем",
+                    company: "Мікроелектронна фірма",
+                    period: "Початок кар'єри",
+                    description: "Розробка прошивок та ПЗ для медичного тестового обладнання.",
+                    achievements: [
+                        "Програмував мікроконтролери STM32/Arduino для точного збору даних із датчиків.",
+                        "Реалізував міст між апаратними входами та кастомним візуалізатором Unity для оперативного зв'язку в реальному часі.",
+                        "Проектував топології друкованих плат і керував процесом виробництва прототипів."
+                    ],
+                    technologies: ["C++", "STM32", "Embedded C", "PCB Design"]
+                }
+            ],
             projects: PROJECTS_UK,
             games: getGamesForLanguage('uk'),
             ui: TRANSLATIONS.uk,
