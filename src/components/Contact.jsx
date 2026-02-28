@@ -24,13 +24,32 @@ const Contact = () => {
                         {activeProfile.ui.contactText || "I'm currently open to new opportunities in Game Development, Simulation Engineering, or Full Stack Web Development."}
                     </p>
 
-                    <a
-                        href={`mailto:${activeProfile.socials.email}`}
-                        className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white text-slate-900 font-bold hover:bg-cyan-50 transition-colors"
-                    >
-                        <Mail size={20} />
-                        {activeProfile.ui.contactButton || "Say Hello"}
-                    </a>
+                    <form className="space-y-4 text-left max-w-lg mx-auto bg-slate-900/40 p-8 rounded-2xl border border-cyan-500/10 backdrop-blur-sm">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input
+                                type="text"
+                                placeholder="Name"
+                                className="bg-slate-800/50 border border-slate-700 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-white w-full"
+                            />
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                className="bg-slate-800/50 border border-slate-700 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-white w-full"
+                            />
+                        </div>
+                        <textarea
+                            placeholder="Your Message"
+                            rows="4"
+                            className="bg-slate-800/50 border border-slate-700 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-white w-full"
+                        ></textarea>
+                        <button
+                            type="button"
+                            className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold hover:from-cyan-400 hover:to-blue-400 transition-all shadow-lg shadow-cyan-500/20"
+                        >
+                            <Mail size={20} />
+                            {activeProfile.ui.contactButton || "Say Hello"}
+                        </button>
+                    </form>
                 </div>
             </motion.div>
         </section>

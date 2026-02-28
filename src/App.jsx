@@ -8,9 +8,38 @@ import Plans from './components/Plans';
 import Contact from './components/Contact';
 import { LanguageProvider } from './components/LanguageContext';
 import ResumeModal from './components/Resume/ResumeModal';
+import Shop from './components/Shop';
+import Admin from './components/Admin';
+import Auth from './components/Auth';
+import Schedule from './components/Schedule';
+import { supabase } from './lib/supabase';
+import { ShoppingCart, Layout, ShieldCheck } from 'lucide-react';
 
 function App() {
   const [showResume, setShowResume] = useState(false);
+  const [view, setView] = useState('portfolio'); // 'portfolio', 'shop', 'admin', 'schedule'
+  const [user, setUser] = useState(null);
+
+  const isSupabaseConfigured =
+    import.meta.env.VITE_SUPABASE_URL &&
+    import.meta.env.VITE_SUPABASE_URL !== 'YOUR_SUPABASE_URL';
+
+  useEffect(() => {
+    if (!isSupabaseConfigured) {
+      console.warn("Supabase is not configured. Shop and Admin features will be disabled.");
+      return;
+    }
+
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, [isSupabaseConfigured]);
 
   return (
     <LanguageProvider>
@@ -20,15 +49,41 @@ function App() {
           <div className="absolute bottom-[20%] right-[-5%] w-[30%] h-[60%] rounded-full bg-purple-600/10 blur-[100px]" />
         </div>
 
-        <Header />
+        <Header
+          currentView={view}
+          onViewChange={setView}
+          user={user}
+        />
 
         <main className="relative z-10 max-w-7xl mx-auto px-6 py-12 space-y-32 pt-24">
-          <Hero onOpenResume={() => setShowResume(true)} />
-          <Skills />
-          <Experience />
-          <Projects />
-          <Plans />
-          <Contact />
+          {view === 'portfolio' && (
+            <>
+              <Hero onOpenResume={() => setShowResume(true)} />
+              <Skills />
+              <Experience />
+              <Projects />
+              <Plans />
+              <Contact />
+            </>
+          )}
+
+          {view === 'shop' && (
+            <div className="pt-10">
+              {user ? <Shop user={user} /> : <Auth onUserChange={setUser} />}
+            </div>
+          )}
+
+          {view === 'admin' && (
+            <div className="pt-10">
+              <Admin />
+            </div>
+          )}
+
+          {view === 'schedule' && (
+            <div className="pt-10">
+              {user ? <Schedule user={user} /> : <Auth onUserChange={setUser} />}
+            </div>
+          )}
         </main>
 
         <ResumeModal isOpen={showResume} onClose={() => setShowResume(false)} />
