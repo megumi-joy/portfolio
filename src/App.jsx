@@ -20,26 +20,26 @@ function App() {
   const [view, setView] = useState('portfolio'); // 'portfolio', 'shop', 'admin', 'schedule'
   const [user, setUser] = useState(null);
 
-  const isSupabaseConfigured =
-    import.meta.env.VITE_SUPABASE_URL &&
-    import.meta.env.VITE_SUPABASE_URL !== 'YOUR_SUPABASE_URL' &&
-    import.meta.env.VITE_SUPABASE_URL !== 'https://placeholder-url.supabase.co';
+  const isSupabaseConfigured = false;
+  // import.meta.env.VITE_SUPABASE_URL &&
+  // import.meta.env.VITE_SUPABASE_URL !== 'YOUR_SUPABASE_URL' &&
+  // import.meta.env.VITE_SUPABASE_URL !== 'https://placeholder-url.supabase.co';
 
   useEffect(() => {
-    if (!isSupabaseConfigured) {
-      console.warn("Supabase is not configured. Shop and Admin features will be disabled.");
-      return;
-    }
+    // if (!isSupabaseConfigured) {
+    //   console.warn("Supabase is not configured. Shop and Admin features will be disabled.");
+    //   return;
+    // }
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-    });
+    // supabase.auth.getSession().then(({ data: { session } }) => {
+    //   setUser(session?.user ?? null);
+    // });
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
+    // const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    //   setUser(session?.user ?? null);
+    // });
 
-    return () => subscription.unsubscribe();
+    // return () => subscription.unsubscribe();
   }, [isSupabaseConfigured]);
 
   return (
