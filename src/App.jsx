@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
@@ -22,7 +22,8 @@ function App() {
 
   const isSupabaseConfigured =
     import.meta.env.VITE_SUPABASE_URL &&
-    import.meta.env.VITE_SUPABASE_URL !== 'YOUR_SUPABASE_URL';
+    import.meta.env.VITE_SUPABASE_URL !== 'YOUR_SUPABASE_URL' &&
+    import.meta.env.VITE_SUPABASE_URL !== 'https://placeholder-url.supabase.co';
 
   useEffect(() => {
     if (!isSupabaseConfigured) {

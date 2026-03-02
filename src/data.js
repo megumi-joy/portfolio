@@ -45,7 +45,13 @@ const TRANSLATIONS = {
         hello: "Hello, I'm",
         viewDetails: "View Details",
         openInNewTab: "Open in New Tab",
-        prototypesTitle: "Godot Engine Prototypes"
+        prototypesTitle: "Godot Engine Prototypes",
+        profiles: {
+            all: "General",
+            frontend: "Frontend",
+            games: "Games",
+            embedded: "Embedded"
+        }
     },
     es: {
         resume: "Currículum",
@@ -69,7 +75,13 @@ const TRANSLATIONS = {
         hello: "Hola, soy",
         viewDetails: "Ver Detalles",
         openInNewTab: "Abrir en nueva pestaña",
-        prototypesTitle: "Prototipos de Godot Engine"
+        prototypesTitle: "Prototipos de Godot Engine",
+        profiles: {
+            all: "General",
+            frontend: "Frontend",
+            games: "Juegos",
+            embedded: "Embedded"
+        }
     },
     ru: {
         resume: "Резюме",
@@ -93,7 +105,13 @@ const TRANSLATIONS = {
         hello: "Привет, я",
         viewDetails: "Подробнее",
         openInNewTab: "Открыть в новой вкладке",
-        prototypesTitle: "Прототипы на Godot Engine"
+        prototypesTitle: "Прототипы на Godot Engine",
+        profiles: {
+            all: "Общий",
+            frontend: "Фронтенд",
+            games: "Игры",
+            embedded: "Embedded"
+        }
     },
     uk: {
         resume: "Резюме",
@@ -117,7 +135,13 @@ const TRANSLATIONS = {
         hello: "Привіт, я",
         viewDetails: "Докладніше",
         openInNewTab: "Відкрити в новій вкладці",
-        prototypesTitle: "Прототипи на Godot Engine"
+        prototypesTitle: "Прототипи на Godot Engine",
+        profiles: {
+            all: "Загальний",
+            frontend: "Фронтенд",
+            games: "Ігри",
+            embedded: "Embedded"
+        }
     }
 };
 
@@ -502,7 +526,7 @@ const BASE_PROFILE = {
     name: "Anton",
     title: "Creative Technologist & Simulation Engineer",
     about: "Multidisciplinary engineer specializing in high-performance simulations, robotics tooling, and scalable software architecture. With a strong foundation in both C++ hardware interfaces and modern web systems, I bridge physical constraints with digital twins. Proven track record in optimizing rendering pipelines, designing agentic AI behaviors, and automating complex dev-ops workflows.",
-    location: "Málaga, Spain",
+    location: "Barcelona, Spain",
     socials: SOCIALS,
     skills: COMMON_SKILLS,
     languages: COMMON_LANGUAGES,
