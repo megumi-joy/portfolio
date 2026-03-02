@@ -242,51 +242,6 @@ const PROJECTS_UK = [
 ];
 
 const GAMES_DATA = {
-    "lowPolyCityDelivery": {
-        thumbnail: "/portfolio/games/Low-Poly City Delivery/index.png",
-        path: "/portfolio/games/Low-Poly City Delivery/index.html",
-        tags: ["Godot", "Simulation", "WebGL"],
-        status: "playable",
-        progress: 30,
-        translations: {
-            en: {
-                title: "Low-Poly City Delivery",
-                description: "A delivery simulation game set in a low-poly city environment.",
-                gdd: {
-                    overview: "Deliver packages in a vibrant low-poly city against the clock.",
-                    mechanics: ["Vehicle physics", "Pick up/Drop off system", "Timer system"],
-                    features: ["Open world city", "Traffic AI", "Destructible props"]
-                }
-            },
-            es: {
-                title: "Low-Poly City Delivery",
-                description: "Un juego de simulación de entrega ambientado en una ciudad low-poly.",
-                gdd: {
-                    overview: "Entrega paquetes en una ciudad low-poly vibrante contra el reloj.",
-                    mechanics: ["Física de vehículos", "Sistema de recogida/entrega", "Sistema de temporizador"],
-                    features: ["Ciudad de mundo abierto", "IA de tráfico", "Accesorios destructibles"]
-                }
-            },
-            ru: {
-                title: "Low-Poly City Delivery",
-                description: "Симулятор доставки в низкополигональном городе.",
-                gdd: {
-                    overview: "Доставляйте посылки в ярком низкополигональном городе на время.",
-                    mechanics: ["Физика транспорта", "Система подбора/доставки", "Таймер"],
-                    features: ["Открытый мир", "ИИ трафика", "Разрушаемые объекты"]
-                }
-            },
-            uk: {
-                title: "Low-Poly City Delivery",
-                description: "Симулятор доставки у низькополігональному місті.",
-                gdd: {
-                    overview: "Доставляйте посилки у яскравому низькополігональному місті на час.",
-                    mechanics: ["Фізика транспорту", "Система підбору/доставки", "Таймер"],
-                    features: ["Відкритий світ", "ШІ трафіку", "Руйнівні об'єкти"]
-                }
-            }
-        }
-    },
     "magicBallsAdventure": {
         thumbnail: "/portfolio/games/magicballsadventure/index.png",
         path: "/portfolio/games/magicballsadventure/index.html",
@@ -328,6 +283,51 @@ const GAMES_DATA = {
                     overview: "Вирішуйте фізичні головоломки, використовуючи магічні кулі з різними властивостями.",
                     mechanics: ["Фізична взаємодія", "Трансформація кулі", "Платформінг"],
                     features: ["Різні види куль", "Рівні-головоломки", "Магічна атмосфера"]
+                }
+            }
+        }
+    },
+    "lowPolyCityDelivery": {
+        thumbnail: "/portfolio/games/Low-Poly City Delivery/index.png",
+        path: "/portfolio/games/Low-Poly City Delivery/index.html",
+        tags: ["Godot", "Simulation", "WebGL"],
+        status: "playable",
+        progress: 30,
+        translations: {
+            en: {
+                title: "Low-Poly City Delivery",
+                description: "A delivery simulation game set in a low-poly city environment.",
+                gdd: {
+                    overview: "Deliver packages in a vibrant low-poly city against the clock.",
+                    mechanics: ["Vehicle physics", "Pick up/Drop off system", "Timer system"],
+                    features: ["Open world city", "Traffic AI", "Destructible props"]
+                }
+            },
+            es: {
+                title: "Low-Poly City Delivery",
+                description: "Un juego de simulación de entrega ambientado en una ciudad low-poly.",
+                gdd: {
+                    overview: "Entrega paquetes en una ciudad low-poly vibrante contra el reloj.",
+                    mechanics: ["Física de vehículos", "Sistema de recogida/entrega", "Sistema de temporizador"],
+                    features: ["Ciudad de mundo abierto", "IA de tráfico", "Accesorios destructibles"]
+                }
+            },
+            ru: {
+                title: "Low-Poly City Delivery",
+                description: "Симулятор доставки в низкополигональном городе.",
+                gdd: {
+                    overview: "Доставляйте посылки в ярком низкополигональном городе на время.",
+                    mechanics: ["Физика транспорта", "Система подбора/доставки", "Таймер"],
+                    features: ["Открытый мир", "ИИ трафика", "Разрушаемые объекты"]
+                }
+            },
+            uk: {
+                title: "Low-Poly City Delivery",
+                description: "Симулятор доставки у низькополігональному місті.",
+                gdd: {
+                    overview: "Доставляйте посилки у яскравому низькополігональному місті на час.",
+                    mechanics: ["Фізика транспорту", "Система підбору/доставки", "Таймер"],
+                    features: ["Відкритий світ", "ШІ трафіку", "Руйнівні об'єкти"]
                 }
             }
         }
@@ -989,7 +989,7 @@ export const PROFILES = {
 export const PROFILE = BASE_PROFILE;
 
 export const SHOP_DATA = [
-    { id: 'city-deliv', title: 'Low-Poly City Build', price: '$15', desc: 'Custom optimized build for your platform.' },
     { id: 'magic-balls', title: 'Magic Balls - Full Build', price: '$10', desc: 'The complete adventure with bonus levels.' },
+    { id: 'city-deliv', title: 'Low-Poly City Build', price: '$15', desc: 'Custom optimized build for your platform.' },
     { id: 'sea-hunter', title: 'Sea Hunter Early Access', price: '$5', desc: 'Pre-order the underwater exploration game.' },
 ];
