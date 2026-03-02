@@ -16,7 +16,7 @@ const Experience = () => {
                 <h3 className="section-title mb-16">Journey</h3>
 
                 <div className="relative border-l border-slate-800 ml-4 md:ml-12 space-y-12">
-                    {activeProfile.experience.map((role, index) => (
+                    {activeProfile.experience?.map((role, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, x: -20 }}

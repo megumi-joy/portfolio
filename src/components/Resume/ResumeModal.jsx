@@ -134,7 +134,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                 )}
 
                                 {isMagical ? (
-                                    <div className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar bg-slate-900 flex justify-center items-start">
+                                    <div className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar bg-slate-900/50 flex justify-center items-start backdrop-blur-sm">
                                         <AdventurerCard profile={activeProfile} />
                                     </div>
                                 ) : (

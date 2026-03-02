@@ -650,6 +650,19 @@ const MAGICAL_PROFILES = {
         projects: PROJECTS_EN,
         games: getGamesForLanguage('en'),
         ui: TRANSLATIONS.en,
+        experience: [
+            {
+                role: "Supreme Code Commander",
+                company: "The Explosion Guild",
+                period: "Eternity",
+                achievements: [
+                    "Summoned 'Docker Compose' to call forth an army of multi-services in mere seconds!",
+                    "Brewed a C++ potion that accelerated pathfinding logic by 400%!",
+                    "Survived a direct hit from a production outage with only 1 HP remaining (and fixed it)."
+                ],
+                technologies: ["Explosive C++", "Docker Magic", "Guild Management"]
+            }
+        ]
     },
     es: {
         ...TRANSLATIONS.es,
