@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1772469316|120077506';
+const CACHE_VERSION = '1772474891|51475449';
 /** @type {string} */
 const CACHE_PREFIX = 'Low-Poly City De-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
