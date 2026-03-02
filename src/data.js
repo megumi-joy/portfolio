@@ -741,7 +741,7 @@ export const PROFILES = {
         es: {
             ...BASE_PROFILE,
             title: "Tecnólogo Creativo e Ingeniero de Simulación",
-            location: "Málaga, España",
+            location: "Barcelona, España",
             about: "Ingeniero multidisciplinar especializado en simulaciones de alto rendimiento, herramientas de robótica y arquitectura de software escalable. Con una sólida base tanto en interfaces de hardware de C++ como en sistemas web modernos, cierro la brecha entre las restricciones físicas y los gemelos digitales. Trayectoria comprobada en la optimización de canalizaciones de renderizado, diseño de comportamientos de IA agéntica y automatización de flujos de trabajo dev-ops complejos.",
             education: [
                 {
@@ -814,7 +814,7 @@ export const PROFILES = {
         ru: {
             ...BASE_PROFILE,
             title: "Креативный технолог и инженер симуляций",
-            location: "Малага, Испания",
+            location: "Барселона, Испания",
             about: "Мультидисциплинарный инженер, специализирующийся на высокопроизводительных симуляциях, инструментах для робототехники и масштабируемой архитектуре программного обеспечения. Обладая прочной базой как в аппаратных интерфейсах C++, так и в современных веб-системах, я устраняю разрыв между физическими ограничениями и цифровыми двойниками. Доказанный опыт оптимизации конвейеров рендеринга, проектирования агентного поведения ИИ и автоматизации сложных рабочих процессов dev-ops.",
             education: [
                 {
@@ -887,7 +887,7 @@ export const PROFILES = {
         uk: {
             ...BASE_PROFILE,
             title: "Креативний технолог та інженер симуляцій",
-            location: "Малага, Іспанія",
+            location: "Барселона, Іспанія",
             about: "Мультидисциплінарний інженер, що спеціалізується на високопродуктивних симуляціях, інструментах для робототехніки та масштабованій архітектурі програмного забезпечення. Маючи міцну базу як в апаратних інтерфейсах C++, так і в сучасних веб-системах, я усуваю розрив між фізичними обмеженнями та цифровими двійниками. Доведений досвід оптимізації конвеєрів рендерингу, проектування агентної поведінки ШІ та автоматизації складних робочих процесів dev-ops.",
             education: [
                 {
