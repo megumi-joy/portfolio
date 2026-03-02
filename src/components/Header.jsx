@@ -20,8 +20,8 @@ const Header = ({ currentView, onViewChange, user }) => {
     const navLinks = [
         { name: activeProfile.ui?.stats?.roles || 'Experience', href: '#experience', view: 'portfolio' },
         { name: activeProfile.ui?.stats?.projects || 'Projects', href: '#projects', view: 'portfolio' },
-        { name: 'Schedule', href: '#schedule', view: 'schedule' },
-        { name: 'Shop', href: '#shop', view: 'shop' },
+        // { name: 'Schedule', href: '#schedule', view: 'schedule' },
+        // { name: 'Shop', href: '#shop', view: 'shop' },
     ];
 
     const toggleLanguage = (lang) => {
@@ -80,7 +80,7 @@ const Header = ({ currentView, onViewChange, user }) => {
                             </div>
                         ) : (
                             <div className="flex items-center gap-2">
-                                <button
+                                {/* <button
                                     onClick={() => onViewChange('schedule')}
                                     className={`flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm transition-all ${currentView === 'schedule' ? 'bg-cyan-500 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
                                 >
@@ -93,7 +93,7 @@ const Header = ({ currentView, onViewChange, user }) => {
                                 >
                                     <ShoppingBag size={16} />
                                     Shop
-                                </button>
+                                </button> */}
                             </div>
                         )}
 
