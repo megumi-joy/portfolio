@@ -272,69 +272,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                                         </div>
                                                     </section>
 
-                                                    {/* Experience */}
-                                                    <section>
-                                                        <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Experience</h2>
-                                                        <div className="space-y-6">
-                                                            {activeProfile.experience?.map((exp, idx) => (
-                                                                <div key={idx} className="group">
-                                                                    <div className="flex justify-between items-baseline mb-1">
-                                                                        <h3 className="font-bold text-lg text-slate-800">{exp.role}</h3>
-                                                                        <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">{exp.period}</span>
-                                                                    </div>
-                                                                    <div className="text-sm font-semibold text-cyan-700 mb-2">{exp.company}</div>
-                                                                    <ul className="space-y-1.5">
-                                                                        {exp.achievements?.map((ach, i) => (
-                                                                            <li key={i} className="text-sm text-slate-600 leading-relaxed pl-4 relative before:content-['•'] before:absolute before:left-0 before:text-slate-400">
-                                                                                {ach}
-                                                                            </li>
-                                                                        ))}
-                                                                    </ul>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    </section>
 
-                                                    {/* Projects */}
-                                                    <section>
-                                                        <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Projects</h2>
-                                                        <div className="grid gap-6">
-                                                            {activeProfile.projects?.map((proj, idx) => (
-                                                                <div key={idx} className="group">
-                                                                    <div className="flex flex-wrap items-center gap-2 mb-1.5">
-                                                                        <h3 className="font-bold text-base text-slate-800">{proj.title}</h3>
-                                                                        <div className="flex gap-1">
-                                                                            {proj.tags?.map(tag => (
-                                                                                <span key={tag} className="text-[10px] font-bold px-1.5 py-0.5 bg-slate-100 text-slate-500 rounded border border-slate-200">
-                                                                                    {tag}
-                                                                                </span>
-                                                                            ))}
-                                                                        </div>
-                                                                    </div>
-                                                                    <p className="text-sm text-slate-600 leading-relaxed">
-                                                                        {proj.description}
-                                                                    </p>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    </section>
-
-                                                    {/* Education */}
-                                                    <section>
-                                                        <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 mb-4 pb-1">Education</h2>
-                                                        <div className="space-y-4">
-                                                            {activeProfile.education?.map((edu, idx) => (
-                                                                <div key={idx} className="group">
-                                                                    <div className="flex justify-between items-baseline mb-1">
-                                                                        <h3 className="font-bold text-lg text-slate-800">{edu.institution}</h3>
-                                                                        <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">{edu.period}</span>
-                                                                    </div>
-                                                                    <div className="text-sm font-semibold text-cyan-700">{edu.degree}</div>
-                                                                    <div className="text-xs text-slate-500">{edu.location}</div>
-                                                                </div>
-                                                            ))}
-                                                        </div>
-                                                    </section>
                                                 </div>
                                             </div>
                                         )}
