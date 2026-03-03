@@ -647,6 +647,19 @@ const GAMES_DATA = {
     },
 };
 
+const getGamesForLanguage = (lang) => {
+    return Object.entries(GAMES_DATA).map(([id, game]) => {
+        const { translations, ...rest } = game;
+        const translation = translations[lang] || translations.en;
+        return {
+            id,
+            ...rest,
+            ...translation
+        };
+    });
+};
+
+
 const getExperienceForSpecialty = (specialty, lang) => {
     // Start with the base experience for the language
     const baseExp = PROFILES_DATA[lang]?.experience || PROFILES_DATA.en.experience;
@@ -839,6 +852,14 @@ const BASE_PROFILE = {
         ]
     }
 };
+
+const PROFILES_DATA = {
+    en: BASE_PROFILE,
+    es: { ...BASE_PROFILE, ui: TRANSLATIONS.es, projects: PROJECTS_ES, games: getGamesForLanguage('es') },
+    ru: { ...BASE_PROFILE, ui: TRANSLATIONS.ru, projects: PROJECTS_RU, games: getGamesForLanguage('ru') },
+    uk: { ...BASE_PROFILE, ui: TRANSLATIONS.uk, projects: PROJECTS_UK, games: getGamesForLanguage('uk') }
+};
+
 
 
 // Magical / RPG Profile Data
