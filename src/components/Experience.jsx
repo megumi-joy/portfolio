@@ -52,7 +52,7 @@ const Experience = () => {
                             </ul>
 
                             <div className="flex flex-wrap gap-2">
-                                {role.technologies.map(tech => (
+                                {(role.technologies || []).map(tech => (
                                     <span key={tech} className="px-3 py-1 text-xs font-medium rounded-full bg-slate-800 text-slate-300 border border-slate-700">
                                         {tech}
                                     </span>

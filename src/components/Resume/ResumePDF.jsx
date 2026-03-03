@@ -108,11 +108,11 @@ const ResumePDF = ({ profile }) => (
                 <Text style={styles.sectionTitle}>Skills</Text>
                 <Text style={styles.skillsText}>
                     <Text style={{ fontWeight: 'bold' }}>Tech: </Text>
-                    {profile.skills.map(skill => skill.name).join(', ')}
+                    {(profile.skills || []).map(skill => skill.name).join(', ')}
                 </Text>
                 <Text style={styles.skillsText}>
                     <Text style={{ fontWeight: 'bold' }}>Languages: </Text>
-                    {profile.languages.map(l => `${l.name} (${l.level})`).join(', ')}
+                    {(profile.languages || []).map(l => `${l.name} (${l.level})`).join(', ')}
                 </Text>
             </View>
 
@@ -120,14 +120,14 @@ const ResumePDF = ({ profile }) => (
             {/* Experience */}
             <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Experience</Text>
-                {profile.experience.map((exp, index) => (
+                {(profile.experience || []).map((exp, index) => (
                     <View key={index} style={{ marginBottom: 4 }}>
                         <View style={styles.subHeading}>
                             <Text style={styles.subHeadingTitle}>{exp.role}</Text>
                             <Text style={styles.subHeadingDate}>{exp.period}</Text>
                         </View>
                         <Text style={styles.subHeadingSubtitle}>{exp.company}</Text>
-                        {exp.achievements.map((achievement, i) => (
+                        {(exp.achievements || []).map((achievement, i) => (
                             <View key={i} style={styles.listItem}>
                                 <Text style={styles.bulletPoint}>•</Text>
                                 <Text style={styles.itemContent}>{achievement}</Text>
@@ -140,10 +140,10 @@ const ResumePDF = ({ profile }) => (
             {/* Projects */}
             <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Projects</Text>
-                {profile.projects.slice(0, 3).map((proj, index) => ( // Show top 3 projects to save space if needed, or all if they fit.
+                {(profile.projects || []).slice(0, 3).map((proj, index) => ( // Show top 3 projects to save space if needed, or all if they fit.
                     <View key={index} style={{ marginBottom: 3 }}>
                         <View style={styles.subHeading}>
-                            <Text style={styles.subHeadingTitle}>{proj.title} | {proj.tags.join(', ')}</Text>
+                            <Text style={styles.subHeadingTitle}>{proj.title} | {(proj.tags || []).join(', ')}</Text>
                         </View>
                         <View style={styles.listItem}>
                             <Text style={styles.bulletPoint}>•</Text>
@@ -157,7 +157,7 @@ const ResumePDF = ({ profile }) => (
             <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Education</Text>
                 {/* Compact Display for Education */}
-                {profile.education.map((edu, index) => (
+                {(profile.education || []).map((edu, index) => (
                     <View key={index} style={{ marginBottom: 2 }}>
                         <View style={styles.subHeading}>
                             <Text style={styles.subHeadingTitle}>{edu.institution}</Text>

@@ -695,7 +695,8 @@ const MAGICAL_PROFILES = {
                     "¡Invoqué 'Docker Compose' para llamar a un ejército de multiservicios en meros segundos!",
                     "¡Preparé una poción de C++ que aceleró la lógica de búsqueda de caminos en un 400%!",
                     "Sobreviví a un impacto directo de una caída de producción con solo 1 HP restante (y lo arreglé)."
-                ]
+                ],
+                technologies: ["C++ Explosivo", "Magia Docker", "Gestión de Gremios"]
             }
         ]
     },
@@ -730,7 +731,8 @@ const MAGICAL_PROFILES = {
                     "Призвал 'Docker Compose', чтобы вызвать армию мультисервисов за считанные секунды!",
                     "Сварил зелье на C++, которое ускорило логику поиска пути на 400%!",
                     "Пережил прямое попадание падения продакшена, оставшись с 1 HP (и все исправил)."
-                ]
+                ],
+                technologies: ["Взрывной C++", "Магия Docker", "Управление Гильдией"]
             }
         ]
     },
@@ -765,7 +767,8 @@ const MAGICAL_PROFILES = {
                     "Закликав 'Docker Compose', щоб викликати армію мультисервісів за лічені секунди!",
                     "Зварив зілля на C++, яке прискорило логіку пошуку шляху на 400%!",
                     "Пережив пряме попадання падіння продакшену, залишившись з 1 HP (і все виправив)."
-                ]
+                ],
+                technologies: ["Вибуховий C++", "Магія Docker", "Управління Гільдією"]
             }
         ]
     },
