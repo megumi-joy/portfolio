@@ -17,36 +17,46 @@ const styles = StyleSheet.create({
     page: {
         flexDirection: 'column',
         backgroundColor: '#FFFFFF',
-        padding: 20, // Reduced from 30
-        fontFamily: 'Roboto', // Use the registered font
+        padding: 36, // 0.5 inch margins
+        fontFamily: 'Roboto',
     },
     header: {
-        marginBottom: 5, // Reduced from 10
+        marginBottom: 10,
         textAlign: 'center',
+        borderBottomWidth: 1,
+        borderBottomColor: '#000000',
+        paddingBottom: 4,
     },
     name: {
-        fontSize: 20, // Reduced from 24
+        fontSize: 20,
         fontWeight: 'bold',
         marginBottom: 2,
         textTransform: 'uppercase',
     },
+    titleHeader: {
+        fontSize: 11,
+        fontWeight: 'bold',
+        marginBottom: 2,
+    },
     contact: {
-        fontSize: 8, // Reduced from 10
+        fontSize: 9,
         marginBottom: 2,
         color: '#000000',
     },
     section: {
-        marginTop: 5, // Reduced from 10
-        marginBottom: 2, // Reduced from 5
+        marginTop: 10,
+        marginBottom: 4,
     },
     sectionTitle: {
-        fontSize: 10, // Reduced from 12
+        fontSize: 12,
         fontWeight: 'bold',
         borderBottomWidth: 1,
-        borderBottomColor: '#000000',
-        paddingBottom: 1,
-        marginBottom: 3,
+        borderBottomColor: '#DDDDDD',
+        paddingBottom: 2,
+        marginBottom: 6,
         textTransform: 'uppercase',
+        backgroundColor: '#F3F4F6',
+        paddingLeft: 4,
     },
     subHeading: {
         flexDirection: 'row',
@@ -54,34 +64,36 @@ const styles = StyleSheet.create({
         marginBottom: 1,
     },
     subHeadingTitle: {
-        fontSize: 9, // Reduced from 11
+        fontSize: 10,
         fontWeight: 'bold',
     },
     subHeadingDate: {
-        fontSize: 8, // Reduced from 10
+        fontSize: 9,
         fontStyle: 'italic',
     },
     subHeadingSubtitle: {
-        fontSize: 8, // Reduced from 10
+        fontSize: 9,
         fontStyle: 'italic',
-        marginBottom: 1,
+        marginBottom: 2,
     },
     listItem: {
         flexDirection: 'row',
-        marginBottom: 1,
-        marginLeft: 8,
+        marginBottom: 2,
+        marginLeft: 12,
     },
     bulletPoint: {
-        width: 8,
-        fontSize: 8,
+        width: 10,
+        fontSize: 10,
     },
     itemContent: {
         flex: 1,
-        fontSize: 8, // Reduced from 10
+        fontSize: 10,
+        lineHeight: 1.4,
     },
     skillsText: {
-        fontSize: 8, // Reduced from 10
-        marginBottom: 1,
+        fontSize: 10,
+        marginBottom: 3,
+        lineHeight: 1.4,
     },
     link: {
         color: '#000000',
@@ -90,38 +102,31 @@ const styles = StyleSheet.create({
 });
 
 const ResumePDF = ({ profile }) => (
-    <Document>
+    <Document title={`${profile.name} - Resume`}>
         <Page size="LETTER" style={styles.page}>
-            {/* Header */}
+            {/* 1. Contact Information */}
             <View style={styles.header}>
                 <Text style={styles.name}>{profile.name}</Text>
+                <Text style={styles.titleHeader}>{profile.title}</Text>
                 <Text style={styles.contact}>
-                    {profile.title} | {profile.location}
+                    {profile.socials.phone} | {profile.socials.email} | {profile.location}
                 </Text>
                 <Text style={styles.contact}>
-                    <Link src={`mailto:${profile.socials.email}`} style={styles.link}>{profile.socials.email}</Link> | <Link src={profile.socials.github} style={styles.link}>github.com/aurorasunrisegames</Link>
+                    <Link src={profile.socials.linkedin} style={styles.link}>LinkedIn: {profile.socials.linkedin.split('in/')[1]}</Link> | <Link src={profile.socials.github} style={styles.link}>GitHub: github.com/megumi-joy</Link>
                 </Text>
             </View>
 
-            {/* Skills & Languages (Moved Top) */}
+            {/* 2. Personal Profile / Professional Summary */}
             <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Skills</Text>
-                <Text style={styles.skillsText}>
-                    <Text style={{ fontWeight: 'bold' }}>Tech: </Text>
-                    {(profile.skills || []).map(skill => skill.name).join(', ')}
-                </Text>
-                <Text style={styles.skillsText}>
-                    <Text style={{ fontWeight: 'bold' }}>Languages: </Text>
-                    {(profile.languages || []).map(l => `${l.name} (${l.level})`).join(', ')}
-                </Text>
+                <Text style={styles.sectionTitle}>{profile.ui?.summary || "Professional Summary"}</Text>
+                <Text style={styles.itemContent}>{profile.about}</Text>
             </View>
 
-            {/* Education */}
-            {/* Experience */}
+            {/* 3. Work Experience */}
             <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Experience</Text>
+                <Text style={styles.sectionTitle}>Work Experience</Text>
                 {(profile.experience || []).map((exp, index) => (
-                    <View key={index} style={{ marginBottom: 4 }}>
+                    <View key={index} style={{ marginBottom: 8 }}>
                         <View style={styles.subHeading}>
                             <Text style={styles.subHeadingTitle}>{exp.role}</Text>
                             <Text style={styles.subHeadingDate}>{exp.period}</Text>
@@ -137,41 +142,40 @@ const ResumePDF = ({ profile }) => (
                 ))}
             </View>
 
-            {/* Projects */}
-            <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Projects</Text>
-                {(profile.projects || []).slice(0, 3).map((proj, index) => ( // Show top 3 projects to save space if needed, or all if they fit.
-                    <View key={index} style={{ marginBottom: 3 }}>
-                        <View style={styles.subHeading}>
-                            <Text style={styles.subHeadingTitle}>{proj.title} | {(proj.tags || []).join(', ')}</Text>
-                        </View>
-                        <View style={styles.listItem}>
-                            <Text style={styles.bulletPoint}>•</Text>
-                            <Text style={styles.itemContent}>{proj.description}</Text>
-                        </View>
-                    </View>
-                ))}
-            </View>
-
-            {/* Education (Moved Bottom) */}
+            {/* 4. Education */}
             <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Education</Text>
-                {/* Compact Display for Education */}
                 {(profile.education || []).map((edu, index) => (
-                    <View key={index} style={{ marginBottom: 2 }}>
+                    <View key={index} style={{ marginBottom: 4 }}>
                         <View style={styles.subHeading}>
                             <Text style={styles.subHeadingTitle}>{edu.institution}</Text>
                             <Text style={styles.subHeadingDate}>{edu.period}</Text>
                         </View>
-                        <View style={styles.subHeading}>
-                            <Text style={styles.subHeadingSubtitle}>{edu.degree}</Text>
-                            <Text style={styles.subHeadingSubtitle}>{edu.location}</Text>
-                        </View>
+                        <Text style={styles.subHeadingSubtitle}>{edu.degree} | {edu.location}</Text>
                     </View>
                 ))}
             </View>
 
+            {/* 5. Skills */}
+            <View style={styles.section}>
+                <Text style={styles.sectionTitle}>Skills</Text>
+                <View style={{ marginBottom: 2 }}>
+                    <Text style={styles.skillsText}>
+                        <Text style={{ fontWeight: 'bold' }}>Technical Arsenal: </Text>
+                        {(profile.skills || []).map(skill => skill.name).join(', ')}
+                    </Text>
+                    <Text style={styles.skillsText}>
+                        <Text style={{ fontWeight: 'bold' }}>Languages: </Text>
+                        {(profile.languages || []).map(l => `${l.name} (${l.level})`).join(', ')}
+                    </Text>
+                </View>
+            </View>
 
+            {/* 6. References */}
+            <View style={styles.section}>
+                <Text style={styles.sectionTitle}>References</Text>
+                <Text style={styles.itemContent}>Professional references available upon request.</Text>
+            </View>
         </Page>
     </Document>
 );

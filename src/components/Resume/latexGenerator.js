@@ -59,13 +59,14 @@ export const generateLatex = (profile) => {
 \\begin{document}
 
 %----------HEADING----------
-\\begin{center}
-    \\textbf{\\Huge \\scshape ${profile.name}} \\\\ \\vspace{1pt}
-    \\small ${profile.title} \\\\
-    \\small ${profile.location} $|$ 
-    \\href{${profile.socials.github}}{\\underline{github.com/aurorasunrisegames}} $|$ 
-    \\href{mailto:${profile.socials.email}}{\\underline{${profile.socials.email}}}
 \\end{center}
+
+%-----------PROFESSIONAL SUMMARY-----------
+\\section{Professional Summary}
+\\small{
+  ${profile.about}
+}
+\\vspace{-5pt}
 
 
 %-----------TECHNICAL SKILLS-----------

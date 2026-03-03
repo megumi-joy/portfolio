@@ -12,8 +12,8 @@ export const generateTextResume = (profile) => {
     text += '\n';
 
     if (profile.about) {
-        text += `ABOUT THE CANDIDATE\n`;
-        text += `-------------------\n`;
+        text += `PROFESSIONAL SUMMARY\n`;
+        text += `--------------------\n`;
         text += `${profile.about}\n\n`;
     }
 

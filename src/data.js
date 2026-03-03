@@ -1,12 +1,12 @@
 import { Github, Linkedin, Mail, Cpu, Gamepad2, Globe, Server, Terminal, Layers, Cuboid } from 'lucide-react';
 
 const COMMON_SKILLS = [
-    { name: "C++ & Embedded", icon: Cpu, level: "Advanced" },
-    { name: "Python (High Perf)", icon: Server, level: "Advanced" },
-    { name: "Simulation (Unity/Godot)", icon: Gamepad2, level: "Expert" },
-    { name: "React & Systems", icon: Globe, level: "Advanced" },
-    { name: "DevOps & CI/CD", icon: Terminal, level: "Intermediate" },
-    { name: "Architecture", icon: Layers, level: "Intermediate" },
+    { name: "Godot & Unity", icon: Gamepad2 },
+    { name: "Python (High Perf)", icon: Server },
+    { name: "C++ & Systems", icon: Cpu },
+    { name: "Simulation & Tools", icon: Layers },
+    { name: "Hardware Integration", icon: Cuboid },
+    { name: "DevOps & CI/CD", icon: Terminal },
 ];
 
 const COMMON_LANGUAGES = [
@@ -19,7 +19,8 @@ const COMMON_LANGUAGES = [
 const SOCIALS = {
     github: "https://github.com/megumi-joy",
     linkedin: "https://www.linkedin.com/in/megumi-joy/",
-    email: "megumi.joy@gmail.com"
+    email: "megumi.joy@gmail.com",
+    phone: "+34 600 000 000"
 };
 
 const TRANSLATIONS = {
@@ -39,8 +40,8 @@ const TRANSLATIONS = {
         skillsTitle: "Technical Arsenal",
         plansTitle: "Roadmap & Current Focus",
         contactTitle: "Let's Build Something Amazing",
-        contactText: "I'm currently open to new opportunities in Game Development, Simulation Engineering, or Full Stack Web Development.",
-        contactButton: "Say Hello",
+        contactText: "Open to remote roles with US-based teams. Contract or full-time.",
+        contactButton: "Let's Talk",
         welcome: "Welcome to my portfolio",
         hello: "Hello, I'm",
         viewDetails: "View Details",
@@ -51,7 +52,8 @@ const TRANSLATIONS = {
             gamedev: "Gamedev",
             frontend: "Frontend",
             python: "Python"
-        }
+        },
+        summary: "Professional Summary"
     },
     es: {
         resume: "Currículum",
@@ -81,7 +83,8 @@ const TRANSLATIONS = {
             gamedev: "Juegos",
             frontend: "Frontend",
             python: "Python"
-        }
+        },
+        summary: "Resumen Profesional"
     },
     ru: {
         resume: "Резюме",
@@ -111,7 +114,8 @@ const TRANSLATIONS = {
             gamedev: "Игры",
             frontend: "Фронтенд",
             python: "Python"
-        }
+        },
+        summary: "Профессиональное резюме"
     },
     uk: {
         resume: "Резюме",
@@ -141,64 +145,65 @@ const TRANSLATIONS = {
             gamedev: "Ігри",
             frontend: "Фронтенд",
             python: "Python"
-        }
+        },
+        summary: "Професійне резюме"
     }
 };
 
 const PROJECTS_EN = [
     {
-        title: "Networked Physics Engine Prototype",
-        description: "A research prototype exploring server-authoritative physics synchronization and client-side prediction algorithms.",
+        title: "Godot Simulation Prototype",
+        description: "High-performance research prototype exploring deterministic physics and agent behaviors under real-time constraints. Scale: 1000+ active agents.",
         featured: true,
-        tags: ["C++", "Networking", "Physics"],
+        tags: ["Godot 4", "C++", "Python", "Physics"],
         link: "https://megumi-joy.github.io/portfolio/"
     },
     {
-        title: "Procedural Vegetation Tool",
-        description: "A plugin for automating large-scale environment placement, utilizing spatial hashing and GPU instancing for performance.",
+        title: "Python Simulation Tooling",
+        description: "Automated scene generation and data playback pipeline using Python. Bridges offline training data to real-time Godot runtime.",
         featured: true,
-        tags: ["C#", "Graphics", "Tooling"],
+        tags: ["Python", "Automation", "Data Pipelines"],
         link: null
     },
     {
-        title: "Inventory Architecture",
-        description: "A memory-efficient, data-oriented inventory system design supporting complex item composition and serialization.",
-        featured: false,
-        tags: ["Data Structures", "Architecture"],
-        link: "https://github.com/aurorasunrisegames/InventorySystem"
+        title: "Hardware Integration Bridge",
+        description: "Connecting STM32/ESP32 sensor streams to real-time Unity/Godot visualizations via high-throughput Python backends.",
+        featured: true,
+        tags: ["Embedded", "Python", "WebSockets"],
+        link: null
     }
 ];
 
 const PROJECTS_FRONTEND_EN = [
     {
-        title: "Dynamic Telemetry Dashboard",
-        description: "A high-performance React dashboard visualizing live telemetry from hardware sensors with sub-second latency.",
+        title: "Dynamic Telemetry Dashboard (React)",
+        description: "High-performance React dashboard for real-time telemetry. Optimized for sub-second latency and smooth 60fps rendering of 10k+ data points.",
         featured: true,
-        tags: ["React", "D3.js", "WebSockets"],
+        tags: ["React", "WebGL", "Performance", "WebSockets"],
         link: "https://megumi-joy.github.io/portfolio/"
     },
     {
-        title: "Glassmorphic UI Engine",
-        description: "A specialized CSS framework for creating premium, high-performance translucent interfaces for simulation tools.",
+        title: "Glassmorphic UI Engine (JS/CSS)",
+        description: "A premium CSS-in-JS design system for mission-critical simulation interfaces. Focused on GPU-accelerated effects and modular components.",
         featured: true,
-        tags: ["React", "CSS", "Design Systems"],
+        tags: ["React", "Design Systems", "Architecture"],
         link: null
     }
 ];
 
 const PROJECTS_PYTHON_EN = [
     {
-        title: "Asynchronous Data Scraper",
-        description: "A high-throughput web scraper built with Python/Asyncio capable of handling 500+ concurrent requests.",
+        title: "High-Throughput FastAPI Orchestrator",
+        description: "Asynchronous task orchestrator built with FastAPI and PostgreSQL. Handles 500+ concurrent requests with optimized database connection pooling.",
         featured: true,
-        tags: ["Python", "Asyncio", "PostgreSQL"],
+        tags: ["Python", "FastAPI", "PostgreSQL", "Asyncio"],
         link: "https://github.com/megumi-joy"
     },
     {
-        title: "Agentic AI Task Orchestrator",
-        description: "An AI-driven task management system utilizing LLMs to automate complex multi-step developer workflows.",
+        title: "Django Agentic AI Backend",
+        description: "A robust Django-based management system for AI agent workflows. Implements complex relational schemas and automated background tasks.",
         featured: true,
-        tags: ["Python", "OpenAI", "Agentic AI"],
+        tags: ["Python", "Django", "Redis", "Celery"],
         link: null
     }
 ];
@@ -674,6 +679,30 @@ const getExperienceForSpecialty = (specialty, lang) => {
     });
 };
 
+const getSkillsForSpecialty = (specialty) => {
+    if (specialty === 'python') {
+        return [
+            { name: "Python (High Perf)", icon: Server },
+            { name: "FastAPI & Django", icon: Layers },
+            { name: "Asyncio & Systems", icon: Cpu },
+            { name: "PostgreSQL", icon: Server },
+            { name: "Docker & CI/CD", icon: Terminal },
+            { name: "Backend Architecture", icon: Cuboid },
+        ];
+    }
+    if (specialty === 'frontend') {
+        return [
+            { name: "React", icon: Globe },
+            { name: "JavaScript / TypeScript", icon: Terminal },
+            { name: "WebGL & Three.js", icon: Gamepad2 },
+            { name: "CSS3 & Design Systems", icon: Layers },
+            { name: "Performance Optimization", icon: Cpu },
+            { name: "Frontend Architecture", icon: Cuboid },
+        ];
+    }
+    return COMMON_SKILLS;
+};
+
 const getProjectsForSpecialty = (specialty, lang) => {
     if (specialty === 'gamedev') return lang === 'en' ? PROJECTS_EN : (lang === 'es' ? PROJECTS_ES : (lang === 'ru' ? PROJECTS_RU : PROJECTS_UK));
     if (specialty === 'frontend') return lang === 'en' ? PROJECTS_FRONTEND_EN : (lang === 'es' ? PROJECTS_FRONTEND_ES : (lang === 'ru' ? PROJECTS_FRONTEND_RU : PROJECTS_FRONTEND_UK));
@@ -690,61 +719,62 @@ const generateProfile = (specialty, lang) => {
         title: SPECIALIZED_TITLES[specialty][lang] || SPECIALIZED_TITLES[specialty].en,
         about: SPECIALIZED_ABOUT[specialty][lang] || SPECIALIZED_ABOUT[specialty].en,
         projects: getProjectsForSpecialty(specialty, lang),
-        experience: getExperienceForSpecialty(specialty, lang)
+        experience: getExperienceForSpecialty(specialty, lang),
+        skills: getSkillsForSpecialty(specialty)
     };
 };
 
 const SPECIALIZED_TITLES = {
     general: {
-        en: "Creative Technologist & Simulation Engineer",
-        es: "Tecnólogo Creativo e Ingeniero de Simulación",
-        ru: "Креативный технолог и инженер симуляций",
-        uk: "Креативний технолог та інженер симуляцій"
+        en: "Senior Simulation & Systems Engineer",
+        es: "Ingeniero Senior de Simulación y Sistemas",
+        ru: "Старший инженер симуляций и систем",
+        uk: "Старший інженер симуляцій та систем"
     },
     gamedev: {
-        en: "Senior Game Systems & Simulation Engineer",
-        es: "Ingeniero Senior de Sistemas de Juego y Simulación",
-        ru: "Старший инженер игровых систем и симуляций",
-        uk: "Старший інженер ігрових систем та симуляцій"
+        en: "Senior Simulation & Tools Engineer",
+        es: "Ingeniero Senior de Simulación y Herramientas",
+        ru: "Старший инженер симуляций и инструментов",
+        uk: "Старший інженер симуляцій та інструментів"
     },
     frontend: {
-        en: "Senior Frontend & Graphics Engineer",
-        es: "Ingeniero Senior de Frontend y Gráficos",
-        ru: "Старший инженер фронтенда и графики",
-        uk: "Старший інженер фронтенду та графіки"
+        en: "Senior Frontend Engineer (React / WebGL)",
+        es: "Ingeniero Senior de Frontend (React / WebGL)",
+        ru: "Старший фронтенд-инженер (React / WebGL)",
+        uk: "Старший фронтенд-інженер (React / WebGL)"
     },
     python: {
-        en: "Senior Backend & Systems Engineer",
-        es: "Ingeniero Senior de Backend y Sistemas",
-        ru: "Старший инженер бэкенда и систем",
-        uk: "Старший інженер бекенду та систем"
+        en: "Senior Python Backend Engineer (FastAPI / Django)",
+        es: "Ingeniero Senior de Backend Python (FastAPI / Django)",
+        ru: "Старший бэкенд-инженер Python (FastAPI / Django)",
+        uk: "Старший бекенд-інженер Python (FastAPI / Django)"
     }
 };
 
 const SPECIALIZED_ABOUT = {
     general: {
-        en: "Multidisciplinary engineer specializing in high-performance simulations, robotics tooling, and scalable software architecture. I bridge physical constraints with digital twins.",
-        es: "Ingeniero multidisciplinar especializado en simulaciones de alto rendimiento, herramientas de robótica y arquitectura de software escalable.",
-        ru: "Мультидисциплинарный инженер, специализирующийся на высокопроизводительных симуляциях, инструментах для робототехники и масштабируемой архитектуре.",
-        uk: "Мультидисциплінарний інженер, що спеціалізується на високопродуктивних симуляціях, інструментах для робототехніки та масштабованій архітектурі."
+        en: "Senior Systems Engineer with over 10 years of experience in high-performance simulations and distributed systems. Expert in Godot, Unity, and Python-driven automation for industrial digital twins. I aim to leverage my expertise in real-time systems to build deterministic and scalable architectures for US-based engineering teams.",
+        es: "Ingeniero Senior de Sistemas con más de 10 años de experiencia en simulaciones de alto rendimiento. Experto en Godot, Unity и automatización con Python. Mi objetivo es construir arquitecturas escalables y deterministas para equipos de ingeniería de vanguardia.",
+        ru: "Старший системный инженер с 10-летним опытом создания высокопроизводительных симуляций. Эксперт по Godot, Unity и автоматизации на Python. Моя цель — создавать детерминированные и масштабируемые архитектуры для современных инженерных команд.",
+        uk: "Старший системний інженер з 10-річним досвідом створення високопродуктивних симуляцій. Експерт з Godot, Unity та автоматизації на Python. Моя мета — створювати детерміновані та масштабовані архітектури для сучасних інженерних команд."
     },
     gamedev: {
-        en: "Specialist in game engine architecture, real-time physics, and networked simulations. Expert in C++ and Godot/Unity for building complex interactive systems.",
-        es: "Especialista en arquitectura de motores de juego, física en tiempo real y simulaciones en red. Experto en C++ y Godot/Unity.",
-        ru: "Специалист по архитектуре игровых движков, физике в реальном времени и сетевым симуляциям. Эксперт по C++, Godot и Unity.",
-        uk: "Спеціаліст з архітектури ігрових рушіїв, фізики в реальному часі та мережевих симуляцій. Експерт з C++, Godot та Unity."
+        en: "Dedicated Simulation Engine Architect specializing in real-time agent behaviors and custom physics in Godot and Unity. Proven track record in building automated toolchains for research and industrial simulations. Seeking to apply my deep knowledge of engine internals to push the boundaries of real-time interactivity.",
+        es: "Arquitecto de motores de simulación especializado en comportamientos de agentes y física personalizada. Trayectoria demostrada en la creación de toolchains automatizados. Busco aplicar mi conocimiento interno de motores para mejorar la interactividad en tiempo real.",
+        ru: "Архитектор симуляционных движков, специализирующийся на поведении агентов и кастомной физике. Опыт создания автоматизированных инструментов. Стремлюсь применять знания внутренних механизмов движков для развития интерактивности в реальном времени.",
+        uk: "Архітектор симуляційних рушіїв, що спеціалізується на поведінці агентів та кастомній фізиці. Досвід створення автоматизованих інструментів. Прагну застосовувати знання внутрішніх механізмів рушіїв для розвитку інтерактивності в реальному часі."
     },
     frontend: {
-        en: "Frontend expert focused on high-performance data visualization, 3D graphics in the web, and premium user experiences using React and modern CSS.",
-        es: "Experto en frontend enfocado en visualización de datos de alto rendimiento, gráficos 3D en la web y experiencias de usuario premium.",
-        ru: "Эксперт по фронтенду, сфокусированный на высокопроизводительной визуализации данных, 3D-графике в вебе и премиальном UX.",
-        uk: "Експерт із фронтенду, сфокусований на високопродуктивній візуалізації даних, 3D-графіці у вебі та преміальному UX."
+        en: "Senior Frontend Engineer focused on mission-critical React applications and high-performance WebGL visualizations. Expert in delivering 60fps user experiences for data-intensive tools and complex design systems. Committed to building premium, efficient, and accessible web interfaces for global simulation platforms.",
+        es: "Ingeniero Senior de Frontend enfocado en aplicaciones React críticas y visualizaciones WebGL de alto rendimiento. Experto en experiencias de usuario a 60fps para herramientas complejas. Comprometido con la creación de interfaces web eficientes y premium.",
+        ru: "Старший фронтенд-инженер, специализирующийся на критически важных приложениях React и высокопроизводительной WebGL визуализации. Эксперт в создании UX на 60fps для сложных инструментов. Стремлюсь создавать премиальные и эффективные веб-интерфейсы.",
+        uk: "Старший фронтенд-інженер, що спеціалізується на критично важливих додатках React та високопродуктивній WebGL візуалізації. Експерт у створенні UX на 60fps для складних інструментів. Прагну створювати преміальні та ефективні веб-інтерфейси."
     },
     python: {
-        en: "Backend engineer specializing in distributed systems, asynchronous Python, and agentic AI architectures. Expert in building stable, scalable automation workflows.",
-        es: "Ingeniero de backend especializado en sistemas distribuidos, Python asíncrono y arquitecturas de IA agéntica.",
-        ru: "Бэкенд-инженер, специализирующийся на распределенных системах, асинхронном Python и архитектурах агентного ИИ.",
-        uk: "Бекенд-інженер, що спеціалізується на розподілених системах, асинхронному Python та архітектурах агентного ІІ."
+        en: "Senior Backend Engineer specializing in high-performance Python, FastAPI, and Django distributed architectures. Expert in asynchronous workflows, real-time data pipelines, and agentic AI infrastructure. Looking to lead the design of robust, scalable backend systems for innovative US-based startups.",
+        es: "Ingeniero Senior de Backend especializado en arquitecturas distribuidas con Python, FastAPI y Django. Experto en flujos asíncronos и pipelines de datos en tiempo real. Busco liderar el diseño de sistemas backend robustos y escalables.",
+        ru: "Старший бэкенд-инженер, специализирующийся на высокопроизводительном Python, FastAPI и Django. Эксперт в асинхронных процессах и конвейерах данных в реальном времени. Стремлюсь возглавить проектирование надежных и масштабируемых систем.",
+        uk: "Старший бекенд-інженер, що спеціалізується на високопродуктивному Python, FastAPI та Django. Експерт в асинхронних процесах та конвеєрах даних у реальному часі. Прагну очолити проектування надійних та масштабованих систем."
     }
 };
 
@@ -775,11 +805,11 @@ const BASE_PROFILE = {
             period: "Present",
             description: "Designing high-fidelity simulation environments and networked systems.",
             achievements: [
-                "Architected a custom P2P networking protocol over WebRTC/WebSocket for low-latency state synchronization in distributed simulations.",
-                "Developed 'Agentic AI' behaviors using hierarchical state machines and pathfinding algorithms.",
-                "Implemented rigorous CI/CD pipelines for cross-platform builds, ensuring stability across Linux, Windows, and Web."
+                "Implemented deterministic physics and agent behaviors in Godot 4 to reduce state explosion and simplify debugging.",
+                "Architected a custom P2P networking protocol for low-latency state synchronization in distributed simulations.",
+                "Built Python-based automation tools for scene generation and simulation telemetry, reducing iteration time by 50%."
             ],
-            technologies: ["C++", "Godot 4", "Networking", "AI Algorithms"],
+            technologies: ["C++", "Godot 4", "Python", "Distributed Systems"],
             tags: ["gamedev", "python"]
         },
         {
@@ -814,11 +844,11 @@ const BASE_PROFILE = {
             period: "Early Career",
             description: "Developing firmware and software for medical testing hardware.",
             achievements: [
-                "Programmed STM32/Arduino microcontrollers for precise sensor data acquisition in medical devices.",
-                "Bridge hardware inputs to a custom Unity visualizer for real-time operator feedback.",
-                "Designed PCB layouts and managed manufacturing processes for prototype runs."
+                "Bridges hardware sensor data (STM32/ESP32) to real-time Unity/Godot visualizers for industrial digital twin applications.",
+                "Programmed microcontrollers for precise low-latency data acquisition and serial/TCP streaming.",
+                "Designed integration pipelines connecting firmware to Python backends for real-time validation and visualization."
             ],
-            technologies: ["C++", "STM32", "Embedded C", "PCB Design"],
+            technologies: ["C++", "STM32", "Python", "Integration"],
             tags: ["gamedev"]
         }
     ],

@@ -34,7 +34,7 @@ const Skills = () => {
                                     </div>
                                     <div>
                                         <h4 className="font-semibold text-slate-200">{skill.name}</h4>
-                                        <span className="text-xs text-slate-500 uppercase tracking-wider">{skill.level}</span>
+                                        {skill.level && <span className="text-xs text-slate-500 uppercase tracking-wider">{skill.level}</span>}
                                     </div>
                                 </div>
                             </motion.div>
