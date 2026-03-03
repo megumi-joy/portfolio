@@ -6,7 +6,7 @@ import { supabase } from '../lib/supabase';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = ({ currentView, onViewChange, user }) => {
-    const { language, setLanguage, activeProfile } = useLanguage();
+    const { language, setLanguage, activeProfile, tone, specialty, setSpecialty } = useLanguage();
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -53,6 +53,24 @@ const Header = ({ currentView, onViewChange, user }) => {
                             </a>
                         ))}
                     </nav>
+
+                    {/* Profile Specialty Selector - Only show if not in magical tone */}
+                    {tone !== 'magical' && (
+                        <div className="flex items-center gap-1 bg-slate-800/40 p-1 rounded-lg border border-slate-700/50">
+                            {['general', 'gamedev', 'frontend', 'python'].map((spec) => (
+                                <button
+                                    key={spec}
+                                    onClick={() => setSpecialty(spec)}
+                                    className={`px-3 py-1 rounded-md text-[10px] font-bold uppercase transition-all ${specialty === spec
+                                        ? 'bg-purple-500/20 text-purple-300 shadow-sm border border-purple-500/30'
+                                        : 'text-slate-500 hover:text-slate-300 hover:bg-slate-700/30'
+                                        }`}
+                                >
+                                    {activeProfile.ui?.profiles?.[spec] || spec}
+                                </button>
+                            ))}
+                        </div>
+                    )}
 
                     {/* Tone Toggle */}
                     <ToneToggle />
@@ -164,6 +182,29 @@ const Header = ({ currentView, onViewChange, user }) => {
                                     </button>
                                 ))}
                             </div>
+
+                            {tone !== 'magical' && (
+                                <div className="flex flex-col gap-2">
+                                    <span className="text-[10px] font-bold uppercase text-slate-500 px-1">Specialization</span>
+                                    <div className="grid grid-cols-2 gap-2">
+                                        {['general', 'gamedev', 'frontend', 'python'].map((spec) => (
+                                            <button
+                                                key={spec}
+                                                onClick={() => {
+                                                    setSpecialty(spec);
+                                                    setMobileMenuOpen(false);
+                                                }}
+                                                className={`px-3 py-2 rounded-lg text-xs font-bold uppercase transition-all ${specialty === spec
+                                                    ? 'bg-purple-600 text-white'
+                                                    : 'bg-slate-800 text-slate-400'
+                                                    }`}
+                                            >
+                                                {activeProfile.ui?.profiles?.[spec] || spec}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
 
                             <div className="mt-6 flex justify-center border-t border-slate-800 pt-4">
                                 <ToneToggle />

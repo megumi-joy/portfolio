@@ -12,7 +12,7 @@ import 'prismjs/components/prism-latex';
 import 'prismjs/themes/prism-tomorrow.css';
 
 const ResumeModal = ({ isOpen, onClose }) => {
-    const { language, setLanguage, activeProfile, tone } = useLanguage();
+    const { language, setLanguage, activeProfile, tone, specialty, setSpecialty } = useLanguage();
     const [copied, setCopied] = useState(false);
     const [viewMode, setViewMode] = useState('text'); // 'text' | 'latex' | 'pdf'
 
@@ -44,7 +44,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `${activeProfile.name?.replace(/\s+/g, '_')}_Resume_${language.toUpperCase()}.txt`;
+        a.download = `${activeProfile.name?.replace(/\s+/g, '_')}_${specialty.charAt(0).toUpperCase() + specialty.slice(1)}_Resume_${language.toUpperCase()}.txt`;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -89,6 +89,21 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                         </button>
                                     ))}
                                 </div>
+
+                                {/* Specialty Switcher */}
+                                {!isMagical && (
+                                    <div className="hidden lg:flex bg-slate-800 p-1 rounded-lg gap-1">
+                                        {['general', 'gamedev', 'frontend', 'python'].map((spec) => (
+                                            <button
+                                                key={spec}
+                                                onClick={() => setSpecialty(spec)}
+                                                className={`px-2 py-1 rounded-md text-[10px] font-bold uppercase transition-all ${specialty === spec ? 'bg-purple-600 text-white' : 'text-slate-400 hover:text-slate-200'}`}
+                                            >
+                                                {activeProfile.ui?.profiles?.[spec] || spec}
+                                            </button>
+                                        ))}
+                                    </div>
+                                )}
 
                                 {/* View Toggle - Only show if NOT magical */}
                                 {!isMagical && (
@@ -297,7 +312,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                             {/* Primary Download Button */}
                                             <PDFDownloadLink
                                                 document={<ResumePDF profile={activeProfile} />}
-                                                fileName={`${activeProfile.name?.replace(/\s+/g, '_')}_Resume_${language.toUpperCase()}.pdf`}
+                                                fileName={`${activeProfile.name?.replace(/\s+/g, '_')}_${specialty.charAt(0).toUpperCase() + specialty.slice(1)}_Resume_${language.toUpperCase()}.pdf`}
                                                 className="flex items-center justify-center gap-2 w-full py-3 px-4 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg font-bold text-sm transition-all hover:shadow-lg hover:shadow-cyan-500/20"
                                             >
                                                 {({ loading }) =>

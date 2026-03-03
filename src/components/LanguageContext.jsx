@@ -5,15 +5,34 @@ const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
     const [language, setLanguage] = useState('en');
-    const [tone, setTone] = useState('serious');
+    const [tone, setTone] = useState('serious'); // 'serious' or 'magical'
+    const [specialty, setSpecialty] = useState('general'); // 'general', 'gamedev', 'frontend', 'python'
 
     const toggleTone = () => setTone(prev => prev === 'serious' ? 'magical' : 'serious');
 
-    // Access the correct profile based on tone and language
-    const activeProfile = PROFILES[tone]?.[language] || PROFILES.serious.en;
+    // Access the correct profile based on tone, specialty (if serious), and language
+    const getActiveProfile = () => {
+        if (tone === 'magical') {
+            return PROFILES.magical?.[language] || PROFILES.magical?.en;
+        }
+
+        // Handle the renaming of 'serious' to 'general' or specific specialties
+        const category = PROFILES[specialty] || PROFILES.general || PROFILES.serious;
+        return category?.[language] || category?.en;
+    };
+
+    const activeProfile = getActiveProfile();
 
     return (
-        <LanguageContext.Provider value={{ language, setLanguage, tone, toggleTone, activeProfile }}>
+        <LanguageContext.Provider value={{
+            language,
+            setLanguage,
+            tone,
+            toggleTone,
+            specialty,
+            setSpecialty,
+            activeProfile
+        }}>
             {children}
         </LanguageContext.Provider>
     );
