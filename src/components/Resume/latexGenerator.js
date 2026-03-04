@@ -1,22 +1,27 @@
+const escapeLatex = (str) => {
+  if (typeof str !== 'string') return str;
+  return str.replace(/&/g, '\\&').replace(/%/g, '\\%').replace(/\$/g, '\\$').replace(/#/g, '\\#').replace(/_/g, '\\_').replace(/{/g, '\\{').replace(/}/g, '\\}');
+};
+
 export const generateLatex = (profile) => {
   const experienceItems = profile.experience.map(exp => `
 \\resumeSubheading
-  {${exp.role}}{${exp.period}}
-  {${exp.company}}{}
+  {${escapeLatex(exp.role)}}{${escapeLatex(exp.period)}}
+  {${escapeLatex(exp.company)}}{}
   \\resumeItemListStart
-    ${exp.achievements.map(achievement => `\\resumeItem{${achievement}}`).join('\n    ')}
+    ${exp.achievements.map(achievement => `\\resumeItem{${escapeLatex(achievement)}}`).join('\n    ')}
   \\resumeItemListEnd
 `).join('\n');
 
   const projectItems = profile.projects.map(proj => `
 \\resumeProjectHeading
-    {\\textbf{${proj.title}} $|$ \\emph{${proj.tags.join(', ')}}}{}
+    {\\textbf{${escapeLatex(proj.title)}} $|$ \\emph{${proj.tags.map(t => escapeLatex(t)).join(', ')}}}{}
     \\resumeItemListStart
-      \\resumeItem{${proj.description}}
+      \\resumeItem{${escapeLatex(proj.description)}}
     \\resumeItemListEnd
 `).join('\n');
 
-  const skillsItems = profile.skills.map(skill => skill.name).join(', ');
+  const skillsItems = profile.skills.map(skill => escapeLatex(skill.name)).join(', ');
 
   return `\\documentclass[letterpaper,11pt]{article}
 
@@ -64,7 +69,7 @@ export const generateLatex = (profile) => {
 %-----------PROFESSIONAL SUMMARY-----------
 \\section{Professional Summary}
 \\small{
-  ${profile.about}
+  ${escapeLatex(profile.about)}
 }
 \\vspace{-5pt}
 
@@ -74,7 +79,7 @@ export const generateLatex = (profile) => {
  \\begin{itemize}[leftmargin=0.15in, label={}]
     \\small{\\item{
      \\textbf{Technologies}{: ${skillsItems}} \\\\
-     \\textbf{Languages}{: ${profile.languages.map(l => `${l.name} (${l.level})`).join(', ')}}
+     \\textbf{Languages}{: ${profile.languages.map(l => `${escapeLatex(l.name)} (${escapeLatex(l.level)})`).join(', ')}}
     }}
  \\end{itemize}
 
@@ -98,8 +103,8 @@ ${projectItems}
 \\section{Education}
   \\resumeSubHeadingListStart
     ${profile.education.map(edu => `\\resumeSubheading
-      {${edu.institution}}{${edu.location}}
-      {${edu.degree}}{${edu.period}}`).join('\n')}
+      {${escapeLatex(edu.institution)}}{${escapeLatex(edu.location)}}
+      {${escapeLatex(edu.degree)}}{${escapeLatex(edu.period)}}`).join('\n')}
   \\resumeSubHeadingListEnd
 
 

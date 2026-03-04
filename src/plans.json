@@ -16,8 +16,14 @@
         },
         {
             "status": "Planned",
-            "title": "Open Source Godot Toolset",
-            "description": "Releasing a collection of GDScript utilities for procedural generation and AI behaviors.",
+            "title": "Fintech & 3DS2 Payment Flow Research",
+            "description": "Deep dive into 3DS2 security protocols and high-reliability financial transation flows for modern payment systems.",
+            "date": "Q2 2026"
+        },
+        {
+            "status": "Planned",
+            "title": "Advanced Microservice Orchestration",
+            "description": "Implementing distributed tracing and service mesh patterns using Helm, Kubernetes, and gRPC.",
             "date": "Q2 2026"
         },
         {

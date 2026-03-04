@@ -193,18 +193,18 @@ const PROJECTS_FRONTEND_EN = [
 
 const PROJECTS_PYTHON_EN = [
     {
-        title: "High-Throughput FastAPI Orchestrator",
-        description: "Asynchronous task orchestrator built with FastAPI and PostgreSQL. Handles 500+ concurrent requests with optimized database connection pooling.",
+        title: "LingoQuest: AI Learning Ecosystem",
+        description: "A Senior-level RPG-based learning platform using Django and FastAPI. Implements a high-performance microservice bridge via gRPC and asynchronous task orchestration with RabbitMQ for adaptive AI assessments.",
         featured: true,
-        tags: ["Python", "FastAPI", "PostgreSQL", "Asyncio"],
-        link: "https://github.com/megumi-joy"
+        tags: ["Python 3.12", "FastAPI", "gRPC", "K8s"],
+        link: "https://github.com/megumi-joy/LanguageLearningAdventure"
     },
     {
-        title: "Django Agentic AI Backend",
-        description: "A robust Django-based management system for AI agent workflows. Implements complex relational schemas and automated background tasks.",
+        title: "EduStableCoin: Conceptual Fintech Architecture",
+        description: "A high-level design for a decentralized educational currency system. Explores secure financial flows, smart contract integration patterns, and automated audit trails for transparent educational funding.",
         featured: true,
-        tags: ["Python", "Django", "Redis", "Celery"],
-        link: null
+        tags: ["Python", "Fintech", "Blockchain", "Conceptual"],
+        link: "https://github.com/megumi-joy/EduStableCoin"
     }
 ];
 
@@ -251,18 +251,18 @@ const PROJECTS_FRONTEND_ES = [
 
 const PROJECTS_PYTHON_ES = [
     {
-        title: "Raspador de Datos Asíncrono",
-        description: "Un raspador web de alto rendimiento construido con Python/Asyncio capaz de manejar más de 500 solicitudes simultáneas.",
+        title: "LingoQuest: Ecosistema de Aprendizaje IA",
+        description: "Plataforma de nivel Senior basada en microservicios con Django y FastAPI. Implementa orquestación de tareas asíncronas con RabbitMQ y comunicación gRPC de alto rendimiento.",
         featured: true,
-        tags: ["Python", "Asyncio", "PostgreSQL"],
-        link: "https://github.com/megumi-joy"
+        tags: ["Python 3.12", "FastAPI", "gRPC", "K8s"],
+        link: "https://github.com/megumi-joy/LanguageLearningAdventure"
     },
     {
-        title: "Orquestador de Tareas de IA Agéntica",
-        description: "Un sistema de gestión de tareas impulsado por IA que utiliza LLMs para automatizar flujos de trabajo de desarrolladores complejos.",
+        title: "EduStableCoin: Arquitectura Fintech Conceptual",
+        description: "Diseño de alto nivel para un sistema de moneda educativa descentralizada. Explora flujos financieros seguros y patrones de integración de contratos inteligentes para una financiación educativa transparente.",
         featured: true,
-        tags: ["Python", "OpenAI", "IA Agéntica"],
-        link: null
+        tags: ["Python", "Fintech", "Blockchain", "Conceptual"],
+        link: "https://github.com/megumi-joy/EduStableCoin"
     }
 ];
 
@@ -309,18 +309,18 @@ const PROJECTS_FRONTEND_RU = [
 
 const PROJECTS_PYTHON_RU = [
     {
-        title: "Асинхронный Скрапер Данных",
-        description: "Высокопроизводительный веб-скрапер, созданный на Python/Asyncio, способный обрабатывать более 500 одновременных запросов.",
+        title: "LingoQuest: ИИ-экосистема обучения",
+        description: "Архитектура уровня Senior на базе микросервисов с Django и FastAPI. Реализует асинхронную оркестрацию задач через RabbitMQ и высокопроизводительный gRPC-мост.",
         featured: true,
-        tags: ["Python", "Asyncio", "PostgreSQL"],
-        link: "https://github.com/megumi-joy"
+        tags: ["Python 3.12", "FastAPI", "gRPC", "K8s"],
+        link: "https://github.com/megumi-joy/LanguageLearningAdventure"
     },
     {
-        title: "Агентный ИИ-Оркестратор Задач",
-        description: "Система управления задачами на базе ИИ, использующая LLM для автоматизации сложных многоэтапных рабочих процессов разработчиков.",
+        title: "EduStableCoin: Концептуальная Финтех-архитектура",
+        description: "Высокоуровневый дизайн децентрализованной образовательной валютной системы. Исследование защищенных финансовых потоков и паттернов интеграции смарт-контрактов.",
         featured: true,
-        tags: ["Python", "OpenAI", "Agentic AI"],
-        link: null
+        tags: ["Python", "Fintech", "Blockchain", "Концепт"],
+        link: "https://github.com/megumi-joy/EduStableCoin"
     }
 ];
 
@@ -367,18 +367,18 @@ const PROJECTS_FRONTEND_UK = [
 
 const PROJECTS_PYTHON_UK = [
     {
-        title: "Асинхронний Скрапер Даних",
-        description: "Високопродуктивний веб-скрапер, створений на Python/Asyncio, здатний обробляти понад 500 одночасних запитів.",
+        title: "LingoQuest: ІІ-екосистема навчання",
+        description: "Архітектура рівня Senior на базі мікросервісів з Django та FastAPI. Реалізує асинхронну оркестрацію завдань через RabbitMQ та високопродуктивний gRPC-міст.",
         featured: true,
-        tags: ["Python", "Asyncio", "PostgreSQL"],
-        link: "https://github.com/megumi-joy"
+        tags: ["Python 3.12", "FastAPI", "gRPC", "K8s"],
+        link: "https://github.com/megumi-joy/LanguageLearningAdventure"
     },
     {
-        title: "Агентний ІІ-Оркестратор Завдань",
-        description: "Система управління завданнями на базі ІІ, що використовує LLM для автоматизації складних багатоетапних робочих процесів розробників.",
+        title: "EduStableCoin: Концептуальна Фінтех-архітектура",
+        description: "Високорівневий дизайн децентралізованої освітньої валютної системи. Дослідження захищених фінансових потоків та патернів інтеграції смарт-контрактів.",
         featured: true,
-        tags: ["Python", "OpenAI", "Agentic AI"],
-        link: null
+        tags: ["Python", "Fintech", "Blockchain", "Концепт"],
+        link: "https://github.com/megumi-joy/EduStableCoin"
     }
 ];
 
@@ -682,12 +682,12 @@ const getExperienceForSpecialty = (specialty, lang) => {
 const getSkillsForSpecialty = (specialty) => {
     if (specialty === 'python') {
         return [
-            { name: "Python (High Perf)", icon: Server },
-            { name: "FastAPI & Django", icon: Layers },
-            { name: "Asyncio & Systems", icon: Cpu },
-            { name: "PostgreSQL", icon: Server },
-            { name: "Docker & CI/CD", icon: Terminal },
-            { name: "Backend Architecture", icon: Cuboid },
+            { name: "Python 3.12 (High Perf)", icon: Server },
+            { name: "FastAPI, Django & gRPC", icon: Layers },
+            { name: "Asyncio & Distributed Sys", icon: Cpu },
+            { name: "PostgreSQL & RabbitMQ/Kafka", icon: Server },
+            { name: "K8s, Helm & GitLab CI", icon: Terminal },
+            { name: "Microsrv Architecture", icon: Cuboid },
         ];
     }
     if (specialty === 'frontend') {
@@ -771,10 +771,10 @@ const SPECIALIZED_ABOUT = {
         uk: "Старший фронтенд-інженер, що спеціалізується на критично важливих додатках React та високопродуктивній WebGL візуалізації. Експерт у створенні UX на 60fps для складних інструментів. Прагну створювати преміальні та ефективні веб-інтерфейси."
     },
     python: {
-        en: "Senior Backend Engineer specializing in high-performance Python, FastAPI, and Django distributed architectures. Expert in asynchronous workflows, real-time data pipelines, and agentic AI infrastructure. Looking to lead the design of robust, scalable backend systems for innovative US-based startups.",
-        es: "Ingeniero Senior de Backend especializado en arquitecturas distribuidas con Python, FastAPI y Django. Experto en flujos asíncronos и pipelines de datos en tiempo real. Busco liderar el diseño de sistemas backend robustos y escalables.",
-        ru: "Старший бэкенд-инженер, специализирующийся на высокопроизводительном Python, FastAPI и Django. Эксперт в асинхронных процессах и конвейерах данных в реальном времени. Стремлюсь возглавить проектирование надежных и масштабируемых систем.",
-        uk: "Старший бекенд-інженер, що спеціалізується на високопродуктивному Python, FastAPI та Django. Експерт в асинхронних процесах та конвеєрах даних у реальному часі. Прагну очолити проектування надійних та масштабованих систем."
+        en: "Senior Backend Engineer with 10+ years of experience specializing in high-performance Python, FastAPI, and Django distributed architectures. Expert in asynchronous gRPC communication, real-time data pipelines, and microservice orchestration using Kubernetes and Helm. Proven track record in Fintech and agentic AI infrastructure, building robust, scalable systems for global platforms.",
+        es: "Ingeniero Senior de Backend con más de 10 años de experiencia especializado en arquitecturas distribuidas con Python, FastAPI y Django. Experto en comunicación gRPC asíncrona y orquestación con K8s y Helm.",
+        ru: "Старший бэкенд-инженер с 10-летним опытом, специализирующийся на высокопроизводительном Python, FastAPI и Django. Эксперт в асинхронном gRPC и оркестрации через Kubernetes и Helm.",
+        uk: "Старший бекенд-інженер з 10-річним досвідом, що спеціалізується на високопродуктивному Python, FastAPI та Django. Експерт в асинхронному gRPC та оркестрації через Kubernetes та Helm."
     }
 };
 
@@ -869,8 +869,14 @@ const BASE_PROFILE = {
             },
             {
                 status: "Planned",
-                title: "Open Source Godot Tooling",
-                description: "Releasing a suite of GDScript utilities for procedural generation and AI behaviors.",
+                title: "Fintech & 3DS2 Payment Flow Research",
+                description: "Deep dive into 3DS2 security protocols and high-reliability financial transaction flows for modern payment systems.",
+                date: "Q2 2026"
+            },
+            {
+                status: "Planned",
+                title: "Advanced Microservice Orchestration",
+                description: "Implementing distributed tracing and service mesh patterns using Helm, Kubernetes, and gRPC.",
                 date: "Q2 2026"
             },
             {
