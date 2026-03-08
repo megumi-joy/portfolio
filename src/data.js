@@ -228,7 +228,7 @@ const PROJECTS_ES = [
         description: "Un diseño de sistema de inventario orientado a datos y eficiente en memoria que soporta composición compleja de ítems y serialización.",
         featured: false,
         tags: ["Estructuras de Datos", "Arquitectura"],
-        link: "https://github.com/aurorasunrisegames/InventorySystem"
+        link: "https://github.com/megumi-joy/InventorySystem"
     }
 ];
 
@@ -286,7 +286,7 @@ const PROJECTS_RU = [
         description: "Дизайн системы инвентаря, ориентированный на данные и эффективный по памяти, поддерживающий сложную композицию предметов и сериализацию.",
         featured: false,
         tags: ["Data Structures", "Architecture"],
-        link: "https://github.com/aurorasunrisegames/InventorySystem"
+        link: "https://github.com/megumi-joy/InventorySystem"
     }
 ];
 
@@ -344,7 +344,7 @@ const PROJECTS_UK = [
         description: "Дизайн системи інвентарю, орієнтований на дані та ефективний по пам'яті, що підтримує складну композицію предметів та серіалізацію.",
         featured: false,
         tags: ["Data Structures", "Architecture"],
-        link: "https://github.com/aurorasunrisegames/InventorySystem"
+        link: "https://github.com/megumi-joy/InventorySystem"
     }
 ];
 
@@ -864,7 +864,7 @@ const BASE_PROFILE = {
                 title: "Advanced Agentic AI Research",
                 description: "Exploring multi-agent systems and recursive self-improvement loops using Godot and LLMs.",
                 subItems: ["Implementing memory context", "Designing tool-use protocols", "Testing in 3D environments"],
-                link: "https://github.com/aurorasunrisegames",
+                link: "https://github.com/megumi-joy",
                 date: "Q1 2026"
             },
             {

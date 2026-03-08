@@ -78,7 +78,7 @@ function AppLayout() {
       <ResumeModal isOpen={showResume} onClose={() => setShowResume(false)} />
 
       <footer className="relative z-10 py-8 text-center text-slate-500 text-sm">
-        <p>&copy; {new Date().getFullYear()} Aurora Sunrise. Built with React & Tailwind.</p>
+        <p>&copy; {new Date().getFullYear()} Megumi Joy. Built with React & Tailwind.</p>
       </footer>
     </div>
   );

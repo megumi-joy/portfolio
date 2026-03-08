@@ -54,8 +54,8 @@ const AdventurerCard = ({ profile }) => {
                                 <li key={index} className="bg-slate-900/80 p-3 rounded border border-purple-500/30 text-sm hover:border-green-500/50 transition-colors">
                                     <div className="flex justify-between items-center mb-1">
                                         <span className={`font-bold ${item.rarity === 'Legendary' ? 'text-orange-400 drop-shadow-[0_0_3px_rgba(251,146,60,0.5)]' :
-                                                item.rarity === 'Epic' ? 'text-purple-400 drop-shadow-[0_0_3px_rgba(192,132,252,0.5)]' :
-                                                    item.rarity === 'Rare' ? 'text-blue-400' : 'text-green-400'
+                                            item.rarity === 'Epic' ? 'text-purple-400 drop-shadow-[0_0_3px_rgba(192,132,252,0.5)]' :
+                                                item.rarity === 'Rare' ? 'text-blue-400' : 'text-green-400'
                                             }`}>{item.name}</span>
                                         <span className="text-[10px] bg-purple-800/80 text-purple-200 px-1.5 py-0.5 rounded border border-purple-600/50">{item.type}</span>
                                     </div>
@@ -108,7 +108,7 @@ const AdventurerCard = ({ profile }) => {
                     {/* Contact / Footer Action */}
                     <div className="text-center pt-4">
                         <button
-                            onClick={() => window.location.href = `mailto:${profile.socials?.email || 'aurorasunrisegames@gmail.com'}`}
+                            onClick={() => window.location.href = `mailto:${profile.socials?.email || ' meguminlab@gmail.com'}`}
                             className="bg-purple-700 text-white px-8 py-3 rounded-full font-bold text-lg border-2 border-purple-500 hover:bg-purple-600 hover:border-green-400 hover:text-green-100 transition-all shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:shadow-[0_0_25px_rgba(34,197,94,0.4)] transform hover:scale-105 uppercase tracking-wide"
                         >
                             {profile.ui?.contactButton || "Send Raven"}

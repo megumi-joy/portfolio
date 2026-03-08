@@ -1,4 +1,4 @@
-# Aurora Sunrise Portfolio
+# Megumi Joy Portfolio
 
 A modern, high-performance portfolio website built with React, Tailwind CSS, and Framer Motion. Features a custom 3D-style design, dark mode aesthetics, and seamless integration with Godot Engine web exports.
 
