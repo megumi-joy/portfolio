@@ -13,13 +13,30 @@ import Admin from './components/Admin';
 import Auth from './components/Auth';
 import Schedule from './components/Schedule';
 import { supabase } from './lib/supabase';
+import GameLanding from './components/GameLanding';
 import { ShoppingCart, Layout, ShieldCheck } from 'lucide-react';
 
 function AppLayout() {
   const [showResume, setShowResume] = useState(false);
-  const [view, setView] = useState('portfolio'); // 'portfolio', 'shop', 'admin', 'schedule'
+  const [view, setView] = useState('portfolio'); // 'portfolio', 'shop', 'admin', 'schedule', 'game'
+  const [activeGameId, setActiveGameId] = useState(null);
   const [user, setUser] = useState(null);
   const { tone } = useLanguage();
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const gameId = params.get('game');
+    if (gameId) {
+      setActiveGameId(gameId);
+      setView('game');
+    }
+  }, []);
+
+  const handleBackToPortfolio = () => {
+    setView('portfolio');
+    setActiveGameId(null);
+    window.history.pushState({}, '', window.location.pathname);
+  };
   const isMagical = tone === 'magical';
 
   const isSupabaseConfigured = false;
@@ -54,6 +71,13 @@ function AppLayout() {
             <Plans />
             <Contact />
           </>
+        )}
+
+        {view === 'game' && activeGameId && (
+          <GameLanding
+            gameId={activeGameId}
+            onBack={handleBackToPortfolio}
+          />
         )}
 
         {view === 'shop' && (

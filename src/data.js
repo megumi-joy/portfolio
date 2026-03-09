@@ -3,10 +3,11 @@ import { Github, Linkedin, Mail, Cpu, Gamepad2, Globe, Server, Terminal, Layers,
 const COMMON_SKILLS = [
     { name: "Godot & Unity", icon: Gamepad2 },
     { name: "Python (High Perf)", icon: Server },
+    { name: "Product MVP Architect", icon: Layers },
+    { name: "AI & Logistics Sim", icon: Gamepad2 },
     { name: "C++ & Systems", icon: Cpu },
-    { name: "Simulation & Tools", icon: Layers },
-    { name: "Hardware Integration", icon: Cuboid },
-    { name: "DevOps & CI/CD", icon: Terminal },
+    { name: "Embedded Mastery", icon: Cuboid },
+    { name: "Full-Stack EdTech", icon: Globe },
 ];
 
 const COMMON_LANGUAGES = [
@@ -152,25 +153,25 @@ const TRANSLATIONS = {
 
 const PROJECTS_EN = [
     {
-        title: "Godot Simulation Prototype",
-        description: "High-performance research prototype exploring deterministic physics and agent behaviors under real-time constraints. Scale: 1000+ active agents.",
+        title: "B2B Logistics & AI Simulator MVP",
+        description: "High-fidelity logistics simulation using real-world OSM geodata. Designed for B2B route optimization and AI agent training. Scale: Unlimited city districts.",
         featured: true,
-        tags: ["Godot 4", "C++", "Python", "Physics"],
+        tags: ["B2B Logistics", "AI Simulation", "OSM"],
         link: "https://megumi-joy.github.io/portfolio/"
     },
     {
-        title: "Python Simulation Tooling",
-        description: "Automated scene generation and data playback pipeline using Python. Bridges offline training data to real-time Godot runtime.",
+        title: "LingoQuest: Social EdTech Ecosystem",
+        description: "A premium discovery-led learning platform. Features gRPC linguistic assessment and 3DS2 payment simulations. Targeting EdTech acceleration in Catalonia.",
         featured: true,
-        tags: ["Python", "Automation", "Data Pipelines"],
-        link: null
+        tags: ["Social EdTech", "Next.js", "Django", "gRPC"],
+        link: "https://github.com/megumi-joy/LanguageLearningAdventure"
     },
     {
-        title: "Hardware Integration Bridge",
-        description: "Connecting STM32/ESP32 sensor streams to real-time Unity/Godot visualizations via high-throughput Python backends.",
-        featured: true,
-        tags: ["Embedded", "Python", "WebSockets"],
-        link: null
+        title: "Sea Hunter: Physical MVP Proof",
+        description: "证明物理执行周期的战略性卡牌游戏 MVP。从数字 3D 到纸板物理实施的‘终结者’循环。",
+        featured: false,
+        tags: ["Physical Design", "Finalized MVP", "Card Game"],
+        link: "https://github.com/megumi-joy/sea-hunter"
     }
 ];
 
@@ -193,10 +194,10 @@ const PROJECTS_FRONTEND_EN = [
 
 const PROJECTS_PYTHON_EN = [
     {
-        title: "LingoQuest: AI Learning Ecosystem",
-        description: "A Senior-level RPG-based learning platform using Django and FastAPI. Implements a high-performance microservice bridge via gRPC and asynchronous task orchestration with RabbitMQ for adaptive AI assessments.",
+        title: "LingoQuest: Social EdTech Ecosystem MVP",
+        description: "A premium discovery-led learning platform built with Next.js and Django. Features gRPC-based linguistic assessment, secure 3DS2 payment simulation, and a Godot 4 quest engine. Designed for social impact and scalable EdTech acceleration.",
         featured: true,
-        tags: ["Python 3.12", "FastAPI", "gRPC", "K8s"],
+        tags: ["Social EdTech", "Next.js", "Django", "gRPC"],
         link: "https://github.com/megumi-joy/LanguageLearningAdventure"
     },
     {
@@ -210,25 +211,25 @@ const PROJECTS_PYTHON_EN = [
 
 const PROJECTS_ES = [
     {
-        title: "Prototipo de Motor Físico en Red",
-        description: "Un prototipo de investigación explorando sincronización física autoritativa del servidor y algoritmos de predicción del lado del cliente.",
+        title: "MVP de Simulador de Logística B2B",
+        description: "Simulación logística de alta fidelidad basada en geodatos reales de OSM. Diseñada para optimización de rutas B2B y entrenamiento de IA.",
         featured: true,
-        tags: ["C++", "Networking", "Física"],
+        tags: ["Logística B2B", "Simulación IA", "OSM"],
         link: "https://megumi-joy.github.io/portfolio/"
     },
     {
-        title: "Herramienta de Vegetación Procedimental",
-        description: "Un plugin para automatizar la colocación de entornos a gran escala, utilizando hash espacial e instanciación de GPU para rendimiento.",
+        title: "LingoQuest: Ecosistema EdTech Social",
+        description: "Plataforma de aprendizaje premium. Implementa evaluación lingüística gRPC y flujos de pago 3DS2. Enfocado en aceleración EdTech en Cataluña.",
         featured: true,
-        tags: ["C#", "Gráficos", "Herramientas"],
-        link: null
+        tags: ["EdTech Social", "Next.js", "Django", "gRPC"],
+        link: "https://github.com/megumi-joy/LanguageLearningAdventure"
     },
     {
-        title: "Arquitectura de Inventario",
-        description: "Un diseño de sistema de inventario orientado a datos y eficiente en memoria que soporta composición compleja de ítems y serialización.",
+        title: "Sea Hunter: Prueba de MVP Físico",
+        description: "Juego de cartas que demuestra el ciclo de implementación física total. Del prototipo digital a la producción en cartón.",
         featured: false,
-        tags: ["Estructuras de Datos", "Arquitectura"],
-        link: "https://github.com/megumi-joy/InventorySystem"
+        tags: ["Diseño Físico", "MVP Finalizado", "Juego de Cartas"],
+        link: "https://github.com/megumi-joy/sea-hunter"
     }
 ];
 
@@ -268,25 +269,25 @@ const PROJECTS_PYTHON_ES = [
 
 const PROJECTS_RU = [
     {
-        title: "Прототип Сетевого Физического Движка",
-        description: "Исследовательский прототип, исследующий серверно-авторитетную синхронизацию физики и алгоритмы предсказания на стороне клиента.",
+        title: "B2B Логистический ИИ-симулятор MVP",
+        description: "Высокоточная симуляция логистики на базе реальных геоданных OSM. Предназначена для B2B оптимизации маршрутов и обучения ИИ.",
         featured: true,
-        tags: ["C++", "Networking", "Physics"],
+        tags: ["B2B Логистика", "ИИ Симуляция", "OSM"],
         link: "https://megumi-joy.github.io/portfolio/"
     },
     {
-        title: "Инструмент Процедурной Растительности",
-        description: "Плагин для автоматизации размещения окружения большого масштаба, использующий пространственное хеширование и GPU инстансинг.",
+        title: "LingoQuest: Социальная EdTech-экосистема",
+        description: "Премиальная платформа обучения. Включает gRPC-оценку навыков и симуляцию 3DS2 платежей. Проект для акселерации в Каталонии.",
         featured: true,
-        tags: ["C#", "Graphics", "Tooling"],
-        link: null
+        tags: ["Social EdTech", "Next.js", "Django", "gRPC"],
+        link: "https://github.com/megumi-joy/LanguageLearningAdventure"
     },
     {
-        title: "Архитектура Инвентаря",
-        description: "Дизайн системы инвентаря, ориентированный на данные и эффективный по памяти, поддерживающий сложную композицию предметов и сериализацию.",
+        title: "Sea Hunter: Физическое воплощение MVP",
+        description: "Доказательство умения доводить продукт до физической реализации. От 3D-прототипа до финальной печати в картоне.",
         featured: false,
-        tags: ["Data Structures", "Architecture"],
-        link: "https://github.com/megumi-joy/InventorySystem"
+        tags: ["Physical Design", "Finalized MVP", "Card Game"],
+        link: "https://github.com/megumi-joy/sea-hunter"
     }
 ];
 
@@ -326,25 +327,25 @@ const PROJECTS_PYTHON_RU = [
 
 const PROJECTS_UK = [
     {
-        title: "Прототип Мережевого Фізичного Рушія",
-        description: "Дослідницький прототип, що досліджує серверно-авторитетну синхронізацію фізики та алгоритми передбачення на сторіні клієнта.",
+        title: "B2B Логістичний ІІ-симулятор MVP",
+        description: "Високоточна симуляція логістики на базі реальних геоданих OSM. Призначена для B2B оптимізації маршрутів та навчання ІІ.",
         featured: true,
-        tags: ["C++", "Networking", "Physics"],
+        tags: ["B2B Логістика", "ІІ Симуляція", "OSM"],
         link: "https://megumi-joy.github.io/portfolio/"
     },
     {
-        title: "Інструмент Процедурної Рослинності",
-        description: "Плагін для автоматизації розміщення оточення великого масштабу, що використовує просторове хешування та GPU інстансинг.",
+        title: "LingoQuest: Соціальна EdTech-екосистема",
+        description: "Преміальна платформа навчання. Включає gRPC-оцінку навичок та симуляцію 3DS2 платежів. Проект для акселерації в Каталонії.",
         featured: true,
-        tags: ["C#", "Graphics", "Tooling"],
-        link: null
+        tags: ["Social EdTech", "Next.js", "Django", "gRPC"],
+        link: "https://github.com/megumi-joy/LanguageLearningAdventure"
     },
     {
-        title: "Архітектура Інвентарю",
-        description: "Дизайн системи інвентарю, орієнтований на дані та ефективний по пам'яті, що підтримує складну композицію предметів та серіалізацію.",
+        title: "Sea Hunter: Фізичне втілення MVP",
+        description: "Доказ вміння доводити продукт до фізичної реалізації. Від 3D-прототипу до фінального друку в картоні.",
         featured: false,
-        tags: ["Data Structures", "Architecture"],
-        link: "https://github.com/megumi-joy/InventorySystem"
+        tags: ["Physical Design", "Finalized MVP", "Card Game"],
+        link: "https://github.com/megumi-joy/sea-hunter"
     }
 ];
 
@@ -382,7 +383,7 @@ const PROJECTS_PYTHON_UK = [
     }
 ];
 
-const GAMES_DATA = {
+export const GAMES_DATA = {
     "magicBallsAdventure": {
         thumbnail: "/portfolio/games/magicballsadventure/index.png",
         path: "/portfolio/games/magicballsadventure/index.html",
@@ -431,44 +432,44 @@ const GAMES_DATA = {
     "lowPolyCityDelivery": {
         thumbnail: "/portfolio/games/Low-Poly City Delivery/index.png",
         path: "/portfolio/games/Low-Poly City Delivery/index.html",
-        tags: ["Godot", "Simulation", "WebGL"],
+        tags: ["B2B Logistics", "AI Simulation", "WebGL"],
         status: "playable",
-        progress: 30,
+        progress: 80,
         translations: {
             en: {
-                title: "Low-Poly City Delivery",
-                description: "A delivery simulation game set in a low-poly city environment.",
+                title: "B2B Logistics & AI Simulator MVP",
+                description: "A high-fidelity logistics simulation using real-world OSM geodata. Designed for B2B route optimization and AI agent training in urban environments.",
                 gdd: {
-                    overview: "Deliver packages in a vibrant low-poly city against the clock.",
-                    mechanics: ["Vehicle physics", "Pick up/Drop off system", "Timer system"],
-                    features: ["Open world city", "Traffic AI", "Destructible props"]
+                    overview: "Simulate complex delivery logistics in real-world street layouts (OSM) for business optimization.",
+                    mechanics: ["Real-world Geodata (OSM)", "B2B Logistics Flow", "AI Agent Navigation"],
+                    features: ["Urban Simulation", "Traffic AI", "Scalable City Districts"]
                 }
             },
             es: {
-                title: "Low-Poly City Delivery",
-                description: "Un juego de simulación de entrega ambientado en una ciudad low-poly.",
+                title: "MVP de Simulador de Logística B2B e IA",
+                description: "Simulación logística de alta fidelidad basada en geodes reales (OSM). Diseñada para optimización B2B y entrenamiento de IA.",
                 gdd: {
-                    overview: "Entrega paquetes en una ciudad low-poly vibrante contra el reloj.",
-                    mechanics: ["Física de vehículos", "Sistema de recogida/entrega", "Sistema de temporizador"],
-                    features: ["Ciudad de mundo abierto", "IA de tráfico", "Accesorios destructibles"]
+                    overview: "Simula logística de entrega compleja en calles reales (OSM) para optimización de negocios.",
+                    mechanics: ["Geodatos Reales (OSM)", "Flujo Logístico B2B", "Navegación de IA"],
+                    features: ["Simulación Urbana", "IA de Tráfico", "Escalabilidad"]
                 }
             },
             ru: {
-                title: "Low-Poly City Delivery",
-                description: "Симулятор доставки в низкополигональном городе.",
+                title: "B2B Логистический ИИ-симулятор MVP",
+                description: "Высокоточная симуляция логистики на базе реальных геоданных OSM. Предназначена для B2B оптимизации маршрутов и обучения агентного ИИ.",
                 gdd: {
-                    overview: "Доставляйте посылки в ярком низкополигональном городе на время.",
-                    mechanics: ["Физика транспорта", "Система подбора/доставки", "Таймер"],
-                    features: ["Открытый мир", "ИИ трафика", "Разрушаемые объекты"]
+                    overview: "Симуляция сложных логистических цепочек в реальной городской застройке (OSM) для бизнеса.",
+                    mechanics: ["Реальные геоданные (OSM)", "B2B логистические потоки", "Навигация агентного ИИ"],
+                    features: ["Городская симуляция", "ИИ-трафик", "Масштабируемые районы"]
                 }
             },
             uk: {
-                title: "Low-Poly City Delivery",
-                description: "Симулятор доставки у низькополігональному місті.",
+                title: "B2B Логістичний ІІ-симулятор MVP",
+                description: "Високоточна симуляція логістики на базі реальних геоданих OSM. Призначена для B2B оптимізації маршрутів та навчання агентного ІІ.",
                 gdd: {
-                    overview: "Доставляйте посилки у яскравому низькополігональному місті на час.",
-                    mechanics: ["Фізика транспорту", "Система підбору/доставки", "Таймер"],
-                    features: ["Відкритий світ", "ШІ трафіку", "Руйнівні об'єкти"]
+                    overview: "Симуляція складних логістичних ланцюжків у реальній міській забудові (OSM) для бізнесу.",
+                    mechanics: ["Реальні геодані (OSM)", "B2B логістичні потоки", "Навігація агентного ІІ"],
+                    features: ["Міська симуляція", "ІІ-трафік", "Масштабовані райони"]
                 }
             }
         }
@@ -518,138 +519,96 @@ const GAMES_DATA = {
             }
         }
     },
-    "spaceShooter": {
-        thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Space+Shooter",
+    "seaHunter": {
+        thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Sea+Hunter",
         path: null,
-        tags: ["Godot", "Arcade", "Developing"],
-        status: "developing",
+        tags: ["Card Game", "Finalized MVP", "Physical Design"],
+        status: "finalized",
+        progress: 100,
         translations: {
             en: {
-                title: "Space Shooter",
-                description: "Classic arcade space shooter with modern graphics.",
+                title: "Sea Hunter: Physical MVP Finalization",
+                description: "A strategic battleship-style card game MVP. Proof of the 'Finalizer' cycle: from digital 3D prototypes to physical cardboard production and rule documentation.",
                 gdd: {
-                    overview: "Fast-paced space shooter where you defend against waves of alien invaders.",
-                    mechanics: ["Shooting", "Power-ups", "Enemy waves"],
-                    features: ["Boss fights", "Ship upgrades", "Score system"]
+                    overview: "Strategic card game proving full production-to-physical implementation cycle.",
+                    mechanics: ["Turn-based Battle", "Preparation Phase", "Island Powers"],
+                    features: ["Released in Cardboard", "Headless AI Verification", "MCP Bot Support"]
                 }
             },
             es: {
-                title: "Space Shooter",
-                description: "Clásico juego de disparos espacial arcade con gráficos modernos.",
+                title: "Sea Hunter: Finalización de MVP Físico",
+                description: "Juego de cartas estratégico. Prueba del ciclo 'Finalizador': desde prototipos 3D hasta producción física y documentación.",
                 gdd: {
-                    overview: "Juego de disparos espacial de ritmo rápido donde defiendes contra oleadas de invasores alienígenas.",
-                    mechanics: ["Disparos", "Power-ups", "Oleadas de enemigos"],
-                    features: ["Peleas contra jefes", "Mejoras de nave", "Sistema de puntuación"]
+                    overview: "Juego de estrategia que demuestra el ciclo completo de implementación física.",
+                    mechanics: ["Batalla por turnos", "Fase de preparación", "Poderes de Islas"],
+                    features: ["Lanzado en cartón", "Verificación por IA", "Soporte MCP"]
                 }
             },
             ru: {
-                title: "Space Shooter",
-                description: "Классический аркадный космический шутер с современной графикой.",
+                title: "Sea Hunter: Финализация физического MVP",
+                description: "Стратегическая карточная игра. Доказательство умения доводить продукт до физического воплощения: от 3D-прототипа до печати в картоне.",
                 gdd: {
-                    overview: "Динамичный космический шутер, где вы защищаетесь от волн инопланетных захватчиков.",
-                    mechanics: ["Стрельба", "Усиления", "Волны врагов"],
-                    features: ["Битвы с боссами", "Улучшения корабля", "Система очков"]
+                    overview: "Стратегическая игра, демонстрирующая полный цикл от идеи до физического продукта.",
+                    mechanics: ["Пошаговая битва", "Фаза подготовки", "Силы островов"],
+                    features: ["Выпущено в картоне", "Headless ИИ-верификация", "Поддержка MCP-ботов"]
                 }
             },
             uk: {
-                title: "Space Shooter",
-                description: "Класичний аркадний космічний шутер із сучасною графікою.",
+                title: "Sea Hunter: Фіналізація фізичного MVP",
+                description: "Стратегічна карткова гра. Доказ вміння доводити продукт до фізичного втілення: від 3D-прототипу до друку в картоні.",
                 gdd: {
-                    overview: "Динамічний космічний шутер, де ви захищаєтесь від хвиль інопланетних загарбників.",
-                    mechanics: ["Стрільба", "Посилення", "Хвилі ворогів"],
-                    features: ["Битви з босами", "Покращення корабля", "Система очків"]
+                    overview: "Стратегічна гра, що демонструє повний цикл від ідеї до фізичного продукту.",
+                    mechanics: ["Покрокова битва", "Фаза підготовки", "Сили островів"],
+                    features: ["Випущено в картоні", "Headless ІІ-верифікація", "Підтримка MCP-ботів"]
                 }
             }
         }
     },
-    "karting": {
-        thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Karting",
-        path: null,
-        tags: ["Godot", "Racing", "Developing"],
-        status: "developing",
+    "megumiMassage": {
+        thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Megumi+Massage",
+        path: "https://megumi-massage.com",
+        tags: ["B2B Operations", "React", "Supabase"],
+        status: "live",
+        progress: 100,
         translations: {
             en: {
-                title: "Karting",
-                description: "High-speed kart racing game with power-ups.",
+                title: "Business Operations MVP: Megumi Massage",
+                description: "A full-stack business operations engine for a wellness center. Features multilingual support, booking system integration, and Supabase backend.",
                 gdd: {
-                    overview: "Competitive kart racing game with drift mechanics and items.",
-                    mechanics: ["Drifting", "Item usage", "Lap system"],
-                    features: ["Multiple tracks", "Character selection", "Local multiplayer"]
+                    overview: "Operational MVP for local service business automation.",
+                    mechanics: ["Booking Flow", "Admin Dashboard", "Multilingual Content"],
+                    features: ["React/Vite", "Supabase Auth", "Responsive UI"]
                 }
             },
             es: {
-                title: "Karting",
-                description: "Juego de carreras de karts de alta velocidad con power-ups.",
+                title: "MVP de Operaciones: Megumi Massage",
+                description: "Motor de operaciones comerciales para un centro de bienestar. Incluye soporte multilingüe y sistema de reservas.",
                 gdd: {
-                    overview: "Juego de carreras de karts competitivo con mecánicas de derrape y objetos.",
-                    mechanics: ["Derrape", "Uso de objetos", "Sistema de vueltas"],
-                    features: ["Múltiples pistas", "Selección de personajes", "Multijugador local"]
+                    overview: "MVP operativo para la automatización de negocios de servicios.",
+                    mechanics: ["Flujo de Reserva", "Panel Admin", "Contenido Multilingüe"],
+                    features: ["React/Vite", "Supabase backend", "Diseño Responsivo"]
                 }
             },
             ru: {
-                title: "Karting",
-                description: "Высокоскоростные гонки на картингах с усилениями.",
+                title: "Бизнес-операционный MVP: Megumi Massage",
+                description: "Полнофункциональный движок для управления велнес-центром. Мультиязычность, система бронирования и Supabase.",
                 gdd: {
-                    overview: "Соревновательные гонки на картингах с механикой дрифта и предметами.",
-                    mechanics: ["Дрифт", "Использование предметов", "Система кругов"],
-                    features: ["Множество трасс", "Выбор персонажа", "Локальный мультиплеер"]
+                    overview: "Операционный MVP для автоматизации локального сервисного бизнеса.",
+                    mechanics: ["Процесс бронирования", "Панель администратора", "Мультиязычный контент"],
+                    features: ["React/Vite", "Supabase бэкенд", "Адаптивный UI"]
                 }
             },
             uk: {
-                title: "Karting",
-                description: "Високошвидкісні перегони на картингах з посиленнями.",
+                title: "Бізнес-операційний MVP: Megumi Massage",
+                description: "Повнофункціональний рушій для управління велнес-центром. Мультімовність, система бронювання та Supabase.",
                 gdd: {
-                    overview: "Змагальні перегони на картингах з механікою дрифту та предметами.",
-                    mechanics: ["Дрифт", "Використання предметів", "Система кіл"],
-                    features: ["Багато трас", "Вибір персонажа", "Локальний мультиплеєр"]
+                    overview: "Операційний MVP для автоматизації локального сервісного бізнесу.",
+                    mechanics: ["Процес бронювання", "Панель адміністратора", "Мультімовний контент"],
+                    features: ["React/Vite", "Supabase бекенд", "Адаптивний UI"]
                 }
             }
         }
-    },
-    "farming": {
-        thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Farming",
-        path: null,
-        tags: ["Godot", "Simulation", "Developing"],
-        status: "developing",
-        translations: {
-            en: {
-                title: "Farming",
-                description: "Relaxing farming simulation and management game.",
-                gdd: {
-                    overview: "Manage your farm, grow crops, and raise animals in a cozy environment.",
-                    mechanics: ["Planting/Harvesting", "Inventory management", "Day/Night cycle"],
-                    features: ["Crop variety", "Animal husbandry", "Market system"]
-                }
-            },
-            es: {
-                title: "Farming",
-                description: "Relajante juego de simulación y gestión de granjas.",
-                gdd: {
-                    overview: "Gestiona tu granja, cultiva cosechas y cría animales en un ambiente acogedor.",
-                    mechanics: ["Plantación/Cosecha", "Gestión de inventario", "Ciclo día/noche"],
-                    features: ["Variedad de cultivos", "Cría de animales", "Sistema de mercado"]
-                }
-            },
-            ru: {
-                title: "Farming",
-                description: "Расслабляющий симулятор фермы и управления.",
-                gdd: {
-                    overview: "Управляйте своей фермой, выращивайте урожай и разводите животных в уютной обстановке.",
-                    mechanics: ["Посадка/Сбор урожая", "Управление инвентарем", "Цикл день/ночь"],
-                    features: ["Разнообразие культур", "Животноводство", "Рыночная система"]
-                }
-            },
-            uk: {
-                title: "Farming",
-                description: "Розслаблюючий симулятор ферми та управління.",
-                gdd: {
-                    overview: "Керуйте своєю фермою, вирощуйте врожай та розводьте тварин у затишній обстановці.",
-                    mechanics: ["Садіння/Збір врожаю", "Управління інвентарем", "Цикл день/ніч"],
-                    features: ["Різноманітність культур", "Тваринництво", "Ринкова система"]
-                }
-            }
-        }
-    },
+    }
 };
 
 const getGamesForLanguage = (lang) => {
@@ -726,10 +685,10 @@ const generateProfile = (specialty, lang) => {
 
 const SPECIALIZED_TITLES = {
     general: {
-        en: "Senior Simulation & Systems Engineer",
-        es: "Ingeniero Senior de Simulación y Sistemas",
-        ru: "Старший инженер симуляций и систем",
-        uk: "Старший інженер симуляцій та систем"
+        en: "MVP Product Ecosystem Architect",
+        es: "Arquitecto de Ecosistemas de Productos MVP",
+        ru: "Архитектор продуктовых MVP-экосистем",
+        uk: "Архітектор продуктових MVP-екосистем"
     },
     gamedev: {
         en: "Senior Simulation & Tools Engineer",
@@ -753,28 +712,28 @@ const SPECIALIZED_TITLES = {
 
 const SPECIALIZED_ABOUT = {
     general: {
-        en: "Senior Systems Engineer with over 10 years of experience in high-performance simulations and distributed systems. Expert in Godot, Unity, and Python-driven automation for industrial digital twins. I aim to leverage my expertise in real-time systems to build deterministic and scalable architectures for US-based engineering teams.",
-        es: "Ingeniero Senior de Sistemas con más de 10 años de experiencia en simulaciones de alto rendimiento. Experto en Godot, Unity и automatización con Python. Mi objetivo es construir arquitecturas escalables y deterministas para equipos de ingeniería de vanguardia.",
-        ru: "Старший системный инженер с 10-летним опытом создания высокопроизводительных симуляций. Эксперт по Godot, Unity и автоматизации на Python. Моя цель — создавать детерминированные и масштабируемые архитектуры для современных инженерных команд.",
-        uk: "Старший системний інженер з 10-річним досвідом створення високопродуктивних симуляцій. Експерт з Godot, Unity та автоматизації на Python. Моя мета — створювати детерміновані та масштабовані архітектури для сучасних інженерних команд."
+        en: "Managing a ready ecosystem of products at the MVP stage. Expert in high-performance simulations, distributed systems, and bridging hardware to real-time visualizations. I build deterministic architectures and scalable MVPs for B2B logistics and industrial EdTech.",
+        es: "Gestiono un ecosistema de productos listos en etapa MVP. Experto en simulaciones de alto rendimiento, sistemas distribuidos y conexión de hardware con visualizaciones en tiempo real.",
+        ru: "Управляю готовой экосистемой продуктов на стадии MVP. Эксперт по высокопроизводительным симуляциям, распределенным системам и интеграции железа с визуализацией в реальном времени.",
+        uk: "Керую готовою екосистемою продуктів на стадії MVP. Експерт із високопродуктивних симуляцій, розподілених систем та інтеграції заліза з візуалізацією в реальному часі."
     },
     gamedev: {
-        en: "Dedicated Simulation Engine Architect specializing in real-time agent behaviors and custom physics in Godot and Unity. Proven track record in building automated toolchains for research and industrial simulations. Seeking to apply my deep knowledge of engine internals to push the boundaries of real-time interactivity.",
-        es: "Arquitecto de motores de simulación especializado en comportamientos de agentes y física personalizada. Trayectoria demostrada en la creación de toolchains automatizados. Busco aplicar mi conocimiento interno de motores para mejorar la interactividad en tiempo real.",
-        ru: "Архитектор симуляционных движков, специализирующийся на поведении агентов и кастомной физике. Опыт создания автоматизированных инструментов. Стремлюсь применять знания внутренних механизмов движков для развития интерактивности в реальном времени.",
-        uk: "Архітектор симуляційних рушіїв, що спеціалізується на поведінці агентів та кастомній фізиці. Досвід створення автоматизованих інструментів. Прагну застосовувати знання внутрішніх механізмів рушіїв для розвитку інтерактивності в реальному часі."
+        en: "Product Architect specializing in real-time B2B logistics simulations and agentic AI behaviors. Proven track record in delivering ready-to-use MVP solutions for industrial and research sectors, including physical product finalization.",
+        es: "Arquitecto de Productos especializado en simulaciones logísticas B2B y comportamientos de IA agéntica. Historial probado en entrega de soluciones MVP listas para usar.",
+        ru: "Архитектор продуктов, специализирующийся на логистических B2B-симуляциях и агентном ИИ. Опыт доведения MVP до финального продукта, включая физическую реализацию.",
+        uk: "Архітектор продуктів, що спеціалізується на логістичних B2B-симуляціях та агентному ІІ. Досвід доведення MVP до фінального продукту, включаючи фізичну реалізацію."
     },
     frontend: {
-        en: "Senior Frontend Engineer focused on mission-critical React applications and high-performance WebGL visualizations. Expert in delivering 60fps user experiences for data-intensive tools and complex design systems. Committed to building premium, efficient, and accessible web interfaces for global simulation platforms.",
-        es: "Ingeniero Senior de Frontend enfocado en aplicaciones React críticas y visualizaciones WebGL de alto rendimiento. Experto en experiencias de usuario a 60fps para herramientas complejas. Comprometido con la creación de interfaces web eficientes y premium.",
-        ru: "Старший фронтенд-инженер, специализирующийся на критически важных приложениях React и высокопроизводительной WebGL визуализации. Эксперт в создании UX на 60fps для сложных инструментов. Стремлюсь создавать премиальные и эффективные веб-интерфейсы.",
-        uk: "Старший фронтенд-інженер, що спеціалізується на критично важливих додатках React та високопродуктивній WebGL візуалізації. Експерт у створенні UX на 60fps для складних інструментів. Прагну створювати преміальні та ефективні веб-інтерфейси."
+        en: "Senior Frontend Engineer delivering premium MVP dashboards and high-performance WebGL visualizations. Expert in creating fluid 60fps experiences for complex B2B operations and social EdTech ecosystems.",
+        es: "Ingeniero Senior de Frontend que entrega dashboards MVP premium y visualizaciones WebGL de alto rendimiento.",
+        ru: "Старший фронтенд-инженер, создающий премиальные MVP-панели и высокопроизводительную WebGL-визуализацию для B2B и социальных EdTech-проектов.",
+        uk: "Старший фронтенд-інженер, що створює преміальні MVP-панелі та високопродуктивну WebGL-візуалізацію для B2B та соціальних EdTech-проектів."
     },
     python: {
-        en: "Senior Backend Engineer with 10+ years of experience specializing in high-performance Python, FastAPI, and Django distributed architectures. Expert in asynchronous gRPC communication, real-time data pipelines, and microservice orchestration using Kubernetes and Helm. Proven track record in Fintech and agentic AI infrastructure, building robust, scalable systems for global platforms.",
-        es: "Ingeniero Senior de Backend con más de 10 años de experiencia especializado en arquitecturas distribuidas con Python, FastAPI y Django. Experto en comunicación gRPC asíncrona y orquestación con K8s y Helm.",
-        ru: "Старший бэкенд-инженер с 10-летним опытом, специализирующийся на высокопроизводительном Python, FastAPI и Django. Эксперт в асинхронном gRPC и оркестрации через Kubernetes и Helm.",
-        uk: "Старший бекенд-інженер з 10-річним досвідом, що спеціалізується на високопродуктивному Python, FastAPI та Django. Експерт в асинхронному gRPC та оркестрації через Kubernetes та Helm."
+        en: "Senior Backend Engineer with 5+ years of focus on high-performance Python, FastAPI, and gRPC microservices. Architect of scalable MVP ecosystems for Fintech and EdTech, featuring secure 3DS2 payment flows and real-time data pipelines.",
+        es: "Ingeniero Senior de Backend con más de 5 años de enfoque en arquitecturas distribuidas con Python de alto rendimiento, FastAPI y gRPC.",
+        ru: "Старший бэкенд-инженер с 5-летним стажем в создании высокопроизводительных Python-систем. Архитектор MVP-экосистем для Fintech и EdTech с использованием 3DS2 и gRPC.",
+        uk: "Старший бекенд-інженер з 5-річним стажем у створенні високопродуктивних Python-систем. Архітектор MVP-екосистем для Fintech та EdTech з використанням 3DS2 та gRPC."
     }
 };
 
@@ -800,56 +759,44 @@ const BASE_PROFILE = {
     ],
     experience: [
         {
-            role: "R&D Simulation Engineer",
-            company: "Freelance / Contract",
-            period: "Present",
-            description: "Designing high-fidelity simulation environments and networked systems.",
+            role: "MVP Product Ecosystem Architect",
+            company: "Autonomous Product Development",
+            period: "2023 - Present",
+            description: "Developing a diverse portfolio of ready-to-market software and physical products.",
             achievements: [
-                "Implemented deterministic physics and agent behaviors in Godot 4 to reduce state explosion and simplify debugging.",
-                "Architected a custom P2P networking protocol for low-latency state synchronization in distributed simulations.",
-                "Built Python-based automation tools for scene generation and simulation telemetry, reducing iteration time by 50%."
+                "Launched a B2B Logistics Simulator MVP using Godot 4 and Real-World Geodata integration.",
+                "Developed a Social EdTech Learning Ecosystem (LingoQuest) with AI-driven adaptive assessment.",
+                "Completed the 'Finalizer' cycle for Sea Hunter: from digital 3D MVP to physical cardboard production.",
+                "Architected a scalable business operations engine for service-based companies (Megumi Massage)."
             ],
-            technologies: ["C++", "Godot 4", "Python", "Distributed Systems"],
-            tags: ["gamedev", "python"]
+            technologies: ["Node.js", "Godot 4", "Python", "MVP Strategy"],
+            tags: ["gamedev", "python", "frontend"]
         },
         {
-            role: "Simulation Software Engineer",
-            company: "EdTech / Sim Studio",
+            role: "Lead Simulation Software Engineer",
+            company: "EdTech & Industrial Sim Studio",
             period: "2020 - 2022",
-            description: "Lead engineer for a photorealistic Traffic Simulator used in driver training.",
+            description: "Architected photorealistic training environments and procedural generation tools.",
             achievements: [
-                "Engineered a photoreal rendering pipeline (Unity HDRP) processing 500+ dynamic scenarios under strict frame-time budgets.",
-                "Developed internal C# tooling for procedural environment generation, reducing scene assembly time by ~70%.",
-                "Optimized physics calculations and asset streaming to maintain 60 FPS on mid-range hardware."
+                "Led team in building a 60fps Traffic Simulator with complex NPC-agent behaviors for industrial certification.",
+                "Engineered procedural environment generators in C#, cutting MVP development cycles by 70%.",
+                "Managed the integration of hardware telemetry into real-time 3D simulation engines."
             ],
-            technologies: ["C#", "Unity HDRP", "Procedural Generation", "Optimization"],
+            technologies: ["C#", "Unity HDRP", "Simulation Design", "Team Lead"],
             tags: ["gamedev"]
         },
         {
-            role: "Full Stack Systems Engineer",
-            company: "Various Clients",
-            period: "Recent",
-            description: "Delivering high-performance data processing tools and web architectures.",
+            role: "Hardware & Systems Integration Specialist",
+            company: "Micro-Systems Firm",
+            period: "2013 - 2018",
+            description: "Bridging the gap between physical hardware and high-performance software systems.",
             achievements: [
-                "Built a real-time Data Dashboard visualizing 10k+ telemetry points with sub-second latency using React and optimized data structures.",
-                "Wrote a custom asynchronous Python backend (asyncio) handling 200+ concurrent connections with minimal overhead.",
-                "Containerized deployment workflows using Docker and AWS, achieving 99.9% uptime for critical services."
+                "5 years of experience in low-level C/C++ firmware for medical and laboratory sensing hardware.",
+                "Developed high-throughput Python scripts for real-time sensor data analysis and synchronization.",
+                "Integrated STM32/ESP32 sensor arrays with custom-built digital twins for process automation."
             ],
-            technologies: ["Python (Asyncio)", "React", "Docker", "AWS", "Systems Design"],
-            tags: ["frontend", "python"]
-        },
-        {
-            role: "Embedded Systems Engineer",
-            company: "Microelectronics Firm",
-            period: "Early Career",
-            description: "Developing firmware and software for medical testing hardware.",
-            achievements: [
-                "Bridges hardware sensor data (STM32/ESP32) to real-time Unity/Godot visualizers for industrial digital twin applications.",
-                "Programmed microcontrollers for precise low-latency data acquisition and serial/TCP streaming.",
-                "Designed integration pipelines connecting firmware to Python backends for real-time validation and visualization."
-            ],
-            technologies: ["C++", "STM32", "Python", "Integration"],
-            tags: ["gamedev"]
+            technologies: ["C++", "STM32", "Python", "Systems Engineering"],
+            tags: ["python"]
         }
     ],
     projects: PROJECTS_EN,
