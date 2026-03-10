@@ -11,9 +11,8 @@ import ResumeModal from './components/Resume/ResumeModal';
 import Shop from './components/Shop';
 import Admin from './components/Admin';
 import Auth from './components/Auth';
-import Schedule from './components/Schedule';
-import { supabase } from './lib/supabase';
 import GameLanding from './components/GameLanding';
+import Blog from './components/Blog';
 import { ShoppingCart, Layout, ShieldCheck } from 'lucide-react';
 
 function AppLayout() {
@@ -95,6 +94,12 @@ function AppLayout() {
         {view === 'schedule' && (
           <div className="pt-10">
             {user ? <Schedule user={user} /> : <Auth onUserChange={setUser} />}
+          </div>
+        )}
+
+        {view === 'blog' && (
+          <div className="pt-10">
+            <Blog />
           </div>
         )}
       </main>

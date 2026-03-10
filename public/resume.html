@@ -581,53 +581,42 @@
     <script>
         // --- DATA ---
         const ALL_PROJECTS = [
-            { id: 1, title: "Megumi Massage", status: "released", progress: 100, tech: ["Web", "Design"], desc: "Professional massage therapy website.", missing: "None (Live)" },
-            { id: 2, title: "Portfolio V2", status: "released", progress: 100, tech: ["React", "Vite"], desc: "This minimalist portfolio site.", missing: "None (Live)" },
-            { id: 3, title: "Magic Balls Adventure", status: "released", progress: 100, tech: ["Godot", "Physics"], desc: "Physics-based puzzle platformer.", missing: "None (Live)" },
-            { id: 4, title: "AI Training Gym", status: "dev", progress: 40, tech: ["Python", "RL", "Sim"], desc: "Simulation environment for training AI agents.", missing: "Advanced reward functions, Visualization" },
-            { id: 5, title: "Voicy Assistant", status: "proto", progress: 60, tech: ["Godot", "Audio", "AI"], desc: "Real-time voice modulation prototype.", missing: "UI Polish, Noise Cancellation" },
-            { id: 6, title: "Godot Agent Manager", status: "proto", progress: 10, tech: ["Godot", "AI Hub"], desc: "Centralized hub for AI agents.", missing: "Core Logic, Backend Integration" },
-            { id: 7, title: "Low Poly City Delivery", status: "proto", progress: 30, tech: ["Godot", "Vehicle Physics"], desc: "Open-world delivery sim.", missing: "Mission System, Traffic AI" },
-            { id: 8, title: "VoxelCraft World", status: "dev", progress: 50, tech: ["Godot", "Voxel", "ProcGen"], desc: "Minecraft-inspired voxel sandbox.", missing: "Survival Mechanics, Crafting" },
-            { id: 9, title: "Plure Racing", status: "idea", progress: 0, tech: ["Godot", "Racing"], desc: "High-speed arcade racing concept.", missing: "Prototype, Physics Model" },
-            { id: 10, title: "Platformer Base", status: "idea", progress: 0, tech: ["Godot", "2D"], desc: "Platformer controller framework.", missing: "Level Design, Enemies" },
-            { id: 11, title: "Sea Hunter", status: "proto", progress: 20, tech: ["Godot", "3D"], desc: "Underwater exploration game.", missing: "Water Shader, Ecology System" },
-            { id: 12, title: "Spyfall Clone", status: "idea", progress: 0, tech: ["Web", "Multiplayer"], desc: "Social deduction party game.", missing: "Networking, Lobby UI" },
-            { id: 13, title: "Dropshipping Site", status: "proto", progress: 80, tech: ["Web", "E-com"], desc: "Automated e-commerce storefront.", missing: "Payment Gateway, Live Deployment" },
-            { id: 14, title: "Crypto Tracker", status: "idea", progress: 0, tech: ["Web", "API"], desc: "Real-time cryptocurrency tracker.", missing: "API Integration, Charts" },
-            { id: 15, title: "Moon Calendar", status: "released", progress: 100, tech: ["Python", "Astro"], desc: "Lunar phase calculator.", missing: "None (Released on library)" },
-            { id: 16, title: "Teaching Platform", status: "idea", progress: 0, tech: ["Web", "EdTech"], desc: "Scheduling for private lessons.", missing: "Calendar Sync, User Auth" },
-            { id: 17, title: "Match 3 Core", status: "proto", progress: 70, tech: ["Godot", "Mobile"], desc: "Optimized match-3 engine.", missing: "Meta-game, Monetization" },
-            { id: 18, title: "Hyper Cash", status: "idea", progress: 0, tech: ["Mobile", "Casual"], desc: "Hypercasual money management.", missing: "Core Loop, Assets" },
-            { id: 19, title: "Trains Sim", status: "idea", progress: 0, tech: ["Sim", "Logistics"], desc: "Train logistics simulation.", missing: "Pathfinding, Schedule Logic" },
-            { id: 20, title: "Train Video Editor", status: "idea", progress: 0, tech: ["Tool", "Video"], desc: "Specialized video editor.", missing: "FFmpeg Integration, Timeline UI" },
-            { id: 21, title: "Dog Game", status: "idea", progress: 0, tech: ["Sim", "AI"], desc: "Virtual pet simulation.", missing: "AI Behavior Tree, Animations" }
+            { id: 1, title: "AI Training Automation", status: "released", progress: 100, tech: ["Python", "Godot", "RL"], desc: "Automated pipeline for generating YouTube Shorts from Godot simulations via Python.", missing: "None (Production)" },
+            { id: 2, title: "Godify Bridge", status: "released", progress: 100, tech: ["React", "Godot", "Supabase"], desc: "High-performance bridge for real-time data sync between Supabase and Godot.", missing: "None (Production)" },
+            { id: 3, title: "Sea Hunter", status: "dev", progress: 60, tech: ["Godot", "3D", "RPG"], desc: "Underwater exploration and deck-building combat prototype.", missing: "Boss encounters, Card balancing" },
+            { id: 4, title: "VoxelWorldCraft", status: "dev", progress: 50, tech: ["Godot", "Voxel", "ProcGen"], desc: "High-performance voxel sandbox builder with procedural generation.", missing: "Survival mechanics, Save system" },
+            { id: 5, title: "Megumi Massage", status: "released", progress: 100, tech: ["Web", "Design"], desc: "B2B operations engine and booking platform for professional services.", missing: "None (Live)" },
+            { id: 6, title: "Magic Balls Adventure", status: "released", progress: 100, tech: ["Godot", "Physics"], desc: "Physics-based puzzle platformer with networked predicted movement.", missing: "None (Live)" },
+            { id: 7, title: "LingoQuest Ecosystem", status: "dev", progress: 80, tech: ["React", "EdTech", "AI"], desc: "Adaptive learning platform with automated assessment and gamification.", missing: "Live classes integration" },
+            { id: 8, title: "Low Poly City Delivery", status: "proto", progress: 30, tech: ["Godot", "Physics"], desc: "Open-world delivery simulator with realistic vehicle physics.", missing: "Traffic AI, Mission system" },
+            { id: 9, title: "Voicy Assistant", status: "proto", progress: 60, tech: ["Godot", "Audio", "AI"], desc: "Real-time voice modulation and AI companion prototype.", missing: "UI Polish, Noise cancellation" },
+            { id: 10, title: "Moon Calendar", status: "released", progress: 100, tech: ["Python", "Astro"], desc: "Librabry and CLI tool for lunar phase and celestial calculations.", missing: "None (Released)" }
         ];
 
         const PERSONAS = {
             sim: {
                 role: "Senior Simulation Engineer",
-                about: "Specializing in deterministic physics, networked state synchronization, and hardware-in-the-loop integration.",
+                about: "Multidisciplinary Engineer & Product Architect. Expert in high-performance simulations, distributed systems, and bridging the gap between hardware and software. I build deterministic architectures and scalable MVPs for B2B logistics and industrial EdTech.",
                 skills: ["Godot 4", "C++", "Python Asyncio", "UDP/WebRTC", "Docker"],
-                filter: p => ["Godot", "Sim", "Python", "Physics"].some(t => p.tech.includes(t)) || p.status === "released"
+                filter: p => ["Godot", "Sim", "Python", "Physics", "Voxel"].some(t => p.tech.includes(t)) || p.status === "released"
             },
             game: {
                 role: "Gameplay Programmer",
-                about: "Veteran game developer focused on engine architecture, rendering pipelines, and complex gameplay systems.",
+                about: "Product Architect specializing in real-time B2B logistics simulations and agentic AI behaviors. Proven track record in delivering ready-to-use MVP solutions for industrial and research sectors.",
                 skills: ["Godot 4", "Unity", "Shaders", "3D Math", "AI Behavior"],
-                filter: p => ["Godot", "Mobile", "Voxel", "Racing"].some(t => p.tech.includes(t))
+                filter: p => ["Godot", "Mobile", "Voxel", "RPG", "Physics"].some(t => p.tech.includes(t))
             },
             devops: {
                 role: "DevOps Engineer",
-                about: "Infrastructure-as-Code advocate streamlining workflows with CI/CD and containerization.",
+                about: "Infrastructure-as-Code advocate and product architect. Streamlining workflows with CI/CD and containerization while building scalable deterministic backend systems.",
                 skills: ["AWS", "Docker", "GitHub Actions", "Python", "Linux"],
-                filter: p => ["Web", "Python", "Tool", "API"].some(t => p.tech.includes(t))
+                filter: p => ["Web", "Python", "Tool", "API", "Supabase"].some(t => p.tech.includes(t))
             },
             frontend: {
-                role: "Frontend Engineer",
-                about: "Crafting performant and beautiful web interfaces using modern React ecosystem.",
+                role: "Senior Frontend Engineer",
+                about: "Senior Frontend Engineer delivering premium MVP dashboards and high-performance WebGL visualizations. Expert in creating fluid 60fps experiences for complex B2B operations and social EdTech ecosystems.",
                 skills: ["React", "TypeScript", "Tailwind", "WebGL", "UX"],
-                filter: p => ["Web", "React", "E-com", "Design"].some(t => p.tech.includes(t))
+                filter: p => ["Web", "React", "EdTech", "Design"].some(t => p.tech.includes(t))
             }
         };
 

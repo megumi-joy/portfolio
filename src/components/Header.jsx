@@ -20,6 +20,7 @@ const Header = ({ currentView, onViewChange, user }) => {
     const navLinks = [
         { name: activeProfile.ui?.stats?.roles || 'Experience', href: '#experience', view: 'portfolio' },
         { name: activeProfile.ui?.stats?.projects || 'Projects', href: '#projects', view: 'portfolio' },
+        { name: 'Insights', href: '#blog', view: 'blog' },
         // { name: 'Schedule', href: '#schedule', view: 'schedule' },
         // { name: 'Shop', href: '#shop', view: 'shop' },
     ];
@@ -44,13 +45,16 @@ const Header = ({ currentView, onViewChange, user }) => {
                 <div className="hidden md:flex items-center gap-8">
                     <nav className="flex gap-6">
                         {navLinks.map((link) => (
-                            <a
+                            <button
                                 key={link.href}
-                                href={link.href}
-                                className="text-sm font-medium text-slate-300 hover:text-white transition-colors"
+                                onClick={() => {
+                                    onViewChange(link.view);
+                                    if (link.view === 'portfolio') window.location.hash = link.href;
+                                }}
+                                className={`text-sm font-medium transition-colors ${currentView === link.view ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
                             >
                                 {link.name}
-                            </a>
+                            </button>
                         ))}
                     </nav>
 

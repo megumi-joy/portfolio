@@ -153,18 +153,18 @@ const TRANSLATIONS = {
 
 const PROJECTS_EN = [
     {
+        title: "Language Quest (LingoQuest)",
+        description: "A premium discovery-led learning platform. Features gRPC linguistic assessment and 3DS2 payment simulations. Built with Next.js, Django, and Godot 4.",
+        featured: true,
+        tags: ["Social EdTech", "Next.js", "Django", "gRPC"],
+        link: "https://web-megumi.vercel.app/"
+    },
+    {
         title: "B2B Logistics & AI Simulator MVP",
         description: "High-fidelity logistics simulation using real-world OSM geodata. Designed for B2B route optimization and AI agent training. Scale: Unlimited city districts.",
         featured: true,
         tags: ["B2B Logistics", "AI Simulation", "OSM"],
         link: "https://megumi-joy.github.io/portfolio/"
-    },
-    {
-        title: "LingoQuest: Social EdTech Ecosystem",
-        description: "A premium discovery-led learning platform. Features gRPC linguistic assessment and 3DS2 payment simulations. Targeting EdTech acceleration in Catalonia.",
-        featured: true,
-        tags: ["Social EdTech", "Next.js", "Django", "gRPC"],
-        link: "https://github.com/megumi-joy/LanguageLearningAdventure"
     },
     {
         title: "Sea Hunter: Physical MVP Proof",
@@ -211,18 +211,18 @@ const PROJECTS_PYTHON_EN = [
 
 const PROJECTS_ES = [
     {
+        title: "Language Quest (LingoQuest)",
+        description: "Plataforma de aprendizaje premium. Implementa evaluación lingüística gRPC y flujos de pago 3DS2. Construida con Next.js, Django y Godot 4.",
+        featured: true,
+        tags: ["EdTech Social", "Next.js", "Django", "gRPC"],
+        link: "https://web-megumi.vercel.app/"
+    },
+    {
         title: "MVP de Simulador de Logística B2B",
         description: "Simulación logística de alta fidelidad basada en geodatos reales de OSM. Diseñada para optimización de rutas B2B y entrenamiento de IA.",
         featured: true,
         tags: ["Logística B2B", "Simulación IA", "OSM"],
         link: "https://megumi-joy.github.io/portfolio/"
-    },
-    {
-        title: "LingoQuest: Ecosistema EdTech Social",
-        description: "Plataforma de aprendizaje premium. Implementa evaluación lingüística gRPC y flujos de pago 3DS2. Enfocado en aceleración EdTech en Cataluña.",
-        featured: true,
-        tags: ["EdTech Social", "Next.js", "Django", "gRPC"],
-        link: "https://github.com/megumi-joy/LanguageLearningAdventure"
     },
     {
         title: "Sea Hunter: Prueba de MVP Físico",
@@ -269,18 +269,18 @@ const PROJECTS_PYTHON_ES = [
 
 const PROJECTS_RU = [
     {
+        title: "Language Quest (LingoQuest)",
+        description: "Премиальная платформа обучения. Включает gRPC-оценку навыков и симуляцию 3DS2 платежей. Построена на Next.js, Django и Godot 4.",
+        featured: true,
+        tags: ["Social EdTech", "Next.js", "Django", "gRPC"],
+        link: "https://web-megumi.vercel.app/"
+    },
+    {
         title: "B2B Логистический ИИ-симулятор MVP",
         description: "Высокоточная симуляция логистики на базе реальных геоданных OSM. Предназначена для B2B оптимизации маршрутов и обучения ИИ.",
         featured: true,
         tags: ["B2B Логистика", "ИИ Симуляция", "OSM"],
         link: "https://megumi-joy.github.io/portfolio/"
-    },
-    {
-        title: "LingoQuest: Социальная EdTech-экосистема",
-        description: "Премиальная платформа обучения. Включает gRPC-оценку навыков и симуляцию 3DS2 платежей. Проект для акселерации в Каталонии.",
-        featured: true,
-        tags: ["Social EdTech", "Next.js", "Django", "gRPC"],
-        link: "https://github.com/megumi-joy/LanguageLearningAdventure"
     },
     {
         title: "Sea Hunter: Физическое воплощение MVP",
@@ -327,18 +327,18 @@ const PROJECTS_PYTHON_RU = [
 
 const PROJECTS_UK = [
     {
+        title: "Language Quest (LingoQuest)",
+        description: "Преміальна платформа навчання. Включає gRPC-оцінку навичок та симуляцію 3DS2 платежів. Побудовано на Next.js, Django та Godot 4.",
+        featured: true,
+        tags: ["Social EdTech", "Next.js", "Django", "gRPC"],
+        link: "https://web-megumi.vercel.app/"
+    },
+    {
         title: "B2B Логістичний ІІ-симулятор MVP",
         description: "Високоточна симуляція логістики на базі реальних геоданих OSM. Призначена для B2B оптимізації маршрутів та навчання ІІ.",
         featured: true,
         tags: ["B2B Логістика", "ІІ Симуляція", "OSM"],
         link: "https://megumi-joy.github.io/portfolio/"
-    },
-    {
-        title: "LingoQuest: Соціальна EdTech-екосистема",
-        description: "Преміальна платформа навчання. Включає gRPC-оцінку навичок та симуляцію 3DS2 платежів. Проект для акселерації в Каталонії.",
-        featured: true,
-        tags: ["Social EdTech", "Next.js", "Django", "gRPC"],
-        link: "https://github.com/megumi-joy/LanguageLearningAdventure"
     },
     {
         title: "Sea Hunter: Фізичне втілення MVP",
@@ -384,6 +384,51 @@ const PROJECTS_PYTHON_UK = [
 ];
 
 export const GAMES_DATA = {
+    "languageQuest": {
+        thumbnail: "https://web-megumi.vercel.app/og-image.png",
+        path: "https://web-megumi.vercel.app/",
+        tags: ["EdTech", "RPG", "AI"],
+        status: "live",
+        progress: 100,
+        translations: {
+            en: {
+                title: "Language Quest",
+                description: "A premium discovery-led learning platform that turns academic mastery into an epic RPG quest.",
+                gdd: {
+                    overview: "Master languages and STEM subjects in an immersive RPG world.",
+                    mechanics: ["Linguistic Assessment", "RPG Progression", "AI Mentorship"],
+                    features: ["Next.js/Django", "Godot Quest Engine", "3DS2 Checkout"]
+                }
+            },
+            es: {
+                title: "Language Quest",
+                description: "Una plataforma de aprendizaje premium que convierte la maestría académica en una épica misión RPG.",
+                gdd: {
+                    overview: "Domina idiomas y materias STEM en un mundo RPG inmersivo.",
+                    mechanics: ["Evaluación Lingüística", "Progresión RPG", "Mentoría IA"],
+                    features: ["Next.js/Django", "Motor de misiones Godot", "Pago 3DS2"]
+                }
+            },
+            ru: {
+                title: "Language Quest",
+                description: "Премиальная платформа для обучения, превращающая академические знания в эпический RPG-квест.",
+                gdd: {
+                    overview: "Осваивайте языки и STEM-предметы в захватывающем RPG-мире.",
+                    mechanics: ["Лингвистическая оценка", "RPG прогрессия", "ИИ-менторство"],
+                    features: ["Next.js/Django", "Квестовый движок Godot", "3DS2 платежи"]
+                }
+            },
+            uk: {
+                title: "Language Quest",
+                description: "Преміальна навчальна платформа, що перетворює академічні знання на епічний RPG-квест.",
+                gdd: {
+                    overview: "Опановуйте мови та STEM-предмети у захоплюючому RPG-світі.",
+                    mechanics: ["Лінгвістична оцінка", "RPG прогресія", "ІІ-менторство"],
+                    features: ["Next.js/Django", "Квестовий рушій Godot", "3DS2 платежі"]
+                }
+            }
+        }
+    },
     "magicBallsAdventure": {
         thumbnail: "/portfolio/games/magicballsadventure/index.png",
         path: "/portfolio/games/magicballsadventure/index.html",
@@ -712,10 +757,10 @@ const SPECIALIZED_TITLES = {
 
 const SPECIALIZED_ABOUT = {
     general: {
-        en: "Managing a ready ecosystem of products at the MVP stage. Expert in high-performance simulations, distributed systems, and bridging hardware to real-time visualizations. I build deterministic architectures and scalable MVPs for B2B logistics and industrial EdTech.",
-        es: "Gestiono un ecosistema de productos listos en etapa MVP. Experto en simulaciones de alto rendimiento, sistemas distribuidos y conexión de hardware con visualizaciones en tiempo real.",
-        ru: "Управляю готовой экосистемой продуктов на стадии MVP. Эксперт по высокопроизводительным симуляциям, распределенным системам и интеграции железа с визуализацией в реальном времени.",
-        uk: "Керую готовою екосистемою продуктів на стадії MVP. Експерт із високопродуктивних симуляцій, розподілених систем та інтеграції заліза з візуалізацією в реальному часі."
+        en: "Multidisciplinary Engineer & Product Architect. Expert in high-performance simulations, distributed systems, and bridging the gap between hardware and software. I build deterministic architectures and scalable MVPs for B2B logistics and industrial EdTech.",
+        es: "Ingeniero multidisciplinar y arquitecto de productos. Experto en simulaciones de alto rendimiento, sistemas distribuidos y en cerrar la brecha entre el hardware y el software. Construyo arquitecturas determinísticas y MVPs escalables.",
+        ru: "Мультидисциплинарный инженер и архитектор продуктов. Эксперт по высокопроизводительным симуляциям, распределенным системам и интеграции железа с ПО. Создаю детерминированные архитектуры и масштабируемые MVP.",
+        uk: "Мультидисциплінарний інженер та архітектор продуктів. Експерт із високопродуктивних симуляцій, розподілених систем та інтеграції заліза з ПЗ. Створюю детерміновані архітектури та масштабовані MVP."
     },
     gamedev: {
         en: "Product Architect specializing in real-time B2B logistics simulations and agentic AI behaviors. Proven track record in delivering ready-to-use MVP solutions for industrial and research sectors, including physical product finalization.",
@@ -811,26 +856,25 @@ const BASE_PROFILE = {
                 title: "Advanced Agentic AI Research",
                 description: "Exploring multi-agent systems and recursive self-improvement loops using Godot and LLMs.",
                 subItems: ["Implementing memory context", "Designing tool-use protocols", "Testing in 3D environments"],
-                link: "https://github.com/megumi-joy",
+                date: "Q1 2026"
+            },
+            {
+                status: "In Progress",
+                title: "VoxelWorldCraft Finalization",
+                description: "Completing the core survival mechanics and world saving system for the voxel sandbox prototype.",
                 date: "Q1 2026"
             },
             {
                 status: "Planned",
-                title: "Fintech & 3DS2 Payment Flow Research",
-                description: "Deep dive into 3DS2 security protocols and high-reliability financial transaction flows for modern payment systems.",
+                title: "Fintech & 3DS2 Security Flow",
+                description: "Deep dive into 3DS2 security protocols for modern high-reliability financial systems.",
                 date: "Q2 2026"
             },
             {
                 status: "Planned",
                 title: "Advanced Microservice Orchestration",
-                description: "Implementing distributed tracing and service mesh patterns using Helm, Kubernetes, and gRPC.",
+                description: "Implementing distributed tracing and service mesh patterns using Helm and Kubernetes.",
                 date: "Q2 2026"
-            },
-            {
-                status: "Idea",
-                title: "Interactive Portfolio V2",
-                description: "Gamification of this portfolio where users can walk around in a 3D environment.",
-                date: "Future"
             }
         ]
     }
@@ -1023,6 +1067,53 @@ export const PROFILES = {
     },
     magical: MAGICAL_PROFILES,
     serious: { en: BASE_PROFILE } // Fallback for old code
+};
+
+export const BLOG_DATA = {
+    en: [
+        {
+            id: 'discovery-led-learning',
+            title: "From Russian to Spanish: A Discovery-Led Journey",
+            date: "March 10, 2026",
+            readTime: "5 min read",
+            excerpt: "How I built LingoQuest to bridge the gap between abstract academic concepts and immersive RPG mechanics.",
+            content: "Full article coming soon. This post explores the architectural decisions behind LingoQuest, the gRPC scoring system, and how discovery-led learning improves retention.",
+            tags: ["EdTech", "Architecture", "Learning"]
+        }
+    ],
+    es: [
+        {
+            id: 'discovery-led-learning',
+            title: "De Ruso a Español: Un Viaje de Descubrimiento",
+            date: "10 de Marzo, 2026",
+            readTime: "5 min de lectura",
+            excerpt: "Cómo construí LingoQuest para cerrar la brecha entre conceptos académicos abstractos y mecánicas RPG inmersivas.",
+            content: "Artículo completo próximamente. Este post explora las decisiones arquitectónicas detrás de LingoQuest.",
+            tags: ["EdTech", "Arquitectura", "Aprendizaje"]
+        }
+    ],
+    ru: [
+        {
+            id: 'discovery-led-learning',
+            title: "От русского до испанского: Путь открытий",
+            date: "10 марта 2026",
+            readTime: "5 мин чтения",
+            excerpt: "Как я создал LingoQuest, чтобы преодолеть разрыв между абстрактными знаниями и игровыми механиками.",
+            content: "Полная статья скоро. Исследование архитектурных решений LingoQuest и gRPC скоринга.",
+            tags: ["EdTech", "Архитектура", "Обучение"]
+        }
+    ],
+    uk: [
+        {
+            id: 'discovery-led-learning',
+            title: "Від російської до іспанської: Шлях відкриттів",
+            date: "10 березня 2026",
+            readTime: "5 хв читання",
+            excerpt: "Як я створив LingoQuest, щоб подолати розрив між абстрактними знаннями та ігровими механіками.",
+            content: "Повна стаття скоро. Дослідження архітектурних рішень LingoQuest та gRPC скорингу.",
+            tags: ["EdTech", "Архітектура", "Навчання"]
+        }
+    ]
 };
 
 // Default export if needed
