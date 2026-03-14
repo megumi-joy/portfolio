@@ -573,38 +573,54 @@ export const GAMES_DATA = {
         translations: {
             en: {
                 title: "Sea Hunter: Physical MVP Finalization",
+                pitch: "The first card game designed to be 'finished'—a physical artifact born from digital logic.",
                 description: "A strategic battleship-style card game MVP. Proof of the 'Finalizer' cycle: from digital 3D prototypes to physical cardboard production and rule documentation.",
                 gdd: {
                     overview: "Strategic card game proving full production-to-physical implementation cycle.",
                     mechanics: ["Turn-based Battle", "Preparation Phase", "Island Powers"],
-                    features: ["Released in Cardboard", "Headless AI Verification", "MCP Bot Support"]
+                    features: ["Released in Cardboard", "Headless AI Verification", "MCP Bot Support"],
+                    story: "In a world of rising tides, hunters vie for the last remaining islands. Every card represents a physical tool in the player's arsenal.",
+                    world: "The Archipelago—a shifting maritime environment where territory is the only currency.",
+                    characters: "The Sea Hunters, diverse maritime factions with unique tactical philosophies."
                 }
             },
             es: {
                 title: "Sea Hunter: Finalización de MVP Físico",
+                pitch: "El primer juego de cartas diseñado para ser 'finalizado': un artefacto físico nacido de la lógica digital.",
                 description: "Juego de cartas estratégico. Prueba del ciclo 'Finalizador': desde prototipos 3D hasta producción física y documentación.",
                 gdd: {
                     overview: "Juego de estrategia que demuestra el ciclo completo de implementación física.",
                     mechanics: ["Batalla por turnos", "Fase de preparación", "Poderes de Islas"],
-                    features: ["Lanzado en cartón", "Verificación por IA", "Soporte MCP"]
+                    features: ["Lanzado en cartón", "Verificación por IA", "Soporte MCP"],
+                    story: "En un mundo de mareas crecientes, los cazadores compiten por las últimas islas restantes.",
+                    world: "El Archipiélago: un entorno marítimo cambiante donde el territorio es la única moneda.",
+                    characters: "Los Cazadores del Mar, diversas facciones marítimas con filosofías tácticas únicas."
                 }
             },
             ru: {
                 title: "Sea Hunter: Финализация физического MVP",
+                pitch: "Первая карточная игра, созданная чтобы быть 'доведенной до конца' — физический артефакт, рожденный из цифровой логики.",
                 description: "Стратегическая карточная игра. Доказательство умения доводить продукт до физического воплощения: от 3D-прототипа до печати в картоне.",
                 gdd: {
                     overview: "Стратегическая игра, демонстрирующая полный цикл от идеи до физического продукта.",
                     mechanics: ["Пошаговая битва", "Фаза подготовки", "Силы островов"],
-                    features: ["Выпущено в картоне", "Headless ИИ-верификация", "Поддержка MCP-ботов"]
+                    features: ["Выпущено в картоне", "Headless ИИ-верификация", "Поддержка MCP-ботов"],
+                    story: "В мире поднимающегося океана охотники сражаются за последние клочки суши.",
+                    world: "Архипелаг — изменчивая морская среда, где территория является единственной валютой.",
+                    characters: "Морские охотники — различные фракции со своими уникальными тактиками."
                 }
             },
             uk: {
                 title: "Sea Hunter: Фіналізація фізичного MVP",
+                pitch: "Перша карткова гра, створена щоб бути 'доведеною до кінця' — фізичний артефакт, народжений з цифрової логіки.",
                 description: "Стратегічна карткова гра. Доказ вміння доводити продукт до фізичного втілення: від 3D-прототипу до друку в картоні.",
                 gdd: {
                     overview: "Стратегічна гра, що демонструє повний цикл від ідеї до фізичного продукту.",
                     mechanics: ["Покрокова битва", "Фаза підготовки", "Сили островів"],
-                    features: ["Випущено в картоні", "Headless ІІ-верифікація", "Підтримка MCP-ботів"]
+                    features: ["Випущено в картоні", "Headless ІІ-верифікація", "Підтримка MCP-ботів"],
+                    story: "У світі океану, що піднімається, мисливці змагаються за останні острови.",
+                    world: "Архіпелаг — мінливе морське середовище, де територія є єдиною валютою.",
+                    characters: "Морські мисливці — різні фракції з унікальними тактичними філософіями."
                 }
             }
         }
@@ -663,38 +679,54 @@ export const GAMES_DATA = {
         translations: {
             en: {
                 title: "VideoEditorGodot",
+                pitch: "Precision frame-by-frame editing for the web age.",
                 description: "A frame-by-frame video editing tool built with Godot Engine.",
                 gdd: {
                     overview: "Browser-based video editing utility focusing on precise frame extraction and manipulation.",
                     mechanics: ["Frame Extraction", "Timeline Editing", "Effect Application"],
-                    features: ["Godot 4 GL Compatibility", "WebGL Export", "Responsive UI"]
+                    features: ["Godot 4 GL Compatibility", "WebGL Export", "Responsive UI"],
+                    story: "In a world of rapid content consumption, precision matters. This tool empowers creators to control every single frame.",
+                    world: "The Digital Cutting Room—a minimalist, focused environment for visual storytelling.",
+                    characters: "The Editor—a technical artist seeking perfection in motion."
                 }
             },
             es: {
                 title: "VideoEditorGodot",
+                pitch: "Edición precisa fotograma a fotograma para la era web.",
                 description: "Herramienta de edición de video fotograma a fotograma construida con Godot Engine.",
                 gdd: {
                     overview: "Utilidad de edición de video basada en el navegador centrada en la extracción y manipulación precisa de fotogramas.",
                     mechanics: ["Extracción de fotogramas", "Edición de línea de tiempo", "Aplicación de efectos"],
-                    features: ["Godot 4 GL Compatibility", "Exportación WebGL", "Interfaz responsiva"]
+                    features: ["Godot 4 GL Compatibility", "Exportación WebGL", "Interfaz responsiva"],
+                    story: "En un mundo de consumo rápido de contenido, la precisión importa.",
+                    world: "La Sala de Corte Digital: un entorno minimalista y enfocado para la narración visual.",
+                    characters: "El Editor: un artista técnico que busca la perfección en el movimiento."
                 }
             },
             ru: {
                 title: "VideoEditorGodot",
+                pitch: "Прецизионный покадровый монтаж для эпохи веба.",
                 description: "Инструмент для покадрового редактирования видео, созданный на Godot Engine.",
                 gdd: {
                     overview: "Браузерная утилита для редактирования видео, ориентированная на точное извлечение кадров и манипуляцию ими.",
                     mechanics: ["Извлечение кадров", "Таймлайн-редактирование", "Применение эффектов"],
-                    features: ["Godot 4 GL Compatibility", "WebGL экспорт", "Адаптивный интерфейс"]
+                    features: ["Godot 4 GL Compatibility", "WebGL экспорт", "Адаптивный интерфейс"],
+                    story: "В мире быстрого потребления контента точность имеет значение.",
+                    world: "Цифровая монтажная — минималистичная среда для визуального сторителлинга.",
+                    characters: "Монтажер — технический художник, стремящийся к совершенству в движении."
                 }
             },
             uk: {
                 title: "VideoEditorGodot",
+                pitch: "Прецизійний покадровий монтаж для епохи вебу.",
                 description: "Інструмент для покадрового редагування відео, створений на Godot Engine.",
                 gdd: {
-                    overview: "Браузерна утиліта для редагування відео, орієнтована на точне вилучення кадрів та маніпуляцію ними.",
+                    overview: "Браузерна утиліта для редаguвання відео, орієнтована на точне вилучення кадрів та маніпуляцію ними.",
                     mechanics: ["Вилучення кадрів", "Таймлайн-редагування", "Застосування ефектів"],
-                    features: ["Godot 4 GL Compatibility", "WebGL експорт", "Адаптивний інтерфейс"]
+                    features: ["Godot 4 GL Compatibility", "WebGL експорт", "Адаптивний інтерфейс"],
+                    story: "У світі швидкого споживання контенту точність має значення.",
+                    world: "Цифрова монтажна — мінімалістичне середовище для візуального сторітеллінгу.",
+                    characters: "Монтажер — технічний художник, що прагне досконалості в русі."
                 }
             }
         }

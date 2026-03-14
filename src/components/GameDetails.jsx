@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Play, BookOpen, Layers, Zap, PenTool } from 'lucide-react';
+import { X, Play, BookOpen, Layers, Zap, PenTool, Scroll, Map, Users, Quote } from 'lucide-react';
 
 const GameDetails = ({ game, onClose, onPlay }) => {
 
@@ -55,6 +55,12 @@ const GameDetails = ({ game, onClose, onPlay }) => {
                                 )}
                             </div>
                             <h2 className="text-4xl md:text-5xl font-bold text-white mb-2 shadow-sm">{game.title}</h2>
+                            {game.pitch && (
+                                <p className="text-cyan-300 font-medium italic text-lg md:text-xl flex items-center gap-2">
+                                    <Quote size={18} className="rotate-180 opacity-50" />
+                                    {game.pitch}
+                                </p>
+                            )}
                         </div>
                     </div>
 
@@ -103,6 +109,47 @@ const GameDetails = ({ game, onClose, onPlay }) => {
                                         ))}
                                     </ul>
                                 </section>
+                            </div>
+                        </div>
+
+                        {/* Story & World Expansion */}
+                        <div className="md:col-span-3 space-y-8 pt-8 border-t border-slate-800">
+                            {gdd.story && (
+                                <section>
+                                    <h3 className="text-xl font-bold text-amber-400 mb-3 flex items-center gap-2">
+                                        <Scroll size={20} />
+                                        Background Story
+                                    </h3>
+                                    <p className="text-slate-300 leading-relaxed">
+                                        {gdd.story}
+                                    </p>
+                                </section>
+                            )}
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                {gdd.world && (
+                                    <section className="bg-slate-800/30 p-6 rounded-xl border border-slate-700/30">
+                                        <h3 className="text-lg font-bold text-blue-400 mb-3 flex items-center gap-2">
+                                            <Map size={18} />
+                                            World & Setting
+                                        </h3>
+                                        <p className="text-slate-300 text-sm leading-relaxed">
+                                            {gdd.world}
+                                        </p>
+                                    </section>
+                                )}
+
+                                {gdd.characters && (
+                                    <section className="bg-slate-800/30 p-6 rounded-xl border border-slate-700/30">
+                                        <h3 className="text-lg font-bold text-rose-400 mb-3 flex items-center gap-2">
+                                            <Users size={18} />
+                                            Key Characters
+                                        </h3>
+                                        <p className="text-slate-300 text-sm leading-relaxed">
+                                            {gdd.characters}
+                                        </p>
+                                    </section>
+                                )}
                             </div>
                         </div>
 
