@@ -565,8 +565,8 @@ export const GAMES_DATA = {
         }
     },
     "seaHunter": {
-        thumbnail: "https://placehold.co/600x400/1e293b/3b82f6?text=Sea+Hunter",
-        path: null,
+        thumbnail: "/portfolio/games/seahunter/index.png",
+        path: "/portfolio/games/seahunter/index.html",
         tags: ["Card Game", "Finalized MVP", "Physical Design"],
         status: "finalized",
         progress: 100,
