@@ -645,11 +645,56 @@ export const GAMES_DATA = {
             },
             uk: {
                 title: "Бізнес-операційний MVP: Megumi Massage",
-                description: "Повнофункціональний рушій для управління велнес-центром. Мультімовність, система бронювання та Supabase.",
+                description: "Полнофункціональний рушій для управління велнес-центром. Мультімовність, система бронювання та Supabase.",
                 gdd: {
                     overview: "Операційний MVP для автоматизації локального сервісного бізнесу.",
                     mechanics: ["Процес бронювання", "Панель адміністратора", "Мультімовний контент"],
                     features: ["React/Vite", "Supabase бекенд", "Адаптивний UI"]
+                }
+            }
+        }
+    },
+    "videoEditorGodot": {
+        thumbnail: "/portfolio/games/video-editor-godot/index.png",
+        path: "/portfolio/games/video-editor-godot/index.html",
+        tags: ["Godot", "Video", "Tool"],
+        status: "playable",
+        progress: 90,
+        translations: {
+            en: {
+                title: "VideoEditorGodot",
+                description: "A frame-by-frame video editing tool built with Godot Engine.",
+                gdd: {
+                    overview: "Browser-based video editing utility focusing on precise frame extraction and manipulation.",
+                    mechanics: ["Frame Extraction", "Timeline Editing", "Effect Application"],
+                    features: ["Godot 4 GL Compatibility", "WebGL Export", "Responsive UI"]
+                }
+            },
+            es: {
+                title: "VideoEditorGodot",
+                description: "Herramienta de edición de video fotograma a fotograma construida con Godot Engine.",
+                gdd: {
+                    overview: "Utilidad de edición de video basada en el navegador centrada en la extracción y manipulación precisa de fotogramas.",
+                    mechanics: ["Extracción de fotogramas", "Edición de línea de tiempo", "Aplicación de efectos"],
+                    features: ["Godot 4 GL Compatibility", "Exportación WebGL", "Interfaz responsiva"]
+                }
+            },
+            ru: {
+                title: "VideoEditorGodot",
+                description: "Инструмент для покадрового редактирования видео, созданный на Godot Engine.",
+                gdd: {
+                    overview: "Браузерная утилита для редактирования видео, ориентированная на точное извлечение кадров и манипуляцию ими.",
+                    mechanics: ["Извлечение кадров", "Таймлайн-редактирование", "Применение эффектов"],
+                    features: ["Godot 4 GL Compatibility", "WebGL экспорт", "Адаптивный интерфейс"]
+                }
+            },
+            uk: {
+                title: "VideoEditorGodot",
+                description: "Інструмент для покадрового редагування відео, створений на Godot Engine.",
+                gdd: {
+                    overview: "Браузерна утиліта для редагування відео, орієнтована на точне вилучення кадрів та маніпуляцію ними.",
+                    mechanics: ["Вилучення кадрів", "Таймлайн-редагування", "Застосування ефектів"],
+                    features: ["Godot 4 GL Compatibility", "WebGL експорт", "Адаптивний інтерфейс"]
                 }
             }
         }
