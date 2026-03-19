@@ -114,7 +114,8 @@ const TRANSLATIONS = {
             general: "Общий",
             gamedev: "Игры",
             frontend: "Фронтенд",
-            python: "Python"
+            backend: "Бэкенд",
+            embedded: "Embedded"
         },
         summary: "Профессиональное резюме"
     },
@@ -761,7 +762,7 @@ const getExperienceForSpecialty = (specialty, lang) => {
 };
 
 const getSkillsForSpecialty = (specialty) => {
-    if (specialty === 'python') {
+    if (specialty === 'backend') {
         return [
             { name: "Python 3.12 (High Perf)", icon: Server },
             { name: "FastAPI, Django & gRPC", icon: Layers },
@@ -769,6 +770,14 @@ const getSkillsForSpecialty = (specialty) => {
             { name: "PostgreSQL & RabbitMQ/Kafka", icon: Server },
             { name: "K8s, Helm & GitLab CI", icon: Terminal },
             { name: "Microsrv Architecture", icon: Cuboid },
+        ];
+    }
+    if (specialty === 'embedded') {
+        return [
+            { name: "C/C++ & Embedded", icon: Cpu },
+            { name: "STM32, ESP32, RaspPi", icon: Cuboid },
+            { name: "Hardware Integration", icon: Layers },
+            { name: "Python", icon: Terminal }
         ];
     }
     if (specialty === 'frontend') {
@@ -787,7 +796,8 @@ const getSkillsForSpecialty = (specialty) => {
 const getProjectsForSpecialty = (specialty, lang) => {
     if (specialty === 'gamedev') return lang === 'en' ? PROJECTS_EN : (lang === 'es' ? PROJECTS_ES : (lang === 'ru' ? PROJECTS_RU : PROJECTS_UK));
     if (specialty === 'frontend') return lang === 'en' ? PROJECTS_FRONTEND_EN : (lang === 'es' ? PROJECTS_FRONTEND_ES : (lang === 'ru' ? PROJECTS_FRONTEND_RU : PROJECTS_FRONTEND_UK));
-    if (specialty === 'python') return lang === 'en' ? PROJECTS_PYTHON_EN : (lang === 'es' ? PROJECTS_PYTHON_ES : (lang === 'ru' ? PROJECTS_PYTHON_RU : PROJECTS_PYTHON_UK));
+    if (specialty === 'backend') return lang === 'en' ? PROJECTS_PYTHON_EN : (lang === 'es' ? PROJECTS_PYTHON_ES : (lang === 'ru' ? PROJECTS_PYTHON_RU : PROJECTS_PYTHON_UK));
+    if (specialty === 'embedded') return lang === 'en' ? PROJECTS_EN : (lang === 'es' ? PROJECTS_ES : (lang === 'ru' ? PROJECTS_RU : PROJECTS_UK));
 
     // general: combine some or use base
     return lang === 'en' ? PROJECTS_EN : (lang === 'es' ? PROJECTS_ES : (lang === 'ru' ? PROJECTS_RU : PROJECTS_UK));
@@ -807,55 +817,67 @@ const generateProfile = (specialty, lang) => {
 
 const SPECIALIZED_TITLES = {
     general: {
-        en: "MVP Product Ecosystem Architect",
-        es: "Arquitecto de Ecosistemas de Productos MVP",
-        ru: "Архитектор продуктовых MVP-экосистем",
-        uk: "Архітектор продуктових MVP-екосистем"
+        en: "Senior Software Engineer",
+        es: "Ingeniero de Software Senior",
+        ru: "Senior Software Engineer",
+        uk: "Senior Software Engineer"
     },
     gamedev: {
-        en: "Senior Simulation & Tools Engineer",
-        es: "Ingeniero Senior de Simulación y Herramientas",
-        ru: "Старший инженер симуляций и инструментов",
-        uk: "Старший інженер симуляцій та інструментів"
+        en: "GameDev / Simulation Engineer",
+        es: "GameDev / Simulation Engineer",
+        ru: "GameDev / Simulation Engineer",
+        uk: "GameDev / Simulation Engineer"
     },
     frontend: {
-        en: "Senior Frontend Engineer (React / WebGL)",
-        es: "Ingeniero Senior de Frontend (React / WebGL)",
-        ru: "Старший фронтенд-инженер (React / WebGL)",
-        uk: "Старший фронтенд-інженер (React / WebGL)"
+        en: "Frontend / Web Developer",
+        es: "Desarrollador Frontend / Web",
+        ru: "Frontend / Web Developer",
+        uk: "Frontend / Web Developer"
     },
-    python: {
-        en: "Senior Python Backend Engineer (FastAPI / Django)",
-        es: "Ingeniero Senior de Backend Python (FastAPI / Django)",
-        ru: "Старший бэкенд-инженер Python (FastAPI / Django)",
-        uk: "Старший бекенд-інженер Python (FastAPI / Django)"
+    backend: {
+        en: "Backend / Full-Stack Developer",
+        es: "Desarrollador Backend / Full-Stack",
+        ru: "Backend / Full-Stack Developer",
+        uk: "Backend / Full-Stack Developer"
+    },
+    embedded: {
+        en: "Embedded / Hardware-Software Integration",
+        es: "Integración de Hardware y Software / Embebidos",
+        ru: "Embedded / Hardware-Software Integration",
+        uk: "Імбедед / Інтеграція Апаратного та Програмного Забезпечення"
     }
 };
 
 const SPECIALIZED_ABOUT = {
     general: {
-        en: "Multidisciplinary Engineer & Product Architect. Expert in high-performance simulations, distributed systems, and bridging the gap between hardware and software. I build deterministic architectures and scalable MVPs for B2B logistics and industrial EdTech.",
-        es: "Ingeniero multidisciplinar y arquitecto de productos. Experto en simulaciones de alto rendimiento, sistemas distribuidos y en cerrar la brecha entre el hardware y el software. Construyo arquitecturas determinísticas y MVPs escalables.",
-        ru: "Мультидисциплинарный инженер и архитектор продуктов. Эксперт по высокопроизводительным симуляциям, распределенным системам и интеграции железа с ПО. Создаю детерминированные архитектуры и масштабируемые MVP.",
-        uk: "Мультидисциплінарний інженер та архітектор продуктів. Експерт із високопродуктивних симуляцій, розподілених систем та інтеграції заліза з ПЗ. Створюю детерміновані архітектури та масштабовані MVP."
+        en: "Senior Software Engineer with 10+ years of experience in developing simulation systems, interactive applications, and full-stack products. Experienced in creating MVPs, prototypes, and hardware-software integration using React, Python, Godot, WebGL, and Supabase.",
+        es: "Ingeniero de Software Senior con más de 10 años de experiencia en el desarrollo de sistemas de simulación, aplicaciones interactivas y productos full-stack. Experiencia en la creación de MVPs, prototipos e integración de hardware y software utilizando React, Python, Godot, WebGL y Supabase.",
+        ru: "Senior Software Engineer с 10+ лет опыта в разработке симуляционных систем, интерактивных приложений и full-stack продуктов. Создаёт MVP и прототипы, используя React, Python, Godot, WebGL, Supabase и интеграцию аппаратного и программного обеспечения.",
+        uk: "Senior Software Engineer з 10+ роками досвіду у розробці симуляційних систем, інтерактивних додатків та full-stack продуктів. Створює MVP та прототипи, використовуючи React, Python, Godot, WebGL, Supabase та інтеграцію апаратного і програмного забезпечення."
     },
     gamedev: {
-        en: "Product Architect specializing in real-time B2B logistics simulations and agentic AI behaviors. Proven track record in delivering ready-to-use MVP solutions for industrial and research sectors, including physical product finalization.",
-        es: "Arquitecto de Productos especializado en simulaciones logísticas B2B y comportamientos de IA agéntica. Historial probado en entrega de soluciones MVP listas para usar.",
-        ru: "Архитектор продуктов, специализирующийся на логистических B2B-симуляциях и агентном ИИ. Опыт доведения MVP до финального продукта, включая физическую реализацию.",
-        uk: "Архітектор продуктів, що спеціалізується на логістичних B2B-симуляціях та агентному ІІ. Досвід доведення MVP до фінального продукту, включаючи фізичну реалізацію."
+        en: "GameDev and Simulation Engineer with experience in developing simulation systems and games using Godot 4, Unity HDRP, and Blender.",
+        es: "Ingeniero de Simulaciones y Desarrollo de Juegos (GameDev) con experiencia en el desarrollo de sistemas de simulación y juegos utilizando Godot 4, Unity HDRP y Blender.",
+        ru: "GameDev и Simulation Engineer с опытом разработки симуляционных систем и игр с использованием Godot 4, Unity HDRP и Blender.",
+        uk: "GameDev та Simulation Engineer з досвідом розробки симуляційних систем та ігор з використанням Godot 4, Unity HDRP та Blender."
     },
     frontend: {
-        en: "Senior Frontend Engineer delivering premium MVP dashboards and high-performance WebGL visualizations. Expert in creating fluid 60fps experiences for complex B2B operations and social EdTech ecosystems.",
-        es: "Ingeniero Senior de Frontend que entrega dashboards MVP premium y visualizaciones WebGL de alto rendimiento.",
-        ru: "Старший фронтенд-инженер, создающий премиальные MVP-панели и высокопроизводительную WebGL-визуализацию для B2B и социальных EdTech-проектов.",
-        uk: "Старший фронтенд-інженер, що створює преміальні MVP-панелі та високопродуктивну WebGL-візуалізацію для B2B та соціальних EdTech-проектів."
+        en: "Frontend Developer with experience in creating interactive applications, fast prototypes, and visualizations using React, Vue.js, Next.js, and WebGL.",
+        es: "Desarrollador Frontend con experiencia en la creación de aplicaciones interactivas, prototipos rápidos y visualizaciones utilizando React, Vue.js, Next.js y WebGL.",
+        ru: "Frontend Developer с опытом создания интерактивных приложений, быстрых прототипов и визуализаций с использованием React, Vue.js, Next.js и WebGL.",
+        uk: "Frontend Developer з досвідом створення інтерактивних додатків, швидких прототипів та візуалізацій з використанням React, Vue.js, Next.js та WebGL."
     },
-    python: {
-        en: "Senior Backend Engineer with 5+ years of focus on high-performance Python, FastAPI, and gRPC microservices. Architect of scalable MVP ecosystems for Fintech and EdTech, featuring secure 3DS2 payment flows and real-time data pipelines.",
-        es: "Ingeniero Senior de Backend con más de 5 años de enfoque en arquitecturas distribuidas con Python de alto rendimiento, FastAPI y gRPC.",
-        ru: "Старший бэкенд-инженер с 5-летним стажем в создании высокопроизводительных Python-систем. Архитектор MVP-экосистем для Fintech и EdTech с использованием 3DS2 и gRPC.",
-        uk: "Старший бекенд-інженер з 5-річним стажем у створенні високопродуктивних Python-систем. Архітектор MVP-екосистем для Fintech та EdTech з використанням 3DS2 та gRPC."
+    backend: {
+        en: "Full-Stack Developer with experience in developing server logic, databases, and APIs for interactive applications and simulations.",
+        es: "Desarrollador Full-Stack con experiencia en el desarrollo de lógica de servidor, bases de datos y APIs para aplicaciones interactivas y simulaciones.",
+        ru: "Full-Stack Developer с опытом разработки серверной логики, баз данных и API для интерактивных приложений и симуляций.",
+        uk: "Full-Stack Developer з досвідом розробки серверної логіки, баз даних та API для інтерактивних додатків та симуляцій."
+    },
+    embedded: {
+        en: "Hardware-Software Integration Engineer with experience working with microcontrollers, sensors, and telemetry systems.",
+        es: "Ingeniero de Integración de Hardware y Software con experiencia trabajando con microcontroladores, sensores y sistemas de telemetría.",
+        ru: "Инженер по интеграции аппаратного и программного обеспечения с опытом работы с микроконтроллерами, сенсорами и системами телеметрии.",
+        uk: "Інженер з інтеграції апаратного та програмного забезпечення з досвідом роботи з мікроконтролерами, сенсорами та системами телеметрії."
     }
 };
 
@@ -881,44 +903,44 @@ const BASE_PROFILE = {
     ],
     experience: [
         {
-            role: "MVP Product Ecosystem Architect",
+            role: "MVP Product Ecosystem Architect (Senior Software Engineer)",
             company: "Autonomous Product Development",
             period: "2023 - Present",
-            description: "Developing a diverse portfolio of ready-to-market software and physical products.",
+            description: "Development and launch of a product portfolio: from software to physical devices.",
             achievements: [
-                "Launched a B2B Logistics Simulator MVP using Godot 4 and Real-World Geodata integration.",
-                "Developed a Social EdTech Learning Ecosystem (LingoQuest) with AI-driven adaptive assessment.",
-                "Completed the 'Finalizer' cycle for Sea Hunter: from digital 3D MVP to physical cardboard production.",
-                "Architected a scalable business operations engine for service-based companies (Megumi Massage)."
+                "Launched a B2B Logistics Simulator MVP using Godot 4 and real-world geodata.",
+                "Developed the LingoQuest platform (EdTech) with AI-based adaptive assessment.",
+                "Successfully released Sea Hunter: from 3D prototype to physical card game production.",
+                "Architected a scalable business operations system for the service industry (Megumi Massage)."
             ],
             technologies: ["Node.js", "Godot 4", "Python", "MVP Strategy"],
-            tags: ["gamedev", "python", "frontend"]
+            tags: ["gamedev", "backend", "frontend", "embedded"]
         },
         {
             role: "Lead Simulation Software Engineer",
             company: "EdTech & Industrial Sim Studio",
             period: "2020 - 2022",
-            description: "Architected photorealistic training environments and procedural generation tools.",
+            description: "Architecture of realistic training environments and procedural generation tools.",
             achievements: [
-                "Led team in building a 60fps Traffic Simulator with complex NPC-agent behaviors for industrial certification.",
-                "Engineered procedural environment generators in C#, cutting MVP development cycles by 70%.",
-                "Managed the integration of hardware telemetry into real-time 3D simulation engines."
+                "Led the development of a transport simulator (60fps) with complex NPC agent behavior for industrial certification.",
+                "Created procedural environment generators in C#, reducing MVP development cycle by 70%.",
+                "Ensured integration of hardware telemetry into 3D engines for real-time simulation."
             ],
             technologies: ["C#", "Unity HDRP", "Simulation Design", "Team Lead"],
-            tags: ["gamedev"]
+            tags: ["gamedev", "embedded"]
         },
         {
             role: "Hardware & Systems Integration Specialist",
             company: "Micro-Systems Firm",
             period: "2013 - 2018",
-            description: "Bridging the gap between physical hardware and high-performance software systems.",
+            description: "Integration between hardware and high-performance software systems.",
             achievements: [
-                "5 years of experience in low-level C/C++ firmware for medical and laboratory sensing hardware.",
-                "Developed high-throughput Python scripts for real-time sensor data analysis and synchronization.",
-                "Integrated STM32/ESP32 sensor arrays with custom-built digital twins for process automation."
+                "5 years of experience developing low-level C/C++ firmware for medical and laboratory sensor equipment.",
+                "Developed high-performance Python scripts for real-time sensor data analysis.",
+                "Integrated STM32/ESP32 sensor arrays into custom digital twins for process automation."
             ],
             technologies: ["C++", "STM32", "Python", "Systems Engineering"],
-            tags: ["python"]
+            tags: ["backend", "embedded"]
         }
     ],
     projects: PROJECTS_EN,
@@ -957,11 +979,140 @@ const BASE_PROFILE = {
     }
 };
 
+const EXPERIENCE_RU = [
+    {
+        role: "MVP Product Ecosystem Architect (Senior Software Engineer)",
+        company: "Autonomous Product Development",
+        period: "2023 - Present",
+        description: "Разработка и запуск портфеля продуктов: от программного обеспечения до физических устройств.",
+        achievements: [
+            "Запустил B2B логистический симулятор MVP, используя Godot 4 и реальные геоданные.",
+            "Разработал платформу LingoQuest (EdTech) с адаптивной оценкой на базе ИИ.",
+            "Успешно довел до релиза Sea Hunter: от 3D прототипа до производства физической карточной игры.",
+            "Спроектировал масштабируемую систему бизнес-операций для сферы услуг (Megumi Massage)."
+        ],
+        technologies: ["Node.js", "Godot 4", "Python", "MVP Strategy"],
+        tags: ["gamedev", "backend", "frontend", "embedded"]
+    },
+    {
+        role: "Lead Simulation Software Engineer",
+        company: "EdTech & Industrial Sim Studio",
+        period: "2020 - 2022",
+        description: "Архитектура реалистичных тренировочных сред и инструментов процедурной генерации.",
+        achievements: [
+            "Руководил разработкой транспортного симулятора (60fps) со сложным поведением NPC-агентов для промышленной сертификации.",
+            "Создал генераторы процедурного окружения на C#, сократив цикл разработки MVP на 70%.",
+            "Обеспечил интеграцию аппаратной телеметрии в 3D движки для симуляции в реальном времени."
+        ],
+        technologies: ["C#", "Unity HDRP", "Simulation Design", "Team Lead"],
+        tags: ["gamedev", "embedded"]
+    },
+    {
+        role: "Hardware & Systems Integration Specialist",
+        company: "Micro-Systems Firm",
+        period: "2013 - 2018",
+        description: "Интеграция между аппаратным обеспечением и высокопроизводительными системами.",
+        achievements: [
+            "5 лет опыта разработки низкоуровневых прошивок C/C++ для медицинского и лабораторного сенсорного оборудования.",
+            "Разработал высокопроизводительные Python-скрипты для анализа показаний сенсоров в реальном времени.",
+            "Интегрировал массивы сенсоров STM32/ESP32 в кастомные цифровые двойники для автоматизации процессов."
+        ],
+        technologies: ["C++", "STM32", "Python", "Systems Engineering"],
+        tags: ["backend", "embedded"]
+    }
+];
+
+const EXPERIENCE_ES = [
+    {
+        role: "Arquitecto de Ecosistemas de Productos MVP (Senior Software Engineer)",
+        company: "Autonomous Product Development",
+        period: "2023 - Presente",
+        description: "Desarrollo y lanzamiento de un portafolio de productos: desde software hasta dispositivos físicos.",
+        achievements: [
+            "Lanzamiento del MVP de Simulador Logístico B2B usando Godot 4 y geodatos reales.",
+            "Desarrollo de la plataforma LingoQuest (EdTech) con evaluación adaptativa basada en IA.",
+            "Lanzamiento exitoso de Sea Hunter: del prototipo 3D a la producción física del juego de cartas.",
+            "Arquitectura de un sistema escalable de operaciones comerciales para el sector servicios (Megumi Massage)."
+        ],
+        technologies: ["Node.js", "Godot 4", "Python", "MVP Strategy"],
+        tags: ["gamedev", "backend", "frontend", "embedded"]
+    },
+    {
+        role: "Lead Simulation Software Engineer",
+        company: "EdTech & Industrial Sim Studio",
+        period: "2020 - 2022",
+        description: "Arquitectura de entornos de entrenamiento realistas y herramientas de generación procedimental.",
+        achievements: [
+            "Lideré el desarrollo de un simulador de transporte (60fps) con comportamiento complejo de agentes NPC para certificación industrial.",
+            "Creé generadores procedurales de entorno en C#, reduciendo el ciclo de desarrollo del MVP en un 70%.",
+            "Aseguré la integración de telemetría de hardware en motores 3D para simulación en tiempo real."
+        ],
+        technologies: ["C#", "Unity HDRP", "Simulation Design", "Team Lead"],
+        tags: ["gamedev", "embedded"]
+    },
+    {
+        role: "Especialista de Integración de Sistemas y Hardware",
+        company: "Micro-Systems Firm",
+        period: "2013 - 2018",
+        description: "Integración entre hardware y sistemas de software de alto rendimiento.",
+        achievements: [
+            "5 años de experiencia desarrollando firmware C/C++ de bajo nivel para equipos de sensores médicos y de laboratorio.",
+            "Desarrollo de scripts de Python de alto rendimiento para el análisis de datos de sensores en tiempo real.",
+            "Integración de matrices de sensores STM32/ESP32 en gemelos digitales personalizados para la automatización de procesos."
+        ],
+        technologies: ["C++", "STM32", "Python", "Systems Engineering"],
+        tags: ["backend", "embedded"]
+    }
+];
+
+const EXPERIENCE_UK = [
+    {
+        role: "Архітектор Продуктових MVP-Екосистем (Senior Software Engineer)",
+        company: "Autonomous Product Development",
+        period: "2023 - Теперішній час",
+        description: "Розробка та запуск портфеля продуктів: від програмного забезпечення до фізичних пристроїв.",
+        achievements: [
+            "Запустив B2B логістичний симулятор MVP, використовуючи Godot 4 та реальні геодані.",
+            "Розробив платформу LingoQuest (EdTech) з адаптивною оцінкою на базі ШІ.",
+            "Успішно довів до релізу Sea Hunter: від 3D-прототипу до виробництва фізичної карткової гри.",
+            "Спроектував масштабовану систему бізнес-операцій для сфери послуг (Megumi Massage)."
+        ],
+        technologies: ["Node.js", "Godot 4", "Python", "MVP Strategy"],
+        tags: ["gamedev", "backend", "frontend", "embedded"]
+    },
+    {
+        role: "Lead Simulation Software Engineer",
+        company: "EdTech & Industrial Sim Studio",
+        period: "2020 - 2022",
+        description: "Архітектура реалістичних тренувальних середовищ та інструментів процедурної генерації.",
+        achievements: [
+            "Керував розробкою транспортного симулятора (60fps) зі складною поведінкою NPC-агентів для промислової сертифікації.",
+            "Створив генератори процедурного оточення на C#, скоротивши цикл розробки MVP на 70%.",
+            "Забезпечив інтеграцію апаратної телеметрії у 3D-рушії для симуляції в реальному часі."
+        ],
+        technologies: ["C#", "Unity HDRP", "Simulation Design", "Team Lead"],
+        tags: ["gamedev", "embedded"]
+    },
+    {
+        role: "Hardware & Systems Integration Specialist",
+        company: "Micro-Systems Firm",
+        period: "2013 - 2018",
+        description: "Інтеграція між апаратним забезпеченням та високопродуктивними системами.",
+        achievements: [
+            "5 років досвіду розробки низькорівневих прошивок C/C++ для медичного та лабораторного сенсорного обладнання.",
+            "Розробив високопродуктивні Python-скрипти для аналізу показань сенсорів у реальному часі.",
+            "Інтегрував масиви сенсорів STM32/ESP32 у кастомні цифрові двійники для автоматизації процесів."
+        ],
+        technologies: ["C++", "STM32", "Python", "Systems Engineering"],
+        tags: ["backend", "embedded"]
+    }
+];
+
 const PROFILES_DATA = {
     en: BASE_PROFILE,
-    es: { ...BASE_PROFILE, ui: TRANSLATIONS.es, projects: PROJECTS_ES, games: getGamesForLanguage('es') },
-    ru: { ...BASE_PROFILE, ui: TRANSLATIONS.ru, projects: PROJECTS_RU, games: getGamesForLanguage('ru') },
-    uk: { ...BASE_PROFILE, ui: TRANSLATIONS.uk, projects: PROJECTS_UK, games: getGamesForLanguage('uk') }
+    es: { ...BASE_PROFILE, experience: EXPERIENCE_ES, ui: TRANSLATIONS.es, projects: PROJECTS_ES, games: getGamesForLanguage('es') },
+    ru: { ...BASE_PROFILE, experience: EXPERIENCE_RU, ui: TRANSLATIONS.ru, projects: PROJECTS_RU, games: getGamesForLanguage('ru') },
+    uk: { ...BASE_PROFILE, experience: EXPERIENCE_UK, ui: TRANSLATIONS.uk, projects: PROJECTS_UK, games: getGamesForLanguage('uk') }
 };
 
 
@@ -1136,11 +1287,17 @@ export const PROFILES = {
         ru: generateProfile('frontend', 'ru'),
         uk: generateProfile('frontend', 'uk')
     },
-    python: {
-        en: generateProfile('python', 'en'),
-        es: generateProfile('python', 'es'),
-        ru: generateProfile('python', 'ru'),
-        uk: generateProfile('python', 'uk')
+    backend: {
+        en: generateProfile('backend', 'en'),
+        es: generateProfile('backend', 'es'),
+        ru: generateProfile('backend', 'ru'),
+        uk: generateProfile('backend', 'uk')
+    },
+    embedded: {
+        en: generateProfile('embedded', 'en'),
+        es: generateProfile('embedded', 'es'),
+        ru: generateProfile('embedded', 'ru'),
+        uk: generateProfile('embedded', 'uk')
     },
     magical: MAGICAL_PROFILES,
     serious: { en: BASE_PROFILE } // Fallback for old code
