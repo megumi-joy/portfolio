@@ -803,7 +803,7 @@ const getProjectsForSpecialty = (specialty, lang) => {
     return lang === 'en' ? PROJECTS_EN : (lang === 'es' ? PROJECTS_ES : (lang === 'ru' ? PROJECTS_RU : PROJECTS_UK));
 };
 
-const generateProfile = (specialty, lang) => {
+export const generateProfile = (specialty, lang) => {
     const baseData = PROFILES_DATA[lang] || PROFILES_DATA.en;
     return {
         ...baseData,
@@ -815,7 +815,7 @@ const generateProfile = (specialty, lang) => {
     };
 };
 
-const SPECIALIZED_TITLES = {
+export const SPECIALIZED_TITLES = {
     general: {
         en: "Senior Software Engineer",
         es: "Ingeniero de Software Senior",
@@ -848,7 +848,7 @@ const SPECIALIZED_TITLES = {
     }
 };
 
-const SPECIALIZED_ABOUT = {
+export const SPECIALIZED_ABOUT = {
     general: {
         en: "Senior Software Engineer with 10+ years of experience in developing simulation systems, interactive applications, and full-stack products. Experienced in creating MVPs, prototypes, and hardware-software integration using React, Python, Godot, WebGL, and Supabase.",
         es: "Ingeniero de Software Senior con más de 10 años de experiencia en el desarrollo de sistemas de simulación, aplicaciones interactivas y productos full-stack. Experiencia en la creación de MVPs, prototipos e integración de hardware y software utilizando React, Python, Godot, WebGL y Supabase.",
@@ -1108,7 +1108,7 @@ const EXPERIENCE_UK = [
     }
 ];
 
-const PROFILES_DATA = {
+export const PROFILES_DATA = {
     en: BASE_PROFILE,
     es: { ...BASE_PROFILE, experience: EXPERIENCE_ES, ui: TRANSLATIONS.es, projects: PROJECTS_ES, games: getGamesForLanguage('es') },
     ru: { ...BASE_PROFILE, experience: EXPERIENCE_RU, ui: TRANSLATIONS.ru, projects: PROJECTS_RU, games: getGamesForLanguage('ru') },
