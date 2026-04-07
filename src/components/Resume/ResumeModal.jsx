@@ -7,6 +7,7 @@ import { generateLatex } from './latexGenerator';
 import { generateTextResume } from './textGenerator';
 import { useLanguage } from '../LanguageContext';
 import AdventurerCard from './AdventurerCard';
+import ToneToggle from '../ToneToggle';
 import Prism from 'prismjs';
 import 'prismjs/components/prism-latex';
 import 'prismjs/themes/prism-tomorrow.css';
@@ -70,72 +71,75 @@ const ResumeModal = ({ isOpen, onClose }) => {
                         className="relative w-full max-w-6xl bg-slate-900 border border-slate-700 rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[95vh]"
                     >
                         {/* Header */}
-                        <div className="flex items-center justify-between p-4 border-b border-slate-800 bg-slate-900/50">
-                            <div className="flex items-center gap-4">
-                                <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                                    {isMagical ? <Sparkles className="text-purple-400" size={20} /> : <FileText className="text-cyan-400" size={20} />}
-                                    {activeProfile.ui?.resume || "Resume"}
-                                </h2>
-
-                                {/* Language Switcher */}
-                                <div className="bg-slate-800 p-1 rounded-lg flex gap-1">
-                                    {['en', 'es', 'ru', 'uk'].map((lang) => (
-                                        <button
-                                            key={lang}
-                                            onClick={() => setLanguage(lang)}
-                                            className={`px-2 py-1 rounded-md text-xs font-bold uppercase transition-all ${language === lang ? (isMagical ? 'bg-purple-600 text-white' : 'bg-cyan-600 text-white') : 'text-slate-400 hover:text-slate-200'}`}
-                                        >
-                                            {lang}
-                                        </button>
-                                    ))}
+                        <div className="flex flex-col border-b border-slate-800 bg-slate-900/50 shrink-0">
+                            {/* Top row: Title and Close button */}
+                            <div className="flex items-center justify-between p-3 md:p-4 border-b border-slate-800/30">
+                                <div className="flex items-center gap-3">
+                                    <h2 className="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+                                        {isMagical ? <Sparkles className="text-purple-400" size={18} /> : <FileText className="text-cyan-400" size={18} />}
+                                        <span className="hidden xs:inline">{activeProfile.ui?.resume || "Resume"}</span>
+                                        <span className="xs:hidden">Resume</span>
+                                    </h2>
+                                    <div className="md:hidden">
+                                        <ToneToggle />
+                                    </div>
                                 </div>
 
-                                {/* Specialty Switcher */}
-                                {!isMagical && (
-                                    <div className="hidden lg:flex bg-slate-800 p-1 rounded-lg gap-1">
-                                        {['general', 'gamedev', 'frontend', 'python'].map((spec) => (
+                                <div className="flex items-center gap-2">
+                                    <div className="hidden md:block">
+                                        <ToneToggle />
+                                    </div>
+                                    <button
+                                        onClick={onClose}
+                                        className="p-2 hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-white"
+                                        aria-label="Close"
+                                    >
+                                        <X size={20} />
+                                    </button>
+                                </div>
+                            </div>
+
+                            {/* Bottom row (compact on mobile): Controls */}
+                            <div className="flex flex-col md:flex-row md:items-center gap-3 p-3 bg-slate-900/30">
+                                <div className="flex items-center justify-between md:justify-start gap-4">
+                                    {/* Language Switcher */}
+                                    <div className="bg-slate-800 p-1 rounded-lg flex gap-1 shrink-0">
+                                        {['en', 'es', 'ru', 'uk'].map((lang) => (
                                             <button
-                                                key={spec}
-                                                onClick={() => setSpecialty(spec)}
-                                                className={`px-2 py-1 rounded-md text-[10px] font-bold uppercase transition-all ${specialty === spec ? 'bg-purple-600 text-white' : 'text-slate-400 hover:text-slate-200'}`}
+                                                key={lang}
+                                                onClick={() => setLanguage(lang)}
+                                                className={`px-2 py-1 rounded-md text-[10px] md:text-xs font-bold uppercase transition-all ${language === lang ? (isMagical ? 'bg-purple-600 text-white' : 'bg-cyan-600 text-white') : 'text-slate-400 hover:text-slate-200'}`}
                                             >
-                                                {activeProfile.ui?.profiles?.[spec] || spec}
+                                                {lang}
                                             </button>
                                         ))}
                                     </div>
-                                )}
 
-                                {/* View Toggle - Only show if NOT magical */}
-                                {!isMagical && (
-                                    <div className="bg-slate-800 p-1 rounded-lg flex gap-1 overflow-x-auto">
-                                        <button
-                                            onClick={() => setViewMode('text')}
-                                            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${viewMode === 'text' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
-                                        >
-                                            <Eye size={14} /> Preview
-                                        </button>
-                                        <button
-                                            onClick={() => setViewMode('pdf')}
-                                            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${viewMode === 'pdf' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
-                                        >
-                                            <FileType size={14} /> PDF Viewer
-                                        </button>
-                                        <button
-                                            onClick={() => setViewMode('latex')}
-                                            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${viewMode === 'latex' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
-                                        >
-                                            <Terminal size={14} /> LaTeX Source
-                                        </button>
-                                    </div>
-                                )}
+                                    {/* View Toggle - Only show if NOT magical */}
+                                    {!isMagical && (
+                                        <div className="bg-slate-800 p-1 rounded-lg flex gap-1 overflow-x-auto custom-scrollbar-hide max-w-[200px] sm:max-w-none">
+                                            <button
+                                                onClick={() => setViewMode('text')}
+                                                className={`px-2 md:px-3 py-1.5 rounded-md text-[10px] md:text-xs font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${viewMode === 'text' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
+                                            >
+                                                <Eye size={14} className="hidden sm:inline" /> Preview
+                                            </button>
+                                            <button
+                                                onClick={() => setViewMode('pdf')}
+                                                className={`px-2 md:px-3 py-1.5 rounded-md text-[10px] md:text-xs font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${viewMode === 'pdf' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
+                                            >
+                                                <FileType size={14} className="hidden sm:inline" /> PDF
+                                            </button>
+                                            <button
+                                                onClick={() => setViewMode('latex')}
+                                                className={`px-2 md:px-3 py-1.5 rounded-md text-[10px] md:text-xs font-medium transition-all flex items-center gap-1.5 whitespace-nowrap ${viewMode === 'latex' ? 'bg-slate-700 text-cyan-400 shadow-sm' : 'text-slate-400 hover:text-slate-300'}`}
+                                            >
+                                                <Terminal size={14} className="hidden sm:inline" /> LaTeX
+                                            </button>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
-
-                            <button
-                                onClick={onClose}
-                                className="p-2 hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-white"
-                            >
-                                <X size={20} />
-                            </button>
                         </div>
 
                         <div className="flex-1 overflow-hidden flex flex-col md:flex-row">
@@ -149,7 +153,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                 )}
 
                                 {isMagical ? (
-                                    <div className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar bg-slate-900/50 flex justify-center items-start backdrop-blur-sm">
+                                    <div className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar bg-slate-900/50 flex justify-center items-start backdrop-blur-sm scrolling-touch">
                                         <AdventurerCard profile={activeProfile} />
                                     </div>
                                 ) : (
