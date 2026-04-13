@@ -25,7 +25,7 @@ const GameCarousel = ({ games, onSelectGame, activePath }) => {
                                 <img
                                     src={game.thumbnail}
                                     alt={game.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
 
@@ -59,7 +59,7 @@ const GameCarousel = ({ games, onSelectGame, activePath }) => {
                                     {game.status === 'playable' ? (
                                         <button
                                             onClick={() => onSelectGame(game)}
-                                            className="w-full py-3 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-white rounded-xl font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all hover:scale-[1.02] active:scale-95"
+                                            className="w-full py-3 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-white rounded-xl font-black text-sm flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all hover:scale-105 active:scale-95"
                                         >
                                             <Play size={16} fill="white" />
                                             PLAY NOW
@@ -67,7 +67,7 @@ const GameCarousel = ({ games, onSelectGame, activePath }) => {
                                     ) : (
                                         <button
                                             onClick={() => onSelectGame(game)}
-                                            className="w-full py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 rounded-xl font-black text-sm flex items-center justify-center gap-2 transition-all hover:scale-[1.02] active:scale-95"
+                                            className="w-full py-3 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 rounded-xl font-black text-sm flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95"
                                         >
                                             <BookOpen size={16} className="text-purple-400" />
                                             SEE DETAILS

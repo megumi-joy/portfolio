@@ -21,10 +21,15 @@ const Skills = () => {
                         return (
                             <motion.div
                                 key={skill.name}
-                                initial={{ opacity: 0, scale: 0.9 }}
+                                initial={{ opacity: 0, scale: 0.5 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
+                                transition={{
+                                    delay: index * 0.05,
+                                    type: "spring",
+                                    stiffness: 260,
+                                    damping: 20
+                                }}
                                 className="group relative p-6 bg-slate-800/50 rounded-2xl border border-slate-700/50 hover:border-cyan-500/30 transition-all hover:bg-slate-800/80"
                             >
                                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />

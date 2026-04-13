@@ -19,10 +19,10 @@ const Experience = () => {
                     {activeProfile.experience?.map((role, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, x: -20, scale: 0.9 }}
+                            whileInView={{ opacity: 1, x: 0, scale: 1 }}
                             viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            transition={{ delay: index * 0.1, duration: 0.5 }}
                             className="relative pl-8 md:pl-12"
                         >
                             {/* Timeline Dot */}

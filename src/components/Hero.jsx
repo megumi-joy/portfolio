@@ -68,6 +68,13 @@ const Hero = ({ onOpenResume }) => {
                             {activeProfile.ui.resume || "Resume"}
                         </button>
                         <a
+                            href="#gallery"
+                            className="px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all hover:scale-105 backdrop-blur-md flex items-center gap-2 group"
+                        >
+                            <Gamepad2 size={18} className="text-purple-400 group-hover:text-purple-300 transition-colors" />
+                            View Showcase
+                        </a>
+                        <a
                             href="#contact"
                             className="px-8 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold hover:shadow-lg hover:shadow-cyan-500/25 transition-all hover:scale-105"
                         >

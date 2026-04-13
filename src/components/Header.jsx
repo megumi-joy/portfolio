@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from './LanguageContext';
 import ToneToggle from './ToneToggle';
-import { Menu, X, ShoppingBag, LogOut, ShieldCheck, CalendarDays } from 'lucide-react';
-import { supabase } from '../lib/supabase';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, ShoppingBag, LogOut, ShieldCheck, CalendarDays, Gamepad2, Play, ChevronDown } from 'lucide-react';
 
-const Header = ({ currentView, onViewChange, user }) => {
+const Header = ({ currentView, onViewChange, onSelectGame, user }) => {
     const { language, setLanguage, activeProfile, tone, specialty, setSpecialty } = useLanguage();
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [gamesMenuOpen, setGamesMenuOpen] = useState(false);
 
     // Scroll effect for header background
     useEffect(() => {
@@ -19,16 +19,19 @@ const Header = ({ currentView, onViewChange, user }) => {
 
     const navLinks = [
         { name: activeProfile.ui?.stats?.roles || 'Experience', href: '#experience', view: 'portfolio' },
-        { name: activeProfile.ui?.stats?.projects || 'Projects', href: '#projects', view: 'portfolio' },
+        { name: 'Projects', href: '#projects', view: 'portfolio' },
+        { name: 'Media', href: '#gallery', view: 'portfolio' },
         { name: 'Insights', href: '#blog', view: 'blog' },
-        // { name: 'Schedule', href: '#schedule', view: 'schedule' },
-        // { name: 'Shop', href: '#shop', view: 'shop' },
+        { name: 'Contact', href: '#contact', view: 'portfolio' },
     ];
 
     const toggleLanguage = (lang) => {
         setLanguage(lang);
         setMobileMenuOpen(false);
     };
+
+    const isMagical = tone === 'magical';
+    const topGames = activeProfile.games?.filter(g => g.status === 'playable' || g.status === 'live').slice(0, 2) || [];
 
     return (
         <header
@@ -43,19 +46,98 @@ const Header = ({ currentView, onViewChange, user }) => {
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-8">
-                    <nav className="flex gap-6">
+                    <nav className="flex items-center gap-6">
                         {navLinks.map((link) => (
                             <button
                                 key={link.href}
                                 onClick={() => {
                                     onViewChange(link.view);
                                     if (link.view === 'portfolio') window.location.hash = link.href;
+                                    setGamesMenuOpen(false);
                                 }}
                                 className={`text-sm font-medium transition-colors ${currentView === link.view ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
                             >
                                 {link.name}
                             </button>
                         ))}
+
+                        <div className="h-4 w-px bg-slate-700 mx-2" />
+
+                        {/* Direct Game Links - plural as requested */}
+                        {topGames.map(game => (
+                            <button
+                                key={game.id}
+                                onClick={() => onSelectGame(game.id)}
+                                className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/30 transition-all text-[11px] font-bold uppercase tracking-wider"
+                            >
+                                <Play size={10} fill="currentColor" />
+                                {game.title.split(':')[0]}
+                            </button>
+                        ))}
+
+                        {/* Arcade / Games Dropdown */}
+                        <div className="relative group" onMouseEnter={() => setGamesMenuOpen(true)} onMouseLeave={() => setGamesMenuOpen(false)}>
+                            <button
+                                className={`flex items-center gap-2 px-4 py-1.5 rounded-full border transition-all text-xs font-bold uppercase tracking-wider
+                                    ${gamesMenuOpen || currentView === 'game'
+                                        ? 'bg-cyan-500/20 text-cyan-400 border-cyan-500/50'
+                                        : 'bg-slate-800/40 text-slate-400 border-slate-700/50 hover:bg-slate-700/50 hover:text-slate-200'}`}
+                            >
+                                <Gamepad2 size={14} />
+                                Games Studio
+                                <ChevronDown size={14} className={`transition-transform duration-300 ${gamesMenuOpen ? 'rotate-180' : ''}`} />
+                            </button>
+
+                            <AnimatePresence>
+                                {gamesMenuOpen && (
+                                    <motion.div
+                                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                        className="absolute top-full right-0 mt-2 w-64 bg-slate-900/95 backdrop-blur-xl rounded-2xl border border-slate-700/50 shadow-2xl p-2 overflow-hidden z-[60]"
+                                    >
+                                        <div className="text-[10px] font-bold text-slate-500 uppercase px-3 py-2 border-b border-slate-800 mb-1">
+                                            Playable Prototypes
+                                        </div>
+                                        {activeProfile.games?.filter(g => g.status === 'playable' || g.status === 'live').map((game) => (
+                                            <button
+                                                key={game.id}
+                                                onClick={() => {
+                                                    onSelectGame(game.id);
+                                                    setGamesMenuOpen(false);
+                                                }}
+                                                className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 group/game transition-all text-left"
+                                            >
+                                                <div className="w-10 h-10 rounded-lg bg-slate-800 overflow-hidden flex-shrink-0 border border-white/5">
+                                                    <img src={game.thumbnail} alt="" className="w-full h-full object-cover group-hover/game:scale-110 transition-transform" />
+                                                </div>
+                                                <div className="flex-1 min-w-0">
+                                                    <div className="text-sm font-bold text-slate-200 truncate group-hover/game:text-cyan-400 transition-colors">
+                                                        {game.title}
+                                                    </div>
+                                                    <div className="flex items-center gap-1">
+                                                        <span className="text-[9px] uppercase font-bold text-slate-500">{game.tags[0]}</span>
+                                                        <span className="w-1 h-1 rounded-full bg-slate-700" />
+                                                        <span className="text-[9px] font-bold text-green-500 italic flex items-center gap-0.5">
+                                                            <div className="w-1 h-1 rounded-full bg-green-500 animate-pulse" />
+                                                            Ready
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <Play size={12} className="text-slate-600 group-hover/game:text-cyan-400 group-hover/game:translate-x-1 transition-all" />
+                                            </button>
+                                        ))}
+                                        <a
+                                            href="#projects"
+                                            onClick={() => setGamesMenuOpen(false)}
+                                            className="block mt-1 p-2 text-center text-[10px] font-bold text-slate-500 hover:text-slate-300 transition-colors border-t border-slate-800 pt-3"
+                                        >
+                                            View Architectural Cases
+                                        </a>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
                     </nav>
 
                     {/* Profile Specialty Selector - Only show if not in magical tone */}
@@ -102,20 +184,6 @@ const Header = ({ currentView, onViewChange, user }) => {
                             </div>
                         ) : (
                             <div className="flex items-center gap-2">
-                                {/* <button
-                                    onClick={() => onViewChange('schedule')}
-                                    className={`flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm transition-all ${currentView === 'schedule' ? 'bg-cyan-500 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
-                                >
-                                    <CalendarDays size={16} />
-                                    Schedule
-                                </button>
-                                <button
-                                    onClick={() => onViewChange('shop')}
-                                    className={`flex items-center gap-2 px-4 py-2 rounded-full font-bold text-sm transition-all ${currentView === 'shop' ? 'bg-cyan-500 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
-                                >
-                                    <ShoppingBag size={16} />
-                                    Shop
-                                </button> */}
                             </div>
                         )}
 
@@ -185,6 +253,26 @@ const Header = ({ currentView, onViewChange, user }) => {
                                         {lang}
                                     </button>
                                 ))}
+                            </div>
+
+                            <div className="flex flex-col gap-3 mt-4">
+                                <span className="text-[10px] font-bold uppercase text-slate-500 px-1">Playable Prototypes</span>
+                                <div className="grid grid-cols-1 gap-2">
+                                    {activeProfile.games?.filter(g => g.status === 'playable' || g.status === 'live').map((game) => (
+                                        <button
+                                            key={game.id}
+                                            onClick={() => {
+                                                onSelectGame(game.id);
+                                                setMobileMenuOpen(false);
+                                            }}
+                                            className="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 border border-slate-700/50"
+                                        >
+                                            <img src={game.thumbnail} alt="" className="w-10 h-10 rounded-lg object-cover" />
+                                            <span className="text-sm font-bold text-slate-200">{game.title}</span>
+                                            <Play size={12} className="ml-auto text-cyan-400" />
+                                        </button>
+                                    ))}
+                                </div>
                             </div>
 
                             {tone !== 'magical' && (
