@@ -28,6 +28,20 @@ const ResumeModal = ({ isOpen, onClose }) => {
     const latexSource = !isMagical ? generateLatex(activeProfile) : '';
 
     useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+            document.documentElement.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+            document.documentElement.style.overflow = 'unset';
+        };
+    }, [isOpen]);
+
+    useEffect(() => {
         if (isOpen && viewMode === 'latex' && !isMagical) {
             Prism.highlightAll();
         }
@@ -68,7 +82,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                         initial={{ opacity: 0, scale: 0.95, y: 20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                        className="relative w-full max-w-6xl bg-slate-900 border border-slate-700 rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[95vh]"
+                        className="relative w-full max-w-6xl bg-slate-900 border border-slate-700 rounded-xl shadow-2xl overflow-hidden flex flex-col max-h-[90dvh]"
                     >
                         {/* Header */}
                         <div className="flex flex-col border-b border-slate-800 bg-slate-900/50 shrink-0">
@@ -153,7 +167,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                 )}
 
                                 {isMagical ? (
-                                    <div className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar bg-slate-900/50 flex justify-center items-start backdrop-blur-sm scrolling-touch">
+                                    <div className="flex-1 overflow-y-auto overscroll-contain p-4 md:p-8 custom-scrollbar bg-slate-900/50 flex justify-center items-start backdrop-blur-sm scrolling-touch">
                                         <AdventurerCard profile={activeProfile} />
                                     </div>
                                 ) : (
@@ -170,7 +184,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                                         {copied ? 'Copied' : 'Copy Code'}
                                                     </button>
                                                 </div>
-                                                <div className="flex-1 overflow-auto custom-scrollbar">
+                                                <div className="flex-1 overflow-auto overscroll-contain custom-scrollbar">
                                                     <pre className="language-latex !m-0 !bg-transparent !p-6" style={{ fontSize: '0.85rem' }}>
                                                         <code>{latexSource}</code>
                                                     </pre>
@@ -183,7 +197,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                                 </PDFViewer>
                                             </div>
                                         ) : (
-                                            <div className="flex-1 overflow-y-auto p-8 custom-scrollbar bg-white text-slate-900 font-sans">
+                                            <div className="flex-1 overflow-y-auto overscroll-contain p-8 custom-scrollbar bg-white text-slate-900 font-sans scrolling-touch">
                                                 {/* Standard Resume View */}
                                                 <div className="max-w-3xl mx-auto space-y-8">
                                                     {/* Header */}

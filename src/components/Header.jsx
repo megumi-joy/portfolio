@@ -257,23 +257,17 @@ const Header = ({ currentView, onViewChange, onSelectGame, user }) => {
                                 ))}
                             </div>
 
-                            <div className="flex flex-col gap-3 mt-4">
-                                <span className="text-[10px] font-bold uppercase text-slate-500 px-1">Playable Prototypes</span>
-                                <div className="grid grid-cols-1 gap-2">
-                                    {activeProfile.games?.filter(g => g.status === 'playable' || g.status === 'live').map((game) => (
-                                        <a
-                                            key={game.id}
-                                            href={game.path}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 border border-slate-700/50"
-                                        >
-                                            <img src={game.thumbnail} alt="" className="w-10 h-10 rounded-lg object-cover" />
-                                            <span className="text-sm font-bold text-slate-200">{game.title}</span>
-                                            <ExternalLink size={12} className="ml-auto text-cyan-400" />
-                                        </a>
-                                    ))}
-                                </div>
+                            <div className="flex flex-col gap-3 mt-4 border-t border-slate-800/50 pt-4">
+                                <button
+                                    onClick={() => {
+                                        window.location.hash = '#games';
+                                        setMobileMenuOpen(false);
+                                    }}
+                                    className={`text-lg font-medium text-left flex items-center justify-between transition-colors ${currentView === 'games' ? 'text-cyan-400' : 'text-slate-300 hover:text-white'}`}
+                                >
+                                    {isMagical ? 'Arcade' : 'Games Studio'}
+                                    <Gamepad2 size={20} className="text-slate-500" />
+                                </button>
                             </div>
 
                             {tone !== 'magical' && (
