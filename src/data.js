@@ -1310,12 +1310,56 @@ const EXPERIENCE_UK = [
     }
 ];
 
+const EXPERIENCE_CA = [
+    {
+        role: "Freelance Software Engineer",
+        company: "Freelance",
+        period: "2023 - Present",
+        description: "Desenvolupament de sistemes full-stack, aplicacions web especialitzades i productes interactius.",
+        achievements: [
+            "Vaig desenvolupar sistemes privats de gestió i recompte de dades (no inclosos al portafoli) utilitzant Ant Design JS i servidors HTTP en Python.",
+            "Vaig llançar un Simulador Logístic B2B utilitzant Godot 4 i geodades reals.",
+            "Desenvolupament de la plataforma LingoQuest (EdTech) amb avaluació adaptativa basada en IA.",
+            "Llançament reeixit de Sea Hunter: del prototip 3D a la producció física del joc de cartes.",
+            "Arquitectura d'un sistema escalable d'operacions comercials per al sector serveis (Megumi Massage)."
+        ],
+        technologies: ["React", "Ant Design", "Python", "Godot 4"],
+        tags: ["backend", "frontend", "gamedev"]
+    },
+    {
+        role: "Lead Simulation Software Engineer",
+        company: "EdTech & Industrial Sim Studio",
+        period: "2020 - 2022",
+        description: "Arquitectura d'entorns d'entrenament realistes i eines de generació procedimental.",
+        achievements: [
+            "Vaig liderar el desenvolupament d'un simulador de transport (60fps) amb comportament complex d'agents NPC per a certificació industrial.",
+            "Vaig crear generadors procedimentals d'entorns en C#, reduint el cicle de desenvolupament en un 70%.",
+            "Vaig assegurar la integració de telemetria de maquinari en motors 3D per a simulació en temps real."
+        ],
+        technologies: ["C#", "Unity HDRP", "Simulation Design", "Team Lead"],
+        tags: ["gamedev", "embedded"]
+    },
+    {
+        role: "Especialista d'Integració de Sistemes i Maquinari",
+        company: "Micro-Systems Firm",
+        period: "2013 - 2018",
+        description: "Integració entre maquinari i sistemes de programari d'alt rendiment.",
+        achievements: [
+            "5 anys d'experiència desenvolupant microprogramari C/C++ de baix nivell per a equips de sensors mèdics i de laboratori.",
+            "Desenvolupament d'scripts de Python d'alt rendiment per a l'anàlisi de dades de sensors en temps real.",
+            "Integració de matrius de sensors STM32/ESP32 en bessons digitals personalitzats per a l'automatització de processos."
+        ],
+        technologies: ["C++", "STM32", "Python", "Systems Engineering"],
+        tags: ["backend", "embedded"]
+    }
+];
+
 export const PROFILES_DATA = {
     en: BASE_PROFILE,
     es: { ...BASE_PROFILE, experience: EXPERIENCE_ES, ui: TRANSLATIONS.es, projects: PROJECTS_ES, games: getGamesForLanguage('es') },
     ru: { ...BASE_PROFILE, experience: EXPERIENCE_RU, ui: TRANSLATIONS.ru, projects: PROJECTS_RU, games: getGamesForLanguage('ru') },
     uk: { ...BASE_PROFILE, experience: EXPERIENCE_UK, ui: TRANSLATIONS.uk, projects: PROJECTS_UK, games: getGamesForLanguage('uk') },
-    ca: { ...BASE_PROFILE, experience: EXPERIENCE_ES, ui: TRANSLATIONS.ca, projects: PROJECTS_CA, games: getGamesForLanguage('ca') }
+    ca: { ...BASE_PROFILE, experience: EXPERIENCE_CA, ui: TRANSLATIONS.ca, projects: PROJECTS_CA, games: getGamesForLanguage('ca') }
 };
 
 
