@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from './LanguageContext';
 import ToneToggle from './ToneToggle';
-import { Menu, X, ShoppingBag, LogOut, ShieldCheck, CalendarDays, Gamepad2, Play, ChevronDown } from 'lucide-react';
+import { Menu, X, ShoppingBag, LogOut, ShieldCheck, CalendarDays, Gamepad2, Play, ChevronDown, ExternalLink } from 'lucide-react';
 
 const Header = ({ currentView, onViewChange, onSelectGame, user }) => {
     const { language, setLanguage, activeProfile, tone, specialty, setSpecialty } = useLanguage();
@@ -65,14 +65,17 @@ const Header = ({ currentView, onViewChange, onSelectGame, user }) => {
 
                         {/* Direct Game Links - plural as requested */}
                         {topGames.map(game => (
-                            <button
+                            <a
                                 key={game.id}
-                                onClick={() => onSelectGame(game.id)}
-                                className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/30 transition-all text-[11px] font-bold uppercase tracking-wider"
+                                href={game.path}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/30 transition-all text-[11px] font-bold uppercase tracking-wider group/btn"
                             >
                                 <Play size={10} fill="currentColor" />
                                 {game.title.split(':')[0]}
-                            </button>
+                                <ExternalLink size={10} className="opacity-0 group-hover/btn:opacity-100 transition-opacity ml-1" />
+                            </a>
                         ))}
 
                         {/* Arcade / Games Dropdown */}
@@ -100,12 +103,11 @@ const Header = ({ currentView, onViewChange, onSelectGame, user }) => {
                                             Playable Prototypes
                                         </div>
                                         {activeProfile.games?.filter(g => g.status === 'playable' || g.status === 'live').map((game) => (
-                                            <button
+                                            <a
                                                 key={game.id}
-                                                onClick={() => {
-                                                    onSelectGame(game.id);
-                                                    setGamesMenuOpen(false);
-                                                }}
+                                                href={game.path}
+                                                target="_blank"
+                                                rel="noreferrer"
                                                 className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 group/game transition-all text-left"
                                             >
                                                 <div className="w-10 h-10 rounded-lg bg-slate-800 overflow-hidden flex-shrink-0 border border-white/5">
@@ -125,7 +127,7 @@ const Header = ({ currentView, onViewChange, onSelectGame, user }) => {
                                                     </div>
                                                 </div>
                                                 <Play size={12} className="text-slate-600 group-hover/game:text-cyan-400 group-hover/game:translate-x-1 transition-all" />
-                                            </button>
+                                            </a>
                                         ))}
                                         <a
                                             href="#projects"
@@ -189,7 +191,7 @@ const Header = ({ currentView, onViewChange, onSelectGame, user }) => {
 
                         {/* Language Switcher */}
                         <div className="flex items-center gap-2 bg-slate-800/50 p-1 rounded-full border border-slate-700">
-                            {['en', 'es', 'ru', 'uk'].map((lang) => (
+                            {['en', 'es', 'ca', 'ru', 'uk'].map((lang) => (
                                 <button
                                     key={lang}
                                     onClick={() => toggleLanguage(lang)}
@@ -241,7 +243,7 @@ const Header = ({ currentView, onViewChange, onSelectGame, user }) => {
                             <hr className="border-slate-800 my-2" />
 
                             <div className="flex flex-wrap gap-2">
-                                {['en', 'es', 'ru', 'uk'].map((lang) => (
+                                {['en', 'es', 'ca', 'ru', 'uk'].map((lang) => (
                                     <button
                                         key={lang}
                                         onClick={() => toggleLanguage(lang)}
@@ -259,18 +261,17 @@ const Header = ({ currentView, onViewChange, onSelectGame, user }) => {
                                 <span className="text-[10px] font-bold uppercase text-slate-500 px-1">Playable Prototypes</span>
                                 <div className="grid grid-cols-1 gap-2">
                                     {activeProfile.games?.filter(g => g.status === 'playable' || g.status === 'live').map((game) => (
-                                        <button
+                                        <a
                                             key={game.id}
-                                            onClick={() => {
-                                                onSelectGame(game.id);
-                                                setMobileMenuOpen(false);
-                                            }}
+                                            href={game.path}
+                                            target="_blank"
+                                            rel="noreferrer"
                                             className="flex items-center gap-3 p-3 rounded-xl bg-slate-800/50 border border-slate-700/50"
                                         >
                                             <img src={game.thumbnail} alt="" className="w-10 h-10 rounded-lg object-cover" />
                                             <span className="text-sm font-bold text-slate-200">{game.title}</span>
-                                            <Play size={12} className="ml-auto text-cyan-400" />
-                                        </button>
+                                            <ExternalLink size={12} className="ml-auto text-cyan-400" />
+                                        </a>
                                     ))}
                                 </div>
                             </div>

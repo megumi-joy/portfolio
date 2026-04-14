@@ -13,6 +13,7 @@ const COMMON_SKILLS = [
 const COMMON_LANGUAGES = [
     { name: "English", level: "C1" },
     { name: "Spanish", level: "B2" },
+    { name: "Catalan", level: "B2" },
     { name: "Russian", level: "Native" },
     { name: "Ukrainian", level: "Native" },
 ];
@@ -20,8 +21,8 @@ const COMMON_LANGUAGES = [
 const SOCIALS = {
     github: "https://github.com/megumi-joy",
     linkedin: "https://www.linkedin.com/in/megumi-joy/",
-    email: "megumi.joy@gmail.com",
-    phone: "+34 600 000 000"
+    email: import.meta.env.VITE_CONTACT_EMAIL || "megumi.joy@gmail.com",
+    phone: import.meta.env.VITE_CONTACT_PHONE || "+34 600 000 000"
 };
 
 const TRANSLATIONS = {
@@ -54,7 +55,13 @@ const TRANSLATIONS = {
             frontend: "Frontend",
             python: "Python"
         },
-        summary: "Professional Summary"
+        summary: "Professional Summary",
+        techSkills: "Technical Skills",
+        technologies: "Technologies",
+        languagesLabel: "Languages",
+        education: "Education",
+        experience: "Experience",
+        projects: "Projects"
     },
     es: {
         resume: "Currículum",
@@ -85,7 +92,13 @@ const TRANSLATIONS = {
             frontend: "Frontend",
             python: "Python"
         },
-        summary: "Resumen Profesional"
+        summary: "Resumen Profesional",
+        techSkills: "Arsenal Técnico",
+        technologies: "Tecnologías",
+        languagesLabel: "Idiomas",
+        education: "Educación",
+        experience: "Experiencia",
+        projects: "Proyectos"
     },
     ru: {
         resume: "Резюме",
@@ -117,7 +130,13 @@ const TRANSLATIONS = {
             backend: "Бэкенд",
             embedded: "Embedded"
         },
-        summary: "Профессиональное резюме"
+        summary: "Профессиональное резюме",
+        techSkills: "Технические навыки",
+        technologies: "Технологии",
+        languagesLabel: "Языки",
+        education: "Образование",
+        experience: "Опыт работы",
+        projects: "Проекты"
     },
     uk: {
         resume: "Резюме",
@@ -148,7 +167,50 @@ const TRANSLATIONS = {
             frontend: "Фронтенд",
             python: "Python"
         },
-        summary: "Професійне резюме"
+        summary: "Професійне резюме",
+        techSkills: "Технічні навички",
+        technologies: "Технології",
+        languagesLabel: "Мови",
+        education: "Освіта",
+        experience: "Досвід роботи",
+        projects: "Проекти"
+    },
+    ca: {
+        resume: "Currículum",
+        download: "Descarregar PDF",
+        preview: "Vista Prèvia",
+        source: "Codi LaTeX",
+        openNew: "Obrir en una nova pestanya",
+        builtWith: "Desenvolupat amb React-PDF i LaTeX",
+        stats: { roles: "Rols", projects: "Projectes" },
+        export: "Exportar",
+        exportDesc: "PDF compatible amb ATS generat al moment.",
+        contact: "Contacta'm",
+        viewProject: "Veure Projecte",
+        featured: "Destacat",
+        skillsTitle: "Arsenal Tècnic",
+        plansTitle: "Full de Ruta i Foc Actual",
+        contactTitle: "Construïm alguna cosa increïble",
+        contactText: "Estic obert a rols remots. Contracte o jornada completa.",
+        contactButton: "Parlem",
+        welcome: "Benvingut al meu portafoli",
+        hello: "Hola, sóc",
+        viewDetails: "Veure Detalls",
+        openInNewTab: "Obrir en una nova pestanya",
+        prototypesTitle: "Prototypes de Godot Engine",
+        profiles: {
+            general: "General",
+            gamedev: "Jocs",
+            frontend: "Frontend",
+            python: "Python"
+        },
+        summary: "Resum Professional",
+        techSkills: "Arsenal Tècnic",
+        technologies: "Tecnologies",
+        languagesLabel: "Idiomes",
+        education: "Educació",
+        experience: "Experiència",
+        projects: "Projectes"
     }
 };
 
@@ -384,6 +446,65 @@ const PROJECTS_PYTHON_UK = [
     }
 ];
 
+const PROJECTS_CA = [
+    {
+        title: "Language Quest (LingoQuest)",
+        description: "Plataforma d'aprenentatge premium. Implementa avaluació lingüística gRPC i fluxos de pagament 3DS2. Construïda amb Next.js, Django i Godot 4.",
+        featured: true,
+        tags: ["EdTech Social", "Next.js", "Django", "gRPC"],
+        link: "https://web-megumi.vercel.app/"
+    },
+    {
+        title: "MVP de Simulador de Logística B2B",
+        description: "Simulació logística d'alta fidelitat basada en geodades reals d'OSM. Dissenyada per a l'optimització de rutes B2B i l'entrenament d'IA.",
+        featured: true,
+        tags: ["Logística B2B", "Simulació IA", "OSM"],
+        link: "https://megumi-joy.github.io/portfolio/"
+    },
+    {
+        title: "Sea Hunter: Prova de MVP Físic",
+        description: "Joc de cartes que demostra el cicle d'implementació física total. Del prototip digital a la producció en cartró.",
+        featured: false,
+        tags: ["Disseny Físic", "MVP Finalitzat", "Joc de Cartes"],
+        link: "https://github.com/megumi-joy/sea-hunter"
+    }
+];
+
+const PROJECTS_FRONTEND_CA = [
+    {
+        title: "Panell de Telemetria Dinàmic",
+        description: "Un panell de React d'alt rendiment que visualitza telemetria en viu de sensors de maquinari amb latència inferior al segon.",
+        featured: true,
+        tags: ["React", "D3.js", "WebSockets"],
+        link: "https://megumi-joy.github.io/portfolio/"
+    },
+    {
+        title: "Motor de UI Glassmorphic",
+        description: "Un framework de CSS especialitzat per a crear interfícies translúcides premium d'alt rendiment per a eines de simulació.",
+        featured: true,
+        tags: ["React", "CSS", "Sistemes de Disseny"],
+        link: null
+    }
+];
+
+const PROJECTS_PYTHON_CA = [
+    {
+        title: "LingoQuest: Ecosistema d'Aprenentatge IA",
+        description: "Arquitectura de nivell Sènior basada en microserveis amb Django i FastAPI. Implementa orquestració de tasques asíncrones amb RabbitMQ i comunicació gRPC d'alt rendiment.",
+        featured: true,
+        tags: ["Python 3.12", "FastAPI", "gRPC", "K8s"],
+        link: "https://github.com/megumi-joy/LanguageLearningAdventure"
+    },
+    {
+        title: "EduStableCoin: Arquitectura Fintech Conceptual",
+        description: "Disseny d'alt nivell per a un sistema de moneda educativa descentralitzada. Explora fluxos financers segurs i patrons d'integració de contractes intel·ligents per a un finançament educatiu transparent.",
+        featured: true,
+        tags: ["Python", "Fintech", "Blockchain", "Conceptual"],
+        link: "https://github.com/megumi-joy/EduStableCoin"
+    }
+];
+
+
 export const GAMES_DATA = {
     "languageQuest": {
         thumbnail: "https://web-megumi.vercel.app/og-image.png",
@@ -426,6 +547,15 @@ export const GAMES_DATA = {
                     overview: "Опановуйте мови та STEM-предмети у захоплюючому RPG-світі.",
                     mechanics: ["Лінгвістична оцінка", "RPG прогресія", "ІІ-менторство"],
                     features: ["Next.js/Django", "Квестовий рушій Godot", "3DS2 платежі"]
+                }
+            },
+            ca: {
+                title: "Language Quest",
+                description: "Una plataforma d'aprenentatge premium que converteix el domini acadèmic en una missió RPG èpica.",
+                gdd: {
+                    overview: "Domina idiomes i matèries STEM en un món RPG immersiu.",
+                    mechanics: ["Avaluació Lingüística", "Progressió RPG", "Mentoria IA"],
+                    features: ["Next.js/Django", "Motor de missions Godot", "Pagament 3DS2"]
                 }
             }
         }
@@ -472,6 +602,15 @@ export const GAMES_DATA = {
                     mechanics: ["Фізична взаємодія", "Трансформація кулі", "Платформінг"],
                     features: ["Різні види куль", "Рівні-головоломки", "Магічна атмосфера"]
                 }
+            },
+            ca: {
+                title: "Magic Balls Adventure",
+                description: "Una aventura màgica amb trencaclosques basats en la física.",
+                gdd: {
+                    overview: "Resol trencaclosques físics utilitzant boles màgiques amb diferents propietats.",
+                    mechanics: ["Interacció física", "Transformació de bola", "Plataformes"],
+                    features: ["Diferents tipus de boles", "Nivells de trencaclosques", "Atmosfera màgica"]
+                }
             }
         }
     },
@@ -511,11 +650,20 @@ export const GAMES_DATA = {
             },
             uk: {
                 title: "B2B Логістичний ІІ-симулятор MVP",
-                description: "Високоточна симуляція логістики на базі реальних геоданих OSM. Призначена для B2B оптимізації маршрутів та навчання агентного ІІ.",
+                description: "Високоточна симуляція логістики на базі реальних геоданих OSM. Призначена для B2B оптимізації маршрутов та навчання агентного ІІ.",
                 gdd: {
                     overview: "Симуляція складних логістичних ланцюжків у реальній міській забудові (OSM) для бізнесу.",
                     mechanics: ["Реальні геодані (OSM)", "B2B логістичні потоки", "Навігація агентного ІІ"],
                     features: ["Міська симуляція", "ІІ-трафік", "Масштабовані райони"]
+                }
+            },
+            ca: {
+                title: "B2B Logística i Simulador d'IA MVP",
+                description: "Simulació logística d'alta fidelitat basada en geodades reals (OSM). Dissenyada per a l'optimització de rutes B2B i l'entrenament d'agents d'IA.",
+                gdd: {
+                    overview: "Simula logística de lliurament complexa en carrers reals (OSM) per a l'optimització del negoci.",
+                    mechanics: ["Geodades Reals (OSM)", "Flux Logístic B2B", "Navegació d'Agents IA"],
+                    features: ["Simulació Urbana", "IA de Trànsit", "Districtes de Ciutat Escalables"]
                 }
             }
         }
@@ -561,6 +709,15 @@ export const GAMES_DATA = {
                     overview: "Інструмент модуляції голосу в реальному часі, що працює повністю в браузері на Godot.",
                     mechanics: ["Обробка аудіобуферу", "Зміна висоти тону", "Корекція формант"],
                     features: ["Вхід з мікрофона", "Ефекти в реальному часі", "Візуалізатор"]
+                }
+            },
+            ca: {
+                title: "VoicyGodot",
+                description: "Canviador de veu en temps real i eina de processament d'àudio construïda amb Godot.",
+                gdd: {
+                    overview: "Eina de modulació de veu en temps real que s'executa completament al navegador utilitzant Godot.",
+                    mechanics: ["Processament de búfer d'àudio", "Canvi de to", "Correcció de formants"],
+                    features: ["Entrada de micròfon", "Efectes en temps real", "Visualitzador"]
                 }
             }
         }
@@ -623,6 +780,19 @@ export const GAMES_DATA = {
                     world: "Архіпелаг — мінливе морське середовище, де територія є єдиною валютою.",
                     characters: "Морські мисливці — різні фракції з унікальними тактичними філософіями."
                 }
+            },
+            ca: {
+                title: "Sea Hunter: Finalització de MVP Físic",
+                pitch: "El primer joc de cartes dissenyat per a ser 'finalitzat': un artefacte físic nascut de la lògica digital.",
+                description: "Joc de cartes estratègic. Prova del cicle 'Finalitzador': des de prototips 3D fins a producció física i documentació.",
+                gdd: {
+                    overview: "Joc d'estratègia que demostra el cicle complet d'implementació física.",
+                    mechanics: ["Batalla per torns", "Fase de preparació", "Poders d'Illes"],
+                    features: ["Llançat en cartró", "Verificació per IA", "Suport MCP"],
+                    story: "En un món de marees creixents, els caçadors competeixen per les últimes illes restants.",
+                    world: "L'Arxipèlag: un entorn marítim canviant on el territori és l'única moneda.",
+                    characters: "Els Caçadors del Mar, diverses faccions marítimes amb filosofies tàctiques úniques."
+                }
             }
         }
     },
@@ -667,6 +837,15 @@ export const GAMES_DATA = {
                     overview: "Операційний MVP для автоматизації локального сервісного бізнесу.",
                     mechanics: ["Процес бронювання", "Панель адміністратора", "Мультімовний контент"],
                     features: ["React/Vite", "Supabase бекенд", "Адаптивний UI"]
+                }
+            },
+            ca: {
+                title: "MVP d'Operacions de Negoci: Megumi Massage",
+                description: "Un motor d'operacions comercials per a un centre de benestar. Inclou suport multilingüe, integració de sistema de reserves i backend Supabase.",
+                gdd: {
+                    overview: "MVP operatiu per a l'automatització de negocis de serveis locals.",
+                    mechanics: ["Flux de Reserves", "Panell d'Administració", "Contingut Multilingüe"],
+                    features: ["React/Vite", "Supabase Auth", "UI Responsiva"]
                 }
             }
         }
@@ -794,13 +973,22 @@ const getSkillsForSpecialty = (specialty) => {
 };
 
 const getProjectsForSpecialty = (specialty, lang) => {
-    if (specialty === 'gamedev') return lang === 'en' ? PROJECTS_EN : (lang === 'es' ? PROJECTS_ES : (lang === 'ru' ? PROJECTS_RU : PROJECTS_UK));
-    if (specialty === 'frontend') return lang === 'en' ? PROJECTS_FRONTEND_EN : (lang === 'es' ? PROJECTS_FRONTEND_ES : (lang === 'ru' ? PROJECTS_FRONTEND_RU : PROJECTS_FRONTEND_UK));
-    if (specialty === 'backend') return lang === 'en' ? PROJECTS_PYTHON_EN : (lang === 'es' ? PROJECTS_PYTHON_ES : (lang === 'ru' ? PROJECTS_PYTHON_RU : PROJECTS_PYTHON_UK));
-    if (specialty === 'embedded') return lang === 'en' ? PROJECTS_EN : (lang === 'es' ? PROJECTS_ES : (lang === 'ru' ? PROJECTS_RU : PROJECTS_UK));
+    const projectsMap = {
+        en: { gamedev: PROJECTS_EN, frontend: PROJECTS_FRONTEND_EN, backend: PROJECTS_PYTHON_EN },
+        es: { gamedev: PROJECTS_ES, frontend: PROJECTS_FRONTEND_ES, backend: PROJECTS_PYTHON_ES },
+        ru: { gamedev: PROJECTS_RU, frontend: PROJECTS_FRONTEND_RU, backend: PROJECTS_PYTHON_RU },
+        uk: { gamedev: PROJECTS_UK, frontend: PROJECTS_FRONTEND_UK, backend: PROJECTS_PYTHON_UK },
+        ca: { gamedev: PROJECTS_CA, frontend: PROJECTS_FRONTEND_CA, backend: PROJECTS_PYTHON_CA }
+    };
 
-    // general: combine some or use base
-    return lang === 'en' ? PROJECTS_EN : (lang === 'es' ? PROJECTS_ES : (lang === 'ru' ? PROJECTS_RU : PROJECTS_UK));
+    const langProjects = projectsMap[lang] || projectsMap.en;
+
+    if (specialty === 'gamedev') return langProjects.gamedev;
+    if (specialty === 'frontend') return langProjects.frontend;
+    if (specialty === 'backend') return langProjects.backend;
+    if (specialty === 'embedded') return langProjects.gamedev;
+
+    return langProjects.gamedev; // general
 };
 
 export const generateProfile = (specialty, lang) => {
@@ -820,7 +1008,8 @@ export const SPECIALIZED_TITLES = {
         en: "Senior Software Engineer",
         es: "Ingeniero de Software Senior",
         ru: "Senior Software Engineer",
-        uk: "Senior Software Engineer"
+        uk: "Senior Software Engineer",
+        ca: "Enginyer de Programari Sènior"
     },
     gamedev: {
         en: "GameDev / Simulation Engineer",
@@ -1112,7 +1301,8 @@ export const PROFILES_DATA = {
     en: BASE_PROFILE,
     es: { ...BASE_PROFILE, experience: EXPERIENCE_ES, ui: TRANSLATIONS.es, projects: PROJECTS_ES, games: getGamesForLanguage('es') },
     ru: { ...BASE_PROFILE, experience: EXPERIENCE_RU, ui: TRANSLATIONS.ru, projects: PROJECTS_RU, games: getGamesForLanguage('ru') },
-    uk: { ...BASE_PROFILE, experience: EXPERIENCE_UK, ui: TRANSLATIONS.uk, projects: PROJECTS_UK, games: getGamesForLanguage('uk') }
+    uk: { ...BASE_PROFILE, experience: EXPERIENCE_UK, ui: TRANSLATIONS.uk, projects: PROJECTS_UK, games: getGamesForLanguage('uk') },
+    ca: { ...BASE_PROFILE, experience: EXPERIENCE_ES, ui: TRANSLATIONS.ca, projects: PROJECTS_CA, games: getGamesForLanguage('ca') }
 };
 
 
@@ -1265,6 +1455,42 @@ const MAGICAL_PROFILES = {
         projects: PROJECTS_UK,
         games: getGamesForLanguage('uk'),
         ui: TRANSLATIONS.uk,
+    },
+    ca: {
+        ...TRANSLATIONS.ca,
+        name: "Anton (Edició Megumin)",
+        title: "Arximag de Linux i Explosions",
+        about: "Sóc l'Anton, el portador del Bàcul de Lex i mestre de les arts fosques de l'Enginyeria de Sistemes! Des de l'alba del meu descens a l'abisme digital, només he buscat una cosa: el codi definitiu que deixarà els servidors en CENDRES! M'especialitzo en Simulacions Explosives i Conjurs d'Alt Rendiment en C++! T'atreveixes a presenciar la meva fita més gran? EXPLO-SIÓ!!",
+        socials: SOCIALS,
+        skills: COMMON_SKILLS,
+        languages: COMMON_LANGUAGES,
+        stats: { str: 18, dex: 16, con: 14, int: 20, wis: 12, cha: 15 },
+        inventory: [
+            { name: "Bàcul de Destrucció", type: "Teclat", rarity: "Legendary", desc: "Forjat en els focs de mil interruptores mecànics. Augmenta les PPM en un 100% quan s'alimenta amb cafè." },
+            { name: "Túnica de l'Usuari Root", type: "Armadura", rarity: "Épico", desc: "Atorga immunitat als conjurs de 'Permís Denegat' i errors de segmentació menors." },
+            { name: "Bossa de Manà Infinit", type: "SSD", rarity: "Raro", desc: "Un recipient de 2TB que conté quantitats perilloses de prototips sense acabar." }
+        ],
+        quests: [
+            { name: "Destrossar el Monòlit", desc: "Vaig dividir un sistema llegat massiu en micro-explosions (serveis) utilitzant el poder de Docker.", reward: "Insignia de Mestre d'Arquitectura" },
+            { name: "El Dimoni de la Latència", desc: "Vaig caçar un retard de 5ms en el protocol de xarxa i el vaig desterrar al buit.", reward: "Anell de Velocitat" },
+            { name: "Invocar la Horda", desc: "Vaig programar mil comportaments agèntics per marxar en perfecta sincronía dins d'una simulació de Godot.", reward: "Visió del Comandant" }
+        ],
+        projects: PROJECTS_CA,
+        games: getGamesForLanguage('ca'),
+        ui: TRANSLATIONS.ca,
+        experience: [
+            {
+                role: "Comandant Suprem del Codi",
+                company: "El Gremi de l'Explosió",
+                period: "Eternitat",
+                achievements: [
+                    "Vaig invocar 'Docker Compose' per cridar un exèrcit de multiserveis en pocs segons!",
+                    "Vaig preparar una poció de C++ que va accelerar la lògica de cerca de camins en un 400%!",
+                    "Vaig sobreviure a un impacte directe d'una caiguda de producció amb només 1 HP restant (i ho vaig arreglar)."
+                ],
+                technologies: ["C++ Explosiu", "Màgia Docker", "Gestió de Gremis"]
+            }
+        ]
     }
 };
 
@@ -1273,31 +1499,36 @@ export const PROFILES = {
         en: generateProfile('general', 'en'),
         es: generateProfile('general', 'es'),
         ru: generateProfile('general', 'ru'),
-        uk: generateProfile('general', 'uk')
+        uk: generateProfile('general', 'uk'),
+        ca: generateProfile('general', 'ca')
     },
     gamedev: {
         en: generateProfile('gamedev', 'en'),
         es: generateProfile('gamedev', 'es'),
         ru: generateProfile('gamedev', 'ru'),
-        uk: generateProfile('gamedev', 'uk')
+        uk: generateProfile('gamedev', 'uk'),
+        ca: generateProfile('gamedev', 'ca')
     },
     frontend: {
         en: generateProfile('frontend', 'en'),
         es: generateProfile('frontend', 'es'),
         ru: generateProfile('frontend', 'ru'),
-        uk: generateProfile('frontend', 'uk')
+        uk: generateProfile('frontend', 'uk'),
+        ca: generateProfile('frontend', 'ca')
     },
     backend: {
         en: generateProfile('backend', 'en'),
         es: generateProfile('backend', 'es'),
         ru: generateProfile('backend', 'ru'),
-        uk: generateProfile('backend', 'uk')
+        uk: generateProfile('backend', 'uk'),
+        ca: generateProfile('backend', 'ca')
     },
     embedded: {
         en: generateProfile('embedded', 'en'),
         es: generateProfile('embedded', 'es'),
         ru: generateProfile('embedded', 'ru'),
-        uk: generateProfile('embedded', 'uk')
+        uk: generateProfile('embedded', 'uk'),
+        ca: generateProfile('embedded', 'ca')
     },
     magical: MAGICAL_PROFILES,
     serious: { en: BASE_PROFILE } // Fallback for old code

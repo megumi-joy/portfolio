@@ -64,10 +64,15 @@ export const generateLatex = (profile) => {
 \\begin{document}
 
 %----------HEADING----------
+\\begin{center}
+    \\textbf{\\Huge \\scshape ${escapeLatex(profile.name)}} \\\\ \\vspace{1pt}
+    \\small ${escapeLatex(profile.socials.phone)} $|$ \\href{mailto:${profile.socials.email}}{\\underline{${escapeLatex(profile.socials.email)}}} $|$ 
+    \\href{${profile.socials.linkedin}}{\\underline{linkedin.com/in/${profile.socials.linkedin.split('/').filter(Boolean).pop()}}} $|$
+    \\href{${profile.socials.github}}{\\underline{github.com/${profile.socials.github.split('/').filter(Boolean).pop()}}}
 \\end{center}
 
 %-----------PROFESSIONAL SUMMARY-----------
-\\section{Professional Summary}
+\\section{${escapeLatex(profile.ui.summary)}}
 \\small{
   ${escapeLatex(profile.about)}
 }
@@ -75,32 +80,32 @@ export const generateLatex = (profile) => {
 
 
 %-----------TECHNICAL SKILLS-----------
-\\section{Technical Skills}
+\\section{${escapeLatex(profile.ui.techSkills)}}
  \\begin{itemize}[leftmargin=0.15in, label={}]
     \\small{\\item{
-     \\textbf{Technologies}{: ${skillsItems}} \\\\
-     \\textbf{Languages}{: ${profile.languages.map(l => `${escapeLatex(l.name)} (${escapeLatex(l.level)})`).join(', ')}}
+     \\textbf{${escapeLatex(profile.ui.technologies)}}{: ${skillsItems}} \\\\
+     \\textbf{${escapeLatex(profile.ui.languagesLabel)}}{: ${profile.languages.map(l => `${escapeLatex(l.name)} (${escapeLatex(l.level)})`).join(', ')}}
     }}
  \\end{itemize}
 
 
 %-----------EDUCATION-----------
 %-----------EXPERIENCE-----------
-\\section{Experience}
+\\section{${escapeLatex(profile.ui.experience)}}
   \\resumeSubHeadingListStart
 ${experienceItems}
   \\resumeSubHeadingListEnd
 
 
 %-----------PROJECTS-----------
-\\section{Projects}
+\\section{${escapeLatex(profile.ui.projects)}}
     \\resumeSubHeadingListStart
 ${projectItems}
     \\resumeSubHeadingListEnd
 
 
 %-----------EDUCATION-----------
-\\section{Education}
+\\section{${escapeLatex(profile.ui.education)}}
   \\resumeSubHeadingListStart
     ${profile.education.map(edu => `\\resumeSubheading
       {${escapeLatex(edu.institution)}}{${escapeLatex(edu.location)}}

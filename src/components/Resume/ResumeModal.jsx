@@ -104,7 +104,7 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                 <div className="flex items-center justify-between md:justify-start gap-4">
                                     {/* Language Switcher */}
                                     <div className="bg-slate-800 p-1 rounded-lg flex gap-1 shrink-0">
-                                        {['en', 'es', 'ru', 'uk'].map((lang) => (
+                                        {['en', 'es', 'ca', 'ru', 'uk'].map((lang) => (
                                             <button
                                                 key={lang}
                                                 onClick={() => setLanguage(lang)}

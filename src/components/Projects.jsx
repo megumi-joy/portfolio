@@ -111,19 +111,15 @@ const Projects = () => {
                                     {/* Interaction Overlay */}
                                     <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity z-30 flex flex-col items-center justify-center gap-4">
                                         <div className="flex gap-3 transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                                            <button
-                                                onClick={() => {
-                                                    if (game.path?.startsWith('http')) {
-                                                        window.open(game.path, '_blank');
-                                                    } else {
-                                                        setActiveGame(game);
-                                                    }
-                                                }}
+                                            <a
+                                                href={game.path}
+                                                target="_blank"
+                                                rel="noreferrer"
                                                 className="flex items-center gap-2 px-6 py-3 rounded-full bg-purple-600 hover:bg-purple-500 text-white font-bold transition-all shadow-lg shadow-purple-900/40"
                                             >
                                                 <Play size={18} fill="currentColor" />
                                                 PLAY NOW
-                                            </button>
+                                            </a>
                                             <button
                                                 onClick={() => setSelectedDetailGame(game)}
                                                 className="flex items-center gap-2 px-6 py-3 rounded-full bg-slate-700 hover:bg-slate-600 text-white font-bold transition-all border border-slate-600"

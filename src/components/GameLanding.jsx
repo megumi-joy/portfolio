@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Maximize2, RefreshCw } from 'lucide-react';
+import { ArrowLeft, Maximize2, RefreshCw, ExternalLink } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 import { GAMES_DATA } from '../data';
 
@@ -59,6 +59,16 @@ const GameLanding = ({ gameId, onBack }) => {
                     >
                         <Maximize2 size={20} />
                     </button>
+                    <a
+                        href={game.path}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="p-2 rounded-lg bg-black/50 text-white/70 hover:text-white backdrop-blur-md transition-all border border-white/10 flex items-center gap-2 text-xs font-bold"
+                        title="Open in New Tab"
+                    >
+                        <ExternalLink size={18} />
+                        <span className="hidden sm:inline">FULL PAGE</span>
+                    </a>
                 </div>
             </div>
 
