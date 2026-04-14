@@ -1039,10 +1039,10 @@ export const SPECIALIZED_TITLES = {
 
 export const SPECIALIZED_ABOUT = {
     general: {
-        en: "Senior Software Engineer with 10+ years of experience in developing simulation systems, interactive applications, and full-stack products. Experienced in creating MVPs, prototypes, and hardware-software integration using React, Python, Godot, WebGL, and Supabase.",
-        es: "Ingeniero de Software Senior con más de 10 años de experiencia en el desarrollo de sistemas de simulación, aplicaciones interactivas y productos full-stack. Experiencia en la creación de MVPs, prototipos e integración de hardware y software utilizando React, Python, Godot, WebGL y Supabase.",
-        ru: "Senior Software Engineer с 10+ лет опыта в разработке симуляционных систем, интерактивных приложений и full-stack продуктов. Создаёт MVP и прототипы, используя React, Python, Godot, WebGL, Supabase и интеграцию аппаратного и программного обеспечения.",
-        uk: "Senior Software Engineer з 10+ роками досвіду у розробці симуляційних систем, інтерактивних додатків та full-stack продуктів. Створює MVP та прототипи, використовуючи React, Python, Godot, WebGL, Supabase та інтеграцію апаратного і програмного забезпечення."
+        en: "Senior Software Engineer with 10+ years of experience in developing simulation systems, interactive applications, and full-stack products. Experienced in creating custom data systems and hardware-software integration using React, Python, Godot, WebGL, and Supabase.",
+        es: "Ingeniero de Software Senior con más de 10 años de experiencia en el desarrollo de sistemas de simulación, aplicaciones interactivas y productos full-stack. Experiencia en la creación de sistemas de datos personalizados e integración de hardware y software utilizando React, Python, Godot, WebGL y Supabase.",
+        ru: "Senior Software Engineer с 10+ лет опыта в разработке симуляционных систем, интерактивных приложений и full-stack продуктов. Создаёт кастомные системы данных, используя React, Python, Godot, WebGL, Supabase и интеграцию аппаратного и программного обеспечения.",
+        uk: "Senior Software Engineer з 10+ роками досвіду у розробці симуляційних систем, інтерактивних додатків та full-stack продуктів. Створює кастомні системи даних, використовуючи React, Python, Godot, WebGL, Supabase та інтеграцію апаратного і програмного забезпечення."
     },
     gamedev: {
         en: "GameDev and Simulation Engineer with experience in developing simulation systems and games using Godot 4, Unity HDRP, and Blender.",
@@ -1092,18 +1092,19 @@ const BASE_PROFILE = {
     ],
     experience: [
         {
-            role: "MVP Product Ecosystem Architect (Senior Software Engineer)",
-            company: "Autonomous Product Development",
+            role: "Freelance Software Engineer",
+            company: "Freelance",
             period: "2023 - Present",
-            description: "Development and launch of a product portfolio: from software to physical devices.",
+            description: "Development of full-stack systems, specialized web applications, and interactive products.",
             achievements: [
-                "Launched a B2B Logistics Simulator MVP using Godot 4 and real-world geodata.",
+                "Developed private data management and counting systems (not featured in public portfolio) using Ant Design JS and custom Python HTTP servers.",
+                "Launched a B2B Logistics Simulator using Godot 4 and real-world geodata.",
                 "Developed the LingoQuest platform (EdTech) with AI-based adaptive assessment.",
                 "Successfully released Sea Hunter: from 3D prototype to physical card game production.",
                 "Architected a scalable business operations system for the service industry (Megumi Massage)."
             ],
-            technologies: ["Node.js", "Godot 4", "Python", "MVP Strategy"],
-            tags: ["gamedev", "backend", "frontend", "embedded"]
+            technologies: ["React", "Ant Design", "Python", "Godot 4"],
+            tags: ["backend", "frontend", "gamedev"]
         },
         {
             role: "Lead Simulation Software Engineer",
@@ -1170,18 +1171,19 @@ const BASE_PROFILE = {
 
 const EXPERIENCE_RU = [
     {
-        role: "MVP Product Ecosystem Architect (Senior Software Engineer)",
-        company: "Autonomous Product Development",
-        period: "2023 - Present",
-        description: "Разработка и запуск портфеля продуктов: от программного обеспечения до физических устройств.",
+        role: "Freelance Software Engineer",
+        company: "Freelance",
+        period: "2023 - Настоящее время",
+        description: "Разработка full-stack систем, специализированных веб-приложений и интерактивных продуктов.",
         achievements: [
-            "Запустил B2B логистический симулятор MVP, используя Godot 4 и реальные геоданные.",
+            "Разработал приватные системы учета и управления данными (не представлены в портфолио) с использованием Ant Design JS и кастомных Python HTTP-серверов.",
+            "Запустил B2B логистический симулятор, используя Godot 4 и реальные геоданные.",
             "Разработал платформу LingoQuest (EdTech) с адаптивной оценкой на базе ИИ.",
             "Успешно довел до релиза Sea Hunter: от 3D прототипа до производства физической карточной игры.",
             "Спроектировал масштабируемую систему бизнес-операций для сферы услуг (Megumi Massage)."
         ],
-        technologies: ["Node.js", "Godot 4", "Python", "MVP Strategy"],
-        tags: ["gamedev", "backend", "frontend", "embedded"]
+        technologies: ["React", "Ant Design", "Python", "Godot 4"],
+        tags: ["backend", "frontend", "gamedev"]
     },
     {
         role: "Lead Simulation Software Engineer",
@@ -1213,18 +1215,19 @@ const EXPERIENCE_RU = [
 
 const EXPERIENCE_ES = [
     {
-        role: "Arquitecto de Ecosistemas de Productos MVP (Senior Software Engineer)",
-        company: "Autonomous Product Development",
+        role: "Freelance Software Engineer",
+        company: "Freelance",
         period: "2023 - Presente",
-        description: "Desarrollo y lanzamiento de un portafolio de productos: desde software hasta dispositivos físicos.",
+        description: "Desarrollo de sistemas full-stack, aplicaciones web especializadas y productos interactivos.",
         achievements: [
-            "Lanzamiento del MVP de Simulador Logístico B2B usando Godot 4 y geodatos reales.",
+            "Desarrollé sistemas privados de gestión y conteo de datos (no incluidos en el portafolio) usando Ant Design JS y servidores HTTP en Python.",
+            "Lancé un Simulador Logístico B2B usando Godot 4 y geodatos reales.",
             "Desarrollo de la plataforma LingoQuest (EdTech) con evaluación adaptativa basada en IA.",
             "Lanzamiento exitoso de Sea Hunter: del prototipo 3D a la producción física del juego de cartas.",
             "Arquitectura de un sistema escalable de operaciones comerciales para el sector servicios (Megumi Massage)."
         ],
-        technologies: ["Node.js", "Godot 4", "Python", "MVP Strategy"],
-        tags: ["gamedev", "backend", "frontend", "embedded"]
+        technologies: ["React", "Ant Design", "Python", "Godot 4"],
+        tags: ["backend", "frontend", "gamedev"]
     },
     {
         role: "Lead Simulation Software Engineer",
@@ -1256,18 +1259,19 @@ const EXPERIENCE_ES = [
 
 const EXPERIENCE_UK = [
     {
-        role: "Архітектор Продуктових MVP-Екосистем (Senior Software Engineer)",
-        company: "Autonomous Product Development",
+        role: "Freelance Software Engineer",
+        company: "Freelance",
         period: "2023 - Теперішній час",
-        description: "Розробка та запуск портфеля продуктів: від програмного забезпечення до фізичних пристроїв.",
+        description: "Розробка full-stack систем, спеціалізованих веб-додатків та інтерактивних продуктів.",
         achievements: [
-            "Запустив B2B логістичний симулятор MVP, використовуючи Godot 4 та реальні геодані.",
+            "Розробив приватні системи обліку та управління даними (не представлені в портфоліо) з використанням Ant Design JS та кастомних Python HTTP-серверів.",
+            "Запустил B2B логістичний симулятор, використовуючи Godot 4 та реальні геодані.",
             "Розробив платформу LingoQuest (EdTech) з адаптивною оцінкою на базі ШІ.",
             "Успішно довів до релізу Sea Hunter: від 3D-прототипу до виробництва фізичної карткової гри.",
             "Спроектував масштабовану систему бізнес-операцій для сфери послуг (Megumi Massage)."
         ],
-        technologies: ["Node.js", "Godot 4", "Python", "MVP Strategy"],
-        tags: ["gamedev", "backend", "frontend", "embedded"]
+        technologies: ["React", "Ant Design", "Python", "Godot 4"],
+        tags: ["backend", "frontend", "gamedev"]
     },
     {
         role: "Lead Simulation Software Engineer",
