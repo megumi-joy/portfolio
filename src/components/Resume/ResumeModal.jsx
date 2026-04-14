@@ -200,6 +200,8 @@ const ResumeModal = ({ isOpen, onClose }) => {
                                                             {activeProfile.socials?.phone && <span>{activeProfile.socials.phone}</span>}
                                                             <span className="text-slate-300">|</span>
                                                             <a href={activeProfile.socials?.linkedin} target="_blank" rel="noreferrer" className="hover:text-cyan-700 transition-colors">LinkedIn</a>
+                                                            <span className="text-slate-300">|</span>
+                                                            <a href={activeProfile.socials?.github} target="_blank" rel="noreferrer" className="hover:text-cyan-700 transition-colors">GitHub</a>
                                                         </div>
                                                     </div>
 
