@@ -150,7 +150,7 @@ const GameLanding = ({ gameId, onBack }) => {
                     </button>
 
                     <p className="text-center text-xs text-slate-500">
-                        Part of MegumiJoy MVP Ecosystem
+                        Part of MegumiJoy Ecosystem
                     </p>
                 </div>
             </div>

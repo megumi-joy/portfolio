@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail, Cpu, Gamepad2, Globe, Server, Terminal, Layers,
 const COMMON_SKILLS = [
     { name: "Godot & Unity", icon: Gamepad2 },
     { name: "Python (High Perf)", icon: Server },
-    { name: "Product MVP Architect", icon: Layers },
+    { name: "Product Architect", icon: Layers },
     { name: "AI & Logistics Sim", icon: Gamepad2 },
     { name: "C++ & Systems", icon: Cpu },
     { name: "Embedded Mastery", icon: Cuboid },
@@ -223,17 +223,17 @@ const PROJECTS_EN = [
         link: "https://web-megumi.vercel.app/"
     },
     {
-        title: "B2B Logistics & AI Simulator MVP",
+        title: "B2B Logistics & AI Simulator",
         description: "High-fidelity logistics simulation using real-world OSM geodata. Designed for B2B route optimization and AI agent training. Scale: Unlimited city districts.",
         featured: true,
         tags: ["B2B Logistics", "AI Simulation", "OSM"],
         link: "https://megumi-joy.github.io/portfolio/"
     },
     {
-        title: "Sea Hunter: Physical MVP Proof",
-        description: "证明物理执行周期的战略性卡牌游戏 MVP。从数字 3D 到纸板物理实施的‘终结者’循环。",
+        title: "Sea Hunter: Physical Proof",
+        description: "证明物理执行周期的战略性卡牌游戏。从数字 3D 到纸板物理实施的‘终结者’循环。",
         featured: false,
-        tags: ["Physical Design", "Finalized MVP", "Card Game"],
+        tags: ["Physical Design", "Finalized", "Card Game"],
         link: "https://github.com/megumi-joy/sea-hunter"
     }
 ];
@@ -257,7 +257,7 @@ const PROJECTS_FRONTEND_EN = [
 
 const PROJECTS_PYTHON_EN = [
     {
-        title: "LingoQuest: Social EdTech Ecosystem MVP",
+        title: "LingoQuest: Social EdTech Ecosystem",
         description: "A premium discovery-led learning platform built with Next.js and Django. Features gRPC-based linguistic assessment, secure 3DS2 payment simulation, and a Godot 4 quest engine. Designed for social impact and scalable EdTech acceleration.",
         featured: true,
         tags: ["Social EdTech", "Next.js", "Django", "gRPC"],
@@ -281,17 +281,17 @@ const PROJECTS_ES = [
         link: "https://web-megumi.vercel.app/"
     },
     {
-        title: "MVP de Simulador de Logística B2B",
+        title: "de Simulador de Logística B2B",
         description: "Simulación logística de alta fidelidad basada en geodatos reales de OSM. Diseñada para optimización de rutas B2B y entrenamiento de IA.",
         featured: true,
         tags: ["Logística B2B", "Simulación IA", "OSM"],
         link: "https://megumi-joy.github.io/portfolio/"
     },
     {
-        title: "Sea Hunter: Prueba de MVP Físico",
+        title: "Sea Hunter: Prueba de Físico",
         description: "Juego de cartas que demuestra el ciclo de implementación física total. Del prototipo digital a la producción en cartón.",
         featured: false,
-        tags: ["Diseño Físico", "MVP Finalizado", "Juego de Cartas"],
+        tags: ["Diseño Físico", "Finalizado", "Juego de Cartas"],
         link: "https://github.com/megumi-joy/sea-hunter"
     }
 ];
@@ -339,17 +339,17 @@ const PROJECTS_RU = [
         link: "https://web-megumi.vercel.app/"
     },
     {
-        title: "B2B Логистический ИИ-симулятор MVP",
+        title: "B2B Логистический ИИ-симулятор",
         description: "Высокоточная симуляция логистики на базе реальных геоданных OSM. Предназначена для B2B оптимизации маршрутов и обучения ИИ.",
         featured: true,
         tags: ["B2B Логистика", "ИИ Симуляция", "OSM"],
         link: "https://megumi-joy.github.io/portfolio/"
     },
     {
-        title: "Sea Hunter: Физическое воплощение MVP",
+        title: "Sea Hunter: Физическое воплощение",
         description: "Доказательство умения доводить продукт до физической реализации. От 3D-прототипа до финальной печати в картоне.",
         featured: false,
-        tags: ["Physical Design", "Finalized MVP", "Card Game"],
+        tags: ["Physical Design", "Finalized", "Card Game"],
         link: "https://github.com/megumi-joy/sea-hunter"
     }
 ];
@@ -397,17 +397,17 @@ const PROJECTS_UK = [
         link: "https://web-megumi.vercel.app/"
     },
     {
-        title: "B2B Логістичний ІІ-симулятор MVP",
+        title: "B2B Логістичний ІІ-симулятор",
         description: "Високоточна симуляція логістики на базі реальних геоданих OSM. Призначена для B2B оптимізації маршрутів та навчання ІІ.",
         featured: true,
         tags: ["B2B Логістика", "ІІ Симуляція", "OSM"],
         link: "https://megumi-joy.github.io/portfolio/"
     },
     {
-        title: "Sea Hunter: Фізичне втілення MVP",
+        title: "Sea Hunter: Фізичне втілення",
         description: "Доказ вміння доводити продукт до фізичної реалізації. Від 3D-прототипу до фінального друку в картоні.",
         featured: false,
-        tags: ["Physical Design", "Finalized MVP", "Card Game"],
+        tags: ["Physical Design", "Finalized", "Card Game"],
         link: "https://github.com/megumi-joy/sea-hunter"
     }
 ];
@@ -455,17 +455,17 @@ const PROJECTS_CA = [
         link: "https://web-megumi.vercel.app/"
     },
     {
-        title: "MVP de Simulador de Logística B2B",
+        title: "de Simulador de Logística B2B",
         description: "Simulació logística d'alta fidelitat basada en geodades reals d'OSM. Dissenyada per a l'optimització de rutes B2B i l'entrenament d'IA.",
         featured: true,
         tags: ["Logística B2B", "Simulació IA", "OSM"],
         link: "https://megumi-joy.github.io/portfolio/"
     },
     {
-        title: "Sea Hunter: Prova de MVP Físic",
+        title: "Sea Hunter: Prova de Físic",
         description: "Joc de cartes que demostra el cicle d'implementació física total. Del prototip digital a la producció en cartró.",
         featured: false,
-        tags: ["Disseny Físic", "MVP Finalitzat", "Joc de Cartes"],
+        tags: ["Disseny Físic", "Finalitzat", "Joc de Cartes"],
         link: "https://github.com/megumi-joy/sea-hunter"
     }
 ];
@@ -622,7 +622,7 @@ export const GAMES_DATA = {
         progress: 80,
         translations: {
             en: {
-                title: "B2B Logistics & AI Simulator MVP",
+                title: "B2B Logistics & AI Simulator",
                 description: "A high-fidelity logistics simulation using real-world OSM geodata. Designed for B2B route optimization and AI agent training in urban environments.",
                 gdd: {
                     overview: "Simulate complex delivery logistics in real-world street layouts (OSM) for business optimization.",
@@ -631,7 +631,7 @@ export const GAMES_DATA = {
                 }
             },
             es: {
-                title: "MVP de Simulador de Logística B2B e IA",
+                title: "de Simulador de Logística B2B e IA",
                 description: "Simulación logística de alta fidelidad basada en geodes reales (OSM). Diseñada para optimización B2B y entrenamiento de IA.",
                 gdd: {
                     overview: "Simula logística de entrega compleja en calles reales (OSM) para optimización de negocios.",
@@ -640,7 +640,7 @@ export const GAMES_DATA = {
                 }
             },
             ru: {
-                title: "B2B Логистический ИИ-симулятор MVP",
+                title: "B2B Логистический ИИ-симулятор",
                 description: "Высокоточная симуляция логистики на базе реальных геоданных OSM. Предназначена для B2B оптимизации маршрутов и обучения агентного ИИ.",
                 gdd: {
                     overview: "Симуляция сложных логистических цепочек в реальной городской застройке (OSM) для бизнеса.",
@@ -649,7 +649,7 @@ export const GAMES_DATA = {
                 }
             },
             uk: {
-                title: "B2B Логістичний ІІ-симулятор MVP",
+                title: "B2B Логістичний ІІ-симулятор",
                 description: "Високоточна симуляція логістики на базі реальних геоданих OSM. Призначена для B2B оптимізації маршрутов та навчання агентного ІІ.",
                 gdd: {
                     overview: "Симуляція складних логістичних ланцюжків у реальній міській забудові (OSM) для бізнесу.",
@@ -658,7 +658,7 @@ export const GAMES_DATA = {
                 }
             },
             ca: {
-                title: "B2B Logística i Simulador d'IA MVP",
+                title: "B2B Logística i Simulador d'IA",
                 description: "Simulació logística d'alta fidelitat basada en geodades reals (OSM). Dissenyada per a l'optimització de rutes B2B i l'entrenament d'agents d'IA.",
                 gdd: {
                     overview: "Simula logística de lliurament complexa en carrers reals (OSM) per a l'optimització del negoci.",
@@ -725,14 +725,14 @@ export const GAMES_DATA = {
     "seaHunter": {
         thumbnail: "/portfolio/games/seahunter/index.png",
         path: "/portfolio/games/seahunter/index.html",
-        tags: ["Card Game", "Finalized MVP", "Physical Design"],
+        tags: ["Card Game", "Finalized", "Physical Design"],
         status: "finalized",
         progress: 100,
         translations: {
             en: {
-                title: "Sea Hunter: Physical MVP Finalization",
+                title: "Sea Hunter: Physical Finalization",
                 pitch: "The first card game designed to be 'finished'—a physical artifact born from digital logic.",
-                description: "A strategic battleship-style card game MVP. Proof of the 'Finalizer' cycle: from digital 3D prototypes to physical cardboard production and rule documentation.",
+                description: "A strategic battleship-style card game. Proof of the 'Finalizer' cycle: from digital 3D prototypes to physical cardboard production and rule documentation.",
                 gdd: {
                     overview: "Strategic card game proving full production-to-physical implementation cycle.",
                     mechanics: ["Turn-based Battle", "Preparation Phase", "Island Powers"],
@@ -743,7 +743,7 @@ export const GAMES_DATA = {
                 }
             },
             es: {
-                title: "Sea Hunter: Finalización de MVP Físico",
+                title: "Sea Hunter: Finalización de Físico",
                 pitch: "El primer juego de cartas diseñado para ser 'finalizado': un artefacto físico nacido de la lógica digital.",
                 description: "Juego de cartas estratégico. Prueba del ciclo 'Finalizador': desde prototipos 3D hasta producción física y documentación.",
                 gdd: {
@@ -756,7 +756,7 @@ export const GAMES_DATA = {
                 }
             },
             ru: {
-                title: "Sea Hunter: Финализация физического MVP",
+                title: "Sea Hunter: Финализация физического",
                 pitch: "Первая карточная игра, созданная чтобы быть 'доведенной до конца' — физический артефакт, рожденный из цифровой логики.",
                 description: "Стратегическая карточная игра. Доказательство умения доводить продукт до физического воплощения: от 3D-прототипа до печати в картоне.",
                 gdd: {
@@ -769,7 +769,7 @@ export const GAMES_DATA = {
                 }
             },
             uk: {
-                title: "Sea Hunter: Фіналізація фізичного MVP",
+                title: "Sea Hunter: Фіналізація фізичного",
                 pitch: "Перша карткова гра, створена щоб бути 'доведеною до кінця' — фізичний артефакт, народжений з цифрової логіки.",
                 description: "Стратегічна карткова гра. Доказ вміння доводити продукт до фізичного втілення: від 3D-прототипу до друку в картоні.",
                 gdd: {
@@ -782,7 +782,7 @@ export const GAMES_DATA = {
                 }
             },
             ca: {
-                title: "Sea Hunter: Finalització de MVP Físic",
+                title: "Sea Hunter: Finalització de Físic",
                 pitch: "El primer joc de cartes dissenyat per a ser 'finalitzat': un artefacte físic nascut de la lògica digital.",
                 description: "Joc de cartes estratègic. Prova del cicle 'Finalitzador': des de prototips 3D fins a producció física i documentació.",
                 gdd: {
@@ -804,46 +804,46 @@ export const GAMES_DATA = {
         progress: 100,
         translations: {
             en: {
-                title: "Business Operations MVP: Megumi Massage",
+                title: "Business Operations: Megumi Massage",
                 description: "A full-stack business operations engine for a wellness center. Features multilingual support, booking system integration, and Supabase backend.",
                 gdd: {
-                    overview: "Operational MVP for local service business automation.",
+                    overview: "Operational for local service business automation.",
                     mechanics: ["Booking Flow", "Admin Dashboard", "Multilingual Content"],
                     features: ["React/Vite", "Supabase Auth", "Responsive UI"]
                 }
             },
             es: {
-                title: "MVP de Operaciones: Megumi Massage",
+                title: "de Operaciones: Megumi Massage",
                 description: "Motor de operaciones comerciales para un centro de bienestar. Incluye soporte multilingüe y sistema de reservas.",
                 gdd: {
-                    overview: "MVP operativo para la automatización de negocios de servicios.",
+                    overview: "operativo para la automatización de negocios de servicios.",
                     mechanics: ["Flujo de Reserva", "Panel Admin", "Contenido Multilingüe"],
                     features: ["React/Vite", "Supabase backend", "Diseño Responsivo"]
                 }
             },
             ru: {
-                title: "Бизнес-операционный MVP: Megumi Massage",
+                title: "Бизнес-операционный: Megumi Massage",
                 description: "Полнофункциональный движок для управления велнес-центром. Мультиязычность, система бронирования и Supabase.",
                 gdd: {
-                    overview: "Операционный MVP для автоматизации локального сервисного бизнеса.",
+                    overview: "Операционный для автоматизации локального сервисного бизнеса.",
                     mechanics: ["Процесс бронирования", "Панель администратора", "Мультиязычный контент"],
                     features: ["React/Vite", "Supabase бэкенд", "Адаптивный UI"]
                 }
             },
             uk: {
-                title: "Бізнес-операційний MVP: Megumi Massage",
+                title: "Бізнес-операційний: Megumi Massage",
                 description: "Полнофункціональний рушій для управління велнес-центром. Мультімовність, система бронювання та Supabase.",
                 gdd: {
-                    overview: "Операційний MVP для автоматизації локального сервісного бізнесу.",
+                    overview: "Операційний для автоматизації локального сервісного бізнесу.",
                     mechanics: ["Процес бронювання", "Панель адміністратора", "Мультімовний контент"],
                     features: ["React/Vite", "Supabase бекенд", "Адаптивний UI"]
                 }
             },
             ca: {
-                title: "MVP d'Operacions de Negoci: Megumi Massage",
+                title: "d'Operacions de Negoci: Megumi Massage",
                 description: "Un motor d'operacions comercials per a un centre de benestar. Inclou suport multilingüe, integració de sistema de reserves i backend Supabase.",
                 gdd: {
-                    overview: "MVP operatiu per a l'automatització de negocis de serveis locals.",
+                    overview: "operatiu per a l'automatització de negocis de serveis locals.",
                     mechanics: ["Flux de Reserves", "Panell d'Administració", "Contingut Multilingüe"],
                     features: ["React/Vite", "Supabase Auth", "UI Responsiva"]
                 }
@@ -1015,25 +1015,29 @@ export const SPECIALIZED_TITLES = {
         en: "GameDev / Simulation Engineer",
         es: "GameDev / Simulation Engineer",
         ru: "GameDev / Simulation Engineer",
-        uk: "GameDev / Simulation Engineer"
+        uk: "GameDev / Simulation Engineer",
+        ca: "Enginyer de GameDev / Simulació"
     },
     frontend: {
         en: "Frontend / Web Developer",
         es: "Desarrollador Frontend / Web",
         ru: "Frontend / Web Developer",
-        uk: "Frontend / Web Developer"
+        uk: "Frontend / Web Developer",
+        ca: "Desenvolupador Frontend / Web"
     },
     backend: {
         en: "Backend / Full-Stack Developer",
         es: "Desarrollador Backend / Full-Stack",
         ru: "Backend / Full-Stack Developer",
-        uk: "Backend / Full-Stack Developer"
+        uk: "Backend / Full-Stack Developer",
+        ca: "Desenvolupador Backend / Full-Stack"
     },
     embedded: {
         en: "Embedded / Hardware-Software Integration",
         es: "Integración de Hardware y Software / Embebidos",
         ru: "Embedded / Hardware-Software Integration",
-        uk: "Імбедед / Інтеграція Апаратного та Програмного Забезпечення"
+        uk: "Імбедед / Інтеграція Апаратного та Програмного Забезпечення",
+        ca: "Integració de Programari i Maquinari / Encastats"
     }
 };
 
@@ -1042,31 +1046,36 @@ export const SPECIALIZED_ABOUT = {
         en: "Senior Software Engineer with 10+ years of experience in developing simulation systems, interactive applications, and full-stack products. Experienced in creating custom data systems and hardware-software integration using React, Python, Godot, WebGL, and Supabase.",
         es: "Ingeniero de Software Senior con más de 10 años de experiencia en el desarrollo de sistemas de simulación, aplicaciones interactivas y productos full-stack. Experiencia en la creación de sistemas de datos personalizados e integración de hardware y software utilizando React, Python, Godot, WebGL y Supabase.",
         ru: "Senior Software Engineer с 10+ лет опыта в разработке симуляционных систем, интерактивных приложений и full-stack продуктов. Создаёт кастомные системы данных, используя React, Python, Godot, WebGL, Supabase и интеграцию аппаратного и программного обеспечения.",
-        uk: "Senior Software Engineer з 10+ роками досвіду у розробці симуляційних систем, інтерактивних додатків та full-stack продуктів. Створює кастомні системи даних, використовуючи React, Python, Godot, WebGL, Supabase та інтеграцію апаратного і програмного забезпечення."
+        uk: "Senior Software Engineer з 10+ роками досвіду у розробці симуляційних систем, інтерактивних додатків та full-stack продуктів. Створює кастомні системи даних, використовуючи React, Python, Godot, WebGL, Supabase та інтеграцію апаратного і програмного забезпечення.",
+        ca: "Enginyer de Programari Sènior amb més de 10 anys d'experiència en el desenvolupament de sistemes de simulació, aplicacions interactives i productes full-stack. Experiència en la creació de sistemes de dades personalitzats i integració de maquinari i programari utilitzant React, Python, Godot, WebGL i Supabase."
     },
     gamedev: {
         en: "GameDev and Simulation Engineer with experience in developing simulation systems and games using Godot 4, Unity HDRP, and Blender.",
         es: "Ingeniero de Simulaciones y Desarrollo de Juegos (GameDev) con experiencia en el desarrollo de sistemas de simulación y juegos utilizando Godot 4, Unity HDRP y Blender.",
         ru: "GameDev и Simulation Engineer с опытом разработки симуляционных систем и игр с использованием Godot 4, Unity HDRP и Blender.",
-        uk: "GameDev та Simulation Engineer з досвідом розробки симуляційних систем та ігор з використанням Godot 4, Unity HDRP та Blender."
+        uk: "GameDev та Simulation Engineer з досвідом розробки симуляційних систем та ігор з використанням Godot 4, Unity HDRP та Blender.",
+        ca: "Enginyer de GameDev i Simulació amb experiència en el desenvolupament de sistemes de simulació i jocs utilitzant Godot 4, Unity HDRP i Blender."
     },
     frontend: {
         en: "Frontend Developer with experience in creating interactive applications, fast prototypes, and visualizations using React, Vue.js, Next.js, and WebGL.",
         es: "Desarrollador Frontend con experiencia en la creación de aplicaciones interactivas, prototipos rápidos y visualizaciones utilizando React, Vue.js, Next.js y WebGL.",
         ru: "Frontend Developer с опытом создания интерактивных приложений, быстрых прототипов и визуализаций с использованием React, Vue.js, Next.js и WebGL.",
-        uk: "Frontend Developer з досвідом створення інтерактивних додатків, швидких прототипів та візуалізацій з використанням React, Vue.js, Next.js та WebGL."
+        uk: "Frontend Developer з досвідом створення інтерактивних додатків, швидких прототипів та візуалізацій з використанням React, Vue.js, Next.js та WebGL.",
+        ca: "Desenvolupador Frontend amb experiència en la creació d'aplicacions interactives, prototips ràpids i visualitzacions utilitzant React, Vue.js, Next.js i WebGL."
     },
     backend: {
         en: "Full-Stack Developer with experience in developing server logic, databases, and APIs for interactive applications and simulations.",
         es: "Desarrollador Full-Stack con experiencia en el desarrollo de lógica de servidor, bases de datos y APIs para aplicaciones interactivas y simulaciones.",
         ru: "Full-Stack Developer с опытом разработки серверной логики, баз данных и API для интерактивных приложений и симуляций.",
-        uk: "Full-Stack Developer з досвідом розробки серверної логіки, баз даних та API для інтерактивних додатків та симуляцій."
+        uk: "Full-Stack Developer з досвідом розробки серверної логіки, баз даних та API для інтерактивних додатків та симуляцій.",
+        ca: "Desenvolupador Full-Stack amb experiència en el desenvolupament de lògica de servidor, bases de dades i APIs per a aplicacions interactives i simulacions."
     },
     embedded: {
         en: "Hardware-Software Integration Engineer with experience working with microcontrollers, sensors, and telemetry systems.",
         es: "Ingeniero de Integración de Hardware y Software con experiencia trabajando con microcontroladores, sensores y sistemas de telemetría.",
         ru: "Инженер по интеграции аппаратного и программного обеспечения с опытом работы с микроконтроллерами, сенсорами и системами телеметрии.",
-        uk: "Інженер з інтеграції апаратного та програмного забезпечення з досвідом роботи з мікроконтролерами, сенсорами та системами телеметрії."
+        uk: "Інженер з інтеграції апаратного та програмного забезпечення з досвідом роботи з мікроконтролерами, сенсорами та системами телеметрії.",
+        ca: "Enginyer d'Integració de Maquinari i Programari amb experiència treballant amb microcontroladors, sensors i sistemes de telemetria."
     }
 };
 
@@ -1113,7 +1122,7 @@ const BASE_PROFILE = {
             description: "Architecture of realistic training environments and procedural generation tools.",
             achievements: [
                 "Led the development of a transport simulator (60fps) with complex NPC agent behavior for industrial certification.",
-                "Created procedural environment generators in C#, reducing MVP development cycle by 70%.",
+                "Created procedural environment generators in C#, reducing development cycle by 70%.",
                 "Ensured integration of hardware telemetry into 3D engines for real-time simulation."
             ],
             technologies: ["C#", "Unity HDRP", "Simulation Design", "Team Lead"],
@@ -1192,7 +1201,7 @@ const EXPERIENCE_RU = [
         description: "Архитектура реалистичных тренировочных сред и инструментов процедурной генерации.",
         achievements: [
             "Руководил разработкой транспортного симулятора (60fps) со сложным поведением NPC-агентов для промышленной сертификации.",
-            "Создал генераторы процедурного окружения на C#, сократив цикл разработки MVP на 70%.",
+            "Создал генераторы процедурного окружения на C#, сократив цикл разработки на 70%.",
             "Обеспечил интеграцию аппаратной телеметрии в 3D движки для симуляции в реальном времени."
         ],
         technologies: ["C#", "Unity HDRP", "Simulation Design", "Team Lead"],
@@ -1236,7 +1245,7 @@ const EXPERIENCE_ES = [
         description: "Arquitectura de entornos de entrenamiento realistas y herramientas de generación procedimental.",
         achievements: [
             "Lideré el desarrollo de un simulador de transporte (60fps) con comportamiento complejo de agentes NPC para certificación industrial.",
-            "Creé generadores procedurales de entorno en C#, reduciendo el ciclo de desarrollo del MVP en un 70%.",
+            "Creé generadores procedurales de entorno en C#, reduciendo el ciclo de desarrollo del en un 70%.",
             "Aseguré la integración de telemetría de hardware en motores 3D para simulación en tiempo real."
         ],
         technologies: ["C#", "Unity HDRP", "Simulation Design", "Team Lead"],
@@ -1280,7 +1289,7 @@ const EXPERIENCE_UK = [
         description: "Архітектура реалістичних тренувальних середовищ та інструментів процедурної генерації.",
         achievements: [
             "Керував розробкою транспортного симулятора (60fps) зі складною поведінкою NPC-агентів для промислової сертифікації.",
-            "Створив генератори процедурного оточення на C#, скоротивши цикл розробки MVP на 70%.",
+            "Створив генератори процедурного оточення на C#, скоротивши цикл розробки на 70%.",
             "Забезпечив інтеграцію апаратної телеметрії у 3D-рушії для симуляції в реальному часі."
         ],
         technologies: ["C#", "Unity HDRP", "Simulation Design", "Team Lead"],
