@@ -18,3 +18,14 @@ body {
   min-width: 320px;
   min-height: 100vh;
 }
+
+@layer components {
+  .section-title {
+    @apply text-3xl md:text-4xl font-black text-white mb-4;
+    background: linear-gradient(90deg, #fff 60%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+  }
+}

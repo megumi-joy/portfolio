@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
-import MediaGallery from './components/MediaGallery';
 import Skills from './components/Skills';
 import Plans from './components/Plans';
 import Contact from './components/Contact';
@@ -23,19 +21,6 @@ function AppLayout() {
   const [activeGameId, setActiveGameId] = useState(null);
   const [user, setUser] = useState(null);
   const { tone } = useLanguage();
-
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
-  // Parallax effects for background blobs
-  const backgroundY1 = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
-  const backgroundY2 = useTransform(scrollYProgress, [0, 1], ['0%', '-20%']);
-  const backgroundScale1 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1.2, 1]);
-  const backgroundScale2 = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 1]);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -62,36 +47,16 @@ function AppLayout() {
   return (
     <div className={`min-h-screen transition-colors duration-1000 ${isMagical ? 'bg-[#0f051e] text-purple-100 selection:bg-green-500 selection:text-green-900' : 'bg-slate-900 text-slate-100 selection:bg-cyan-500 selection:text-cyan-900'
       } overflow-x-hidden`}>
-
-      {/* Scroll Progress Bar */}
-      <motion.div
-        className={`fixed top-0 left-0 right-0 h-1 z-[100] origin-left ${isMagical ? 'bg-gradient-to-r from-purple-500 to-green-400' : 'bg-gradient-to-r from-cyan-400 to-blue-500'}`}
-        style={{ scaleX }}
-      />
-
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <motion.div
-          style={{ y: backgroundY1, scale: backgroundScale1 }}
-          className={`absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full transition-colors duration-1000 ${isMagical ? 'bg-purple-600/30 blur-[120px]' : 'bg-blue-600/20 blur-[120px]'
-            }`}
-        />
-        <motion.div
-          style={{ y: backgroundY2, scale: backgroundScale2 }}
-          className={`absolute bottom-[20%] right-[-5%] w-[30%] h-[60%] rounded-full transition-colors duration-1000 ${isMagical ? 'bg-green-600/10 blur-[100px]' : 'bg-purple-600/10 blur-[100px]'
-            }`}
-        />
+        <div className={`absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full transition-colors duration-1000 ${isMagical ? 'bg-purple-600/30 blur-[120px]' : 'bg-blue-600/20 blur-[120px]'
+          }`} />
+        <div className={`absolute bottom-[20%] right-[-5%] w-[30%] h-[60%] rounded-full transition-colors duration-1000 ${isMagical ? 'bg-green-600/10 blur-[100px]' : 'bg-purple-600/10 blur-[100px]'
+          }`} />
       </div>
 
       <Header
         currentView={view}
         onViewChange={setView}
-        onSelectGame={(gameId) => {
-          setActiveGameId(gameId);
-          setView('game');
-          // Update URL without reload if possible, or just set state
-          const newUrl = gameId ? `?game=${gameId}` : window.location.pathname;
-          window.history.pushState({ gameId }, '', newUrl);
-        }}
         user={user}
       />
 
@@ -102,7 +67,7 @@ function AppLayout() {
             <Skills />
             <Experience />
             <Projects />
-            <MediaGallery />
+            <Blog />
             <Plans />
             <Contact />
           </>
@@ -133,11 +98,7 @@ function AppLayout() {
           </div>
         )}
 
-        {view === 'blog' && (
-          <div className="pt-10">
-            <Blog />
-          </div>
-        )}
+
       </main>
 
       <ResumeModal isOpen={showResume} onClose={() => setShowResume(false)} />

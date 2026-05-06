@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from './LanguageContext';
-import { ArrowDown, Play, ExternalLink, FileText, Gamepad2 } from 'lucide-react';
+import { ExternalLink, FileText, Zap } from 'lucide-react';
 import GameEmbed from './GameEmbed';
 import ResumeModal from './Resume/ResumeModal';
 import GameCarousel from './GameCarousel';
-
 import GameDetails from './GameDetails';
 
 const Hero = ({ onOpenResume }) => {
@@ -91,10 +90,11 @@ const Hero = ({ onOpenResume }) => {
                     className="w-full md:w-[40%] max-w-md"
                 >
                     <div className="flex items-center gap-2 mb-4 px-2">
-                        <Gamepad2 className="text-cyan-400" size={20} />
+                        <Zap className="text-cyan-400" size={18} />
                         <h3 className="text-lg font-bold text-white uppercase tracking-wider">
-                            {activeProfile.ui.prototypesTitle || "Prototypes"}
+                            Selected Works
                         </h3>
+                        <span className="ml-auto text-[10px] text-slate-500 font-mono">Scroll →</span>
                     </div>
 
                     <GameCarousel
