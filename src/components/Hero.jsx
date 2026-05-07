@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from './LanguageContext';
-import { ExternalLink, FileText, Zap } from 'lucide-react';
+import { ExternalLink, FileText, Zap, Gamepad2 } from 'lucide-react';
 import GameEmbed from './GameEmbed';
 import ResumeModal from './Resume/ResumeModal';
 import GameCarousel from './GameCarousel';
