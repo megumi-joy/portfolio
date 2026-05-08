@@ -13,6 +13,8 @@ import Admin from './components/Admin';
 import Auth from './components/Auth';
 import GameLanding from './components/GameLanding';
 import Blog from './components/Blog';
+import IdleWeatherBackground from './components/IdleWeatherBackground';
+import { useWeatherTheme } from './hooks/useWeatherTheme';
 import { ShoppingCart, Layout, ShieldCheck } from 'lucide-react';
 
 function AppLayout() {
@@ -21,6 +23,7 @@ function AppLayout() {
   const [activeGameId, setActiveGameId] = useState(null);
   const [user, setUser] = useState(null);
   const { tone } = useLanguage();
+  const { mode, cycleMode, resolvedTheme, weather } = useWeatherTheme();
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -54,10 +57,15 @@ function AppLayout() {
           }`} />
       </div>
 
+      <IdleWeatherBackground weather={weather} />
+
       <Header
         currentView={view}
         onViewChange={setView}
         user={user}
+        themeMode={mode}
+        onThemeCycle={cycleMode}
+        weather={weather}
       />
 
       <main className="relative z-10 max-w-7xl mx-auto px-6 py-12 space-y-32 pt-24">

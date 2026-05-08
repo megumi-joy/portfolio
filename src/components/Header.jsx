@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useLanguage } from './LanguageContext';
 import { Menu, X, Globe } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ThemeToggle from './ThemeToggle';
 
-const Header = ({ currentView, onViewChange, user }) => {
+const Header = ({ currentView, onViewChange, user, themeMode, onThemeCycle, weather }) => {
     const { language, setLanguage, activeProfile } = useLanguage();
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -55,7 +56,7 @@ const Header = ({ currentView, onViewChange, user }) => {
         setMobileMenuOpen(false);
     };
 
-    const LANG_FLAGS = { en: '🇬🇧', es: '🇪🇸', ru: '🇷🇺', uk: '🇺🇦' };
+    const LANG_FLAGS = { en: '🇬🇧', es: '🇪🇸', ca: 'CAT', ru: '🇷🇺', uk: '🇺🇦' };
 
     return (
         <header
@@ -92,11 +93,12 @@ const Header = ({ currentView, onViewChange, user }) => {
                     ))}
                 </nav>
 
-                {/* Right: Language Switcher only */}
-                <div className="hidden md:flex items-center gap-2 flex-shrink-0">
+                {/* Right: Theme Toggle + Language Switcher */}
+                <div className="hidden md:flex items-center gap-3 flex-shrink-0">
+                    <ThemeToggle mode={themeMode} onCycle={onThemeCycle} weather={weather} />
                     <Globe size={14} className="text-slate-500" />
                     <div className="flex items-center bg-slate-800/60 p-0.5 rounded-full border border-slate-700/60">
-                        {['en', 'es', 'ru', 'uk'].map((lang) => (
+                        {['en', 'es', 'ca', 'ru', 'uk'].map((lang) => (
                             <button
                                 key={lang}
                                 onClick={() => toggleLanguage(lang)}
@@ -148,8 +150,9 @@ const Header = ({ currentView, onViewChange, user }) => {
                                 <Globe size={14} className="text-slate-500" />
                                 <span className="text-xs text-slate-500 uppercase tracking-wider">Language</span>
                             </div>
-                            <div className="flex gap-2">
-                                {['en', 'es', 'ru', 'uk'].map((lang) => (
+                            <div className="flex gap-2 items-center">
+                                <ThemeToggle mode={themeMode} onCycle={onThemeCycle} weather={weather} />
+                                {['en', 'es', 'ca', 'ru', 'uk'].map((lang) => (
                                     <button
                                         key={lang}
                                         onClick={() => toggleLanguage(lang)}
