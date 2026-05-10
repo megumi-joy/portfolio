@@ -29,18 +29,18 @@ const Hero = ({ onOpenResume }) => {
                         {activeProfile.ui.welcome || "Welcome to my portfolio"}
                     </span>
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-white leading-[1.1]">
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight text-slate-900 dark:text-white leading-[1.1]">
                         {activeProfile.ui.hello || "Hello, I'm"} <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
                             {activeProfile.name}
                         </span>.
                     </h1>
 
-                    <h2 className="text-2xl md:text-3xl text-slate-300 font-medium">
+                    <h2 className="text-2xl md:text-3xl text-slate-600 dark:text-slate-300 font-medium">
                         {activeProfile.title}
                     </h2>
 
-                    <p className="text-lg text-slate-400 leading-relaxed max-w-xl">
+                    <p className="text-lg text-slate-500 dark:text-slate-400 leading-relaxed max-w-xl">
                         {activeProfile.about}
                     </p>
 
@@ -54,21 +54,21 @@ const Hero = ({ onOpenResume }) => {
                             href={activeProfile.socials.github}
                             target="_blank"
                             rel="noreferrer"
-                            className="px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all hover:scale-105 backdrop-blur-md flex items-center gap-2 group"
+                            className="px-6 py-3 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-300 dark:border-white/10 text-slate-800 dark:text-white transition-all hover:scale-105 backdrop-blur-md flex items-center gap-2 group"
                         >
                             <ExternalLink size={18} className="text-slate-400 group-hover:text-white transition-colors" />
                             GitHub
                         </a>
                         <button
                             onClick={onOpenResume}
-                            className="px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white transition-all hover:scale-105 flex items-center gap-2 shadow-lg shadow-black/20"
+                            className="px-6 py-3 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-white transition-all hover:scale-105 flex items-center gap-2 shadow-lg shadow-black/5 dark:shadow-black/20"
                         >
                             <FileText size={18} className="text-cyan-400" />
                             {activeProfile.ui.resume || "Resume"}
                         </button>
                         <a
                             href="#gallery"
-                            className="px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all hover:scale-105 backdrop-blur-md flex items-center gap-2 group"
+                            className="px-6 py-3 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 border border-slate-300 dark:border-white/10 text-slate-800 dark:text-white transition-all hover:scale-105 backdrop-blur-md flex items-center gap-2 group"
                         >
                             <Gamepad2 size={18} className="text-purple-400 group-hover:text-purple-300 transition-colors" />
                             View Showcase
@@ -91,7 +91,7 @@ const Hero = ({ onOpenResume }) => {
                 >
                     <div className="flex items-center gap-2 mb-4 px-2">
                         <Zap className="text-cyan-400" size={18} />
-                        <h3 className="text-lg font-bold text-white uppercase tracking-wider">
+                        <h3 className="text-lg font-bold text-slate-900 dark:text-white uppercase tracking-wider">
                             Selected Works
                         </h3>
                         <span className="ml-auto text-[10px] text-slate-500 font-mono">Scroll →</span>

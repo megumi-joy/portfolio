@@ -19,7 +19,7 @@ const Plans = () => {
                     {activeProfile.ui?.plansTitle || plansData.title}
                 </h3>
 
-                <p className="text-slate-400 text-lg mb-12 max-w-2xl">
+                <p className="text-slate-500 dark:text-slate-400 text-lg mb-12 max-w-2xl">
                     {plansData.description}
                 </p>
 
@@ -31,7 +31,7 @@ const Plans = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1 }}
-                            className="p-6 rounded-2xl bg-slate-800/20 border border-slate-700 hover:border-cyan-500/30 transition-colors"
+                            className="p-6 rounded-2xl bg-white/20 dark:bg-slate-800/20 border border-slate-300 dark:border-slate-700 hover:border-cyan-500/30 transition-colors"
                         >
                             <div className="flex justify-between items-start mb-4">
                                 <span className={`px-3 py-1 rounded-full text-xs font-mono border ${item.status.toLowerCase() === 'in progress' ? 'bg-cyan-900/30 text-cyan-300 border-cyan-800' :
@@ -43,8 +43,8 @@ const Plans = () => {
                                 <span className="text-slate-500 text-xs font-mono">{item.date}</span>
                             </div>
 
-                            <h4 className="text-xl font-bold text-slate-100 mb-3">{item.title}</h4>
-                            <p className="text-slate-400 text-sm leading-relaxed mb-4">
+                            <h4 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3">{item.title}</h4>
+                            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4">
                                 {item.description}
                             </p>
 

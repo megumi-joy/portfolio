@@ -61,7 +61,7 @@ const Header = ({ currentView, onViewChange, user, themeMode, onThemeCycle, weat
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-                scrolled ? 'bg-slate-900/90 backdrop-blur-md py-3 shadow-lg shadow-black/30' : 'bg-transparent py-5'
+                scrolled ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-md py-3 shadow-lg shadow-black/10 dark:shadow-black/30' : 'bg-transparent py-5'
             }`}
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between gap-8">
@@ -84,8 +84,8 @@ const Header = ({ currentView, onViewChange, user, themeMode, onThemeCycle, weat
                             onClick={() => handleNavClick(link)}
                             className={`outline-none px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                                 activeSection === link.sectionId
-                                    ? 'text-cyan-400'
-                                    : 'text-slate-400 hover:text-white hover:bg-white/5'
+                                    ? 'text-cyan-600 dark:text-cyan-400'
+                                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5'
                             }`}
                         >
                             {link.name}
@@ -96,8 +96,8 @@ const Header = ({ currentView, onViewChange, user, themeMode, onThemeCycle, weat
                 {/* Right: Theme Toggle + Language Switcher */}
                 <div className="hidden md:flex items-center gap-3 flex-shrink-0">
                     <ThemeToggle mode={themeMode} onCycle={onThemeCycle} weather={weather} />
-                    <Globe size={14} className="text-slate-500" />
-                    <div className="flex items-center bg-slate-800/60 p-0.5 rounded-full border border-slate-700/60">
+                    <Globe size={14} className="text-slate-400 dark:text-slate-500" />
+                    <div className="flex items-center bg-slate-200/60 dark:bg-slate-800/60 p-0.5 rounded-full border border-slate-300/60 dark:border-slate-700/60">
                         {['en', 'es', 'ca', 'ru', 'uk'].map((lang) => (
                             <button
                                 key={lang}
@@ -106,7 +106,7 @@ const Header = ({ currentView, onViewChange, user, themeMode, onThemeCycle, weat
                                 className={`px-2.5 py-1 rounded-full text-xs font-bold uppercase transition-all ${
                                     language === lang
                                         ? 'bg-cyan-500 text-white shadow-md shadow-cyan-500/30'
-                                        : 'text-slate-400 hover:text-white hover:bg-slate-700/50'
+                                        : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-300/50 dark:hover:bg-slate-700/50'
                                 }`}
                             >
                                 {LANG_FLAGS[lang]}
@@ -131,24 +131,24 @@ const Header = ({ currentView, onViewChange, user, themeMode, onThemeCycle, weat
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: 'auto' }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-slate-900/95 backdrop-blur-md border-b border-slate-800 overflow-hidden"
+                        className="md:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 overflow-hidden"
                     >
                         <div className="px-6 py-6 flex flex-col gap-2">
                             {navLinks.map((link) => (
                                 <button
                                     key={link.name}
                                     onClick={() => handleNavClick(link)}
-                                    className="text-lg font-medium text-left py-2 px-3 rounded-lg text-slate-300 hover:text-white hover:bg-white/5 transition-all"
+                                    className="text-lg font-medium text-left py-2 px-3 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
                                 >
                                     {link.name}
                                 </button>
                             ))}
 
-                            <hr className="border-slate-800 my-3" />
+                            <hr className="border-slate-200 dark:border-slate-800 my-3" />
 
                             <div className="flex items-center gap-2">
-                                <Globe size={14} className="text-slate-500" />
-                                <span className="text-xs text-slate-500 uppercase tracking-wider">Language</span>
+                                <Globe size={14} className="text-slate-400 dark:text-slate-500" />
+                                <span className="text-xs text-slate-400 dark:text-slate-500 uppercase tracking-wider">Language</span>
                             </div>
                             <div className="flex gap-2 items-center">
                                 <ThemeToggle mode={themeMode} onCycle={onThemeCycle} weather={weather} />
@@ -159,7 +159,7 @@ const Header = ({ currentView, onViewChange, user, themeMode, onThemeCycle, weat
                                         className={`flex-1 py-2 rounded-lg text-sm font-bold uppercase ${
                                             language === lang
                                                 ? 'bg-cyan-500 text-white'
-                                                : 'bg-slate-800 text-slate-400'
+                                                : 'bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
                                         }`}
                                     >
                                         {LANG_FLAGS[lang]}

@@ -48,12 +48,12 @@ function AppLayout() {
   }, [isSupabaseConfigured]);
 
   return (
-    <div className={`min-h-screen transition-colors duration-1000 ${isMagical ? 'bg-[#0f051e] text-purple-100 selection:bg-green-500 selection:text-green-900' : 'bg-slate-900 text-slate-100 selection:bg-cyan-500 selection:text-cyan-900'
+    <div className={`min-h-screen transition-colors duration-1000 ${isMagical ? 'bg-[#0f051e] text-purple-100 selection:bg-green-500 selection:text-green-900' : 'bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 selection:bg-cyan-500 selection:text-cyan-900'
       } overflow-x-hidden`}>
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className={`absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full transition-colors duration-1000 ${isMagical ? 'bg-purple-600/30 blur-[120px]' : 'bg-blue-600/20 blur-[120px]'
+        <div className={`absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full transition-colors duration-1000 ${isMagical ? 'bg-purple-600/30 blur-[120px]' : 'bg-blue-600/5 dark:bg-blue-600/20 blur-[120px]'
           }`} />
-        <div className={`absolute bottom-[20%] right-[-5%] w-[30%] h-[60%] rounded-full transition-colors duration-1000 ${isMagical ? 'bg-green-600/10 blur-[100px]' : 'bg-purple-600/10 blur-[100px]'
+        <div className={`absolute bottom-[20%] right-[-5%] w-[30%] h-[60%] rounded-full transition-colors duration-1000 ${isMagical ? 'bg-green-600/10 blur-[100px]' : 'bg-purple-600/5 dark:bg-purple-600/10 blur-[100px]'
           }`} />
       </div>
 
@@ -111,7 +111,7 @@ function AppLayout() {
 
       <ResumeModal isOpen={showResume} onClose={() => setShowResume(false)} />
 
-      <footer className="relative z-10 py-8 text-center text-slate-500 text-sm">
+      <footer className="relative z-10 py-8 text-center text-slate-400 dark:text-slate-500 text-sm">
         <p>&copy; {new Date().getFullYear()} Megumi Joy. Built with React & Tailwind.</p>
       </footer>
     </div>

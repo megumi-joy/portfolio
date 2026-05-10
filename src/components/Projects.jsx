@@ -28,16 +28,16 @@ const Projects = () => {
                             whileInView={{ opacity: 1, y: 0, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.5 }}
-                            className="group flex flex-col justify-between p-8 bg-slate-800/30 hover:bg-slate-800/50 rounded-2xl border border-slate-700/50 hover:border-cyan-500/30 transition-all hover:-translate-y-1"
+                            className="group flex flex-col justify-between p-8 bg-white/30 dark:bg-slate-800/30 hover:bg-white/50 dark:hover:bg-slate-800/50 rounded-2xl border border-slate-200/50 dark:border-slate-700/50 hover:border-cyan-500/30 transition-all hover:-translate-y-1"
                         >
                             <div>
                                 <div className="flex justify-between items-start mb-6">
-                                    <div className="p-3 rounded-xl bg-slate-900/50 text-cyan-400">
+                                    <div className="p-3 rounded-xl bg-slate-100/50 dark:bg-slate-900/50 text-cyan-500 dark:text-cyan-400">
                                         <Folder size={24} />
                                     </div>
                                     <div className="flex gap-3 text-slate-400">
                                         {project.link && (
-                                            <a href={project.link} target="_blank" rel="noreferrer" className="hover:text-white transition-colors">
+                                            <a href={project.link} target="_blank" rel="noreferrer" className="hover:text-slate-900 dark:hover:text-white transition-colors">
                                                 <Github size={20} />
                                             </a>
                                         )}
@@ -45,11 +45,11 @@ const Projects = () => {
                                     </div>
                                 </div>
 
-                                <h4 className="text-xl font-bold text-slate-100 mb-3 group-hover:text-cyan-400 transition-colors">
+                                <h4 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-3 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors">
                                     {project.title}
                                 </h4>
 
-                                <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                                <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
                                     {project.description}
                                 </p>
                             </div>
@@ -68,7 +68,7 @@ const Projects = () => {
                 {/* Game Prototypes Section */}
                 {activeProfile.games && activeProfile.games.length > 0 && (
                     <div className="mb-12">
-                        <h4 className="text-2xl font-bold text-slate-100 mb-8 flex items-center gap-3">
+                        <h4 className="text-2xl font-bold text-slate-800 dark:text-slate-100 mb-8 flex items-center gap-3">
                             <Play className="text-purple-500" />
                             {activeProfile.ui.prototypesTitle || "Interactive Prototypes"}
                         </h4>

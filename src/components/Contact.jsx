@@ -45,14 +45,14 @@ const Contact = () => {
                 <div className="absolute inset-0 bg-cyan-500/5 blur-3xl" />
 
                 <div className="relative z-10 max-w-2xl mx-auto space-y-8">
-                    <h3 className="text-3xl md:text-4xl font-bold text-white">
+                    <h3 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
                         {activeProfile.ui.contactTitle || "Let's Build Something Amazing"}
                     </h3>
-                    <p className="text-slate-400 text-lg">
+                    <p className="text-slate-500 dark:text-slate-400 text-lg">
                         {activeProfile.ui.contactText || "I'm currently open to new opportunities in Game Development, Simulation Engineering, or Full Stack Web Development."}
                     </p>
 
-                    <form onSubmit={handleSubmit} className="space-y-4 text-left max-w-lg mx-auto bg-slate-900/40 p-8 rounded-2xl border border-cyan-500/10 backdrop-blur-sm">
+                    <form onSubmit={handleSubmit} className="space-y-4 text-left max-w-lg mx-auto bg-white/40 dark:bg-slate-900/40 p-8 rounded-2xl border border-cyan-500/10 backdrop-blur-sm">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <input
                                 type="text"
@@ -60,7 +60,7 @@ const Contact = () => {
                                 value={formData.name}
                                 onChange={(e) => setFormData({...formData, name: e.target.value})}
                                 placeholder="Name"
-                                className="bg-slate-800/50 border border-slate-700 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-white w-full"
+                                className="bg-slate-100/50 dark:bg-slate-800/50 border border-slate-300 dark:border-slate-700 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-slate-800 dark:text-white w-full"
                             />
                             <input
                                 type="email"
@@ -68,7 +68,7 @@ const Contact = () => {
                                 value={formData.email}
                                 onChange={(e) => setFormData({...formData, email: e.target.value})}
                                 placeholder="Email"
-                                className="bg-slate-800/50 border border-slate-700 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-white w-full"
+                                className="bg-slate-100/50 dark:bg-slate-800/50 border border-slate-300 dark:border-slate-700 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-cyan-500/50 text-slate-800 dark:text-white w-full"
                             />
                         </div>
                         <textarea

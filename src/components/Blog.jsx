@@ -39,7 +39,7 @@ const Blog = () => {
                                         className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wide transition-all ${
                                             activeTag === null
                                                 ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
-                                                : 'text-slate-500 hover:text-slate-300 bg-slate-800/40 border border-slate-700/50'
+                                                : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 bg-slate-200/40 dark:bg-slate-800/40 border border-slate-300/50 dark:border-slate-700/50'
                                         }`}
                                     >
                                         All
@@ -51,7 +51,7 @@ const Blog = () => {
                                             className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wide transition-all ${
                                                 activeTag === tag
                                                     ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40'
-                                                    : 'text-slate-500 hover:text-slate-300 bg-slate-800/40 border border-slate-700/50'
+                                                    : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 bg-slate-200/40 dark:bg-slate-800/40 border border-slate-300/50 dark:border-slate-700/50'
                                             }`}
                                         >
                                             {tag}
@@ -67,7 +67,7 @@ const Blog = () => {
                                     key={post.id}
                                     layoutId={post.id}
                                     onClick={() => setSelectedPost(post)}
-                                    className="group cursor-pointer p-7 bg-slate-800/30 hover:bg-slate-800/60 rounded-2xl border border-slate-700/50 hover:border-cyan-500/30 transition-all hover:-translate-y-1 flex flex-col"
+                                    className="group cursor-pointer p-7 bg-white/30 dark:bg-slate-800/30 hover:bg-white/60 dark:hover:bg-slate-800/60 rounded-2xl border border-slate-200/50 dark:border-slate-700/50 hover:border-cyan-500/30 transition-all hover:-translate-y-1 flex flex-col"
                                 >
                                     <div className="flex items-center gap-3 text-xs font-mono text-cyan-400 mb-4">
                                         <span className="flex items-center gap-1">
@@ -80,15 +80,15 @@ const Blog = () => {
                                             {post.readTime}
                                         </span>
                                     </div>
-                                    <h4 className="text-lg font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors leading-tight">
+                                    <h4 className="text-lg font-bold text-slate-800 dark:text-white mb-3 group-hover:text-cyan-500 dark:group-hover:text-cyan-400 transition-colors leading-tight">
                                         {post.title}
                                     </h4>
-                                    <p className="text-slate-400 text-sm leading-relaxed mb-5 flex-grow line-clamp-3">
+                                    <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-5 flex-grow line-clamp-3">
                                         {post.excerpt}
                                     </p>
                                     <div className="flex flex-wrap gap-2">
                                         {post.tags.map(tag => (
-                                            <span key={tag} className="px-2 py-0.5 rounded-md bg-slate-900/60 text-slate-500 text-[10px] font-bold uppercase tracking-wider border border-slate-700/50">
+                                            <span key={tag} className="px-2 py-0.5 rounded-md bg-slate-100/60 dark:bg-slate-900/60 text-slate-500 text-[10px] font-bold uppercase tracking-wider border border-slate-300/50 dark:border-slate-700/50">
                                                 {tag}
                                             </span>
                                         ))}
@@ -103,7 +103,7 @@ const Blog = () => {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: -20 }}
-                        className="max-w-3xl mx-auto bg-slate-800/20 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-slate-700/50"
+                        className="max-w-3xl mx-auto bg-white/20 dark:bg-slate-800/20 backdrop-blur-xl p-8 md:p-12 rounded-3xl border border-slate-200/50 dark:border-slate-700/50"
                     >
                         <button
                             onClick={() => setSelectedPost(null)}
@@ -124,11 +124,11 @@ const Blog = () => {
                             </span>
                         </div>
 
-                        <h2 className="text-3xl md:text-4xl font-black text-white mb-8 leading-tight">
+                        <h2 className="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-8 leading-tight">
                             {selectedPost.title}
                         </h2>
 
-                        <div className="prose prose-invert max-w-none text-slate-300 leading-relaxed text-base">
+                        <div className="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-300 leading-relaxed text-base">
                             {selectedPost.content.split('\n').map((paragraph, i) => (
                                 <p key={i} className="mb-5">{paragraph}</p>
                             ))}

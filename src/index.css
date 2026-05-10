@@ -21,13 +21,19 @@ body {
 
 @layer components {
   .section-title {
-    @apply text-3xl md:text-4xl font-black text-white mb-4;
-    background: linear-gradient(90deg, #fff 60%, #38bdf8 100%);
+    @apply text-3xl md:text-4xl font-black mb-4;
+    background: linear-gradient(90deg, #1e293b 60%, #0891b2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
   }
+}
+
+html.dark .section-title {
+  background: linear-gradient(90deg, #fff 60%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 /* ── Weather ambient animations ──────────────────────────────────── */
