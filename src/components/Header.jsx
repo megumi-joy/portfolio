@@ -56,7 +56,7 @@ const Header = ({ currentView, onViewChange, user, themeMode, onThemeCycle, weat
         setMobileMenuOpen(false);
     };
 
-    const LANG_FLAGS = { en: '🇬🇧', es: '🇪🇸', ca: 'CAT', ru: '🇷🇺', uk: '🇺🇦' };
+    const LANG_FLAGS = { en: 'EN', es: 'ES', ca: 'CA', ru: 'RU', uk: 'UK' };
 
     return (
         <header
