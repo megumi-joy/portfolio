@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { LanguageProvider } from './components/LanguageContext';
 import RootLayout from './components/layout/RootLayout';
+import ScrollToTop from './components/layout/ScrollToTop';
 
 // Lazy-loaded pages for performance
 const Home = lazy(() => import('./pages/Home'));
@@ -22,6 +23,7 @@ function App() {
         <HelmetProvider>
             <LanguageProvider>
                 <HashRouter>
+                    <ScrollToTop />
                     <Suspense fallback={<PageLoader />}>
                         <Routes>
                             <Route element={<RootLayout />}>
