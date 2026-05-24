@@ -129,19 +129,19 @@ export default function Sobre() {
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content={t.title + ' · Megumi Joy'} />
                 <meta property="og:description" content={t.meta} />
-                <meta property="og:image" content="/portfolio/og-sobre.png" />
-                <meta property="og:url" content="https://megumi-joy.github.io/portfolio/#/sobre" />
+                <meta property="og:image" content="/og-sobre.png" />
+                <meta property="og:url" content="https://portfolio.voicydroid.com/#/sobre" />
                 <meta property="og:site_name" content="Megumi Joy" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={t.title + ' · Megumi Joy'} />
                 <meta name="twitter:description" content={t.meta} />
-                <meta name="twitter:image" content="/portfolio/og-sobre.png" />
+                <meta name="twitter:image" content="/og-sobre.png" />
                 <script type="application/ld+json">{JSON.stringify({
                     "@context": "https://schema.org",
                     "@type": "Person",
                     "name": "Anton",
                     "jobTitle": "Software Engineer & Studio Founder",
-                    "worksFor": { "@type": "Organization", "name": "Megumi Joy", "url": "https://megumi-joy.github.io/portfolio/" },
+                    "worksFor": { "@type": "Organization", "name": "Megumi Joy", "url": "https://portfolio.voicydroid.com/" },
                     "knowsAbout": ["AI systems", "Full-stack development", "Game development", "Industrial simulation", "Embedded systems"],
                     "knowsLanguage": ["Spanish", "English", "Russian", "Ukrainian", "Catalan"],
                 })}</script>

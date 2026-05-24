@@ -34,13 +34,13 @@ const Games = () => {
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content={seo.title} />
                 <meta property="og:description" content={seo.description} />
-                <meta property="og:image" content="/portfolio/og-games.png" />
-                <meta property="og:url" content="https://megumi-joy.github.io/portfolio/#/games" />
+                <meta property="og:image" content="/og-games.png" />
+                <meta property="og:url" content="https://portfolio.voicydroid.com/#/games" />
                 <meta property="og:site_name" content="Megumi Joy" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={seo.title} />
                 <meta name="twitter:description" content={seo.description} />
-                <meta name="twitter:image" content="/portfolio/og-games.png" />
+                <meta name="twitter:image" content="/og-games.png" />
             </Helmet>
             <div data-lobby="games">
 
@@ -100,7 +100,11 @@ const Games = () => {
                                 {/* Thumbnail */}
                                 <div className="aspect-video bg-slate-200 dark:bg-slate-800 relative overflow-hidden">
                                     {game.thumbnail ? (
-                                        <img src={game.thumbnail} alt={game.t.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                        game.thumbnail.endsWith('.mp4') ? (
+                                            <video src={game.thumbnail} autoPlay loop muted playsInline className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                        ) : (
+                                            <img src={game.thumbnail} alt={game.t.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                        )
                                     ) : (
                                         <div className="w-full h-full flex items-center justify-center text-slate-400">
                                             <Play size={40} />

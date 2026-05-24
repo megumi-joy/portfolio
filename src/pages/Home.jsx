@@ -59,31 +59,31 @@ const Home = () => {
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content={seo.title} />
                 <meta property="og:description" content={seo.description} />
-                <meta property="og:image" content="/portfolio/og-home.png" />
-                <meta property="og:url" content="https://megumi-joy.github.io/portfolio/" />
+                <meta property="og:image" content="/og-home.png" />
+                <meta property="og:url" content="https://portfolio.voicydroid.com/" />
                 <meta property="og:site_name" content="Megumi Joy" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={seo.title} />
                 <meta name="twitter:description" content={seo.description} />
-                <meta name="twitter:image" content="/portfolio/og-home.png" />
+                <meta name="twitter:image" content="/og-home.png" />
                 <script type="application/ld+json">{JSON.stringify({
                     "@context": "https://schema.org",
                     "@graph": [
                         {
                             "@type": "Organization",
-                            "@id": "https://megumi-joy.github.io/portfolio/#org",
+                            "@id": "https://portfolio.voicydroid.com/#org",
                             "name": "Megumi Joy",
-                            "url": "https://megumi-joy.github.io/portfolio/",
+                            "url": "https://portfolio.voicydroid.com/",
                             "founder": { "@type": "Person", "name": "Anton" },
                             "description": "Technical studio specialised in automation, applied AI and full-stack product development for businesses.",
                             "knowsAbout": ["Business automation", "AI integration", "Full-stack development", "Game development", "Industrial simulation"],
                         },
                         {
                             "@type": "WebSite",
-                            "@id": "https://megumi-joy.github.io/portfolio/#website",
-                            "url": "https://megumi-joy.github.io/portfolio/",
+                            "@id": "https://portfolio.voicydroid.com/#website",
+                            "url": "https://portfolio.voicydroid.com/",
                             "name": "Megumi Joy Portfolio",
-                            "publisher": { "@id": "https://megumi-joy.github.io/portfolio/#org" },
+                            "publisher": { "@id": "https://portfolio.voicydroid.com/#org" },
                         },
                     ],
                 })}</script>

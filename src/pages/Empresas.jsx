@@ -32,30 +32,30 @@ const Empresas = () => {
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content={seo.title} />
                 <meta property="og:description" content={seo.description} />
-                <meta property="og:image" content="/portfolio/og-empresas.png" />
-                <meta property="og:url" content="https://megumi-joy.github.io/portfolio/#/empresas" />
+                <meta property="og:image" content="/og-empresas.png" />
+                <meta property="og:url" content="https://portfolio.voicydroid.com/#/empresas" />
                 <meta property="og:site_name" content="Megumi Joy" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={seo.title} />
                 <meta name="twitter:description" content={seo.description} />
-                <meta name="twitter:image" content="/portfolio/og-empresas.png" />
+                <meta name="twitter:image" content="/og-empresas.png" />
                 <script type="application/ld+json">{JSON.stringify({
                     "@context": "https://schema.org",
                     "@graph": [
                         {
                             "@type": "Service",
-                            "@id": "https://megumi-joy.github.io/portfolio/#service-automation",
+                            "@id": "https://portfolio.voicydroid.com/#service-automation",
                             "name": "Business Automation & AI Integration",
-                            "provider": { "@id": "https://megumi-joy.github.io/portfolio/#org" },
+                            "provider": { "@id": "https://portfolio.voicydroid.com/#org" },
                             "description": "Custom automation systems, AI integrations, and operational dashboards for SMEs.",
                             "areaServed": "Worldwide",
                             "serviceType": "Business Automation",
                         },
                         {
                             "@type": "Service",
-                            "@id": "https://megumi-joy.github.io/portfolio/#service-audit",
+                            "@id": "https://portfolio.voicydroid.com/#service-audit",
                             "name": "Strategic Technology Audit",
-                            "provider": { "@id": "https://megumi-joy.github.io/portfolio/#org" },
+                            "provider": { "@id": "https://portfolio.voicydroid.com/#org" },
                             "description": "60-90 minute session to map your operation, detect real bottlenecks and build a clear roadmap.",
                             "offers": { "@type": "Offer", "priceSpecification": { "@type": "PriceSpecification", "priceCurrency": "EUR", "price": "900" } },
                         },

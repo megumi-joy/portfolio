@@ -19,5 +19,5 @@ export default defineConfig({
       deleteOriginFile: false,
     })
   ],
-  base: '/portfolio/', // Replace 'portfolio' with your repo name if different
+  base: '/',
 })

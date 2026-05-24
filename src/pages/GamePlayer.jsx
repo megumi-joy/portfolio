@@ -74,8 +74,14 @@ const GamePlayer = () => {
                             className="w-full h-full border-0"
                             allow="autoplay; fullscreen; keyboard"
                         />
+                    ) : game.thumbnail && game.thumbnail.endsWith('.mp4') ? (
+                        <video
+                            src={game.thumbnail}
+                            className="w-full h-full object-cover"
+                            autoPlay controls loop
+                        />
                     ) : (
-                        <div className="w-full h-full flex items-center justify-center text-slate-500">
+                        <div className="w-full h-full flex items-center justify-center text-slate-500 bg-slate-100 dark:bg-slate-900">
                             <p>Interactive prototype coming soon.</p>
                         </div>
                     )}

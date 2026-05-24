@@ -227,7 +227,7 @@ const PROJECTS_EN = [
         description: "High-fidelity logistics simulation using real-world OSM geodata. Designed for B2B route optimization and AI agent training. Scale: Unlimited city districts.",
         featured: true,
         tags: ["B2B Logistics", "AI Simulation", "OSM"],
-        link: "https://megumi-joy.github.io/portfolio/"
+        link: "https://megumi-joy.github.io/"
     },
     {
         title: "Sea Hunter: Physical Proof",
@@ -276,7 +276,7 @@ const PROJECTS_ES = [
         description: "Simulación logística de alta fidelidad basada en geodatos reales de OSM. Diseñada para optimización de rutas B2B y entrenamiento de IA.",
         featured: true,
         tags: ["Logística B2B", "Simulación IA", "OSM"],
-        link: "https://megumi-joy.github.io/portfolio/"
+        link: "https://megumi-joy.github.io/"
     },
     {
         title: "Sea Hunter: Prueba de Físico",
@@ -293,7 +293,7 @@ const PROJECTS_FRONTEND_ES = [
         description: "Un panel de React de alto rendimiento que visualiza telemetría en vivo de sensores de hardware con latencia inferior al segundo.",
         featured: true,
         tags: ["React", "D3.js", "WebSockets"],
-        link: "https://megumi-joy.github.io/portfolio/"
+        link: "https://megumi-joy.github.io/"
     },
     {
         title: "Motor de UI Glassmorphic",
@@ -334,7 +334,7 @@ const PROJECTS_RU = [
         description: "Высокоточная симуляция логистики на базе реальных геоданных OSM. Предназначена для B2B оптимизации маршрутов и обучения ИИ.",
         featured: true,
         tags: ["B2B Логистика", "ИИ Симуляция", "OSM"],
-        link: "https://megumi-joy.github.io/portfolio/"
+        link: "https://megumi-joy.github.io/"
     },
     {
         title: "Sea Hunter: Физическое воплощение",
@@ -351,7 +351,7 @@ const PROJECTS_FRONTEND_RU = [
         description: "Высокопроизводительная панель на React, визуализирующая живую телеметрию с аппаратных датчиков с задержкой менее секунды.",
         featured: true,
         tags: ["React", "D3.js", "WebSockets"],
-        link: "https://megumi-joy.github.io/portfolio/"
+        link: "https://megumi-joy.github.io/"
     },
     {
         title: "Движок Glassmorphic UI",
@@ -392,7 +392,7 @@ const PROJECTS_UK = [
         description: "Високоточна симуляція логістики на базі реальних геоданих OSM. Призначена для B2B оптимізації маршрутів та навчання ІІ.",
         featured: true,
         tags: ["B2B Логістика", "ІІ Симуляція", "OSM"],
-        link: "https://megumi-joy.github.io/portfolio/"
+        link: "https://megumi-joy.github.io/"
     },
     {
         title: "Sea Hunter: Фізичне втілення",
@@ -409,7 +409,7 @@ const PROJECTS_FRONTEND_UK = [
         description: "Високопродуктивна панель на React, що візуалізує живу телеметрію з апаратних датчиків із затримкою менше секунди.",
         featured: true,
         tags: ["React", "D3.js", "WebSockets"],
-        link: "https://megumi-joy.github.io/portfolio/"
+        link: "https://megumi-joy.github.io/"
     },
     {
         title: "Рушій Glassmorphic UI",
@@ -450,7 +450,7 @@ const PROJECTS_CA = [
         description: "Simulació logística d'alta fidelitat basada en geodades reals d'OSM. Dissenyada per a l'optimització de rutes B2B i l'entrenament d'IA.",
         featured: true,
         tags: ["Logística B2B", "Simulació IA", "OSM"],
-        link: "https://megumi-joy.github.io/portfolio/"
+        link: "https://megumi-joy.github.io/"
     },
     {
         title: "Sea Hunter: Prova de Físic",
@@ -467,7 +467,7 @@ const PROJECTS_FRONTEND_CA = [
         description: "Un panell de React d'alt rendiment que visualitza telemetria en viu de sensors de maquinari amb latència inferior al segon.",
         featured: true,
         tags: ["React", "D3.js", "WebSockets"],
-        link: "https://megumi-joy.github.io/portfolio/"
+        link: "https://megumi-joy.github.io/"
     },
     {
         title: "Motor de UI Glassmorphic",
@@ -497,6 +497,45 @@ const PROJECTS_PYTHON_CA = [
 
 
 export const GAMES_DATA = {
+    "poezda": {
+        thumbnail: "/poezda.mp4",
+        media: ["/poezda.mp4"],
+        path: "",
+        tags: ["Web", "Godot", "Trains"],
+        status: "playable",
+        progress: 100,
+        translations: {
+            en: {
+                title: "Поезда (Trains)",
+                description: "A fun train simulator.",
+                gdd: { overview: "Drive trains.", mechanics: ["Driving"], features: ["Trains"] }
+            },
+            es: { title: "Поезда (Trenes)", description: "Simulador de trenes.", gdd: { overview: "Conduce trenes.", mechanics: [], features: [] } },
+            ru: { title: "Поезда", description: "Симулятор поездов.", gdd: { overview: "Водите поезда.", mechanics: [], features: [] } },
+            uk: { title: "Потяги", description: "Симулятор потягів.", gdd: { overview: "Керуйте потягами.", mechanics: [], features: [] } },
+            ca: { title: "Поезда (Trens)", description: "Simulador de trens.", gdd: { overview: "Condueix trens.", mechanics: [], features: [] } }
+        }
+    },
+    "spyfall": {
+        thumbnail: "/spyfall.mp4",
+        media: ["/spyfall.mp4"],
+        path: "https://spyfall-playhouse.lovable.dev",
+        tags: ["React", "Multiplayer", "Supabase"],
+        status: "live",
+        progress: 100,
+        translations: {
+            en: {
+                title: "Spyfall Playhouse",
+                description: "A real-time multiplayer social deduction game.",
+                gdd: { overview: "Find the spy or guess the location.", mechanics: ["Social Deduction", "Real-time"], features: ["Supabase", "React"] }
+            },
+            es: { title: "Spyfall Playhouse", description: "Juego de deducción social multijugador.", gdd: { overview: "Encuentra al espía.", mechanics: [], features: [] } },
+            ru: { title: "Spyfall Playhouse", description: "Многопользовательская социальная дедуктивная игра.", gdd: { overview: "Найди шпиона.", mechanics: [], features: [] } },
+            uk: { title: "Spyfall Playhouse", description: "Багатокористувацька соціальна гра.", gdd: { overview: "Знайди шпигуна.", mechanics: [], features: [] } },
+            ca: { title: "Spyfall Playhouse", description: "Joc de deducció social multijugador.", gdd: { overview: "Troba l'espia.", mechanics: [], features: [] } }
+        }
+    },
+
     "languageQuest": {
         thumbnail: "https://web-megumi.vercel.app/og-image.png",
         path: "https://web-megumi.vercel.app/",
@@ -552,16 +591,16 @@ export const GAMES_DATA = {
         }
     },
     "magicBallsAdventure": {
-        thumbnail: "/portfolio/games/magicballs/gameplay.gif",
+        thumbnail: "/magicballs.mp4",
         media: [
-            "/portfolio/games/magicballs/01_menu.png",
-            "/portfolio/games/magicballs/02_level_select.png",
-            "/portfolio/games/magicballs/03_gameplay.png",
-            "/portfolio/games/magicballs/04_gameplay2.png",
-            "/portfolio/games/magicballs/05_gameplay3.png",
-            "/portfolio/games/magicballs/gameplay.gif",
+            "/games/magicballs/01_menu.png",
+            "/games/magicballs/02_level_select.png",
+            "/games/magicballs/03_gameplay.png",
+            "/games/magicballs/04_gameplay2.png",
+            "/games/magicballs/05_gameplay3.png",
+            "/games/magicballs/gameplay.gif",
         ],
-        path: "/portfolio/games/magicballsadventure/index.html",
+        path: "",
         tags: ["Godot", "Adventure", "WebGL"],
         status: "playable",
         progress: 100,
@@ -614,17 +653,17 @@ export const GAMES_DATA = {
         }
     },
     "lowPolyCityDelivery": {
-        thumbnail: "/portfolio/games/lowpoly/gameplay.gif",
+        thumbnail: "/lowpoly.mp4",
         media: [
-            "/portfolio/games/lowpoly/01_nissan_garage.png",
-            "/portfolio/games/lowpoly/02_city_center.png",
-            "/portfolio/games/lowpoly/02_city_gameplay.png",
-            "/portfolio/games/lowpoly/03_beach_district.png",
-            "/portfolio/games/lowpoly/04_race_circuit.png",
-            "/portfolio/games/lowpoly/05_garage_showcase.png",
-            "/portfolio/games/lowpoly/gameplay.gif",
+            "/games/lowpoly/01_nissan_garage.png",
+            "/games/lowpoly/02_city_center.png",
+            "/games/lowpoly/02_city_gameplay.png",
+            "/games/lowpoly/03_beach_district.png",
+            "/games/lowpoly/04_race_circuit.png",
+            "/games/lowpoly/05_garage_showcase.png",
+            "/games/lowpoly/gameplay.gif",
         ],
-        path: "/portfolio/games/Low-Poly City Delivery/index.html",
+        path: "",
         tags: ["B2B Logistics", "AI Simulation", "WebGL"],
         status: "playable",
         progress: 80,
@@ -677,8 +716,8 @@ export const GAMES_DATA = {
         }
     },
     "voicyGodot": {
-        thumbnail: "/portfolio/games/VoicyGodot/index.png",
-        path: "/portfolio/games/VoicyGodot/index.html",
+        thumbnail: "/games/VoicyGodot/index.png",
+        path: "/games/VoicyGodot/index.html",
         tags: ["Godot", "Audio", "Tool"],
         status: "playable",
         progress: 60,
@@ -731,14 +770,14 @@ export const GAMES_DATA = {
         }
     },
     "seaHunter": {
-        thumbnail: "/portfolio/games/seahunter/gameplay.gif",
+        thumbnail: "/games/seahunter/gameplay.gif",
         media: [
-            "/portfolio/games/seahunter/01_menu.png",
-            "/portfolio/games/seahunter/02_setup.png",
-            "/portfolio/games/seahunter/03_cards.png",
-            "/portfolio/games/seahunter/gameplay.gif",
+            "/games/seahunter/01_menu.png",
+            "/games/seahunter/02_setup.png",
+            "/games/seahunter/03_cards.png",
+            "/games/seahunter/gameplay.gif",
         ],
-        path: "/portfolio/games/seahunter/index.html",
+        path: "/games/seahunter/index.html",
         tags: ["Card Game", "Finalized", "Physical Design"],
         status: "finalized",
         progress: 100,
@@ -865,8 +904,8 @@ export const GAMES_DATA = {
         }
     },
     "videoEditorGodot": {
-        thumbnail: "/portfolio/games/video-editor-godot/index.png",
-        path: "/portfolio/games/video-editor-godot/index.html",
+        thumbnail: "/games/video-editor-godot/index.png",
+        path: "/games/video-editor-godot/index.html",
         tags: ["Godot", "Video", "Tool"],
         status: "playable",
         progress: 90,

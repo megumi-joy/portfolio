@@ -48,23 +48,23 @@ const Voicey = () => {
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content={seo.title} />
                 <meta property="og:description" content={seo.description} />
-                <meta property="og:image" content="/portfolio/og-voicey.png" />
-                <meta property="og:url" content="https://megumi-joy.github.io/portfolio/#/voicey" />
+                <meta property="og:image" content="/og-voicey.png" />
+                <meta property="og:url" content="https://portfolio.voicydroid.com/#/voicey" />
                 <meta property="og:site_name" content="Megumi Joy" />
                 <meta name="twitter:card" content="summary_large_image" />
                 <meta name="twitter:title" content={seo.title} />
                 <meta name="twitter:description" content={seo.description} />
-                <meta name="twitter:image" content="/portfolio/og-voicey.png" />
+                <meta name="twitter:image" content="/og-voicey.png" />
                 <script type="application/ld+json">{JSON.stringify({
                     "@context": "https://schema.org",
                     "@type": "SoftwareApplication",
-                    "@id": "https://megumi-joy.github.io/portfolio/#voicey",
+                    "@id": "https://portfolio.voicydroid.com/#voicey",
                     "name": "Voicey",
                     "applicationCategory": "BusinessApplication",
                     "operatingSystem": "Web, iOS, Android",
                     "description": "AI assistant with voice and text, 24/7, long memory and real operational power. Pre-alpha — early access by invitation.",
                     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "availability": "https://schema.org/PreOrder" },
-                    "author": { "@id": "https://megumi-joy.github.io/portfolio/#org" },
+                    "author": { "@id": "https://portfolio.voicydroid.com/#org" },
                     "softwareVersion": "0.1-alpha",
                     "featureList": ["Voice recognition", "Long-term memory", "Multi-LLM routing", "Operational task execution", "Multi-language support"],
                 })}</script>

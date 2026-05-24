@@ -47,7 +47,7 @@ const AUTOMATION_SLIDES = [
             { label: 'Setup Time', value: '1 week' },
         ],
         cta: 'View Project',
-        ctaLink: 'https://megumi-joy.github.io/portfolio/',
+        ctaLink: 'https://portfolio.voicydroid.com/',
     },
     {
         id: 'process-auto',
