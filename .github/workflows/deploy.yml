@@ -3,12 +3,24 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Allow manually re-running from the Actions tab (e.g. after enabling Pages).
+  workflow_dispatch: {}
+
+# Needed for the official Pages deployment action (actions/deploy-pages).
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Avoid two deploys racing each other; let the latest push win.
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build:
+    name: Build
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,7 +37,27 @@ jobs:
           npm run build
         # No VITE_ANTON_PHOTO_URL → Avatar shows initials (public build)
 
-      - name: Deploy to gh-pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      # This auto-registers the repo's Pages site (source = "GitHub Actions")
+      # on first successful run, which is what was missing: the repo's Pages
+      # feature was never enabled (`gh api repos/megumi-joy/portfolio/pages`
+      # returns 404 / has_pages=false), so every previous "successful" deploy
+      # to the gh-pages branch was never actually being served by GitHub.
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          folder: dist
+          path: dist
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
