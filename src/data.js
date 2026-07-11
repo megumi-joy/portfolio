@@ -663,7 +663,7 @@ export const GAMES_DATA = {
             "/games/lowpoly/05_garage_showcase.png",
             "/games/lowpoly/gameplay.gif",
         ],
-        path: "",
+        path: "/games/Low-Poly City Delivery/index.html",
         tags: ["B2B Logistics", "AI Simulation", "WebGL"],
         status: "playable",
         progress: 80,
